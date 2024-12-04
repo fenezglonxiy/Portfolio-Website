@@ -32,7 +32,9 @@ const getTypographyColorCss = (
 };
 
 const getTypographyCss = (theme: Theme, props: TypographyProps) => css`
+  display: ${props.display};
   text-align: ${props.align};
+  text-transform: ${props.transform};
   color: ${getTypographyColorCss(theme, props.color)};
   ${theme.typography[props.variant as NonNullable<TypographyProps["variant"]>]};
 `;

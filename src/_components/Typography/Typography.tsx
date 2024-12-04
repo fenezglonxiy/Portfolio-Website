@@ -1,5 +1,6 @@
-"use client";
 /** @jsxImportSource @emotion/react */
+
+"use client";
 
 import {
   Typography as MUITypography,
@@ -44,7 +45,7 @@ const typographyElementByVariant: Record<
   button: "p",
 };
 
-type BaseProps = {
+type TypographyBaseProps = {
   /**
    * Set the text-align on the component.
    * @default "inherit"
@@ -53,7 +54,7 @@ type BaseProps = {
 
   /**
    * Control the display type.
-   * @default "initial"
+   * @default undefined
    */
   display?: "initial" | "block" | "inline" | "inline-block";
 
@@ -86,10 +87,16 @@ type BaseProps = {
     | "neutral-850"
     | "neutral-900"
     | "inherit";
+
+  /**
+   * Control the transformation of text.
+   * @default "none"
+   */
+  transform?: "uppercase" | "lowercase" | "capitalize" | "none";
 };
 
 export interface TypographyTypeMap<D extends React.ElementType = "p"> {
-  props: BaseProps;
+  props: TypographyBaseProps;
   defaultComponent: D;
 }
 
@@ -101,14 +108,22 @@ const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
   function Typography(props: TypographyProps, ref: React.Ref<HTMLSpanElement>) {
     const {
       align = "inherit",
-      display = "initial",
+      display,
       variant = "body1",
       color = "inherit",
+      transform = "none",
       component,
       ...rest
     } = props;
     const theme = useTheme();
-    const css = getTypographyCss(theme, props);
+    const css = getTypographyCss(theme, {
+      ...props,
+      align,
+      display,
+      variant,
+      color,
+      transform,
+    });
 
     return (
       <MUITypography
