@@ -1,6 +1,20 @@
 import { css, SerializedStyles } from "@emotion/react";
 import { Theme } from "@mui/material";
 import { Typography } from "@mui/material/styles/createTypography";
+import React from "react";
+
+declare module "@mui/material/styles/createTypography" {
+  interface Typography {
+    fontWeightSemibold: React.CSSProperties["fontWeight"];
+  }
+  interface TypographyOptions {
+    fontWeightSemibold: React.CSSProperties["fontWeight"];
+  }
+
+  interface FontStyle {
+    fontWeightSemibold: React.CSSProperties["fontWeight"];
+  }
+}
 
 declare module "@mui/material/styles" {
   interface TypographyVariants {
@@ -193,6 +207,7 @@ const typography = (theme: Theme): Typography => ({
   fontWeightLight: fontWeightByType.light,
   fontWeightRegular: fontWeightByType.regular,
   fontWeightMedium: fontWeightByType.medium,
+  fontWeightSemibold: fontWeightByType["semi-bold"],
   fontWeightBold: fontWeightByType.bold,
   display: display,
   h1: h1,

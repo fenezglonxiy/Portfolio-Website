@@ -7,10 +7,7 @@ import {
   TypographyVariants as MUITypographyVariants,
   useTheme,
 } from "@mui/material";
-import {
-  OverridableComponent,
-  OverrideProps,
-} from "@mui/material/OverridableComponent";
+import { OverrideProps } from "@mui/material/OverridableComponent";
 import { FontStyle as MUIFontStyle } from "@mui/material/styles/createTypography";
 import React from "react";
 import getTypographyCss from "./getTypographyCss";
@@ -104,39 +101,42 @@ export type TypographyProps<
   D extends React.ElementType = TypographyTypeMap["defaultComponent"]
 > = OverrideProps<TypographyTypeMap<D>, D> & { component?: React.ElementType };
 
-const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
-  function Typography(props: TypographyProps, ref: React.Ref<HTMLSpanElement>) {
-    const {
-      align = "inherit",
-      display,
-      variant = "body1",
-      color = "inherit",
-      transform = "none",
-      component,
-      ...rest
-    } = props;
-    const theme = useTheme();
-    const css = getTypographyCss(theme, {
-      ...props,
-      align,
-      display,
-      variant,
-      color,
-      transform,
-    });
+const Typography = React.forwardRef(function Typography(
+  props: TypographyProps,
+  ref: React.Ref<HTMLSpanElement>
+) {
+  const {
+    align = "inherit",
+    display,
+    variant = "body1",
+    color = "inherit",
+    transform = "none",
+    component,
+    ...rest
+  } = props;
+  const theme = useTheme();
+  const css = getTypographyCss(theme, {
+    ...props,
+    align,
+    display,
+    variant,
+    color,
+    transform,
+  });
 
-    return (
-      <MUITypography
-        ref={ref}
-        component={
-          component ||
-          typographyElementByVariant[variant as NonNullable<TypographyVariants>]
-        }
-        css={css}
-        {...rest}
-      />
-    );
-  }
-);
+  return (
+    <MUITypography
+      ref={ref}
+      component={
+        component ||
+        typographyElementByVariant[variant as NonNullable<TypographyVariants>]
+      }
+      css={css}
+      {...rest}
+    />
+  );
+});
+
+Typography.displayName = "Typography";
 
 export default Typography;
