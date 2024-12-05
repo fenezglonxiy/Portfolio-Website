@@ -162,6 +162,11 @@ const getButtonCss = (theme: Theme, props: ButtonProps) => css`
   ${getButtonColorCss(theme, props.variant, props.color)};
   ${getButtonSizeCss(theme, props.size)};
   ${getButtonShapeCss(props.shape)};
+
+  ${props.fullWidth &&
+  css`
+    width: 100%;
+  `};
 `;
 
 export default getButtonCss;

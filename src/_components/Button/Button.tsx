@@ -2,10 +2,7 @@
 
 "use client";
 
-import {
-  OverridableComponent,
-  OverrideProps,
-} from "@mui/material/OverridableComponent";
+import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
 import { Button as MUIButton, useTheme } from "@mui/material";
 import getButtonCss from "./getButtonCss";
@@ -63,40 +60,43 @@ export type ButtonProps<
   D extends React.ElementType = ButtonTypeMap["defaultComponent"]
 > = OverrideProps<ButtonTypeMap<D>, D> & { component?: React.ElementType };
 
-const Button: OverridableComponent<ButtonTypeMap> = React.forwardRef(
-  function Button(props: ButtonProps, ref: React.Ref<HTMLButtonElement>) {
-    const {
-      icon,
-      iconPosition = "start",
-      size = "sm",
-      color = "primary",
-      variant = "contained",
-      fullWidth = false,
-      shape = "rounded",
-      ...rest
-    } = props;
-    const theme = useTheme();
-    const css = getButtonCss(theme, {
-      ...props,
-      size,
-      color,
-      variant,
-      fullWidth,
-      shape,
-    });
+const Button = React.forwardRef(function Button(
+  props: ButtonProps,
+  ref: React.Ref<HTMLButtonElement>
+) {
+  const {
+    icon,
+    iconPosition = "start",
+    size = "sm",
+    color = "primary",
+    variant = "contained",
+    fullWidth = false,
+    shape = "rounded",
+    ...rest
+  } = props;
+  const theme = useTheme();
+  const css = getButtonCss(theme, {
+    ...props,
+    size,
+    color,
+    variant,
+    fullWidth,
+    shape,
+  });
 
-    return (
-      <MUIButton
-        ref={ref}
-        css={css}
-        startIcon={icon && iconPosition === "start" ? icon : undefined}
-        endIcon={icon && iconPosition === "end" ? icon : undefined}
-        disableElevation
-        disableRipple
-        {...rest}
-      />
-    );
-  }
-);
+  return (
+    <MUIButton
+      ref={ref}
+      css={css}
+      startIcon={icon && iconPosition === "start" ? icon : undefined}
+      endIcon={icon && iconPosition === "end" ? icon : undefined}
+      disableElevation
+      disableRipple
+      {...rest}
+    />
+  );
+});
+
+Button.displayName = "Button";
 
 export default Button;
