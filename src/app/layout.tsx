@@ -18,8 +18,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log(theme);
-
   return (
     <html lang="en">
       <body className={`${interTight.variable}`}>

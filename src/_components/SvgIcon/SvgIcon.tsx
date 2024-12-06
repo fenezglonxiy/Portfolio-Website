@@ -1,7 +1,7 @@
 import useId from "@/_hooks/useId";
 import React from "react";
 
-export type SvgIconProps = React.HTMLAttributes<SVGSVGElement> & {
+export type SvgIconProps = React.SVGProps<SVGSVGElement> & {
   /**
    * Control the `id` HTML attribute.
    */
@@ -57,6 +57,8 @@ const SvgIcon = React.forwardRef(
       title,
       desc,
       size = "sm",
+      width,
+      height,
       children,
       ...rest
     } = props;
@@ -67,15 +69,16 @@ const SvgIcon = React.forwardRef(
     const descId = `${id}-svg-desc`;
 
     const sizeInt = sizeBySizeCode[size];
-    const viewBox = `0 0 ${sizeInt} ${sizeInt}`;
+    const viewBoxSize = `0 0 ${sizeInt} ${sizeInt}`;
+    const viewBoxWidthHeight = `0 0 ${width} ${height}`;
 
     return (
       <svg
         ref={ref}
         id={svgId}
-        width={sizeInt}
-        height={sizeInt}
-        viewBox={viewBox}
+        width={width ? width : sizeInt}
+        height={height ? height : sizeInt}
+        viewBox={width && height ? viewBoxWidthHeight : viewBoxSize}
         fill="none"
         focusable={false}
         role={title ? "img" : undefined}
