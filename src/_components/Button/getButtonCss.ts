@@ -162,6 +162,7 @@ const getButtonCss = (theme: Theme, props: ButtonProps) => css`
   ${getButtonColorCss(theme, props.variant, props.color)};
   ${getButtonSizeCss(theme, props.size)};
   ${getButtonShapeCss(props.shape)};
+  text-transform: capitalize;
 
   ${props.fullWidth &&
   css`

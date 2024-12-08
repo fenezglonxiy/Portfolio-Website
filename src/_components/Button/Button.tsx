@@ -7,6 +7,12 @@ import React from "react";
 import { Button as MUIButton, useTheme } from "@mui/material";
 import getButtonCss from "./getButtonCss";
 
+declare module "@mui/material/Button" {
+  interface ButtonPropsVariantOverrides {
+    ghost: true;
+  }
+}
+
 type ButtonBaseProps = {
   /**
    * The icon to render next to the button text.
@@ -87,6 +93,7 @@ const Button = React.forwardRef(function Button(
   return (
     <MUIButton
       ref={ref}
+      variant={variant}
       css={css}
       startIcon={icon && iconPosition === "start" ? icon : undefined}
       endIcon={icon && iconPosition === "end" ? icon : undefined}

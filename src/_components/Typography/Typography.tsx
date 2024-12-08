@@ -64,7 +64,7 @@ type TypographyBaseProps = {
   /**
    * The color for the text.
    * It supports the relevant theme colors for this component.
-   * @default "neutral-800"
+   * @default "inherit"
    */
   color?:
     | "neutral-100"
@@ -123,8 +123,9 @@ const Typography = React.forwardRef(function Typography(
     align = "inherit",
     display,
     variant = "body1",
-    color = "neutral-800",
+    color = "inherit",
     transform = "none",
+    fontWeight,
     component,
     ...rest
   } = props;
