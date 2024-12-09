@@ -136,21 +136,21 @@ const getButtonColorCss = (
   ];
 };
 
-const getButtonShapeCss = (shape: ButtonProps["shape"]) => {
+const getButtonShapeCss = (theme: Theme, shape: ButtonProps["shape"]) => {
   const cssByShape: Record<
     NonNullable<ButtonProps["shape"]>,
     SerializedStyles
   > = {
     rounded: css`
-      border-radius: 12px;
+      border-radius: ${theme.shape.sm};
     `,
 
     pill: css`
-      border-radius: 999em;
+      border-radius: ${theme.shape.pill};
     `,
 
     circle: css`
-      border-radius: 50%;
+      border-radius: ${theme.shape.circle};
     `,
   };
 
@@ -161,7 +161,7 @@ const getButtonCss = (theme: Theme, props: ButtonProps) => css`
   ${getButtonVariantCss(props.variant)};
   ${getButtonColorCss(theme, props.variant, props.color)};
   ${getButtonSizeCss(theme, props.size)};
-  ${getButtonShapeCss(props.shape)};
+  ${getButtonShapeCss(theme, props.shape)};
   text-transform: capitalize;
 
   ${props.fullWidth &&
