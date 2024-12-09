@@ -103,7 +103,7 @@ type TypographyBaseProps = {
    * Control the transformation of text.
    * @default "none"
    */
-  transform?: "uppercase" | "lowercase" | "capitalize" | "none";
+  transform?: "uppercase" | "lowercase" | "capitalize" | "inherit" | "none";
 };
 
 export interface TypographyTypeMap<D extends React.ElementType = "p"> {
