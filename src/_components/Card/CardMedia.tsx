@@ -2,7 +2,11 @@
 
 "use client";
 
-import { CardMedia as MUICardMedia, useTheme } from "@mui/material";
+import {
+  CardMedia as MUICardMedia,
+  ThemeOptions,
+  useTheme,
+} from "@mui/material";
 import {
   OverridableComponent,
   OverrideProps,
@@ -20,6 +24,12 @@ type CardMediaBaseProps = {
    * Control the alternative text for the media.
    */
   alt?: string;
+
+  /**
+   * Control the shape.
+   * @default "md"
+   */
+  shape?: keyof NonNullable<ThemeOptions["shape"]>;
 
   /**
    * Control the element used for the root node.
@@ -42,9 +52,9 @@ export type CardMediaProps<
 
 const CardMedia: OverridableComponent<CardMediaTypeMap> = React.forwardRef(
   function CardMedia(props: CardMediaProps, ref: React.Ref<HTMLDivElement>) {
-    const { className, ...rest } = props;
+    const { className, shape = "md", ...rest } = props;
     const theme = useTheme();
-    const css = getCardMediaCss(theme);
+    const css = getCardMediaCss(theme, { ...props, shape });
 
     return (
       <div className={className}>

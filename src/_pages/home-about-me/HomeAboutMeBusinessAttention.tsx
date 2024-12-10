@@ -3,14 +3,14 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import getHomeAboutMeConcentrationCss from "./getHomeAboutMeConcentrationCss";
+import getHomeAboutMeBusinessAttentionCss from "./getHomeAboutMeBusinessAttentionCss";
 import { Typography } from "@/_components/Typography";
 import { Button } from "@/_components/Button";
 import { ArrowRight } from "@/_icons";
 
-function HomeAboutMeConcentration() {
+function HomeAboutMeBusinessAttention() {
   const theme = useTheme();
-  const css = getHomeAboutMeConcentrationCss(theme);
+  const css = getHomeAboutMeBusinessAttentionCss(theme);
 
   return (
     <div css={css.root} className="flow-spacer-y">
@@ -36,4 +36,4 @@ function HomeAboutMeConcentration() {
   );
 }
 
-export default HomeAboutMeConcentration;
+export default HomeAboutMeBusinessAttention;
