@@ -1,5 +1,5 @@
 import { Button } from "@/_components/Button";
-import { ArrowRight } from "@/_icons";
+import { ArrowRightIcon } from "@/_icons";
 
 function HeaderLetsTalk() {
   return (
@@ -7,7 +7,7 @@ function HeaderLetsTalk() {
       <Button
         variant="outlined"
         iconPosition="end"
-        icon={<ArrowRight size="sm" />}
+        icon={<ArrowRightIcon size="sm" />}
       >
         Let's Talk
       </Button>

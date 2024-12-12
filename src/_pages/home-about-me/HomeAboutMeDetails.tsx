@@ -4,8 +4,8 @@
 
 import React from "react";
 import getHomeAboutMeDetailsCss from "./getHomeAboutMeDetailsCss";
-import HomeAboutMeConcentration from "./HomeAboutMeConcentration";
 import HomeAboutMeSkills from "./HomeAboutMeSkills";
+import HomeAboutMeBusinessAttention from "./HomeAboutMeBusinessAttention";
 
 type HomeAboutMeDetailsProps = React.HTMLAttributes<HTMLDivElement>;
 
@@ -14,7 +14,7 @@ function HomeAboutMeDetails(props: HomeAboutMeDetailsProps) {
 
   return (
     <div css={css.root} {...props}>
-      <HomeAboutMeConcentration />
+      <HomeAboutMeBusinessAttention />
 
       <HomeAboutMeSkills />
     </div>

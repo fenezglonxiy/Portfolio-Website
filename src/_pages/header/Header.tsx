@@ -25,7 +25,7 @@ function Header(props: HeaderProps) {
       label: "Insights",
     },
     {
-      href: "/about",
+      href: "/about-me",
       label: "About me",
     },
   ] as const;

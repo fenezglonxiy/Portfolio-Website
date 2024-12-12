@@ -6,7 +6,7 @@ import { useTheme } from "@mui/material";
 import getHomeAboutMeBusinessAttentionCss from "./getHomeAboutMeBusinessAttentionCss";
 import { Typography } from "@/_components/Typography";
 import { Button } from "@/_components/Button";
-import { ArrowRight } from "@/_icons";
+import { ArrowRightIcon } from "@/_icons";
 
 function HomeAboutMeBusinessAttention() {
   const theme = useTheme();
@@ -27,7 +27,7 @@ function HomeAboutMeBusinessAttention() {
           size="md"
           shape="pill"
           iconPosition="end"
-          icon={<ArrowRight size="md" />}
+          icon={<ArrowRightIcon size="md" />}
         >
           About Me
         </Button>
