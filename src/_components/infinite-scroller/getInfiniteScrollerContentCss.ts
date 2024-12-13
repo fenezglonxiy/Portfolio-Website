@@ -1,6 +1,11 @@
 import { css } from "@mui/material";
 import { InfiniteScrollerContentProps } from "./InfiniteScrollerContent";
 
+const getPausedInfiniteScrollerContentCss = () => css`
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+`;
+
 const getInfiniteScrollerContentCss = (
   animated: boolean,
   props: InfiniteScrollerContentProps
@@ -20,11 +25,24 @@ const getInfiniteScrollerContentCss = (
       linear infinite;
   `};
 
-  ${props.pauseWhenHovered &&
+  ${props.pauseWhenItemIsHovered &&
   css`
-    &:has(*:hover, *:active, *:focus) {
-      -webkit-animation-play-state: paused;
-      animation-play-state: paused;
+    &:has(*:hover) {
+      ${getPausedInfiniteScrollerContentCss()}
+    }
+  `};
+
+  ${props.pauseWhenItemIsActive &&
+  css`
+    &:has(*:active) {
+      ${getPausedInfiniteScrollerContentCss()}
+    }
+  `};
+
+  ${props.pauseWhenItemIsFocus &&
+  css`
+    &:has(*:focus) {
+      ${getPausedInfiniteScrollerContentCss()}
     }
   `};
 

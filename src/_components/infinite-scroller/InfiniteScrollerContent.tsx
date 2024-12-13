@@ -11,9 +11,19 @@ import { useInfiniteScrollerContext } from "./InfiniteScrollerContext";
 
 type InfiniteScrollerContentBaseProps = {
   /**
-   * If `true`, the scroller will stop moving.
+   * If `true`, the scroller will stop scrolling when any item is hovered.
    */
-  pauseWhenHovered?: boolean;
+  pauseWhenItemIsHovered?: boolean;
+
+  /**
+   * If `true`, the scroller will stop scrolling when any item is active.
+   */
+  pauseWhenItemIsActive?: boolean;
+
+  /**
+   * If `true`, the scroller will stop scrolling when any item is focus.
+   */
+  pauseWhenItemIsFocus?: boolean;
 
   /**
    * Control the scrolling speed in seconds.
@@ -46,7 +56,9 @@ const InfiniteScrollerContent = React.forwardRef(
   ) {
     const {
       children,
-      pauseWhenHovered,
+      pauseWhenItemIsHovered,
+      pauseWhenItemIsActive,
+      pauseWhenItemIsFocus,
       scrollingSpeed = 20,
       scrollingDirection = "left",
       ...rest
