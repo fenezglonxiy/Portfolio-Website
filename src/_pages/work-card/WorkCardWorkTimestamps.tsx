@@ -1,4 +1,5 @@
 import { Typography, TypographyProps } from "@/_components/Typography";
+import clsx from "clsx";
 import moment from "moment";
 
 export type WorkCardWorkTimestampsProps = TypographyProps & {
@@ -20,6 +21,7 @@ function WorkCardWorkTimestamps(props: WorkCardWorkTimestampsProps) {
     variant = "body2Medium",
     color = "neutral-550",
     fontWeight = "medium",
+    className,
     ...rest
   } = props;
   const dateFormat = "MMM YYYY";
@@ -32,6 +34,7 @@ function WorkCardWorkTimestamps(props: WorkCardWorkTimestampsProps) {
       variant={variant}
       color={color}
       fontWeight={fontWeight}
+      className={clsx("flow-spacer-x", className)}
       {...rest}
     >
       <Typography component="span" variant="inherit">
