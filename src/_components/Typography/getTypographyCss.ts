@@ -1,12 +1,11 @@
 import { css, Theme } from "@mui/material";
 import { TypographyProps } from "./Typography";
-import { SerializedStyles } from "@emotion/react";
 
 const getTypographyColorCss = (
   theme: Theme,
   color: TypographyProps["color"]
 ) => {
-  const themeColorByPropColor: Record<
+  const typographyColorByColorFromProps: Record<
     NonNullable<TypographyProps["color"]>,
     string
   > = {
@@ -29,7 +28,11 @@ const getTypographyColorCss = (
     "neutral-900": theme.palette.neutral[900],
   };
 
-  return themeColorByPropColor[color as NonNullable<TypographyProps["color"]>];
+  return css`
+    color: ${typographyColorByColorFromProps[
+      color as NonNullable<TypographyProps["color"]>
+    ]};
+  `;
 };
 
 const getTypographyFontWeightCss = (
@@ -68,7 +71,7 @@ const getTypographyCss = (theme: Theme, props: TypographyProps) => css`
   display: ${props.display};
   text-align: ${props.align};
   text-transform: ${props.transform};
-  color: ${getTypographyColorCss(theme, props.color)};
+  ${getTypographyColorCss(theme, props.color)};
   ${theme.typography[props.variant as NonNullable<TypographyProps["variant"]>]};
   ${getTypographyFontWeightCss(theme, props.fontWeight)};
 `;
