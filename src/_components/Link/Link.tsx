@@ -5,7 +5,6 @@
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import { default as NextLink } from "next/link";
 import React from "react";
-import { Button, ButtonProps } from "../Button";
 import { Url } from "next/dist/shared/lib/router/router";
 import { TypographyProps } from "../Typography";
 import getLinkCss from "./getLinkCss";
@@ -27,14 +26,14 @@ type LinkBaseProps = {
    * Control the variant.
    * @default "body2Medium"
    */
-  variant?: ButtonProps["variant"] | TypographyProps["variant"];
+  variant?: TypographyProps["variant"];
 
   /**
    * Control the color.
    * It supports the relevant theme colors for this component.
    * @default "primary"
    */
-  color?: ButtonProps["color"];
+  color?: "primary" | "secondary";
 
   /**
    * Control when the link should have an underline.
@@ -43,7 +42,7 @@ type LinkBaseProps = {
   underline?: "always" | "active" | "hover" | "none";
 };
 
-export interface LinkTypeMap<D extends React.ElementType = "button"> {
+export interface LinkTypeMap<D extends React.ElementType = "a"> {
   props: LinkBaseProps;
   defaultComponent: D;
 }
@@ -63,26 +62,18 @@ const Link = React.forwardRef(
       ...rest
     } = props;
 
-    const checkButtonVariant = (
-      variant: LinkProps["variant"]
-    ): variant is ButtonProps["variant"] => {
-      return ["contained", "outlined", "ghost"].includes(variant as string);
-    };
-    const isButtonVariant = checkButtonVariant(variant);
-
     const theme = useTheme();
-    const css = isButtonVariant
-      ? undefined
-      : getLinkCss(theme, { ...props, display, variant, color, underline });
+    const css = getLinkCss(theme, {
+      ...props,
+      display,
+      variant,
+      color,
+      underline,
+    });
 
     return (
       <NextLink ref={ref} href={href} passHref legacyBehavior>
-        <Button
-          variant={isButtonVariant ? variant : undefined}
-          color={color}
-          css={css}
-          {...rest}
-        />
+        <a css={css} {...rest} />
       </NextLink>
     );
   }

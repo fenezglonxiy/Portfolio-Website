@@ -53,15 +53,6 @@ const getLinkUnderlineCss = (underline: LinkProps["underline"]) => css`
 
 const getLinkCss = (theme: Theme, props: LinkProps) => css`
   display: ${props.display};
-  padding: 0;
-  min-width: auto;
-  min-height: auto;
-  background-color: transparent;
-
-  &:hover,
-  &:focus {
-    background-color: transparent;
-  }
 
   ${theme.typography[props.variant as NonNullable<TypographyProps["variant"]>]};
   ${getLinkColorCss(theme, props.color)};
