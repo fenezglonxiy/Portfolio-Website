@@ -1,6 +1,6 @@
-import { Box } from "@mui/material";
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
+import { Box } from "../box";
 
 type InfiniteScrollerItemBaseProps = {};
 
