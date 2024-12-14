@@ -42,6 +42,7 @@ function HomeHero(props: HomeHeroProps) {
         <div css={css.letsTalk}>
           <HeroActions>
             <Button
+              href="/contact"
               variant="contained"
               color="primary"
               shape="pill"

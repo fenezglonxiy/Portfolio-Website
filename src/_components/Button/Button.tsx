@@ -6,6 +6,8 @@ import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
 import { Button as MUIButton, useTheme } from "@mui/material";
 import getButtonCss from "./getButtonCss";
+import { Url } from "next/dist/shared/lib/router/router";
+import Link from "next/link";
 
 declare module "@mui/material/Button" {
   interface ButtonPropsVariantOverrides {
@@ -55,6 +57,11 @@ type ButtonBaseProps = {
    * @default false
    */
   fullWidth?: boolean;
+
+  /**
+   * A URL or path to navigate to.
+   */
+  href?: Url;
 };
 
 export interface ButtonTypeMap<D extends React.ElementType = "button"> {
@@ -78,6 +85,7 @@ const Button = React.forwardRef(function Button(
     variant = "contained",
     fullWidth = false,
     shape = "rounded",
+    href,
     ...rest
   } = props;
   const theme = useTheme();
@@ -90,7 +98,7 @@ const Button = React.forwardRef(function Button(
     shape,
   });
 
-  return (
+  const Button = (
     <MUIButton
       ref={ref}
       variant={variant}
@@ -101,6 +109,14 @@ const Button = React.forwardRef(function Button(
       disableRipple
       {...rest}
     />
+  );
+
+  return href ? (
+    <Link href={href} passHref legacyBehavior>
+      {Button}
+    </Link>
+  ) : (
+    Button
   );
 });
 

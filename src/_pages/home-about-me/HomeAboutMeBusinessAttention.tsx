@@ -24,6 +24,7 @@ function HomeAboutMeBusinessAttention() {
 
       <div>
         <Button
+          href="/about-me"
           size="md"
           shape="pill"
           iconPosition="end"
