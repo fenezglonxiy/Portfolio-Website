@@ -1,22 +1,10 @@
-/** @jsxImportSource @emotion/react */
+import { WorkCardContentBoxProps } from "./WorkCardContentBox";
+import { CardContentBox } from "../Card";
 
-"use client";
-
-import { useTheme } from "@mui/material";
-import React from "react";
-import getWorkCardWorkOverviewCss from "./getWorkCardWorkOverviewCss";
-import clsx from "clsx";
-
-export type WorkCardWorkOverviewProps = React.HTMLAttributes<HTMLDivElement>;
+export type WorkCardWorkOverviewProps = WorkCardContentBoxProps;
 
 function WorkCardWorkOverview(props: WorkCardWorkOverviewProps) {
-  const { className, ...rest } = props;
-  const theme = useTheme();
-  const css = getWorkCardWorkOverviewCss(theme);
-
-  return (
-    <div className={clsx("flow-spacer-y", className)} css={css} {...rest} />
-  );
+  return <CardContentBox verticalSpacing={7} {...props} />;
 }
 
 export default WorkCardWorkOverview;
