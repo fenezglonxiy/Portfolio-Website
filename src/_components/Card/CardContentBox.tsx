@@ -13,12 +13,22 @@ type CardContentBoxBaseProps = {
   /**
    * Control the box `flex` orientation.
    */
-  flex?: "horizontal" | "vertical";
+  orientation?: "horizontal" | "vertical";
+
+  /**
+   * Control the `justify-content` CSS attribute value.
+   */
+  justifyContent?: React.CSSProperties["justifyContent"];
+
+  /**
+   * Control the `alignItems` CSS attribute value.
+   */
+  alignItems?: React.CSSProperties["alignItems"];
 
   /**
    * Control the `flex-wrap` CSS attribute value.
    */
-  flexWrap?: "wrap" | "nowrap";
+  flexWrap?: React.CSSProperties["flexWrap"];
 
   /**
    * Control the `gap` CSS attribute value.
@@ -26,6 +36,11 @@ type CardContentBoxBaseProps = {
    * The actual spacing is calculated by using `theme.spacing()` function.
    */
   flexGap?: number;
+
+  /**
+   * Control the `flex` CSS attribute value.
+   */
+  flex?: React.CSSProperties["flex"];
 
   /**
    * Control the vertical spacing between items within the content.
@@ -58,9 +73,12 @@ const CardContentBox = React.forwardRef(function CardContentBox(
   ref: React.Ref<HTMLDivElement>
 ) {
   const {
-    flex,
+    orientation,
+    justifyContent,
+    alignItems,
     flexWrap,
     flexGap,
+    flex,
     verticalSpacing,
     horizontalSpacing,
     className,
@@ -69,9 +87,10 @@ const CardContentBox = React.forwardRef(function CardContentBox(
   const theme = useTheme();
   const css = getCardContentBoxCss(theme, {
     ...props,
-    flex,
+    orientation,
     flexWrap,
     flexGap,
+    flex,
     verticalSpacing,
     horizontalSpacing,
   });

@@ -3,7 +3,9 @@ import { CardContentBoxProps } from "./CardContentBox";
 
 const getCardContentBoxCss = (theme: Theme, props: CardContentBoxProps) =>
   css`
-    ${props.flex === undefined &&
+    flex: ${props.flex};
+
+    ${props.orientation === undefined &&
     css`
       ${props.verticalSpacing
         ? css`
@@ -18,10 +20,12 @@ const getCardContentBoxCss = (theme: Theme, props: CardContentBoxProps) =>
         : undefined}
     `};
 
-    ${props.flex !== undefined &&
+    ${props.orientation !== undefined &&
     css`
       display: flex;
-      flex-direction: ${props.flex === "vertical" ? "column" : "row"};
+      justify-content: ${props.justifyContent};
+      align-items: ${props.alignItems};
+      flex-direction: ${props.orientation === "horizontal" ? "row" : "column"};
       flex-wrap: ${props.flexWrap};
       gap: ${theme.spacing(props.flexGap ?? 0)};
     `}

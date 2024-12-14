@@ -4,10 +4,10 @@ import WorkCardContent from "./WorkCardContent";
 import WorkCardWorkOverview from "./WorkCardWorkOverview";
 import WorkCardContentBox from "./WorkCardContentBox";
 import WorkCardWorkTitle from "./WorkCardWorkTitle";
-import WorkCardWorkBusinessSector from "./WorkCardWorkBusinessSector";
 import WorkCardWorkTimestamps from "./WorkCardWorkTimestamps";
 import WorkCardWorkSummary from "./WorkCardWorkSummary";
 import WorkCardActions from "./WorkCardActions";
+import WorkCardWorkBusinessSectors from "./WorkCardWorkBusinessSectors";
 import { Button } from "../Button";
 
 export type WorkCardDetails = {
@@ -22,9 +22,9 @@ export type WorkCardDetails = {
   workTitle: string;
 
   /**
-   * The business sector that the work revolves to.
+   * The business sectors that the work revolves to.
    */
-  workBusinessSector: string;
+  workBusinessSectors: string[];
 
   /**
    * The date when the work begins.
@@ -42,6 +42,11 @@ export type WorkCardDetails = {
   workSummary: string;
 
   /**
+   * A URL or path to navigate to the details page of work.
+   */
+  workDetailsHref: string;
+
+  /**
    * Restrict providing children.
    */
   children?: undefined | null;
@@ -53,10 +58,11 @@ function WorkCard(props: WorkCardProps) {
   const {
     thumbnailSrc,
     workTitle,
-    workBusinessSector,
+    workBusinessSectors,
     workStartDate,
     workDuration,
     workSummary,
+    workDetailsHref,
     ...rest
   } = props;
 
@@ -70,7 +76,9 @@ function WorkCard(props: WorkCardProps) {
             <WorkCardWorkTitle>{workTitle}</WorkCardWorkTitle>
 
             <WorkCardContentBox verticalSpacing={2}>
-              <WorkCardWorkBusinessSector label={workBusinessSector} />
+              <WorkCardWorkBusinessSectors
+                businessSectors={workBusinessSectors}
+              />
 
               <WorkCardWorkTimestamps
                 startDate={workStartDate}
@@ -83,7 +91,14 @@ function WorkCard(props: WorkCardProps) {
         </WorkCardWorkOverview>
 
         <WorkCardActions>
-          <Button>View Details Work</Button>
+          <Button
+            href={workDetailsHref}
+            variant="contained"
+            color="primary"
+            size="sm"
+          >
+            View Details Work
+          </Button>
         </WorkCardActions>
       </WorkCardContent>
     </Card>
