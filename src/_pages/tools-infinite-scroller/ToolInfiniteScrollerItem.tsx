@@ -8,6 +8,7 @@ import {
 } from "@/_components/infinite-scroller";
 import { useTheme } from "@mui/material";
 import getToolInfiniteScrollerItemCss from "./getToolInfiniteScrollerItemCss";
+import { Image } from "@/_components/image";
 
 export type ToolInfiniteScrollerItemProps = InfiniteScrollerItemProps & {
   /**
@@ -30,7 +31,7 @@ function ToolInfiniteScrollerItem(props: ToolInfiniteScrollerItemProps) {
 
   return (
     <InfiniteScrollerItem css={css} {...rest}>
-      <img src={toolImageSrc} alt={toolImageAlt} />
+      <Image src={toolImageSrc} alt={toolImageAlt ?? ""} loading="lazy" />
     </InfiniteScrollerItem>
   );
 }
