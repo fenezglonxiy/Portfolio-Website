@@ -43,6 +43,16 @@ type CardContentBoxBaseProps = {
   flex?: React.CSSProperties["flex"];
 
   /**
+   * Control the `justifySelf` CSS attribute value.
+   */
+  justifySelf?: React.CSSProperties["justifySelf"];
+
+  /**
+   * Control the `alignSelf` CSS attribute value.
+   */
+  alignSelf?: React.CSSProperties["alignSelf"];
+
+  /**
    * Control the vertical spacing between items within the content.
    *
    * The actual spacing is calculated by using `theme.spacing()` function.

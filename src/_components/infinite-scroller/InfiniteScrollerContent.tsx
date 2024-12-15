@@ -80,7 +80,7 @@ const InfiniteScrollerContent = React.forwardRef(
     }, [componentRef]);
 
     const addAnimation = (width: number) => {
-      if (!(componentRef && componentRef.current && initialItems)) {
+      if (!(animated && componentRef && componentRef.current && initialItems)) {
         return;
       }
 
