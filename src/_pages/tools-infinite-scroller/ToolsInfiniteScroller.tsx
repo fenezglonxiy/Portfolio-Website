@@ -14,15 +14,15 @@ function ToolsInfiniteScroller(props: ToolsInfiniteScrollerProps) {
     <InfiniteScroller {...props}>
       <InfiniteScrollerContent>
         <ToolInfiniteScrollerItem
-          toolImageSrc="figma.png"
+          toolImageSrc="/figma.png"
           toolImageAlt="figma"
         />
         <ToolInfiniteScrollerItem
-          toolImageSrc="greylock.png"
+          toolImageSrc="/greylock.png"
           toolImageAlt="greylock"
         />
         <ToolInfiniteScrollerItem
-          toolImageSrc="codecov.png"
+          toolImageSrc="/codecov.png"
           toolImageAlt="codecov"
         />
       </InfiniteScrollerContent>
