@@ -3,10 +3,10 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import getTestimonialsCss from "./getTestimonialsCss";
 import React from "react";
-import TestimonialsContent from "./TestimonialsContent";
-import { TestimonialCarousel } from "./testimonial-carousel";
+import { TestimonialCarousel } from "../../_components/testimonial-carousel";
+import getHomeTestimonialsCss from "./getHomeTestimonialsCss";
+import HomeTestimonialsContent from "./HomeTestimonialsContent";
 
 const testimonials = [
   {
@@ -35,21 +35,22 @@ const testimonials = [
   },
 ];
 
-export type TestimonialsProps = React.ComponentPropsWithoutRef<"section"> & {
-  children?: undefined | null;
-};
+export type HomeTestimonialsProps =
+  React.ComponentPropsWithoutRef<"section"> & {
+    children?: undefined | null;
+  };
 
-function Testimonials(props: TestimonialsProps) {
+function HomeTestimonials(props: HomeTestimonialsProps) {
   const theme = useTheme();
-  const css = getTestimonialsCss(theme);
+  const css = getHomeTestimonialsCss(theme);
 
   return (
     <section css={css} {...props}>
-      <TestimonialsContent>
+      <HomeTestimonialsContent>
         <TestimonialCarousel testimonials={testimonials} />
-      </TestimonialsContent>
+      </HomeTestimonialsContent>
     </section>
   );
 }
 
-export default Testimonials;
+export default HomeTestimonials;
