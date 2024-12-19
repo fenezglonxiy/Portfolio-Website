@@ -3,13 +3,13 @@
 "use client";
 
 import React from "react";
-import { WorkCard, WorkCardProps } from "@/_components/work-card";
+import { WorkCard, WorkCardDetails } from "@/_components/work-card";
 import getHomeSelectedWorksShowcaseCss from "./getHomeSelectedWorksShowcaseCss";
 import { useTheme } from "@mui/material";
 
 export type HomeSelectedWorksShowcaseProps =
   React.HTMLAttributes<HTMLDivElement> & {
-    works: Array<WorkCardProps>;
+    works: Array<WorkCardDetails>;
     children?: undefined | null;
   };
 
