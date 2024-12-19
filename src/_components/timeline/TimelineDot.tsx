@@ -7,8 +7,27 @@ import React from "react";
 import { Box } from "../box";
 import getTimelineDotCss from "./getTimelineDotCss";
 import { useTheme } from "@mui/material";
+import { ThemeOptions } from "@mui/material/styles";
 
-type TimelineDotBaseProps = {};
+type TimelineDotBaseProps = {
+  /**
+   * Control the dot shape.
+   * @default "circle"
+   */
+  shape?: keyof NonNullable<ThemeOptions["shape"]>;
+
+  /**
+   * Control the dot size.
+   * @default "sm"
+   */
+  size?: "sm" | "md";
+
+  /**
+   * Control the dot color.
+   * @default "philippine-silver"
+   */
+  color?: "white" | "philippine-silver";
+};
 
 export interface TimelineDotTypeMap<D extends React.ElementType = "span"> {
   props: TimelineDotBaseProps;
@@ -25,9 +44,15 @@ const TimelineDot = React.forwardRef(function TimelineDot(
   props: TimelineDotProps,
   ref: React.Ref<HTMLSpanElement>
 ) {
-  const { component = "span", ...rest } = props;
+  const {
+    component = "span",
+    shape = "circle",
+    size = "sm",
+    color = "philippine-silver",
+    ...rest
+  } = props;
   const theme = useTheme();
-  const css = getTimelineDotCss(theme);
+  const css = getTimelineDotCss(theme, { ...props, shape, size, color });
 
   return <Box ref={ref} component={component} css={css} {...rest} />;
 });
