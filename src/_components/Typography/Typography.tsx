@@ -83,6 +83,7 @@ type TypographyBaseProps = {
     | "neutral-800"
     | "neutral-850"
     | "neutral-900"
+    | "error"
     | "inherit";
 
   /**

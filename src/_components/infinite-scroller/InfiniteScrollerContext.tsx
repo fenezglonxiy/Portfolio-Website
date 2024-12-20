@@ -2,7 +2,7 @@
 
 import React from "react";
 
-export type InfiniteScrollerContextProps = {
+export type InfiniteScrollerContextValue = {
   /**
    * If a user has `prefers-reduced-motion: reduced`, there will be no
    * animation.
@@ -25,11 +25,11 @@ export type InfiniteScrollerContextProps = {
 };
 
 const InfiniteScrollerContext =
-  React.createContext<InfiniteScrollerContextProps>({});
+  React.createContext<InfiniteScrollerContextValue>({});
 
-export const useInfiniteScrollerContext = (): InfiniteScrollerContextProps => {
-  const props = React.useContext(InfiniteScrollerContext);
-  return props;
+export const useInfiniteScrollerContext = (): InfiniteScrollerContextValue => {
+  const value = React.useContext(InfiniteScrollerContext);
+  return value;
 };
 
 export default InfiniteScrollerContext;

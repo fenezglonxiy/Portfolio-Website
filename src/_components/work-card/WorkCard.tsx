@@ -22,7 +22,7 @@ export type WorkCardDetails = {
   workTitle: string;
 
   /**
-   * The business sectors that the work revolves to.
+   * The business sectors that the work relates to.
    */
   workBusinessSectors: string[];
 
