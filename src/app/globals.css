@@ -35,6 +35,7 @@ html {
 body {
   text-rendering: optimizeSpeed;
   min-height: 100vh;
+  color: #111111;
   scrollbar-gutter: stable;
   font-family: var(--font-inter-tight), Arial, sans-serif;
 }
@@ -67,4 +68,12 @@ video {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.flow-spacer-x > *:not(:first-child) {
+  margin-left: var(--flow-spacing-x, 0.5rem);
+}
+
+.flow-spacer-y > *:not(:first-child) {
+  margin-top: var(--flow-spacing-y, 0.5rem);
 }

@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ThemeProvider from "@/_theme/ThemeProvider";
 import createTheme from "@/_theme/createTheme";
+import { Header } from "@/_pages/header";
+import { Footer } from "@/_pages/footer";
 
 const interTight = localFont({
   src: "./fonts/Inter-Tight.woff2",
@@ -18,12 +20,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log(theme);
-
   return (
     <html lang="en">
       <body className={`${interTight.variable}`}>
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
