@@ -6,7 +6,7 @@ import { useTheme } from "@mui/material";
 import getHomeHeroCss from "./getHomeHeroCss";
 import { Typography } from "@/_components/Typography";
 import { Button } from "@/_components/Button";
-import { ArrowRightIcon } from "@/_icons";
+import { ArrowRight } from "@/_icons";
 import {
   Hero,
   HeroActions,
@@ -48,7 +48,7 @@ function HomeHero(props: HomeHeroProps) {
               shape="pill"
               size="md"
               iconPosition="end"
-              icon={<ArrowRightIcon size="md" />}
+              icon={<ArrowRight size="md" />}
             >
               Let's talk
             </Button>

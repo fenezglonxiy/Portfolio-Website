@@ -1,5 +1,5 @@
 import { Button } from "@/_components/Button";
-import { ArrowRightIcon } from "@/_icons";
+import { ArrowRight } from "@/_icons";
 
 function HeaderLetsTalk() {
   return (
@@ -8,7 +8,7 @@ function HeaderLetsTalk() {
         href="/contact"
         variant="outlined"
         iconPosition="end"
-        icon={<ArrowRightIcon size="sm" />}
+        icon={<ArrowRight size="sm" />}
       >
         Let's Talk
       </Button>
