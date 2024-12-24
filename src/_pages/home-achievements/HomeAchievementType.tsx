@@ -9,12 +9,13 @@ export type HomeAchievementsTypeProps = React.ComponentPropsWithoutRef<"h3"> & {
 
   /**
    * Control the color of the typography.
-   * @default "neutral-900"
+   * @default "neutral-800"
    */
   color?: TypographyProps["color"];
 
   /**
    * Control the font-weight of the typography.
+   * @default "semi-bold"
    */
   fontWeight?: TypographyProps["fontWeight"];
 
@@ -28,8 +29,9 @@ export type HomeAchievementsTypeProps = React.ComponentPropsWithoutRef<"h3"> & {
 function HomeAchievementType(props: HomeAchievementsTypeProps) {
   const {
     variant = "h5",
-    color = "neutral-900",
+    color = "neutral-800",
     transform = "capitalize",
+    fontWeight = "semi-bold",
     ...rest
   } = props;
 
@@ -38,6 +40,7 @@ function HomeAchievementType(props: HomeAchievementsTypeProps) {
       component="h3"
       variant={variant}
       color={color}
+      fontWeight={fontWeight}
       transform={transform}
       {...rest}
     />
