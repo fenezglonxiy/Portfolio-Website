@@ -6,6 +6,7 @@ import { HomeAboutMe } from "@/_pages/home-about-me";
 import { ToolsInfiniteScroller } from "@/_pages/tools-infinite-scroller";
 import { HomeTestimonials } from "@/_pages/home-testimonials";
 import { HomeAchievements } from "@/_pages/home-achievements";
+import { HomeInsights } from "@/_pages/home-insights";
 
 export const metadata: Metadata = {};
 
@@ -18,6 +19,7 @@ export default function Home() {
       <HomeAboutMe />
       <ToolsInfiniteScroller />
       <HomeAchievements />
+      <HomeInsights />
     </React.Fragment>
   );
 }
