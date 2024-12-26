@@ -3,6 +3,7 @@
 "use client";
 
 import React from "react";
+
 import getVisuallyHiddenCss from "./getVisuallyHiddenCss";
 
 export type VisuallyHiddenProps = React.ComponentPropsWithoutRef<"div">;

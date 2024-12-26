@@ -2,10 +2,11 @@
 
 "use client";
 
-import { useTheme } from "@mui/material";
-import React from "react";
-import getMainDetailsSectionCss from "./getMainDetailsSectionCss";
 import clsx from "clsx";
+
+import { useTheme } from "@mui/material";
+
+import getMainDetailsSectionCss from "./getMainDetailsSectionCss";
 
 export type MainDetailsSectionProps = React.ComponentPropsWithoutRef<"li">;
 

@@ -2,10 +2,10 @@
 
 "use client";
 
-import { useTheme } from "@mui/material";
-import React from "react";
-import getAboutMeDownloadCVContentCss from "./getAboutMeDownloadCVContentCss";
 import clsx from "clsx";
+import { useTheme } from "@mui/material";
+
+import getAboutMeDownloadCVContentCss from "./getAboutMeDownloadCVContentCss";
 
 export type AboutMeDownloadCVContentProps =
   React.HTMLAttributes<HTMLDivElement>;

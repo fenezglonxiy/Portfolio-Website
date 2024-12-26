@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
-import { CardContentBox } from "../Card";
+import { CardContentBox } from "@/_components/Card";
+
 import getTestimonialOrganizationLogoCss from "./getTestimonialCardOrganizationLogoCss";
 
 export type TestimonialCardOrganizationLogoProps = {

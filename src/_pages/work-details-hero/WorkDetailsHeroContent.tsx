@@ -2,10 +2,12 @@
 
 "use client";
 
-import { HeroContent, HeroContentProps } from "@/_components/hero";
 import clsx from "clsx";
-import getWorkDetailsHeroContentCss from "./getWorkDetailsHeroContentCss";
 import { useTheme } from "@mui/material";
+
+import { HeroContent, HeroContentProps } from "@/_components/hero";
+
+import getWorkDetailsHeroContentCss from "./getWorkDetailsHeroContentCss";
 
 export type WorkDetailsHeroContentProps = HeroContentProps;
 

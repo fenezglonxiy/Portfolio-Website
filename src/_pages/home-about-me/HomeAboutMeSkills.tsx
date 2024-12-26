@@ -2,10 +2,11 @@
 
 "use client";
 
-import { Typography } from "@/_components/Typography";
 import { useTheme } from "@mui/material";
+
+import { Typography } from "@/_components/Typography";
+
 import getHomeAboutMeSkillsCss from "./getHomeAboutMeSkills";
-import React from "react";
 
 type HomeAboutMeSkillsProps = React.HTMLAttributes<HTMLDivElement>;
 

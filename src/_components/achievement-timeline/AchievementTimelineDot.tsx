@@ -1,6 +1,6 @@
 import { Achievement } from "@/types";
-import { SvgIcon } from "../SvgIcon";
-import { TimelineDot, TimelineDotProps } from "../timeline";
+import { SvgIcon } from "@/_components/SvgIcon";
+import { TimelineDot, TimelineDotProps } from "@/_components/timeline";
 
 export type AchievementTimelineDotProps = TimelineDotProps & {
   /**

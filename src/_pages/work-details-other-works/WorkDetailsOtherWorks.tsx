@@ -2,12 +2,12 @@
 
 "use client";
 
-import React from "react";
+import { useTheme } from "@mui/material";
+import moment from "moment";
+
 import WorkDetailsOtherWorksContent from "./WorkDetailsOtherWorksContent";
 import WorkDetailsOtherWorksHeader from "./WorkDetailsOtherWorksHeader";
-import { useTheme } from "@mui/material";
 import getWorkDetailsOtherWorksCss from "./getWorkDetailsOtherWorksCss";
-import moment from "moment";
 import WorkDetailsOtherWorksShowcase from "./WorkDetailsOtherWorksShowcase";
 
 const works = [

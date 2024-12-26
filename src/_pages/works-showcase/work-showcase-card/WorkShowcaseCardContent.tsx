@@ -2,10 +2,12 @@
 
 "use client";
 
-import { CardContent, CardContentProps } from "@/_components/Card";
 import { useTheme } from "@mui/material";
-import getWorkShowcaseCardContentCss from "./getWorkShowcaseCardContentCss";
 import clsx from "clsx";
+
+import { CardContent, CardContentProps } from "@/_components/Card";
+
+import getWorkShowcaseCardContentCss from "./getWorkShowcaseCardContentCss";
 
 export type WorkShowcaseCardContentProps = CardContentProps;
 

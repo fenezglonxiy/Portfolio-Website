@@ -1,4 +1,5 @@
 import React from "react";
+
 import { InsightCardDetails, InsightCardVariant } from "./types";
 import BaseInsightCard from "./base-insight-card/BaseInsightCard";
 

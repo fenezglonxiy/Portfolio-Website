@@ -1,4 +1,7 @@
-import { TimelineSeparator, TimelineSeparatorProps } from "../timeline";
+import {
+  TimelineSeparator,
+  TimelineSeparatorProps,
+} from "@/_components/timeline";
 
 export type AchievementTimelineSeparatorProps = TimelineSeparatorProps;
 

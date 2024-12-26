@@ -1,4 +1,5 @@
 import { css, Theme } from "@mui/material";
+
 import { CardMediaProps } from "./CardMedia";
 
 const getCardMediaCss = (theme: Theme, props: CardMediaProps) => css`

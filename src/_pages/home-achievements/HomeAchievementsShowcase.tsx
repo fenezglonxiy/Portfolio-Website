@@ -4,7 +4,6 @@
 
 import { useTheme } from "@mui/material";
 import clsx from "clsx";
-import React from "react";
 
 export type HomeAchievementsShowcaseProps =
   React.ComponentPropsWithoutRef<"div">;

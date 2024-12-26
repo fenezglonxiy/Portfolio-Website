@@ -4,7 +4,9 @@
 
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
+
 import mergeRefs from "@/_utils/mergeRefs";
+
 import getInfiniteScrollerCss from "./getInfiniteScrollerCss";
 import InfiniteScrollerContext from "./InfiniteScrollerContext";
 

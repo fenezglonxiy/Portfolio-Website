@@ -2,11 +2,12 @@
 
 "use client";
 
-import React from "react";
-import { WorkCard } from "@/_components/work-card";
-import getWorkDetailsOtherWorksShowcaseCss from "./getWorkDetailsOtherWorksShowcaseCss";
 import { useTheme } from "@mui/material";
+
+import { WorkCard } from "@/_components/work-card";
 import { WorkCardDetails } from "@/_components/work-card/WorkCard";
+
+import getWorkDetailsOtherWorksShowcaseCss from "./getWorkDetailsOtherWorksShowcaseCss";
 
 export type WorkDetailsOtherWorksShowcaseProps =
   React.HTMLAttributes<HTMLDivElement> & {

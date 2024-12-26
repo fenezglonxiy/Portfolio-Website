@@ -2,12 +2,14 @@
 
 "use client";
 
-import { Typography, TypographyProps } from "@/_components/Typography";
 import { useTheme } from "@mui/material";
 import React from "react";
-import getInsightTitleCss from "./getInsightTitleCss";
 import { Url } from "next/dist/shared/lib/router/router";
-import { Link } from "../Link";
+
+import { Typography, TypographyProps } from "@/_components/Typography";
+import { Link } from "@/_components/Link";
+
+import getInsightTitleCss from "./getInsightTitleCss";
 import { InsightCardVariant } from "./types";
 
 export type InsightTitleProps = React.HTMLAttributes<HTMLHeadingElement> & {

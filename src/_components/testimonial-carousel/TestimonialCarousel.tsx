@@ -1,5 +1,9 @@
 "use client";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
 // Import Swiper React components
 import {
   Pagination,
@@ -7,11 +11,6 @@ import {
   SwiperProps,
   SwiperSlide,
 } from "@/_components/swiper";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-
 import { TestimonialCard } from "@/_components/testimonial-card";
 import { TestimonialCardDetails } from "@/_components/testimonial-card";
 

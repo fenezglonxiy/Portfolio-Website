@@ -2,10 +2,11 @@
 
 "use client";
 
-import React from "react";
-import { WorkCard, WorkCardDetails } from "@/_components/work-card";
-import getHomeSelectedWorksShowcaseCss from "./getHomeSelectedWorksShowcaseCss";
 import { useTheme } from "@mui/material";
+
+import { WorkCard, WorkCardDetails } from "@/_components/work-card";
+
+import getHomeSelectedWorksShowcaseCss from "./getHomeSelectedWorksShowcaseCss";
 
 export type HomeSelectedWorksShowcaseProps =
   React.HTMLAttributes<HTMLDivElement> & {

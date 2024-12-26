@@ -2,9 +2,9 @@
 
 "use client";
 
-import { useTheme } from "@mui/material";
 import clsx from "clsx";
-import React from "react";
+import { useTheme } from "@mui/material";
+
 import getWorkDetailsHeroTextCss from "./getWorkDetailsHeroTextCss";
 
 export type WorkDetailsHeroTextProps = React.ComponentPropsWithoutRef<"div">;

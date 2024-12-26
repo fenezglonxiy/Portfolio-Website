@@ -1,4 +1,4 @@
-import { TimelineDivider, TimelineDividerProps } from "../timeline";
+import { TimelineDivider, TimelineDividerProps } from "@/_components/timeline";
 
 export type AchievementTimelineDividerProps = TimelineDividerProps;
 

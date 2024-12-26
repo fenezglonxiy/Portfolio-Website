@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
+import moment from "moment";
+
+import { Achievement } from "@/types";
+
 import AboutMeAchievementsContent from "./AboutMeAchievementsContent";
 import WorkExperience from "./WorkExperience";
 import Awards from "./Awards";
-import moment from "moment";
-import { Achievement } from "@/types";
 
 export type AboutMeAchievementsProps =
   React.ComponentPropsWithoutRef<"section"> & {

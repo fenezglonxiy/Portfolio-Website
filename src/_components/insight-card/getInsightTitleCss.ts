@@ -1,6 +1,7 @@
 import { css, Theme } from "@mui/material";
-import { InsightTitleProps } from "./InsightTitle";
 import { SerializedStyles } from "@emotion/react";
+
+import { InsightTitleProps } from "./InsightTitle";
 
 const getInsightTitleVariantCss = (
   theme: Theme,

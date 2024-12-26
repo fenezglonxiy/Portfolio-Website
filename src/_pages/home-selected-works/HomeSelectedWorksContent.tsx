@@ -3,9 +3,9 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import React from "react";
-import getHomeSelectedWorksContentCss from "./getHomeSelectedWorksContentCss";
 import clsx from "clsx";
+
+import getHomeSelectedWorksContentCss from "./getHomeSelectedWorksContentCss";
 
 export type HomeSelectedWorksContentProps =
   React.HTMLAttributes<HTMLDivElement> & {

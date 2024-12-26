@@ -2,6 +2,8 @@
 
 "use client";
 
+import { NavItem } from "@/types";
+
 import HeaderContent from "./HeaderContent";
 import HeaderLogo from "./HeaderLogo";
 import HeaderNavbar from "./HeaderNavbar";

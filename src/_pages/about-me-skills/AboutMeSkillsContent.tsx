@@ -3,7 +3,7 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import React from "react";
+
 import getAboutMeSkillsContentCss from "./getAboutMeSkillsContentCss";
 
 export type AboutMeSkillsContentProps = React.ComponentPropsWithoutRef<"div">;

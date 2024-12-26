@@ -4,6 +4,7 @@
 
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
+
 import getTimelineItemCss from "./getTimelineItemCss";
 
 type TimelineItemBaseProps = {};

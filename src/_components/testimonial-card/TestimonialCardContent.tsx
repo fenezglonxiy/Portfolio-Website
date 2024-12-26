@@ -3,8 +3,10 @@
 "use client";
 
 import React from "react";
-import { CardContent, CardContentBox } from "../Card";
 import { useTheme } from "@mui/material";
+
+import { CardContent, CardContentBox } from "@/_components/Card";
+
 import getTestimonialCardContentCss from "./getTestimonialCardContentCss";
 
 export type TestimonialCardContentProps = React.ComponentPropsWithoutRef<"div">;

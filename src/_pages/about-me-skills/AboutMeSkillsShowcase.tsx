@@ -4,8 +4,8 @@
 
 import { useTheme } from "@mui/material";
 import React from "react";
-import getAboutMeSkillsShowcaseCss from "./getAboutMeSkillsShowcaseCss";
 import clsx from "clsx";
+
 import {
   ProjectThumbnail,
   ProjectThumbnailContainer,
@@ -16,6 +16,8 @@ import {
   SkillIcon,
   SkillTitle,
 } from "@/_components/skill-accordion";
+
+import getAboutMeSkillsShowcaseCss from "./getAboutMeSkillsShowcaseCss";
 
 export type AboutMeSkillsShowcaseProps =
   React.ComponentPropsWithoutRef<"div"> & {

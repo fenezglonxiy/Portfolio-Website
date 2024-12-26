@@ -1,4 +1,3 @@
-import React from "react";
 import WorkShowcaseCardContentBox from "./WorkShowcaseCardContentBox";
 
 export type WorkShowcaseCardWorkOverviewProps =

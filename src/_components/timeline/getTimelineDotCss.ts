@@ -1,4 +1,5 @@
 import { css, Theme } from "@mui/material";
+
 import { TimelineDotProps } from "./TimelineDot";
 
 const getTimelineDotSizeCss = (theme: Theme, size: TimelineDotProps["size"]) =>

@@ -1,8 +1,8 @@
-import React from "react";
-import { InsightCardDetails } from "../types";
 import { Card } from "@/_components/Card";
-import BaseInsightCardMedia from "./BaseInsightCardMedia";
+
 import BaseInsightCardContent from "./BaseInsightCardContent";
+import BaseInsightCardMedia from "./BaseInsightCardMedia";
+import { InsightCardDetails } from "../types";
 import InsightTitle from "../InsightTitle";
 import InsightSummary from "../InsightSummary";
 

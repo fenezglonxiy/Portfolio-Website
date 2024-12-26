@@ -1,5 +1,4 @@
 import React from "react";
-import { ValidationStatus } from "./types";
 import { InputAdornment as MUIInputAdornment } from "@mui/material";
 import { OverrideProps } from "@mui/material/OverridableComponent";
 
@@ -16,11 +15,6 @@ type InputAdornmentBaseProps = {
    * @default "standard"
    */
   variant?: "standard" | "filled";
-
-  /**
-   * The validation status of the input.
-   */
-  validationStatus?: ValidationStatus;
 
   /**
    * Control the vertical alignment of the content inside.

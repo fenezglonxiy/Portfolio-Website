@@ -1,5 +1,6 @@
-import { Typography } from "@/_components/Typography";
 import React from "react";
+
+import { Typography } from "@/_components/Typography";
 
 export type InsightSummaryProps = React.ComponentPropsWithoutRef<"p">;
 

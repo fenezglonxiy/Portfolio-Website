@@ -2,12 +2,13 @@
 
 "use client";
 
+import { useTheme } from "@mui/material";
+
 import { Button } from "@/_components/Button";
 import { Link } from "@/_components/Link";
 import { Logo } from "@/_components/Logo";
 import { Typography } from "@/_components/Typography";
-import { useTheme } from "@mui/material";
-import React from "react";
+
 import getFooterCss from "./getFooterCss";
 
 export type FooterProps = React.HTMLAttributes<HTMLDivElement>;

@@ -1,5 +1,5 @@
 import React from "react";
-import HomeAchievementType from "./HomeAchievementType";
+
 import {
   AchievementTimeline,
   AchievementTimelineContent,
@@ -12,6 +12,8 @@ import {
   AchievementTimelineTitle,
 } from "@/_components/achievement-timeline";
 import { Achievement } from "@/types";
+
+import HomeAchievementType from "./HomeAchievementType";
 import HomeAchievementsShowcase, {
   HomeAchievementsShowcaseProps,
 } from "./HomeAchievementsShowcase";

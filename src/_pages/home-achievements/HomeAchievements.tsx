@@ -3,13 +3,14 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import React from "react";
+import moment from "moment";
+
+import { Achievement } from "@/types";
+
 import getHomeAchievementsCss from "./getHomeAchievementsCss";
 import HomeAchievementsContent from "./HomeAchievementsContent";
 import WorkExperience from "./WorkExperience";
 import Awards from "./Awards";
-import { Achievement } from "@/types";
-import moment from "moment";
 
 export type HomeAchievementsProps =
   React.ComponentPropsWithoutRef<"section"> & {

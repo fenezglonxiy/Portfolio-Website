@@ -3,9 +3,11 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import React from "react";
-import getHeaderNavBarCss from "./getHeaderNavbarCss";
+
 import { Link } from "@/_components/Link";
+import { NavItem } from "@/types";
+
+import getHeaderNavBarCss from "./getHeaderNavbarCss";
 
 type HeaderNavbarProps = React.HTMLAttributes<HTMLDivElement> & {
   /**

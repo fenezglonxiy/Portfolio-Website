@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
+import moment from "moment";
+
+import { InsightCard } from "@/_components/insight-card";
+
 import HomeInsightsContent from "./HomeInsightsContent";
 import HomeInsightsHeader from "./HomeInsightsHeader";
 import HomeInsightsShowcase from "./HomeInsightsShowcase";
-import moment from "moment";
-import { InsightCard } from "@/_components/insight-card";
 
 export type HomeInsightsProps = React.ComponentPropsWithoutRef<"section"> & {
   children?: undefined | null;

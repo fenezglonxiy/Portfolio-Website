@@ -2,7 +2,6 @@
 
 "use client";
 
-import React from "react";
 import getHomeAboutMeDetailsCss from "./getHomeAboutMeDetailsCss";
 import HomeAboutMeSkills from "./HomeAboutMeSkills";
 import HomeAboutMeBusinessAttention from "./HomeAboutMeBusinessAttention";

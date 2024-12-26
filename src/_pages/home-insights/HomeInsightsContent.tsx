@@ -3,7 +3,7 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import React from "react";
+
 import getHomeInsightsContentCss from "./getHomeInsightsContentCss";
 
 export type HomeInsightsContentProps = React.ComponentPropsWithoutRef<"div">;

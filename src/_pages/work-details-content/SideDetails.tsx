@@ -3,7 +3,7 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import React from "react";
+
 import getSideDetailsCss from "./getSideDetailsCss";
 
 export type SideDetailsProps = React.ComponentPropsWithoutRef<"aside">;

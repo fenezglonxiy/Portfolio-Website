@@ -1,4 +1,4 @@
-import { SvgIcon } from "../SvgIcon";
+import { SvgIcon } from "@/_components/SvgIcon";
 
 function Logo() {
   return (

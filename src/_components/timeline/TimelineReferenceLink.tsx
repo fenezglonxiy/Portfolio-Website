@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "@/_icons";
-import { Link, LinkProps } from "../Link";
+import { Link, LinkProps } from "@/_components/Link";
 
 export type TimelineReferenceLinkProps = LinkProps & {
   children?: undefined | null;

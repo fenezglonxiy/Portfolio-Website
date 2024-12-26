@@ -2,13 +2,14 @@
 
 "use client";
 
-import { Typography } from "@/_components/Typography";
 import { useTheme } from "@mui/material";
-import React from "react";
+
+import { Button } from "@/_components/Button";
+import { Typography } from "@/_components/Typography";
+import { Download } from "@/_icons";
+
 import getAboutMeDownloadCVCss from "./getAboutMeDownloadCVCss";
 import AboutMeDownloadCVContent from "./AboutMeDownloadCVContent";
-import { Button } from "@/_components/Button";
-import { Download } from "@/_icons";
 
 export type AboutMeDownloadCVProps = React.HTMLAttributes<HTMLDivElement> & {
   children?: undefined | null;

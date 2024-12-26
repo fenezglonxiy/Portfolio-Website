@@ -4,9 +4,11 @@
 
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
-import getScrollerContentCss from "./getInfiniteScrollerContentCss";
+
 import mergeRefs from "@/_utils/mergeRefs";
 import { useIsomorphicLayoutEffect, useWindowSize } from "@/_hooks";
+
+import getScrollerContentCss from "./getInfiniteScrollerContentCss";
 import { useInfiniteScrollerContext } from "./InfiniteScrollerContext";
 
 type InfiniteScrollerContentBaseProps = {

@@ -4,7 +4,7 @@
 
 import { Button } from "@/_components/Button";
 import { Typography } from "@/_components/Typography";
-import React from "react";
+
 import getWorkDetailsOtherWorksHeaderCss from "./getWorkDetailsOtherWorksHeaderCss";
 
 export type WorkDetailsOtherWorksHeaderProps =

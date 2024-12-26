@@ -3,7 +3,7 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import getHomeHeroCss from "./getHomeHeroCss";
+
 import { Typography } from "@/_components/Typography";
 import { Button } from "@/_components/Button";
 import { ArrowRight } from "@/_icons";
@@ -16,6 +16,8 @@ import {
   HeroSubheading,
   HeroTitle,
 } from "@/_components/hero";
+
+import getHomeHeroCss from "./getHomeHeroCss";
 
 export type HomeHeroProps = HeroProps;
 

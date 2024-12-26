@@ -1,9 +1,9 @@
+import moment from "moment";
+import { Metadata } from "next";
+
 import { WorkDetailsContent } from "@/_pages/work-details-content";
 import { WorkDetailsHero } from "@/_pages/work-details-hero";
 import { WorkDetailsOtherWorks } from "@/_pages/work-details-other-works";
-import moment from "moment";
-import { Metadata } from "next";
-import React from "react";
 
 export const metadata: Metadata = {};
 

@@ -1,5 +1,4 @@
 import { Typography } from "@/_components/Typography";
-import React from "react";
 
 export type WorkShowcaseCardContentBoxTitleProps =
   React.ComponentPropsWithoutRef<"p">;

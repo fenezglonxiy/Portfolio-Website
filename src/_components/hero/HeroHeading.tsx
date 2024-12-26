@@ -1,6 +1,7 @@
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
-import { Typography, TypographyProps } from "../Typography";
+
+import { Typography, TypographyProps } from "@/_components/Typography";
 
 type HeroHeadingBaseProps = {
   /**

@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import { SvgIcon, SvgIconProps } from "../SvgIcon";
+
+import { SvgIcon, SvgIconProps } from "@/_components/SvgIcon";
 
 export type SkillIconProps = Omit<SvgIconProps, "children"> & {
   /**

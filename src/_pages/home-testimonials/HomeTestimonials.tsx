@@ -3,8 +3,9 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import React from "react";
-import { TestimonialCarousel } from "../../_components/testimonial-carousel";
+
+import { TestimonialCarousel } from "@/_components/testimonial-carousel";
+
 import getHomeTestimonialsCss from "./getHomeTestimonialsCss";
 import HomeTestimonialsContent from "./HomeTestimonialsContent";
 

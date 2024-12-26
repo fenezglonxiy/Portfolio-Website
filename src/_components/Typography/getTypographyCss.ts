@@ -1,4 +1,5 @@
 import { css, Theme } from "@mui/material";
+
 import { TypographyProps } from "./Typography";
 
 const getTypographyColorCss = (

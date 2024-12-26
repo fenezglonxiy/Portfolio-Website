@@ -1,5 +1,6 @@
 import React from "react";
-import { Typography, TypographyProps } from "../Typography";
+
+import { Typography, TypographyProps } from "@/_components/Typography";
 
 export type AchievementTimelineTitleProps =
   React.ComponentPropsWithoutRef<"p"> & {

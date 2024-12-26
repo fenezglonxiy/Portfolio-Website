@@ -4,10 +4,12 @@
 
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
-import { Box } from "../box";
-import getTimelineDotCss from "./getTimelineDotCss";
 import { useTheme } from "@mui/material";
 import { ThemeOptions } from "@mui/material/styles";
+
+import { Box } from "@/_components/box";
+
+import getTimelineDotCss from "./getTimelineDotCss";
 
 type TimelineDotBaseProps = {
   /**

@@ -2,11 +2,13 @@
 
 "use client";
 
+import { useTheme } from "@mui/material";
+
 import {
   InfiniteScrollerItem,
   InfiniteScrollerItemProps,
 } from "@/_components/infinite-scroller";
-import { useTheme } from "@mui/material";
+
 import getToolInfiniteScrollerItemCss from "./getToolInfiniteScrollerItemCss";
 
 export type ToolInfiniteScrollerItemProps = InfiniteScrollerItemProps & {

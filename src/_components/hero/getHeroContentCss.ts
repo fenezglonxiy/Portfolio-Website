@@ -1,4 +1,5 @@
 import { css, Theme } from "@mui/material";
+
 import { HeroContentProps } from "./HeroContent";
 
 const getHeroContentCss = (theme: Theme, props: HeroContentProps) => css`

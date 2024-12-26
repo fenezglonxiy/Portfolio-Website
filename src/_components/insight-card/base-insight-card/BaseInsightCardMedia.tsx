@@ -3,6 +3,7 @@
 "use client";
 
 import { CardMedia, CardMediaProps } from "@/_components/Card";
+
 import getBaseInsightCardMediaCss from "./getBaseInsightCardMediaCss";
 
 export type BaseInsightCardMediaProps = CardMediaProps;

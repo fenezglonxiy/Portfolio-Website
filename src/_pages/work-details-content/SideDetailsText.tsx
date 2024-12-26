@@ -1,5 +1,4 @@
 import { Typography, TypographyProps } from "@/_components/Typography";
-import React from "react";
 
 export type SideDetailsTextProps = React.ComponentPropsWithoutRef<"p"> & {
   /**

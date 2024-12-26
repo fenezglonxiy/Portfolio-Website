@@ -2,9 +2,11 @@
 
 "use client";
 
-import { CardContent, CardContentProps } from "@/_components/Card";
 import { useTheme } from "@mui/material";
 import clsx from "clsx";
+
+import { CardContent, CardContentProps } from "@/_components/Card";
+
 import getBaseInsightCardContentCss from "./getBaseInsightCardContentCss";
 
 export type BaseInsightCardContentProps = CardContentProps;

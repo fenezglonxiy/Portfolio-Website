@@ -2,9 +2,10 @@
 
 "use client";
 
-import { Typography } from "@/_components/Typography";
 import { useTheme } from "@mui/material";
-import React from "react";
+
+import { Typography } from "@/_components/Typography";
+
 import getHeaderTimezoneCss from "./getHeaderTimezoneCss";
 
 type HeaderTimezoneProps = React.HTMLAttributes<HTMLDivElement>;

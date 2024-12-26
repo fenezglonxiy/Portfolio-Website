@@ -3,9 +3,9 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import React from "react";
-import getWorksShowcaseContentCss from "./getWorksShowcaseContentCss";
 import clsx from "clsx";
+
+import getWorksShowcaseContentCss from "./getWorksShowcaseContentCss";
 
 export type WorksShowcaseContentProps = React.HTMLAttributes<HTMLDivElement>;
 

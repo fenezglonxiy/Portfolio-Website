@@ -2,10 +2,10 @@
 
 "use client";
 
-import React from "react";
-import getHomeInsightsHeaderCss from "./getHomeInsightsHeaderCss";
 import { Typography } from "@/_components/Typography";
 import { Button } from "@/_components/Button";
+
+import getHomeInsightsHeaderCss from "./getHomeInsightsHeaderCss";
 
 export type HomeInsightsHeaderProps = Omit<
   React.ComponentPropsWithoutRef<"div">,

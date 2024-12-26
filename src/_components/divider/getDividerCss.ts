@@ -1,4 +1,5 @@
 import { css, Theme } from "@mui/material";
+
 import { DividerProps } from "./Divider";
 
 const getDividerColorCss = (theme: Theme, color: DividerProps["color"]) => {

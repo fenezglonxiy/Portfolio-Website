@@ -1,7 +1,7 @@
 import { css, Theme } from "@mui/material";
-import { LinkProps } from "./Link";
-import { TypographyProps } from "../Typography";
 import { SerializedStyles } from "@mui/styled-engine";
+
+import { LinkProps } from "./Link";
 
 const getLinkColorCss = (theme: Theme, color: LinkProps["color"]) => {
   const cssByColor: Record<
@@ -54,7 +54,7 @@ const getLinkUnderlineCss = (underline: LinkProps["underline"]) => css`
 const getLinkCss = (theme: Theme, props: LinkProps) => css`
   display: ${props.display};
 
-  ${theme.typography[props.variant as NonNullable<TypographyProps["variant"]>]};
+  ${theme.typography[props.variant as NonNullable<LinkProps["variant"]>]};
   ${getLinkColorCss(theme, props.color)};
   ${getLinkUnderlineCss(props.underline)};
 `;

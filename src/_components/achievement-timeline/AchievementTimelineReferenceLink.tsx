@@ -1,6 +1,7 @@
-import TimelineReferenceLink, {
+import {
+  TimelineReferenceLink,
   TimelineReferenceLinkProps,
-} from "../timeline/TimelineReferenceLink";
+} from "@/_components/timeline";
 
 export type AchievementTimelineReferenceLinkProps = TimelineReferenceLinkProps;
 

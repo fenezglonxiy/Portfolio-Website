@@ -6,9 +6,11 @@ import { OverrideProps } from "@mui/material/OverridableComponent";
 import { default as NextLink } from "next/link";
 import React from "react";
 import { Url } from "next/dist/shared/lib/router/router";
-import { TypographyProps } from "../Typography";
-import getLinkCss from "./getLinkCss";
 import { useTheme } from "@mui/material";
+
+import { TypographyProps } from "@/_components/Typography";
+
+import getLinkCss from "./getLinkCss";
 
 type LinkBaseProps = {
   /**

@@ -2,7 +2,8 @@
 
 "use client";
 
-import { TimelineItem, TimelineItemProps } from "../timeline";
+import { TimelineItem, TimelineItemProps } from "@/_components/timeline";
+
 import getAchievementTimelineItemCss from "./getAchievementTimelineItemCss";
 
 export type AchievementTimelineItemProps = TimelineItemProps;

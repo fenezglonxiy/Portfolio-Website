@@ -2,6 +2,8 @@
 
 "use client";
 
+import { useTheme } from "@mui/material";
+
 import { Button } from "@/_components/Button";
 import {
   Hero,
@@ -14,7 +16,7 @@ import {
 } from "@/_components/hero";
 import { Typography } from "@/_components/Typography";
 import { ArrowRight } from "@/_icons";
-import { useTheme } from "@mui/material";
+
 import getAboutMeHeroCss from "./getAboutMeHeroCss";
 
 export type AboutMeHeroProps = HeroProps;

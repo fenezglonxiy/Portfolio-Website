@@ -1,8 +1,8 @@
-import React from "react";
-import { Typography, TypographyProps } from "../Typography";
 import moment from "moment";
 import clsx from "clsx";
+
 import { Achievement } from "@/types";
+import { Typography, TypographyProps } from "@/_components/Typography";
 
 export type AchievementTimelineDateProps =
   React.ComponentPropsWithoutRef<"p"> & {
@@ -67,14 +67,14 @@ function AchievementTimelineDate(props: AchievementTimelineDateProps) {
         {date.format(dateFormat)}
       </Typography>
       {endDate && (
-        <React.Fragment>
+        <>
           <Typography component="span" variant="inherit">
             -
           </Typography>
           <Typography component="span" variant="inherit">
             {isPresent ? "Present" : endDate.format(dateFormat)}
           </Typography>
-        </React.Fragment>
+        </>
       )}
     </Typography>
   );

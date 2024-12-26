@@ -3,7 +3,7 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import React from "react";
+
 import getMainDetailsCss from "./getMainDetailsCss";
 
 export type MainDetailsProps = React.ComponentPropsWithoutRef<"main">;

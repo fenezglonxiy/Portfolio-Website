@@ -10,5 +10,7 @@ export { default as TimelineDot } from "./TimelineDot";
 export { type TimelineDotProps } from "./TimelineDot";
 export { default as TimelineItem } from "./TimelineItem";
 export { type TimelineItemProps } from "./TimelineItem";
+export { default as TimelineReferenceLink } from "./TimelineReferenceLink";
+export { type TimelineReferenceLinkProps } from "./TimelineReferenceLink";
 export { default as TimelineSeparator } from "./TimelineSeparator";
 export { type TimelineSeparatorProps } from "./TimelineSeparator";

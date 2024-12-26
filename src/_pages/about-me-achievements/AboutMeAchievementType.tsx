@@ -1,5 +1,6 @@
-import { Typography, TypographyProps } from "@/_components/Typography";
 import React from "react";
+
+import { Typography, TypographyProps } from "@/_components/Typography";
 
 export type AboutMeAchievementTypeProps =
   React.ComponentPropsWithoutRef<"h3"> & {

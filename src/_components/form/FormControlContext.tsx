@@ -1,5 +1,4 @@
 import React from "react";
-import { ValidationStatus } from "./types";
 import _ from "lodash";
 
 type FormControlContextValue = {

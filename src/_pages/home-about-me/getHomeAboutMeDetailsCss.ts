@@ -1,4 +1,4 @@
-import { css, Theme } from "@mui/material";
+import { css } from "@mui/material";
 
 const getHomeAboutMeDetailsRootCss = () => css`
   display: flex;

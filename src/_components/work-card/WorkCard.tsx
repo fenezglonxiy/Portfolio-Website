@@ -1,4 +1,6 @@
 import { Card, CardProps } from "@/_components/Card";
+import { Button } from "@/_components/Button";
+
 import WorkCardMedia from "./WorkCardMedia";
 import WorkCardContent from "./WorkCardContent";
 import WorkCardWorkOverview from "./WorkCardWorkOverview";
@@ -8,7 +10,6 @@ import WorkCardWorkTimestamps from "./WorkCardWorkTimestamps";
 import WorkCardWorkSummary from "./WorkCardWorkSummary";
 import WorkCardActions from "./WorkCardActions";
 import WorkCardWorkBusinessSectors from "./WorkCardWorkBusinessSectors";
-import { Button } from "../Button";
 
 export type WorkCardDetails = {
   /**

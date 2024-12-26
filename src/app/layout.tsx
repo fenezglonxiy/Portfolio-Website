@@ -1,17 +1,11 @@
 "use client";
 
-import localFont from "next/font/local";
-import "./globals.css";
 import ThemeProvider from "@/_theme/ThemeProvider";
 import createTheme from "@/_theme/createTheme";
 import { Header } from "@/_pages/header";
 import { Footer } from "@/_pages/footer";
 
-const interTight = localFont({
-  src: "./fonts/Inter-Tight.woff2",
-  variable: "--font-inter-tight",
-  weight: "100 900",
-});
+import "./globals.css";
 
 const theme = createTheme();
 
@@ -22,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${interTight.variable}`}>
+      <body>
         <ThemeProvider theme={theme}>
           <Header />
           {children}

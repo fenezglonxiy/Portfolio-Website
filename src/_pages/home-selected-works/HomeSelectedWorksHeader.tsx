@@ -2,7 +2,7 @@
 
 import { Button } from "@/_components/Button";
 import { Typography } from "@/_components/Typography";
-import React from "react";
+
 import getHomeSelectedWorksHeaderCss from "./getHomeSelectedWorksHeaderCss";
 
 export type HomeSelectedWorksHeaderProps =

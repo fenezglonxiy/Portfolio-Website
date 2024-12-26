@@ -3,7 +3,7 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import React from "react";
+
 import getHeaderContentCss from "./getHeaderContentCss";
 
 type HeaderContentProps = React.HTMLAttributes<HTMLDivElement>;

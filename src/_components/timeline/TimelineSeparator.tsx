@@ -4,7 +4,9 @@
 
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
-import { Box } from "../box";
+
+import { Box } from "@/_components/box";
+
 import getTimelineSeparatorCss from "./getTimelineSeparatorCss";
 
 type TimelineSeparatorBaseProps = {};

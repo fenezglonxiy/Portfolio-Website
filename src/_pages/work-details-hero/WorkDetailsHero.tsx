@@ -5,6 +5,7 @@ import {
   HeroProps,
   HeroTitle,
 } from "@/_components/hero";
+
 import WorkDetailsHeroContent from "./WorkDetailsHeroContent";
 import WorkDetailsHeroText from "./WorkDetailsHeroText";
 

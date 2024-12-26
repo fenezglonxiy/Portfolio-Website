@@ -1,3 +1,6 @@
+import React from "react";
+
+import { Achievement } from "@/types";
 import {
   AchievementTimeline,
   AchievementTimelineContent,
@@ -7,12 +10,11 @@ import {
   AchievementTimelineReferenceLink,
   AchievementTimelineTitle,
 } from "@/_components/achievement-timeline";
+
 import AboutMeAchievementsShowcase, {
   AboutMeAchievementsShowcaseProps,
 } from "./AboutMeAchievementsShowcase";
 import AboutMeAchievementType from "./AboutMeAchievementType";
-import { Achievement } from "@/types";
-import React from "react";
 
 export type AwardsProps = AboutMeAchievementsShowcaseProps & {
   /**

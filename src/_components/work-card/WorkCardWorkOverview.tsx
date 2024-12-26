@@ -1,5 +1,4 @@
-import React from "react";
-import { CardContentBox } from "../Card";
+import { CardContentBox } from "@/_components/Card";
 
 export type WorkCardWorkOverviewProps = React.ComponentPropsWithoutRef<"div">;
 

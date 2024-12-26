@@ -2,9 +2,9 @@
 
 "use client";
 
-import React from "react";
-import getProjectThumbnailCss from "./getProjectThumbnailCss";
 import { useTheme } from "@mui/material";
+
+import getProjectThumbnailCss from "./getProjectThumbnailCss";
 
 export type ProjectThumbnailProps = Omit<
   React.ComponentPropsWithoutRef<"div">,

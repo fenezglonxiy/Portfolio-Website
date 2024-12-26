@@ -1,4 +1,5 @@
 import { css } from "@mui/material";
+
 import { InfiniteScrollerContentProps } from "./InfiniteScrollerContent";
 
 const getPausedInfiniteScrollerContentCss = () => css`

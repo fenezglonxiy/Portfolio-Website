@@ -3,10 +3,12 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import getHomeAboutMeBusinessAttentionCss from "./getHomeAboutMeBusinessAttentionCss";
+
 import { Typography } from "@/_components/Typography";
 import { Button } from "@/_components/Button";
 import { ArrowRight } from "@/_icons";
+
+import getHomeAboutMeBusinessAttentionCss from "./getHomeAboutMeBusinessAttentionCss";
 
 function HomeAboutMeBusinessAttention() {
   const theme = useTheme();

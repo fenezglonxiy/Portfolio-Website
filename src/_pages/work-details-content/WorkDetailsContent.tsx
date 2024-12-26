@@ -1,4 +1,3 @@
-import React from "react";
 import WorkDetailsContentContainer from "./WorkDetailsContentContainer";
 import SideDetails from "./SideDetails";
 import WorkStartDateDetailsSection from "./WorkStartDateDetailsSection";

@@ -1,6 +1,5 @@
 import { Link } from "@/_components/Link";
 import { Logo } from "@/_components/Logo";
-import React from "react";
 
 type HeaderLogoProps = React.HTMLAttributes<HTMLDivElement>;
 

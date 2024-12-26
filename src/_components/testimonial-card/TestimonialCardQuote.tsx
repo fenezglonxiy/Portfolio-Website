@@ -1,5 +1,6 @@
 import React from "react";
-import { Typography } from "../Typography";
+
+import { Typography } from "@/_components/Typography";
 
 export type TestimonialQuote = string;
 

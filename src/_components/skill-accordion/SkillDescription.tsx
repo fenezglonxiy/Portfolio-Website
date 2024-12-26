@@ -2,8 +2,8 @@
 
 "use client";
 
-import React from "react";
-import { Typography, TypographyProps } from "../Typography";
+import { Typography, TypographyProps } from "@/_components/Typography";
+
 import getSkillDescriptionCss from "./getSkillDescriptionCss";
 
 export type SkillDescriptionProps = React.ComponentPropsWithoutRef<"div"> & {

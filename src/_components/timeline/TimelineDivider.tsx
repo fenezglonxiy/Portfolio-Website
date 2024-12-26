@@ -1,4 +1,4 @@
-import { Divider, DividerProps } from "../divider";
+import { Divider, DividerProps } from "@/_components/divider";
 
 export type TimelineDividerProps = DividerProps;
 

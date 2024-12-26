@@ -3,8 +3,11 @@
 "use client";
 
 import clsx from "clsx";
-import { Timeline, TimelineProps } from "../timeline";
+
 import { useTheme } from "@mui/material";
+
+import { Timeline, TimelineProps } from "@/_components/timeline";
+
 import getAchievementTimelineCss from "./getAchievementTimelineCss";
 
 export type AchievementTimelineProps = TimelineProps;

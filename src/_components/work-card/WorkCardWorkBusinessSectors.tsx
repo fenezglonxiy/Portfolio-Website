@@ -1,5 +1,5 @@
-import React from "react";
-import { CardContentBox } from "../Card";
+import { CardContentBox } from "@/_components/Card";
+
 import { WorkCardProps } from "./WorkCard";
 import WorkCardWorkBusinessSector from "./WorkCardWorkBusinessSector";
 

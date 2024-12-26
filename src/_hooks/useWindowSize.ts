@@ -5,6 +5,7 @@
  */
 
 import React from "react";
+
 import useIsomorphicLayoutEffect from "./useIsomorphicLayoutEffect";
 import useEventListener from "./useEventListener";
 

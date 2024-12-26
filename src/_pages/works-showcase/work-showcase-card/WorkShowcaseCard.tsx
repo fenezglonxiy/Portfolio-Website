@@ -3,7 +3,9 @@
 "use client";
 
 import { Card, CardProps } from "@/_components/Card";
-import { WorkCardDetails } from "@/_components/work-card/WorkCard";
+import { WorkCardDetails } from "@/_components/work-card";
+import { Button } from "@/_components/Button";
+
 import WorkShowcaseCardMedia from "./WorkShowcaseCardMedia";
 import WorkShowcaseCardContent from "./WorkShowcaseCardContent";
 import WorkShowcaseCardActions from "./WorkShowcaseCardActions";
@@ -16,7 +18,6 @@ import WorkShowcaseCardWorkServices from "./WorkShowcaseCardWorkServices";
 import getWorkShowcaseCardCss from "./getWorkShowcaseCardCss";
 import WorkShowcaseCardWorkStartDate from "./WorkShowcaseCardWorkStartDate";
 import WorkShowcaseCardWorkDuration from "./WorkShowcaseCardWorkDuration";
-import { Button } from "@/_components/Button";
 
 export type WorkShowcaseCardDetails = WorkCardDetails & {
   /**

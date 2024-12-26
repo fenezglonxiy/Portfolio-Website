@@ -2,7 +2,11 @@
 
 "use client";
 
-import { AccordionDetails, AccordionDetailsProps } from "../accordion";
+import {
+  AccordionDetails,
+  AccordionDetailsProps,
+} from "@/_components/accordion";
+
 import getSkillAccordionDetailsCss from "./getSkillAccordionDetailsCss";
 
 export type SkillAccordionDetailsProps = AccordionDetailsProps;

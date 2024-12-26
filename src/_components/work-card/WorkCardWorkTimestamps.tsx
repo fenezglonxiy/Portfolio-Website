@@ -1,6 +1,7 @@
-import { Typography, TypographyProps } from "@/_components/Typography";
 import clsx from "clsx";
 import moment from "moment";
+
+import { Typography, TypographyProps } from "@/_components/Typography";
 
 export type WorkCardWorkTimestampsProps = TypographyProps & {
   /**

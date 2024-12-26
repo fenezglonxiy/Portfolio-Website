@@ -3,7 +3,7 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import React from "react";
+
 import getWorkDetailsContentContainerCss from "./getWorkDetailsContentContainerCss";
 
 export type WorkDetailsContentContainerProps =

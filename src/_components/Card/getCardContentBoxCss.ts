@@ -1,4 +1,5 @@
 import { css, Theme } from "@mui/material";
+
 import { CardContentBoxProps } from "./CardContentBox";
 
 const getCardContentBoxCss = (theme: Theme, props: CardContentBoxProps) =>

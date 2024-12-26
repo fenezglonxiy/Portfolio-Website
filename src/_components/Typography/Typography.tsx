@@ -10,6 +10,7 @@ import {
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import { FontStyle as MUIFontStyle } from "@mui/material/styles/createTypography";
 import React from "react";
+
 import getTypographyCss from "./getTypographyCss";
 
 type FontStyle = keyof MUIFontStyle;

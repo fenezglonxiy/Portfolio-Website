@@ -3,10 +3,12 @@
 "use client";
 
 import React from "react";
-import { Typography, TypographyProps } from "@/_components/Typography";
-import useFormField from "./useFormField";
-import ErrorIcon from "@mui/icons-material/Error";
 import { useTheme } from "@mui/material";
+import ErrorIcon from "@mui/icons-material/Error";
+
+import { Typography, TypographyProps } from "@/_components/Typography";
+
+import useFormField from "./useFormField";
 import getValidationTextCss from "./getFormValidationTextCss";
 
 export type FormValidationTextProps = React.ComponentPropsWithoutRef<"div"> & {

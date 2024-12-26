@@ -2,12 +2,14 @@
 
 "use client";
 
-import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
-import { Box } from "../box";
+
 import { useTheme } from "@mui/material";
-import getCardContentBoxCss from "./getCardContentBoxCss";
+import { OverrideProps } from "@mui/material/OverridableComponent";
+import { Box } from "@/_components/box";
 import clsx from "clsx";
+
+import getCardContentBoxCss from "./getCardContentBoxCss";
 
 type CardContentBoxBaseProps = {
   /**

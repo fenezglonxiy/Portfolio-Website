@@ -2,9 +2,10 @@
 
 "use client";
 
-import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
+import { OverrideProps } from "@mui/material/OverridableComponent";
 import { Divider as MUIDivider, useTheme } from "@mui/material";
+
 import getDividerCss from "./getDividerCss";
 
 type DividerBaseProps = {

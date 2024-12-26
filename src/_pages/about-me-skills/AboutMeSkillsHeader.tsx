@@ -2,10 +2,10 @@
 
 "use client";
 
-import React from "react";
-import getAboutMeSkillsHeaderCss from "./getAboutMeSkillsHeaderCss";
 import { Typography } from "@/_components/Typography";
 import { Button } from "@/_components/Button";
+
+import getAboutMeSkillsHeaderCss from "./getAboutMeSkillsHeaderCss";
 
 export type AboutMeSkillsHeaderProps = React.ComponentPropsWithoutRef<"div"> & {
   children?: undefined | null;

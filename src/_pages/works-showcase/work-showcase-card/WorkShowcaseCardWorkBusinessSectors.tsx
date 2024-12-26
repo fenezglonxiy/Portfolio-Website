@@ -1,4 +1,3 @@
-import React from "react";
 import { WorkShowcaseCardProps } from "./WorkShowcaseCard";
 import WorkShowcaseCardContentBox from "./WorkShowcaseCardContentBox";
 import WorkShowcaseCardContentBoxTitle from "./WorkShowcaseCardContentBoxTitle";

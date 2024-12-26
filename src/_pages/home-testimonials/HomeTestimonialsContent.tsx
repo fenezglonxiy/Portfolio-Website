@@ -3,7 +3,7 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import React from "react";
+
 import getHomeTestimonialsContentCss from "./getHomeTestimonialsContentCss";
 
 export type HomeTestimonialsContentProps =

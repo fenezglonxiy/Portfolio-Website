@@ -1,6 +1,7 @@
 import { css, Theme } from "@mui/material";
-import { ButtonProps } from "./Button";
 import { SerializedStyles } from "@emotion/react";
+
+import { ButtonProps } from "./Button";
 
 const getButtonVariantCss = (variant: ButtonProps["variant"]) => {
   const cssByVariant: Record<

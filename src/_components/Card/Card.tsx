@@ -2,11 +2,13 @@
 
 "use client";
 
+import React from "react";
+
 import { Card as MUICard, useTheme } from "@mui/material";
 import { OverrideProps } from "@mui/material/OverridableComponent";
-import React from "react";
-import getCardCss from "./getCardCss";
 import { ThemeOptions } from "@mui/material/styles";
+
+import getCardCss from "./getCardCss";
 
 declare module "@mui/material/Paper" {
   interface PaperPropsVariantOverrides {

@@ -1,8 +1,7 @@
-import React from "react";
-import { CardContentBox } from "../Card";
-import { Avatar } from "../avatar";
-import { Typography } from "../Typography";
-import { Image } from "../image";
+import { CardContentBox } from "@/_components/Card";
+import { Avatar } from "@/_components/avatar";
+import { Typography } from "@/_components/Typography";
+
 import TestimonialCardOrganizationLogo from "./TestimonialCardOrganizationLogo";
 
 export type TestimonialEndorserOverview = {

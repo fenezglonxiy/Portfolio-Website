@@ -3,7 +3,9 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import { TimelineContent, TimelineContentProps } from "../timeline";
+
+import { TimelineContent, TimelineContentProps } from "@/_components/timeline";
+
 import getAchievementTimelineContentCss from "./getAchievementTimelineContentCss";
 
 export type AchievementTimelineContentProps = TimelineContentProps;

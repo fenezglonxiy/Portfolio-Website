@@ -2,8 +2,10 @@
 
 "use client";
 
-import { CardMedia, CardMediaProps } from "@/_components/Card";
 import { useTheme } from "@mui/material";
+
+import { CardMedia, CardMediaProps } from "@/_components/Card";
+
 import getWorkShowcaseCardMediaCss from "./getWorkShowcaseCardMediaCss";
 
 export type WorkShowcaseCardMediaProps = CardMediaProps;

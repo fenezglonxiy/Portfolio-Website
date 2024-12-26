@@ -1,8 +1,8 @@
-import React from "react";
+import { Typography } from "@/_components/Typography";
+
 import WorkShowcaseCardContentBox from "./WorkShowcaseCardContentBox";
 import { WorkShowcaseCardProps } from "./WorkShowcaseCard";
 import WorkShowcaseCardContentBoxTitle from "./WorkShowcaseCardContentBoxTitle";
-import { Typography } from "@/_components/Typography";
 
 export type WorkShowcaseCardWorkDurationProps =
   React.ComponentPropsWithoutRef<"div"> & {

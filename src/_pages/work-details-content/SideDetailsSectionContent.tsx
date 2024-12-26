@@ -2,9 +2,9 @@
 
 "use client";
 
-import React from "react";
-import getSideDetailsSectionContentCss from "./getSideDetailsSectionContentCss";
 import { useTheme } from "@mui/material";
+
+import getSideDetailsSectionContentCss from "./getSideDetailsSectionContentCss";
 
 export type SideDetailsSectionContentProps =
   React.ComponentPropsWithoutRef<"div"> & {

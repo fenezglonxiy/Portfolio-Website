@@ -12,6 +12,7 @@ import {
   OverrideProps,
 } from "@mui/material/OverridableComponent";
 import React from "react";
+
 import getCardMediaCss from "./getCardMediaCss";
 
 type CardMediaBaseProps = {
