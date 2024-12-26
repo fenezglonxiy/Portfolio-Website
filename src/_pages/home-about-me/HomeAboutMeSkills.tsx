@@ -8,7 +8,10 @@ import { Typography } from "@/_components/Typography";
 
 import getHomeAboutMeSkillsCss from "./getHomeAboutMeSkills";
 
-type HomeAboutMeSkillsProps = React.HTMLAttributes<HTMLDivElement>;
+type HomeAboutMeSkillsProps = Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  "children"
+>;
 
 function HomeAboutMeSkills(props: HomeAboutMeSkillsProps) {
   const theme = useTheme();

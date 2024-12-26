@@ -4,7 +4,10 @@ import HomeAboutMeContent from "./HomeAboutMeContent";
 import HomeAboutMeSummary from "./HomeAboutMeSummary";
 import HomeAboutMeDetails from "./HomeAboutMeDetails";
 
-export type HomeAboutMeProps = React.HTMLAttributes<HTMLDivElement>;
+export type HomeAboutMeProps = Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  "children"
+>;
 
 function HomeAboutMe(props: HomeAboutMeProps) {
   return (

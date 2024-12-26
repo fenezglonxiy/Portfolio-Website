@@ -8,9 +8,10 @@ import HomeInsightsContent from "./HomeInsightsContent";
 import HomeInsightsHeader from "./HomeInsightsHeader";
 import HomeInsightsShowcase from "./HomeInsightsShowcase";
 
-export type HomeInsightsProps = React.ComponentPropsWithoutRef<"section"> & {
-  children?: undefined | null;
-};
+export type HomeInsightsProps = Omit<
+  React.ComponentPropsWithoutRef<"section">,
+  "children"
+>;
 
 const insightCards = [
   {
