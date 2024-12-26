@@ -2,7 +2,10 @@ import React from "react";
 
 import { Typography } from "@/_components/Typography";
 
-type HomeAboutMeSummaryProps = React.HTMLAttributes<HTMLDivElement>;
+type HomeAboutMeSummaryProps = Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  "children"
+>;
 
 function HomeAboutMeSummary(props: HomeAboutMeSummaryProps) {
   return (

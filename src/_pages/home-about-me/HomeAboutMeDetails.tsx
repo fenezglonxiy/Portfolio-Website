@@ -6,7 +6,10 @@ import getHomeAboutMeDetailsCss from "./getHomeAboutMeDetailsCss";
 import HomeAboutMeSkills from "./HomeAboutMeSkills";
 import HomeAboutMeBusinessAttention from "./HomeAboutMeBusinessAttention";
 
-type HomeAboutMeDetailsProps = React.HTMLAttributes<HTMLDivElement>;
+type HomeAboutMeDetailsProps = Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  "children"
+>;
 
 function HomeAboutMeDetails(props: HomeAboutMeDetailsProps) {
   const css = getHomeAboutMeDetailsCss();

@@ -9,13 +9,22 @@ import { Button } from "@/_components/Button";
 import { ArrowRight } from "@/_icons";
 
 import getHomeAboutMeBusinessAttentionCss from "./getHomeAboutMeBusinessAttentionCss";
+import clsx from "clsx";
 
-function HomeAboutMeBusinessAttention() {
+export type HomeAboutMeBusinessAttentionProps = Omit<
+  React.ComponentPropsWithoutRef<"div">,
+  "children"
+>;
+
+function HomeAboutMeBusinessAttention(
+  props: HomeAboutMeBusinessAttentionProps
+) {
+  const { className, ...rest } = props;
   const theme = useTheme();
   const css = getHomeAboutMeBusinessAttentionCss(theme);
 
   return (
-    <div css={css.root} className="flow-spacer-y">
+    <div css={css.root} className={clsx("flow-spacer-y", className)} {...rest}>
       <div>
         <Typography variant="body1Medium" color="neutral-700">
           Concentrate on your primary objective in expanding your business, and

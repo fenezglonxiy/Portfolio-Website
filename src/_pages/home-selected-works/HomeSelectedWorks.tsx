@@ -10,7 +10,10 @@ import HomeSelectedWorksContent from "./HomeSelectedWorksContent";
 import HomeSelectedWorksHeader from "./HomeSelectedWorksHeader";
 import HomeSelectedWorksShowcase from "./HomeSelectedWorksShowcase";
 
-export type HomeSelectedWorksProps = React.HTMLAttributes<HTMLDivElement>;
+export type HomeSelectedWorksProps = Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  "children"
+>;
 
 const works = [
   {
