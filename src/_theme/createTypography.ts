@@ -81,7 +81,7 @@ declare module "@mui/material/Typography" {
 }
 
 export const fontFamily: React.CSSProperties["fontFamily"] = [
-  "interTight",
+  "Inter Tight",
   "Arial",
   "sans-serif",
 ].join(", ");
