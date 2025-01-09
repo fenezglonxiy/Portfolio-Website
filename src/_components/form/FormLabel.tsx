@@ -5,7 +5,7 @@
 import {
   FormLabel as MUIFormLabel,
   FormLabelProps as MUIFormLabelProps,
-  useFormControl as useMUIFormControl,
+  InputLabel as MUIInputLabel,
   useTheme,
 } from "@mui/material";
 import React from "react";
@@ -13,15 +13,19 @@ import React from "react";
 import { Typography } from "@/_components/Typography";
 import { VisuallyHidden } from "@/_components/visually-hidden";
 
-import { useFormControlContext } from "./FormControlContext";
 import getFormLabelCss from "./getFormLabelCss";
-import useFormField from "./useFormField";
+import useFormControl from "./useFormControl";
 
 type FormLabelBaseProps = {
   /**
    * Control whether to mark the input as optional next to the label.
    */
   optional?: boolean;
+
+  /**
+   * Control whether to add additional display behavior to label.
+   */
+  includesLegendWithLabel?: boolean;
 
   /**
    * Control whether to mark the input with required indicator next to the
@@ -38,6 +42,11 @@ type FormLabelBaseProps = {
    * Control the custom required indicator to render if the input is required.
    */
   requiredIndicator?: React.ReactNode;
+
+  /**
+   * Control whether the label is hidden.
+   */
+  hidden?: boolean;
 };
 
 export type FormLabelProps = MUIFormLabelProps & FormLabelBaseProps;
@@ -66,32 +75,53 @@ const FormLabel = React.forwardRef(function FormLabel(
   const {
     children,
     optional,
+    includesLegendWithLabel,
     includesRequiredIndicatorWithLabel,
     htmlFor,
     id,
     optionalIndicator,
     requiredIndicator,
+    hidden,
     ...rest
   } = props;
-  const muiFormControl = useMUIFormControl();
-  const _ = useFormControlContext({
-    id: htmlFor,
-  });
-  const { id: formControlId, labelId } = useFormField();
-  const showOptionalIndicator = !muiFormControl?.required || optional;
-  const showRequiredIndicator =
-    muiFormControl?.required && includesRequiredIndicatorWithLabel;
+  const formControl = useFormControl();
+  const { inputId, labelId } = formControl;
+
+  if (hidden) {
+    return (
+      <label
+        className="visually-hidden"
+        htmlFor={inputId}
+        id={labelId}
+        aria-hidden
+      >
+        {children}
+      </label>
+    );
+  }
+
+  const { required, variant } = formControl;
+  const showOptionalIndicator = !required || optional;
+  const showRequiredIndicator = required && includesRequiredIndicatorWithLabel;
   const theme = useTheme();
-  const css = getFormLabelCss(theme);
+  const css = getFormLabelCss(theme, props, variant);
+
+  if (includesLegendWithLabel) {
+    return (
+      <MUIInputLabel
+        ref={ref}
+        css={css}
+        htmlFor={inputId}
+        id={labelId}
+        {...rest}
+      >
+        {children}
+      </MUIInputLabel>
+    );
+  }
 
   return (
-    <MUIFormLabel
-      ref={ref}
-      htmlFor={formControlId}
-      id={labelId}
-      css={css}
-      {...rest}
-    >
+    <MUIFormLabel ref={ref} css={css} htmlFor={inputId} id={labelId} {...rest}>
       {children}
 
       {showOptionalIndicator &&

@@ -2,15 +2,16 @@
 
 "use client";
 
-import {
-  InputBaseComponentProps,
-  Input as MUIInput,
-  useTheme,
-} from "@mui/material";
+import { InputBaseComponentProps, useTheme } from "@mui/material";
 import React from "react";
 
 import useFormField from "./useFormField";
+import FilledInput from "./FilledInput";
+import useFormControl from "./useFormControl";
+import StandardInput from "./StandardInput";
 import getInputCss from "./getInputCss";
+import OutlinedInput from "./OutlinedInput";
+import { useTextFieldContext } from "./TextFieldContext";
 
 export type InputProps = {
   /**
@@ -180,22 +181,40 @@ const Input = React.forwardRef(function Input(
   ref: React.Ref<HTMLInputElement>
 ) {
   const { onFocus, ...rest } = props;
-  const { name, id, helperTextId, validationTextId, error } = useFormField();
+  const { variant, hiddenLabel, inputId, helperTextId, validationTextId } =
+    useFormControl();
+  const { includesLegendWithLabel } = useTextFieldContext();
+  const formField = useFormField();
   const theme = useTheme();
-  const css = getInputCss(theme);
+  const css = getInputCss(theme, variant, includesLegendWithLabel);
+  const componentProps = {
+    ref,
+    css,
+    name: formField?.name,
+    id: inputId,
+    "aria-describedby": formField?.error
+      ? [helperTextId, validationTextId].join(" ")
+      : helperTextId,
+    ...rest,
+  };
 
-  return (
-    <MUIInput
-      ref={ref}
-      name={name}
-      id={id}
-      aria-describedby={
-        error ? [helperTextId, validationTextId].join(" ") : helperTextId
-      }
-      css={css}
-      {...rest}
-    />
-  );
+  if (variant === "outlined") {
+    const notNotched = hiddenLabel || !includesLegendWithLabel;
+
+    return (
+      <OutlinedInput
+        label={props.inputProps?.["aria-label"]}
+        notched={notNotched ? false : undefined}
+        {...componentProps}
+      />
+    );
+  }
+
+  if (variant === "filled") {
+    return <FilledInput disableUnderline {...componentProps} />;
+  }
+
+  return <StandardInput {...componentProps} />;
 });
 
 Input.displayName = "Input";

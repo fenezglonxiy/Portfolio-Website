@@ -1,8 +1,6 @@
 import React from "react";
-import {
-  FormControl as MUIFormControl,
-  FormControlProps as MUIFormControlProps,
-} from "@mui/material";
+import { FormControl as MUIFormControl } from "@mui/material";
+import { OverrideProps } from "@mui/material/OverridableComponent";
 
 import { useId } from "@/_hooks";
 
@@ -31,24 +29,71 @@ export type FormControlBaseProps = {
    * All form controls are mandatory by default.
    */
   optional?: boolean;
+
+  /**
+   * If `true`, the label is hidden.
+   */
+  hiddenLabel?: boolean;
+
+  /**
+   * The variant to use.
+   * @default "outlined"
+   */
+  variant?: "filled" | "outlined" | "standard";
+
+  /**
+   * The size of the form control.
+   * @default "medium"
+   */
+  size?: "small" | "medium";
+
+  /**
+   * The color of the form control.
+   * @default "primary"
+   */
+  color?: "primary";
 };
 
-export type FormControlProps = MUIFormControlProps & FormControlBaseProps;
+export interface FormControlTypeMap<D extends React.ElementType = "div"> {
+  props: FormControlBaseProps;
+  defaultComponent: D;
+}
+
+export type FormControlProps<
+  D extends React.ElementType = FormControlTypeMap["defaultComponent"]
+> = OverrideProps<FormControlTypeMap<D>, D>;
 
 const FormControl = React.forwardRef(function FormControl(
   props: FormControlProps,
   ref: React.Ref<HTMLDivElement>
 ) {
-  const { id: idFromProps, children, optional, ...rest } = props;
+  const {
+    id: idFromProps,
+    children,
+    optional,
+    variant = "outlined",
+    size = "medium",
+    color = "primary",
+    ...rest
+  } = props;
   const id = useId(idFromProps);
-  const { error } = useFormField();
+  const formField = useFormField();
 
   return (
-    <FormControlContext.Provider value={{ id: id }}>
-      <MUIFormControl ref={ref} error={!!error} required={!optional} {...rest}>
+    <MUIFormControl
+      ref={ref}
+      variant={variant}
+      size={size}
+      color={color}
+      id={id}
+      error={!!formField?.error}
+      required={!optional}
+      {...rest}
+    >
+      <FormControlContext.Provider value={{ id: id }}>
         {children}
-      </MUIFormControl>
-    </FormControlContext.Provider>
+      </FormControlContext.Provider>
+    </MUIFormControl>
   );
 });
 

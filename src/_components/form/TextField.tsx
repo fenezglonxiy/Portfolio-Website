@@ -1,10 +1,11 @@
 import React from "react";
 
 import FormControl, { FormControlBaseProps } from "./FormControl";
-import Input, { InputProps } from "./Input";
-import FormLabel from "./FormLabel";
+import FormLabel, { FormLabelProps } from "./FormLabel";
 import FormHelperText from "./FormHelperText";
 import FormValidationText from "./FormValidationText";
+import Input, { InputProps } from "./Input";
+import TextFieldContext from "./TextFieldContext";
 
 export type TextFieldProps = {
   /**
@@ -42,6 +43,13 @@ export type TextFieldProps = {
   inputRef?: React.Ref<HTMLInputElement | HTMLTextAreaElement | null>;
 
   /**
+   * Control whether to add additional display behavior to label.
+   * If `slotProps.label.includesLegendWithLabel` is specified, it will take
+   * the precedence.
+   */
+  includesLegendWithLabel?: FormLabelProps["includesLegendWithLabel"];
+
+  /**
    * Control additional class names for the root element.
    */
   className?: string;
@@ -50,6 +58,19 @@ export type TextFieldProps = {
    * Control the helper text for the field.
    */
   helperText?: string;
+
+  /**
+   * Control whether the label is hidden.
+   * If `slotProps.label.hidden` is specified, it will take the precedence.
+   */
+  hiddenLabel?: FormLabelProps["hidden"];
+
+  /**
+   * The props used for each slot inside.
+   */
+  slotProps?: {
+    label?: FormLabelProps;
+  };
 } & FormControlBaseProps &
   Pick<
     InputProps,
@@ -65,11 +86,9 @@ export type TextFieldProps = {
     | "placeholder"
     | "value"
     | "name"
-    | "placeholder"
     | "autoFocus"
     | "autoComplete"
     | "multiline"
-    | "className"
   >;
 
 const TextField = React.forwardRef(function TextField(
@@ -85,30 +104,48 @@ const TextField = React.forwardRef(function TextField(
     inputProps,
     maxLength,
     helperText,
+    hiddenLabel,
     className,
+    includesLegendWithLabel,
+    variant = "outlined",
+    color = "primary",
+    slotProps,
     ...inputComponentProps
   } = props;
 
   return (
     <FormControl
       ref={ref}
+      variant={variant}
+      color={color}
       disabled={disabled}
       fullWidth={fullWidth}
       id={id}
       optional={optional}
       className={className}
+      hiddenLabel={hiddenLabel}
     >
-      {label && <FormLabel>{label}</FormLabel>}
+      <TextFieldContext.Provider value={{ includesLegendWithLabel }}>
+        {label && (
+          <FormLabel
+            includesLegendWithLabel={includesLegendWithLabel}
+            hidden={hiddenLabel}
+            {...slotProps?.label}
+          >
+            {label}
+          </FormLabel>
+        )}
 
-      <FormValidationText />
+        <FormValidationText />
 
-      <Input
-        fullWidth={fullWidth}
-        {...inputComponentProps}
-        inputProps={{ "aria-label": label, maxLength, ...inputProps }}
-      />
+        <Input
+          fullWidth={fullWidth}
+          inputProps={{ "aria-label": label, maxLength, ...inputProps }}
+          {...inputComponentProps}
+        />
 
-      {helperText && <FormHelperText>{helperText}</FormHelperText>}
+        {helperText && <FormHelperText>{helperText}</FormHelperText>}
+      </TextFieldContext.Provider>
     </FormControl>
   );
 });
