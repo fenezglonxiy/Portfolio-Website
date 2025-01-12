@@ -7,6 +7,12 @@ import { useId } from "@/_hooks";
 import FormControlContext from "./FormControlContext";
 import useFormField from "./useFormField";
 
+declare module "@mui/material/FormControl" {
+  interface FormControlPropsColorOverrides {
+    indigo: true;
+  }
+}
+
 export type FormControlBaseProps = {
   /**
    * Unique `id` attribute for the form control element.
@@ -51,7 +57,14 @@ export type FormControlBaseProps = {
    * The color of the form control.
    * @default "primary"
    */
-  color?: "primary";
+  color?:
+    | "primary"
+    | "secondary"
+    | "info"
+    | "warning"
+    | "error"
+    | "success"
+    | "indigo";
 };
 
 export interface FormControlTypeMap<D extends React.ElementType = "div"> {

@@ -86,25 +86,32 @@ const FormLabel = React.forwardRef(function FormLabel(
   } = props;
   const formControl = useFormControl();
   const { inputId, labelId } = formControl;
+  const { required, variant, color } = formControl;
+  const showOptionalIndicator = !required || optional;
+  const showRequiredIndicator = required && includesRequiredIndicatorWithLabel;
+  const theme = useTheme();
+  const css = getFormLabelCss(theme, props, { variant, color });
 
   if (hidden) {
     return (
       <label
+        ref={ref}
         className="visually-hidden"
         htmlFor={inputId}
         id={labelId}
+        css={css}
         aria-hidden
       >
         {children}
+
+        {showOptionalIndicator &&
+          (optionalIndicator ? optionalIndicator : <OptionalIndicator />)}
+
+        {showRequiredIndicator &&
+          (requiredIndicator ? requiredIndicator : <RequiredIndicator />)}
       </label>
     );
   }
-
-  const { required, variant } = formControl;
-  const showOptionalIndicator = !required || optional;
-  const showRequiredIndicator = required && includesRequiredIndicatorWithLabel;
-  const theme = useTheme();
-  const css = getFormLabelCss(theme, props, variant);
 
   if (includesLegendWithLabel) {
     return (

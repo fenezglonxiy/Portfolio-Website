@@ -4,14 +4,18 @@
 
 import { InputBaseComponentProps, useTheme } from "@mui/material";
 import React from "react";
+import { ThemeOptions } from "@mui/material/styles";
 
-import useFormField from "./useFormField";
 import FilledInput from "./FilledInput";
 import useFormControl from "./useFormControl";
 import StandardInput from "./StandardInput";
-import getInputCss from "./getInputCss";
 import OutlinedInput from "./OutlinedInput";
-import { useTextFieldContext } from "./TextFieldContext";
+
+declare module "@mui/material/InputBase" {
+  interface InputBasePropsColorOverrides {
+    indigo: true;
+  }
+}
 
 export type InputProps = {
   /**
@@ -24,6 +28,15 @@ export type InputProps = {
    * Control whether the input should be focused during first mount.
    */
   autoFocus?: boolean;
+
+  /**
+   * Control the border radius of the input.
+   * @default "sm"
+   */
+  borderRadius?: keyof Pick<
+    NonNullable<ThemeOptions["shape"]>,
+    "none" | "sm" | "md" | "lg" | "pill"
+  >;
 
   /**
    * Control the input default value.
@@ -180,38 +193,21 @@ const Input = React.forwardRef(function Input(
   props: InputProps,
   ref: React.Ref<HTMLInputElement>
 ) {
-  const { onFocus, ...rest } = props;
-  const { variant, hiddenLabel, inputId, helperTextId, validationTextId } =
-    useFormControl();
-  const { includesLegendWithLabel } = useTextFieldContext();
-  const formField = useFormField();
-  const theme = useTheme();
-  const css = getInputCss(theme, variant, includesLegendWithLabel);
+  const { borderRadius = "sm", ...rest } = props;
+  const { variant, color } = useFormControl();
   const componentProps = {
     ref,
-    css,
-    name: formField?.name,
-    id: inputId,
-    "aria-describedby": formField?.error
-      ? [helperTextId, validationTextId].join(" ")
-      : helperTextId,
+    color,
+    label: props.inputProps?.["aria-label"],
     ...rest,
   };
 
   if (variant === "outlined") {
-    const notNotched = hiddenLabel || !includesLegendWithLabel;
-
-    return (
-      <OutlinedInput
-        label={props.inputProps?.["aria-label"]}
-        notched={notNotched ? false : undefined}
-        {...componentProps}
-      />
-    );
+    return <OutlinedInput borderRadius={borderRadius} {...componentProps} />;
   }
 
   if (variant === "filled") {
-    return <FilledInput disableUnderline {...componentProps} />;
+    return <FilledInput borderRadius={borderRadius} {...componentProps} />;
   }
 
   return <StandardInput {...componentProps} />;

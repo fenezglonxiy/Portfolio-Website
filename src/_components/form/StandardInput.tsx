@@ -10,15 +10,37 @@ import {
 
 import getStandardInputCss from "./getStandardInputCss";
 import useFormControl from "./useFormControl";
+import { useTextFieldContext } from "./TextFieldContext";
+import useFormField from "./useFormField";
 
 export type StandardInputProps = MUIInputProps;
 
 function StandardInput(props: StandardInputProps) {
-  const { filled } = useFormControl();
+  const { color: colorFromProps, ...rest } = props;
+  const { color, inputId, helperTextId, validationTextId, filled } =
+    useFormControl();
+  const { includesLegendWithLabel } = useTextFieldContext();
+  const formField = useFormField();
   const theme = useTheme();
-  const css = getStandardInputCss(theme, filled);
+  const css = getStandardInputCss(theme, props, {
+    filled,
+    color: colorFromProps || color,
+    includesLegendWithLabel,
+  });
 
-  return <MUIInput css={css} {...props} />;
+  return (
+    <MUIInput
+      css={css}
+      name={formField?.name}
+      id={inputId}
+      aria-describedby={
+        formField?.error
+          ? [helperTextId, validationTextId].join(" ")
+          : helperTextId
+      }
+      {...rest}
+    />
+  );
 }
 
 export default StandardInput;

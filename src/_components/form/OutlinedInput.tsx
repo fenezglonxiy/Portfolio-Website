@@ -10,15 +10,52 @@ import {
 
 import getOutlinedInputCss from "./getOutlinedInputCss";
 import useFormControl from "./useFormControl";
+import { InputProps } from "./Input";
+import useFormField from "./useFormField";
+import { useTextFieldContext } from "./TextFieldContext";
 
-export type OutlinedInputProps = MUIOutlinedInputProps;
+export type OutlinedInputProps = MUIOutlinedInputProps & {
+  /**
+   * Control the border radius of the input.
+   * @default "sm"
+   */
+  borderRadius?: InputProps["borderRadius"];
+};
 
 function OutlinedInput(props: OutlinedInputProps) {
-  const { filled } = useFormControl();
+  const { borderRadius = "sm", color: colorFromProps, ...rest } = props;
+  const {
+    color,
+    hiddenLabel,
+    inputId,
+    helperTextId,
+    validationTextId,
+    filled,
+  } = useFormControl();
+  const { includesLegendWithLabel } = useTextFieldContext();
+  const notNotched = hiddenLabel || !includesLegendWithLabel;
+  const formField = useFormField();
   const theme = useTheme();
-  const css = getOutlinedInputCss(theme, filled as boolean);
+  const css = getOutlinedInputCss(
+    theme,
+    { ...props, borderRadius },
+    { filled, color: colorFromProps || color, includesLegendWithLabel }
+  );
 
-  return <MUIOutlinedInput css={css} {...props} />;
+  return (
+    <MUIOutlinedInput
+      css={css}
+      name={formField?.name}
+      id={inputId}
+      aria-describedby={
+        formField?.error
+          ? [helperTextId, validationTextId].join(" ")
+          : helperTextId
+      }
+      notched={notNotched ? false : undefined}
+      {...rest}
+    />
+  );
 }
 
 export default OutlinedInput;

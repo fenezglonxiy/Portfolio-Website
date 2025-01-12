@@ -86,6 +86,7 @@ export type TextFieldProps = {
     | "placeholder"
     | "value"
     | "name"
+    | "borderRadius"
     | "autoFocus"
     | "autoComplete"
     | "multiline"
