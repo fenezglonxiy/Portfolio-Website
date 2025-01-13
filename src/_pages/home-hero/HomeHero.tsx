@@ -10,6 +10,7 @@ import { ArrowRight } from "@/_icons";
 import {
   Hero,
   HeroActions,
+  HeroContainer,
   HeroContent,
   HeroHeading,
   HeroProps,
@@ -28,41 +29,43 @@ function HomeHero(props: HomeHeroProps) {
   return (
     <Hero {...props}>
       <HeroContent>
-        <HeroTitle>Hello! I’m Trần Hoàng Đạt.</HeroTitle>
+        <HeroContainer>
+          <HeroTitle>Hello! I’m Trần Hoàng Đạt.</HeroTitle>
 
-        <HeroHeading>
-          Developing{" "}
-          <Typography component="span" variant="inherit" color="neutral-450">
-            web apps
-          </Typography>{" "}
-          with an emphasis on{" "}
-          <Typography component="span" variant="inherit" color="neutral-450">
-            usability, security, and scalability
-          </Typography>
-        </HeroHeading>
+          <HeroHeading>
+            Developing{" "}
+            <Typography component="span" variant="inherit" color="neutral-450">
+              web apps
+            </Typography>{" "}
+            with an emphasis on{" "}
+            <Typography component="span" variant="inherit" color="neutral-450">
+              usability, security, and scalability
+            </Typography>
+          </HeroHeading>
 
-        <div css={css.letsTalk}>
-          <HeroActions>
-            <Button
-              href="/contact"
-              variant="contained"
-              color="primary"
-              shape="pill"
-              size="large"
-              iconPosition="end"
-              icon={<ArrowRight size="md" />}
-            >
-              Let's talk
-            </Button>
-          </HeroActions>
+          <div css={css.letsTalk}>
+            <HeroActions>
+              <Button
+                href="/contact"
+                variant="contained"
+                color="primary"
+                shape="pill"
+                size="large"
+                iconPosition="end"
+                icon={<ArrowRight size="md" />}
+              >
+                Let's talk
+              </Button>
+            </HeroActions>
 
-          <div css={css.strengths}>
-            <HeroSubheading>
-              A developer harnessing the power of discipline, accuracy, and
-              collaboration to deliver solutions.
-            </HeroSubheading>
+            <div css={css.strengths}>
+              <HeroSubheading>
+                A developer harnessing the power of discipline, accuracy, and
+                collaboration to deliver solutions.
+              </HeroSubheading>
+            </div>
           </div>
-        </div>
+        </HeroContainer>
       </HeroContent>
     </Hero>
   );

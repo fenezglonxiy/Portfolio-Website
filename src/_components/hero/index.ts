@@ -2,6 +2,8 @@ export { default as Hero } from "./Hero";
 export { type HeroProps } from "./Hero";
 export { default as HeroActions } from "./HeroActions";
 export { type HeroActionsProps } from "./HeroActions";
+export { default as HeroContainer } from "./HeroContainer";
+export { type HeroContainerProps } from "./HeroContainer";
 export { default as HeroContent } from "./HeroContent";
 export { type HeroContentProps } from "./HeroContent";
 export { default as HeroHeading } from "./HeroHeading";

@@ -1,5 +1,6 @@
 import {
   Hero,
+  HeroContainer,
   HeroContent,
   HeroHeading,
   HeroProps,
@@ -13,17 +14,19 @@ export type InsightsHeroProps = Omit<HeroProps, "children">;
 function InsightsHero(props: InsightsHeroProps) {
   return (
     <Hero {...props}>
-      <HeroContent textAlign="center">
-        <HeroTitle>Insights</HeroTitle>
+      <HeroContent>
+        <HeroContainer textAlign="center">
+          <HeroTitle>Insights</HeroTitle>
 
-        <HeroHeading>
-          A collection of my{" "}
-          <Typography component="span" variant="inherit" color="neutral-450">
-            insights
-          </Typography>
-        </HeroHeading>
+          <HeroHeading>
+            A collection of my{" "}
+            <Typography component="span" variant="inherit" color="neutral-450">
+              insights
+            </Typography>
+          </HeroHeading>
 
-        <HeroSubheading>...</HeroSubheading>
+          <HeroSubheading>...</HeroSubheading>
+        </HeroContainer>
       </HeroContent>
     </Hero>
   );
