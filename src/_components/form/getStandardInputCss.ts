@@ -125,6 +125,16 @@ const getStandardInputColorCss = (
       )};
     `,
 
+    black: css`
+      --input-color: ${theme.palette.slate[600]};
+      --input-border-bottom-color: ${theme.palette.slate[300]};
+      --input-hovered-border-bottom-color: ${theme.palette.slate[600]};
+      --input-focused-border-bottom-color: ${theme.palette.neutral[900]};
+      --input-filled-border-bottom-color: ${theme.palette.slate[600]};
+      --input-disabled-color: ${theme.palette.slate[300]};
+      --input-disabled-border-bottom-color: ${theme.palette.slate[300]};
+    `,
+
     indigo: css`
       --input-color: ${theme.palette.slate[600]};
       --input-border-bottom-color: ${theme.palette.slate[300]};
@@ -169,7 +179,7 @@ const getStandardInputCss = (
   }
 
   &.${inputClasses.underline}::after {
-    border-bottom-color: var(--input-focused-border-bottom-color);
+    border-bottom: 2px solid var(--input-focused-border-bottom-color);
   }
 
   &:hover {
@@ -179,7 +189,7 @@ const getStandardInputCss = (
   }
 
   &.${inputClasses.focused} {
-    &.${inputClasses.underline}::before, &.${inputClasses.underline}::after {
+    &.${inputClasses.underline}::before {
       border-bottom-color: var(--input-focused-border-bottom-color);
     }
   }

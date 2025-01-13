@@ -165,6 +165,18 @@ const getFormLabelColorCss = (
       }
     `,
 
+    black: css`
+      color: ${theme.palette.slate[600]};
+
+      &.${formLabelClasses.disabled} {
+        color: ${theme.palette.slate[300]};
+      }
+
+      &.${formLabelClasses.focused} {
+        color: ${theme.palette.neutral[900]};
+      }
+    `,
+
     indigo: css`
       color: ${theme.palette.slate[600]};
 

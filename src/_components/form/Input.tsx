@@ -13,6 +13,7 @@ import OutlinedInput from "./OutlinedInput";
 
 declare module "@mui/material/InputBase" {
   interface InputBasePropsColorOverrides {
+    black: true;
     indigo: true;
   }
 }

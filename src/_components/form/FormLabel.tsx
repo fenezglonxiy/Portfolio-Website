@@ -103,12 +103,6 @@ const FormLabel = React.forwardRef(function FormLabel(
         aria-hidden
       >
         {children}
-
-        {showOptionalIndicator &&
-          (optionalIndicator ? optionalIndicator : <OptionalIndicator />)}
-
-        {showRequiredIndicator &&
-          (requiredIndicator ? requiredIndicator : <RequiredIndicator />)}
       </label>
     );
   }

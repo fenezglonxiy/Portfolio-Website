@@ -9,6 +9,7 @@ import useFormField from "./useFormField";
 
 declare module "@mui/material/FormControl" {
   interface FormControlPropsColorOverrides {
+    black: true;
     indigo: true;
   }
 }
@@ -64,6 +65,7 @@ export type FormControlBaseProps = {
     | "warning"
     | "error"
     | "success"
+    | "black"
     | "indigo";
 };
 

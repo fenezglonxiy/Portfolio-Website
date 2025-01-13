@@ -107,9 +107,25 @@ const getOutlinedInputColorCss = (
       --input-disabled-border-color: ${alpha(theme.palette.common.black, 0.26)};
     `,
 
+    black: css`
+      --input-color: ${alpha(theme.palette.neutral[900], 0.87)};
+      --input-background-color: transparent;
+      --input-border-color: ${alpha(theme.palette.neutral[900], 0.23)};
+      --input-filled-border-color: ${alpha(theme.palette.neutral[900], 0.23)};
+      --input-hovered-border-color: ${alpha(theme.palette.neutral[900], 0.87)};
+      --input-focused-border-color: ${theme.palette.neutral[900]};
+      --input-focused-box-shadow-color: ${alpha(
+        theme.palette.neutral[900],
+        0.25
+      )};
+      --input-disabled-color: ${alpha(theme.palette.neutral[900], 0.38)};
+      --input-disabled-background-color: transparent;
+      --input-disabled-border-color: ${alpha(theme.palette.neutral[900], 0.26)};
+    `,
+
     indigo: css`
       --input-color: ${theme.palette.slate[600]};
-      --input-background-color: ${theme.palette.common.white};
+      --input-background-color: transparent;
       --input-border-color: ${theme.palette.slate[300]};
       --input-filled-border-color: ${theme.palette.slate[600]};
       --input-hovered-border-color: ${theme.palette.slate[400]};

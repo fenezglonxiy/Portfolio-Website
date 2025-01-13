@@ -143,6 +143,28 @@ const getFilledInputColorCss = (
       )};
     `,
 
+    black: css`
+      --input-color: ${alpha(theme.palette.neutral[900], 0.87)};
+      --input-background-color: ${alpha(theme.palette.neutral[900], 0.06)};
+      --input-filled-background-color: ${alpha(
+        theme.palette.neutral[900],
+        0.06
+      )};
+      --input-hovered-background-color: ${alpha(
+        theme.palette.neutral[900],
+        0.09
+      )};
+      --input-focused-background-color: ${alpha(
+        theme.palette.neutral[900],
+        0.06
+      )};
+      --input-disabled-color: ${alpha(theme.palette.neutral[900], 0.38)};
+      --input-disabled-background-color: ${alpha(
+        theme.palette.neutral[900],
+        0.12
+      )};
+    `,
+
     indigo: css`
       --input-color: ${theme.palette.common.white};
       --input-background-color: ${theme.palette.slate[300]};
