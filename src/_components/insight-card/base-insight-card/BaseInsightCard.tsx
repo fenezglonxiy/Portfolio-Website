@@ -1,35 +1,52 @@
-import { Card } from "@/_components/Card";
+/** @jsxImportSource @emotion/react */
 
-import BaseInsightCardContent from "./BaseInsightCardContent";
-import BaseInsightCardMedia from "./BaseInsightCardMedia";
-import { InsightCardDetails } from "../types";
+"use client";
+
+import { Card } from "@/_components/Card";
+import { useTheme } from "@mui/material";
+
+import getBaseInsightCardCss from "./getBaseInsightCardCss";
+import InsightReadTime from "../InsightReadTime";
+import InsightCardMedia from "../InsightCardMedia";
+import InsightCardContent from "../InsightCardContent";
 import InsightTitle from "../InsightTitle";
 import InsightSummary from "../InsightSummary";
+import InsightCardChip from "../InsightCardChip";
+import InsightCardChipBox from "../InsightCardChipBox";
+import { InsightCardDetails } from "../types";
 
-export type BaseInsightCardProps = React.ComponentPropsWithoutRef<"div"> &
-  InsightCardDetails;
+export type BaseInsightCardProps = Omit<
+  React.ComponentPropsWithoutRef<"div">,
+  "children" | "color"
+> &
+  Pick<
+    InsightCardDetails,
+    "href" | "thumbnailSrc" | "title" | "summary" | "readTime" | "topic"
+  >;
 
 function BaseInsightCard(props: BaseInsightCardProps) {
-  const {
-    href,
-    thumbnailSrc,
-    title,
-    summary,
-    publishedDate: _,
-    ...rest
-  } = props;
+  const { href, thumbnailSrc, title, summary, readTime, topic, ...rest } =
+    props;
+  const theme = useTheme();
+  const css = getBaseInsightCardCss(theme);
 
   return (
-    <Card variant="fill" {...rest}>
-      <BaseInsightCardMedia component="img" src={thumbnailSrc} />
+    <Card css={css} variant="fill" inverted {...rest}>
+      <InsightCardMedia variant="base" component="img" src={thumbnailSrc} />
 
-      <BaseInsightCardContent>
-        <InsightTitle href={href} variant="base">
+      <InsightReadTime>{`${readTime} read`}</InsightReadTime>
+
+      <InsightCardContent variant="base">
+        <InsightCardChipBox variant="base">
+          <InsightCardChip variant="base" label={topic} />
+        </InsightCardChipBox>
+
+        <InsightTitle variant="base" href="/">
           {title}
         </InsightTitle>
 
         <InsightSummary>{summary}</InsightSummary>
-      </BaseInsightCardContent>
+      </InsightCardContent>
     </Card>
   );
 }

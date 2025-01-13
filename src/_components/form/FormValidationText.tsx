@@ -10,8 +10,12 @@ import { Typography, TypographyProps } from "@/_components/Typography";
 
 import useFormField from "./useFormField";
 import getValidationTextCss from "./getFormValidationTextCss";
+import useFormControl from "./useFormControl";
 
-export type FormValidationTextProps = React.ComponentPropsWithoutRef<"div"> & {
+export type FormValidationTextProps = Omit<
+  React.ComponentPropsWithoutRef<"div">,
+  "color"
+> & {
   /**
    * Control the variant of the typography.
    * @default "body2"
@@ -36,14 +40,15 @@ const FormValidationText = React.forwardRef(function FormValidationText(
 ) {
   const {
     variant = "caption",
-    color: _,
     fontWeight = "regular",
     children,
     ...rest
   } = props;
-  const { error, validationTextId } = useFormField();
-  const body = error ? error.message : children;
-  const component = error ? "p" : "div";
+  const { validationTextId } = useFormControl();
+  const formField = useFormField();
+  const hasError = !!formField?.error;
+  const body = hasError ? formField?.error?.message : children;
+  const component = hasError ? "p" : "div";
 
   if (!body) {
     return null;
@@ -63,7 +68,7 @@ const FormValidationText = React.forwardRef(function FormValidationText(
       {...rest}
       aria-hidden
     >
-      {error && (
+      {hasError && (
         <span css={css.errorIcon}>
           <ErrorIcon fontSize="inherit" />
         </span>

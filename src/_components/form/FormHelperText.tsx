@@ -2,7 +2,7 @@ import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
 import { FormHelperText as MUIFormHelperText } from "@mui/material";
 
-import useFormField from "./useFormField";
+import useFormControl from "./useFormControl";
 
 type FormHelperTextBaseProps = {};
 
@@ -19,7 +19,7 @@ const FormHelperText = React.forwardRef(function (
   props: FormHelperTextProps,
   ref: React.Ref<HTMLDivElement>
 ) {
-  const { helperTextId } = useFormField();
+  const { helperTextId } = useFormControl();
 
   return <MUIFormHelperText ref={ref} {...props} id={helperTextId} />;
 });

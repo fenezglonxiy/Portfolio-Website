@@ -1,6 +1,6 @@
 import { Url } from "next/dist/shared/lib/router/router";
 
-export type InsightCardVariant = "sub" | "base" | "main";
+export type InsightCardVariant = "home" | "sub" | "base" | "main";
 
 export type InsightCardDetails = {
   /**
@@ -24,7 +24,22 @@ export type InsightCardDetails = {
   summary: string;
 
   /**
-   * The published date of the insight.
+   * The time needed to read the insight.
    */
-  publishedDate: moment.Moment;
+  readTime: string;
+
+  /**
+   * The publish date of the insight.
+   */
+  publishDate: moment.Moment;
+
+  /**
+   * The subject that the insight discusses.
+   */
+  topic: string;
+
+  /**
+   * The labels that are attached to the insight.
+   */
+  tags: string[];
 };

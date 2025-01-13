@@ -1,4 +1,4 @@
-import { css, Theme } from "@mui/material";
+import { buttonClasses, css, Theme } from "@mui/material";
 import { SerializedStyles } from "@emotion/react";
 
 import { ButtonProps } from "./Button";
@@ -13,7 +13,8 @@ const getButtonVariantCss = (variant: ButtonProps["variant"]) => {
       color: var(--button-color);
 
       &:hover,
-      &:focus {
+      &:focus,
+      &[aria-current="page"] {
         background-color: var(
           --button-hover-background-color,
           var(--button-background-color)
@@ -27,28 +28,30 @@ const getButtonVariantCss = (variant: ButtonProps["variant"]) => {
       border-style: solid;
       border-color: var(--button-border-color);
       color: var(--button-color);
+      transition: opacity 0.2s;
 
       &:hover,
-      &:focus {
+      &:focus,
+      &[aria-current="page"] {
         border-color: var(
           --button-hover-border-color,
           var(--button-border-color)
         );
-        color: var(--button-hover-color, var(--button-color));
         background-color: transparent;
+        &:hover,
+        &:focus {
+          opacity: 0.6;
+        }
       }
     `,
 
-    ghost: css`
-      border-width: 1px;
-      border-style: solid;
-      border-color: var(--button-border-color);
+    text: css`
       color: var(--button-color);
 
       &:hover,
-      &:focus {
-        color: var(--button-border-color);
-        border-color: var(--button-color);
+      &:focus,
+      &[aria-current="page"] {
+        background-color: var(--button-hover-background-color);
       }
     `,
   };
@@ -61,14 +64,21 @@ const getButtonSizeCss = (theme: Theme, size: ButtonProps["size"]) => {
     NonNullable<ButtonProps["size"]>,
     SerializedStyles
   > = {
-    sm: css`
+    small: css`
+      min-width: 40px;
+      padding: ${theme.spacing(2)};
+      ${theme.typography.body1}
+      font-weight: ${theme.typography.fontWeightSemibold};
+    `,
+
+    medium: css`
       min-width: 64px;
       padding: ${theme.spacing(3)} ${theme.spacing(6)};
       ${theme.typography.body2Medium};
       font-weight: ${theme.typography.fontWeightSemibold};
     `,
 
-    md: css`
+    large: css`
       min-width: auto;
       padding: ${theme.spacing(6)} ${theme.spacing(12)};
       ${theme.typography.body1Medium};
@@ -102,33 +112,71 @@ const getButtonColorCss = (
         --button-hover-background-color: ${theme.palette.neutral[400]};
         --button-hover-color: ${theme.palette.neutral[650]};
       `,
+
+      white: css`
+        --button-background-color: ${theme.palette.common.white};
+        --button-color: ${theme.palette.neutral[800]};
+        --button-hover-background-color: ${theme.palette.neutral[200]};
+        --button-hover-color: ${theme.palette.neutral[650]};
+      `,
+
+      indigo: css`
+        --button-background-color: ${theme.palette.indigo[600]};
+        --button-color: ${theme.palette.common.white};
+        --button-hover-background-color: ${theme.palette.indigo[700]};
+      `,
+
+      slate: css`
+        --button-background-color: ${theme.palette.slate[600]};
+        --button-color: ${theme.palette.common.white};
+        --button-hover-background-color: ${theme.palette.slate[700]};
+      `,
     },
 
     outlined: {
       primary: css`
-        --button-border-color: ${theme.palette.neutral[400]};
-        --button-color: ${theme.palette.neutral[800]};
-        --button-hover-color: ${theme.palette.neutral[500]};
+        --button-border-color: ${theme.palette.neutral[900]};
+        --button-color: ${theme.palette.neutral[900]};
       `,
 
+      // --button-hover-color: ${theme.palette.neutral[500]};
       secondary: css`
+        --button-border-color: ${theme.palette.neutral[400]};
+        --button-color: ${theme.palette.neutral[800]};
+      `,
+
+      white: css`
         --button-border-color: ${theme.palette.common.white};
         --button-color: ${theme.palette.common.white};
+      `,
 
-        &:hover,
-        &:focus {
-          opacity: 0.6;
-        }
+      indigo: css`
+        --button-border-color: ${theme.palette.indigo[600]};
+        --button-color: ${theme.palette.indigo[600]};
+      `,
+
+      slate: css`
+        --button-border-color: ${theme.palette.slate[600]};
+        --button-color: ${theme.palette.slate[600]};
       `,
     },
 
-    ghost: {
-      primary: css`
-        --button-border-color: ${theme.palette.neutral[400]};
-        --button-color: ${theme.palette.neutral[800]};
-      `,
+    text: {
+      primary: css``,
 
       secondary: css``,
+
+      white: css``,
+
+      indigo: css`
+        --button-color: ${theme.palette.indigo[600]};
+        --button-hover-background-color: ${theme.palette.indigo[50]};
+      `,
+
+      slate: css`
+        --button-color: ${theme.palette.slate[600]};
+        --button-hover-background-color: ${theme.palette.slate[100]};
+      `,
     },
   };
 
@@ -169,6 +217,14 @@ const getButtonCss = (theme: Theme, props: ButtonProps) => css`
   css`
     width: 100%;
   `};
+
+  & .${buttonClasses.endIcon} > *:nth-of-type(1) {
+    font-size: unset;
+  }
+
+  & i {
+    color: inherit;
+  }
 `;
 
 export default getButtonCss;

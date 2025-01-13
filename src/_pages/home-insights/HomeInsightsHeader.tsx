@@ -24,7 +24,7 @@ function HomeInsightsHeader(props: HomeInsightsHeaderProps) {
       </div>
 
       <div>
-        <Button href="/insights" variant="outlined" size="md">
+        <Button href="/insights" variant="outlined" size="large">
           View All Insights
         </Button>
       </div>

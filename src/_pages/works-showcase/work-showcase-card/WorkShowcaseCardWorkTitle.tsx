@@ -1,12 +1,12 @@
 import { Typography } from "@/_components/Typography";
 
-export type WorkShowcaseCardWorkTitleProps =
-  React.ComponentPropsWithoutRef<"h4">;
+export type WorkShowcaseCardWorkTitleProps = Omit<
+  React.ComponentPropsWithoutRef<"h4">,
+  "color"
+>;
 
 function WorkShowcaseCardWorkTitle(props: WorkShowcaseCardWorkTitleProps) {
-  const { color: _, ...rest } = props;
-
-  return <Typography variant="h4" {...rest} />;
+  return <Typography variant="h4" {...props} />;
 }
 
 export default WorkShowcaseCardWorkTitle;

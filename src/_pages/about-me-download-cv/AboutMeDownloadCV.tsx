@@ -27,7 +27,7 @@ function AboutMeDownloadCV(props: AboutMeDownloadCVProps) {
         <Button
           variant="outlined"
           color="primary"
-          size="md"
+          size="large"
           icon={<Download size="lg" />}
           iconPosition="start"
         >

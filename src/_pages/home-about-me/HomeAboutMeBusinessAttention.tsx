@@ -36,7 +36,7 @@ function HomeAboutMeBusinessAttention(
       <div>
         <Button
           href="/about-me"
-          size="md"
+          size="large"
           shape="pill"
           iconPosition="end"
           icon={<ArrowRight size="md" />}

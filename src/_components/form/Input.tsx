@@ -2,15 +2,21 @@
 
 "use client";
 
-import {
-  InputBaseComponentProps,
-  Input as MUIInput,
-  useTheme,
-} from "@mui/material";
+import { InputBaseComponentProps, useTheme } from "@mui/material";
 import React from "react";
+import { ThemeOptions } from "@mui/material/styles";
 
-import useFormField from "./useFormField";
-import getInputCss from "./getInputCss";
+import FilledInput from "./FilledInput";
+import useFormControl from "./useFormControl";
+import StandardInput from "./StandardInput";
+import OutlinedInput from "./OutlinedInput";
+
+declare module "@mui/material/InputBase" {
+  interface InputBasePropsColorOverrides {
+    black: true;
+    indigo: true;
+  }
+}
 
 export type InputProps = {
   /**
@@ -23,6 +29,15 @@ export type InputProps = {
    * Control whether the input should be focused during first mount.
    */
   autoFocus?: boolean;
+
+  /**
+   * Control the border radius of the input.
+   * @default "sm"
+   */
+  borderRadius?: keyof Pick<
+    NonNullable<ThemeOptions["shape"]>,
+    "none" | "sm" | "md" | "lg" | "pill"
+  >;
 
   /**
    * Control the input default value.
@@ -179,23 +194,24 @@ const Input = React.forwardRef(function Input(
   props: InputProps,
   ref: React.Ref<HTMLInputElement>
 ) {
-  const { onFocus, ...rest } = props;
-  const { name, id, helperTextId, validationTextId, error } = useFormField();
-  const theme = useTheme();
-  const css = getInputCss(theme);
+  const { borderRadius = "sm", ...rest } = props;
+  const { variant, color } = useFormControl();
+  const componentProps = {
+    ref,
+    color,
+    label: props.inputProps?.["aria-label"],
+    ...rest,
+  };
 
-  return (
-    <MUIInput
-      ref={ref}
-      name={name}
-      id={id}
-      aria-describedby={
-        error ? [helperTextId, validationTextId].join(" ") : helperTextId
-      }
-      css={css}
-      {...rest}
-    />
-  );
+  if (variant === "outlined") {
+    return <OutlinedInput borderRadius={borderRadius} {...componentProps} />;
+  }
+
+  if (variant === "filled") {
+    return <FilledInput borderRadius={borderRadius} {...componentProps} />;
+  }
+
+  return <StandardInput {...componentProps} />;
 });
 
 Input.displayName = "Input";

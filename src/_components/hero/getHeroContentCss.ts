@@ -1,4 +1,4 @@
-import { css, Theme } from "@mui/material";
+import { alpha, css, Theme } from "@mui/material";
 
 import { HeroContentProps } from "./HeroContent";
 
@@ -9,6 +9,7 @@ const getHeroContentCss = (theme: Theme, props: HeroContentProps) => css`
     props.verticalSpacing as NonNullable<number>
   )};
   padding: ${theme.spacing(20)} ${theme.spacing(18)} ${theme.spacing(35)};
+  text-align: ${props.textAlign};
 `;
 
 export default getHeroContentCss;

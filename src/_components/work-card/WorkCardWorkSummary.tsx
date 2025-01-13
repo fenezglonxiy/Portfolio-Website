@@ -2,12 +2,13 @@ import React from "react";
 
 import { Typography } from "@/_components/Typography";
 
-export type WorkCardWorkSummaryProps = React.ComponentPropsWithoutRef<"p">;
+export type WorkCardWorkSummaryProps = Omit<
+  React.ComponentPropsWithoutRef<"p">,
+  "color"
+>;
 
 function WorkCardWorkSummary(props: WorkCardWorkSummaryProps) {
-  const { color: _, ...rest } = props;
-
-  return <Typography color="neutral-550" {...rest} />;
+  return <Typography color="neutral-550" {...props} />;
 }
 
 export default WorkCardWorkSummary;

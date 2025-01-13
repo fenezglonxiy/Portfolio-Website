@@ -11,14 +11,24 @@ const getInsightTitleVariantCss = (
     NonNullable<InsightTitleProps["variant"]>,
     SerializedStyles
   > = {
-    main: css`
-      ${theme.typography.h3};
+    home: css`
+      ${theme.typography.subtitle2};
       font-weight: ${theme.typography.fontWeightSemibold};
+      -webkit-line-clamp: 3;
+    `,
+
+    main: css`
+      ${theme.typography.h6};
+      color: ${theme.palette.common.white};
+
+      &:hover,
+      &:focus {
+        color: ${theme.palette.neutral[400]};
+      }
     `,
 
     base: css`
       ${theme.typography.subtitle2};
-      font-weight: ${theme.typography.fontWeightSemibold};
     `,
 
     sub: css`
@@ -31,12 +41,14 @@ const getInsightTitleVariantCss = (
 };
 
 const getInsightTitleCss = (theme: Theme, props: InsightTitleProps) => css`
-  ${getInsightTitleVariantCss(theme, props.variant)};
+  width: fit-content;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  ${getInsightTitleVariantCss(theme, props.variant)};
+  font-weight: ${theme.typography.fontWeightBold};
 `;
 
 export default getInsightTitleCss;

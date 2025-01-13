@@ -71,12 +71,7 @@ function Footer(props: FooterProps) {
             </div>
 
             <div>
-              <Button
-                href="/contact"
-                variant="contained"
-                color="secondary"
-                size="sm"
-              >
+              <Button href="/contact" variant="contained" color="secondary">
                 Talk With Me
               </Button>
             </div>

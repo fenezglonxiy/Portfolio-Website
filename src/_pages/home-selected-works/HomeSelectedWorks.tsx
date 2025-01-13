@@ -3,7 +3,7 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import moment from "moment";
+import { workCard } from "@/dummyData";
 
 import getHomeSelectedWorksCss from "./getHomeSelectedWorksCss";
 import HomeSelectedWorksContent from "./HomeSelectedWorksContent";
@@ -15,49 +15,6 @@ export type HomeSelectedWorksProps = Omit<
   "children"
 >;
 
-const works = [
-  {
-    thumbnailSrc: "card-thumbnail.png",
-    workTitle: "Struktura",
-    workBusinessSectors: ["Construction", "Test"],
-    workStartDate: moment(),
-    workDuration: moment.duration(2, "month"),
-    workSummary:
-      "This exploration centers on crafting an engaging layout, selecting an appealing color palette, and utilizing captivating imagery to enhance the overall user experience",
-    workDetailsHref: "/",
-  },
-  {
-    thumbnailSrc: "card-thumbnail.png",
-    workTitle: "Struktura",
-    workBusinessSectors: ["Construction", "Test"],
-    workStartDate: moment(),
-    workDuration: moment.duration(2, "month"),
-    workSummary:
-      "This exploration centers on crafting an engaging layout, selecting an appealing color palette, and utilizing captivating imagery to enhance the overall user experience",
-    workDetailsHref: "/",
-  },
-  {
-    thumbnailSrc: "card-thumbnail.png",
-    workTitle: "Struktura",
-    workBusinessSectors: ["Construction", "Test"],
-    workStartDate: moment(),
-    workDuration: moment.duration(2, "month"),
-    workSummary:
-      "This exploration centers on crafting an engaging layout, selecting an appealing color palette, and utilizing captivating imagery to enhance the overall user experience",
-    workDetailsHref: "/",
-  },
-  {
-    thumbnailSrc: "card-thumbnail.png",
-    workTitle: "Struktura",
-    workBusinessSectors: ["Construction", "Test"],
-    workStartDate: moment(),
-    workDuration: moment.duration(2, "month"),
-    workSummary:
-      "This exploration centers on crafting an engaging layout, selecting an appealing color palette, and utilizing captivating imagery to enhance the overall user experience",
-    workDetailsHref: "/",
-  },
-];
-
 function HomeSelectedWorks(props: HomeSelectedWorksProps) {
   const theme = useTheme();
   const css = getHomeSelectedWorksCss(theme);
@@ -67,7 +24,7 @@ function HomeSelectedWorks(props: HomeSelectedWorksProps) {
       <HomeSelectedWorksContent>
         <HomeSelectedWorksHeader />
 
-        <HomeSelectedWorksShowcase works={works} />
+        <HomeSelectedWorksShowcase works={Array(4).fill(workCard)} />
       </HomeSelectedWorksContent>
     </section>
   );

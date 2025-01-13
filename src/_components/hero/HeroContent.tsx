@@ -17,6 +17,12 @@ type HeroContentBaseProps = {
    * @default 4
    */
   verticalSpacing?: number;
+
+  /**
+   * Control the `text-align` CSS attribute value.
+   * @default "left"
+   */
+  textAlign?: "left" | "center" | "right";
 };
 
 export interface HeroContentTypeMap<D extends React.ElementType = "div"> {
@@ -32,7 +38,7 @@ const HeroContent = React.forwardRef(function HeroContent(
   props: HeroContentProps,
   ref: React.Ref<HTMLDivElement>
 ) {
-  const { className, verticalSpacing = 4, ...rest } = props;
+  const { className, verticalSpacing = 4, textAlign = "left", ...rest } = props;
   const theme = useTheme();
   const css = getHeroContentCss(theme, { ...props, verticalSpacing });
 

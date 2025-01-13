@@ -48,7 +48,7 @@ function HomeHero(props: HomeHeroProps) {
               variant="contained"
               color="primary"
               shape="pill"
-              size="md"
+              size="large"
               iconPosition="end"
               icon={<ArrowRight size="md" />}
             >

@@ -54,7 +54,7 @@ function AboutMeHero(props: AboutMeHeroProps) {
             <HeroActions css={css.actions}>
               <Button
                 href="/contact"
-                size="md"
+                size="large"
                 shape="pill"
                 icon={<ArrowRight size="md" />}
                 iconPosition="end"

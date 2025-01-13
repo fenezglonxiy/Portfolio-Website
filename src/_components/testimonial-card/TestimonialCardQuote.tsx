@@ -4,12 +4,15 @@ import { Typography } from "@/_components/Typography";
 
 export type TestimonialQuote = string;
 
-export type TestimonialCardQuoteProps = React.ComponentPropsWithoutRef<"p"> & {
+export type TestimonialCardQuoteProps = Omit<
+  React.ComponentPropsWithoutRef<"p">,
+  "color"
+> & {
   children: TestimonialQuote;
 };
 
 function TestimonialCardQuote(props: TestimonialCardQuoteProps) {
-  const { children, color: _, ...rest } = props;
+  const { children, ...rest } = props;
 
   return (
     <Typography

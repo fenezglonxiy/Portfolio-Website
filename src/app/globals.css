@@ -33,6 +33,7 @@ html {
 
 /* Set core body defaults */
 body {
+  --body-background-color: white;
   text-rendering: optimizeSpeed;
   min-height: 100vh;
   color: #111111;
@@ -83,4 +84,17 @@ video {
 
 .flow-spacer-y > *:not(:first-child) {
   margin-top: var(--flow-spacing-y, 0.5rem);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  text-wrap: nowrap !important;
 }

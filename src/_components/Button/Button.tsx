@@ -11,8 +11,10 @@ import { Url } from "next/dist/shared/lib/router/router";
 import getButtonCss from "./getButtonCss";
 
 declare module "@mui/material/Button" {
-  interface ButtonPropsVariantOverrides {
-    ghost: true;
+  interface ButtonPropsColorOverrides {
+    white: true;
+    indigo: true;
+    slate: true;
   }
 }
 
@@ -33,19 +35,19 @@ type ButtonBaseProps = {
    * Control the variant.
    * @default "contained"
    */
-  variant?: "contained" | "outlined" | "ghost";
+  variant?: "contained" | "outlined" | "text";
 
   /**
    * Control the color matching with the variant.
    * It supports the relevant theme colors for this component.
    */
-  color?: "primary" | "secondary";
+  color?: "primary" | "secondary" | "white" | "indigo" | "slate";
 
   /**
    * Control the size.
-   * @default "sm"
+   * @default "medium"
    */
-  size?: "sm" | "md";
+  size?: "small" | "medium" | "large";
 
   /**
    * Control the shape.
@@ -81,7 +83,7 @@ const Button = React.forwardRef(function Button(
   const {
     icon,
     iconPosition = "start",
-    size = "sm",
+    size = "medium",
     color = "primary",
     variant = "contained",
     fullWidth = false,
@@ -99,11 +101,11 @@ const Button = React.forwardRef(function Button(
     shape,
   });
 
-  const Button = (
+  const button = (
     <MUIButton
       ref={ref}
-      variant={variant}
       css={css}
+      variant={variant}
       startIcon={icon && iconPosition === "start" ? icon : undefined}
       endIcon={icon && iconPosition === "end" ? icon : undefined}
       disableElevation
@@ -112,13 +114,15 @@ const Button = React.forwardRef(function Button(
     />
   );
 
-  return href ? (
-    <Link href={href} passHref legacyBehavior>
-      {Button}
-    </Link>
-  ) : (
-    Button
-  );
+  if (href) {
+    return (
+      <Link href={href} passHref legacyBehavior>
+        {button}
+      </Link>
+    );
+  }
+
+  return button;
 });
 
 Button.displayName = "Button";

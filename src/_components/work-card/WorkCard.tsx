@@ -92,12 +92,7 @@ function WorkCard(props: WorkCardProps) {
         </WorkCardWorkOverview>
 
         <WorkCardActions>
-          <Button
-            href={workDetailsHref}
-            variant="contained"
-            color="primary"
-            size="sm"
-          >
+          <Button href={workDetailsHref} variant="contained" color="primary">
             View Details Work
           </Button>
         </WorkCardActions>

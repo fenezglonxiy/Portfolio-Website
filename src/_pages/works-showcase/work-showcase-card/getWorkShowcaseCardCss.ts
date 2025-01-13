@@ -1,7 +1,7 @@
 import { css } from "@mui/material";
 
 const getWorkShowcaseCardCss = () => css`
-  background-color: inherit;
+  --card-background-color: inherit;
 `;
 
 export default getWorkShowcaseCardCss;
