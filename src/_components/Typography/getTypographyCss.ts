@@ -10,7 +10,6 @@ const getTypographyColorCss = (
     NonNullable<TypographyProps["color"]>,
     string
   > = {
-    inherit: "inherit",
     "neutral-100": theme.palette.neutral[100],
     "neutral-200": theme.palette.neutral[200],
     "neutral-250": theme.palette.neutral[250],
@@ -27,7 +26,29 @@ const getTypographyColorCss = (
     "neutral-800": theme.palette.neutral[800],
     "neutral-850": theme.palette.neutral[850],
     "neutral-900": theme.palette.neutral[900],
+    "slate-50": theme.palette.slate[50],
+    "slate-100": theme.palette.slate[100],
+    "slate-200": theme.palette.slate[200],
+    "slate-300": theme.palette.slate[300],
+    "slate-400": theme.palette.slate[400],
+    "slate-500": theme.palette.slate[500],
+    "slate-600": theme.palette.slate[600],
+    "slate-700": theme.palette.slate[700],
+    "slate-800": theme.palette.slate[800],
+    "slate-900": theme.palette.slate[900],
+    "indigo-50": theme.palette.indigo[50],
+    "indigo-100": theme.palette.indigo[100],
+    "indigo-200": theme.palette.indigo[200],
+    "indigo-300": theme.palette.indigo[300],
+    "indigo-400": theme.palette.indigo[400],
+    "indigo-500": theme.palette.indigo[500],
+    "indigo-600": theme.palette.indigo[600],
+    "indigo-700": theme.palette.indigo[700],
+    "indigo-800": theme.palette.indigo[800],
+    "indigo-900": theme.palette.indigo[900],
+    white: theme.palette.common.white,
     error: theme.palette.error.main,
+    inherit: "inherit",
   };
 
   return css`

@@ -1,3 +1,4 @@
+import { ThemeOptions } from "@mui/material/styles";
 import { Url } from "next/dist/shared/lib/router/router";
 
 type NavItem = {
@@ -49,3 +50,10 @@ type Achievement = {
    */
   referenceHref?: string;
 };
+
+type Shape = keyof NonNullable<ThemeOptions["shape"]>;
+
+type BorderRadius =
+  | keyof Omit<NonNullable<ThemeOptions["shape"]>, "pill" | "circle">
+  | "match-parent"
+  | "inherit";

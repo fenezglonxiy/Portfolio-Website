@@ -27,7 +27,7 @@ const Tabs = React.forwardRef(function Tabs(
 ) {
   const { value, children, id: idFromProps, ...rest } = props;
   const id = useId(idFromProps);
-  const tabsId = idFromProps ? idFromProps : `${id}-tabs`;
+  const tabsId = idFromProps ? idFromProps : id;
 
   return (
     <div ref={ref} id={tabsId} {...rest}>

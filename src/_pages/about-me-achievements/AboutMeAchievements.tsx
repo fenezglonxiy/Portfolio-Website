@@ -1,8 +1,6 @@
 "use client";
 
-import moment from "moment";
-
-import { Achievement } from "@/types";
+import { awardTimelineItem, workExperienceTimelineItem } from "@/dummyData";
 
 import AboutMeAchievementsContent from "./AboutMeAchievementsContent";
 import WorkExperience from "./WorkExperience";
@@ -13,70 +11,15 @@ export type AboutMeAchievementsProps =
     children?: undefined | null;
   };
 
-const workExperience: Achievement[] = [
-  {
-    svgHref: "google.svg#google",
-    svgWidth: 24,
-    svgHeight: 24,
-    title: "Web developer at Google",
-    date: moment("202402", "YYYYMM"),
-    duration: moment.duration(moment().diff(moment("202402", "YYYYMM"))),
-    referenceHref: "/",
-  },
-  {
-    svgHref: "google.svg#google",
-    svgWidth: 24,
-    svgHeight: 24,
-    title: "Web developer at Google",
-    date: moment("202402", "YYYYMM"),
-    duration: moment.duration(moment().diff(moment("202402", "YYYYMM"))),
-    referenceHref: "/",
-  },
-  {
-    svgHref: "google.svg#google",
-    svgWidth: 24,
-    svgHeight: 24,
-    title: "Web developer at Google",
-    date: moment("202402", "YYYYMM"),
-    duration: moment.duration(moment().diff(moment("202402", "YYYYMM"))),
-    referenceHref: "/",
-  },
-];
-
-const awards: Achievement[] = [
-  {
-    svgHref: "google.svg#google",
-    svgWidth: 24,
-    svgHeight: 24,
-    title: "Web developer at Google",
-    date: moment("202402", "YYYYMM"),
-    referenceHref: "/",
-  },
-  {
-    svgHref: "google.svg#google",
-    svgWidth: 24,
-    svgHeight: 24,
-    title: "Web developer at Google",
-    date: moment("202402", "YYYYMM"),
-    referenceHref: "/",
-  },
-  {
-    svgHref: "google.svg#google",
-    svgWidth: 24,
-    svgHeight: 24,
-    title: "Web developer at Google",
-    date: moment("202402", "YYYYMM"),
-    referenceHref: "/",
-  },
-];
-
 function AboutMeAchievements(props: AboutMeAchievementsProps) {
   return (
     <section {...props}>
       <AboutMeAchievementsContent>
-        <WorkExperience workExperience={workExperience} />
+        <WorkExperience
+          workExperience={Array(3).fill(workExperienceTimelineItem)}
+        />
 
-        <Awards awards={awards} />
+        <Awards awards={Array(3).fill(awardTimelineItem)} />
       </AboutMeAchievementsContent>
     </section>
   );

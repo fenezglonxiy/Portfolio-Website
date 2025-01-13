@@ -4,37 +4,11 @@
 
 import { useTheme } from "@mui/material";
 
+import { testimonialCard } from "@/dummyData";
 import { TestimonialCarousel } from "@/_components/testimonial-carousel";
 
 import WorksTestimonialsContent from "./WorksTestimonialsContent";
 import getWorksTestimonialsCss from "./getWorksTestimonialsCss";
-
-const testimonials = [
-  {
-    quote:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    endorserName: "Richard Jonas",
-    endorserTitle: "CEO",
-    endorserOrganization: "Teamwork",
-    endorserOrganizationLogoSrc: "/teamwork.png",
-  },
-  {
-    quote:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    endorserName: "Richard Jonas",
-    endorserTitle: "CEO",
-    endorserOrganization: "Teamwork",
-    endorserOrganizationLogoSrc: "/teamwork.png",
-  },
-  {
-    quote:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    endorserName: "Richard Jonas",
-    endorserTitle: "CEO",
-    endorserOrganization: "Teamwork",
-    endorserOrganizationLogoSrc: "/teamwork.png",
-  },
-];
 
 export type WorksTestimonialsProps =
   React.ComponentPropsWithoutRef<"section"> & {
@@ -48,7 +22,7 @@ function WorksTestimonials(props: WorksTestimonialsProps) {
   return (
     <section css={css} {...props}>
       <WorksTestimonialsContent>
-        <TestimonialCarousel testimonials={testimonials} />
+        <TestimonialCarousel testimonials={Array(3).fill(testimonialCard)} />
       </WorksTestimonialsContent>
     </section>
   );

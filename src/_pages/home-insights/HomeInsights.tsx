@@ -13,33 +13,17 @@ export type HomeInsightsProps = Omit<
   "children"
 >;
 
-const insightCards = [
-  {
-    href: "/",
-    thumbnailSrc: "/insight-card-thumbnail.png",
-    title:
-      "The Power of Typography in Visual Design: Enhancing Communication and Impact",
-    summary:
-      "Dive into the fascinating world of color theory and learn how to create captivating visual designs by",
-    publishedDate: moment(),
-  },
-  {
-    href: "/",
-    thumbnailSrc: "/insight-card-thumbnail.png",
-    title: "Mastering the Art of Color Theory: A Visual Designer's Guide",
-    summary:
-      "Dive into the fascinating world of color theory and learn how to create captivating visual designs by understanding the principles of color harmonies, psychology, and combinations.",
-    publishedDate: moment(),
-  },
-  {
-    href: "/",
-    thumbnailSrc: "/insight-card-thumbnail.png",
-    title: "Mastering the Art of Color Theory: A Visual Designer's Guide",
-    summary:
-      "Dive into the fascinating world of color theory and learn how to create captivating visual designs by understanding the principles of color harmonies, psychology, and combinations.",
-    publishedDate: moment(),
-  },
-];
+const insightCard = {
+  href: "/",
+  topic: "Test",
+  tags: ["Test"],
+  thumbnailSrc: "/insight-card-thumbnail.png",
+  title:
+    "The Power of Typography in Visual Design: Enhancing Communication and Impact",
+  summary:
+    "Dive into the fascinating world of color theory and learn how to create captivating visual designs by",
+  publishDate: moment(),
+};
 
 function HomeInsights(props: HomeInsightsProps) {
   return (
@@ -48,9 +32,11 @@ function HomeInsights(props: HomeInsightsProps) {
         <HomeInsightsHeader />
 
         <HomeInsightsShowcase>
-          {insightCards.map((card, idx) => (
-            <InsightCard key={idx} {...card} />
-          ))}
+          {Array(3)
+            .fill(insightCard)
+            .map((card, idx) => (
+              <InsightCard key={idx} {...card} />
+            ))}
         </HomeInsightsShowcase>
       </HomeInsightsContent>
     </section>

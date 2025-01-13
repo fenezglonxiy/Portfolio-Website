@@ -73,6 +73,8 @@ function ContactForm(props: ContactFormProps) {
                 <TextField
                   label="Name"
                   placeholder="Enter Your Name"
+                  variant="standard"
+                  color="black"
                   {...field}
                 />
               )}
@@ -84,6 +86,7 @@ function ContactForm(props: ContactFormProps) {
                 <TextField
                   label="Email Address"
                   placeholder="Enter Your Email"
+                  variant="standard"
                   {...field}
                 />
               )}
@@ -95,6 +98,7 @@ function ContactForm(props: ContactFormProps) {
                 <TextField
                   label="Message"
                   placeholder="Write Your Message"
+                  variant="standard"
                   multiline
                   minRows={4}
                   {...field}
@@ -107,7 +111,7 @@ function ContactForm(props: ContactFormProps) {
                 variant="contained"
                 color="primary"
                 shape="pill"
-                size="md"
+                size="large"
                 icon={<ArrowRight />}
                 iconPosition="end"
                 disabled={disabled}

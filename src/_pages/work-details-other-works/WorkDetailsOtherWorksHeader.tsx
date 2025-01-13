@@ -24,7 +24,7 @@ function WorkDetailsOtherWorksHeader(props: WorkDetailsOtherWorksHeaderProps) {
       </div>
 
       <div>
-        <Button href="/works" variant="outlined" color="primary" size="md">
+        <Button href="/works" variant="outlined" color="primary" size="large">
           View All Works
         </Button>
       </div>

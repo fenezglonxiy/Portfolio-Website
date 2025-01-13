@@ -23,7 +23,7 @@ function AboutMeSkillsHeader(props: AboutMeSkillsHeaderProps) {
       </div>
 
       <div>
-        <Button variant="outlined" size="md">
+        <Button variant="outlined" size="large">
           See my work
         </Button>
       </div>
