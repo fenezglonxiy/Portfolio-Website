@@ -7,8 +7,13 @@ const getInsightTitleCss = (theme: Theme) => css`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  ${theme.typography.subtitle2};
-  font-weight: ${theme.typography.fontWeightBold};
+  ${theme.typography.h6};
+  color: ${theme.palette.common.white};
+
+  &:hover,
+  &:focus {
+    color: ${theme.palette.neutral[400]};
+  }
 `;
 
 export default getInsightTitleCss;

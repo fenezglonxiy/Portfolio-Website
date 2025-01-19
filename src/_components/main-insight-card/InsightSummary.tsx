@@ -16,9 +16,7 @@ export type InsightSummaryProps = Omit<
 function InsightSummary(props: InsightSummaryProps) {
   const css = getInsightSummaryCss();
 
-  return (
-    <Typography variant="body1" color="neutral-700" css={css} {...props} />
-  );
+  return <Typography variant="body1" color="white" css={css} {...props} />;
 }
 
 export default InsightSummary;

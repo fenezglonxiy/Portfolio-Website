@@ -6,7 +6,7 @@ import { useTheme } from "@mui/material";
 import React from "react";
 import { Url } from "next/dist/shared/lib/router/router";
 
-import { Typography } from "@/_components/Typography";
+import { Typography, TypographyProps } from "@/_components/Typography";
 import { Link } from "@/_components/Link";
 
 import getInsightTitleCss from "./getInsightTitleCss";

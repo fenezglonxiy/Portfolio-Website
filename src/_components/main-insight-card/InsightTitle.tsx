@@ -6,7 +6,7 @@ import { useTheme } from "@mui/material";
 import React from "react";
 import { Url } from "next/dist/shared/lib/router/router";
 
-import { Typography } from "@/_components/Typography";
+import { Typography, TypographyProps } from "@/_components/Typography";
 import { Link } from "@/_components/Link";
 
 import getInsightTitleCss from "./getInsightTitleCss";
@@ -27,8 +27,8 @@ function InsightTitle(props: InsightTitleProps) {
   const css = getInsightTitleCss(theme);
 
   return (
-    <Typography component="h4" css={css} {...rest}>
-      <Link href={href} variant="inherit">
+    <Typography component="h3" css={css} {...rest}>
+      <Link href={href} variant="inherit" color="inherit">
         {children}
       </Link>
     </Typography>

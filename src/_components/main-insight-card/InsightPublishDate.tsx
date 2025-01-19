@@ -6,9 +6,9 @@ import { useTheme } from "@mui/material";
 
 import { Typography } from "@/_components/Typography";
 import { Calendar } from "@/_icons";
+import { InsightCardDetails } from "@/types";
 
-import { InsightCardDetails, InsightCardVariant } from "./types";
-import getInsightPublishDateCss from "./main-insight-card/getInsightPublishDateCss";
+import getInsightPublishDateCss from "./getInsightPublishDateCss";
 
 export type InsightPublishDateProps = Omit<
   React.ComponentPropsWithoutRef<"div">,
@@ -19,17 +19,11 @@ export type InsightPublishDateProps = Omit<
    */
   date: InsightCardDetails["publishDate"];
 
-  /**
-   * The variant to use. It should match the insight card variant.
-   * @default "base"
-   */
-  variant?: InsightCardVariant;
-
   children?: undefined | null;
 };
 
 function InsightPublishDate(props: InsightPublishDateProps) {
-  const { date, variant = "base", ...rest } = props;
+  const { date, ...rest } = props;
   const theme = useTheme();
   const css = getInsightPublishDateCss(theme);
 
@@ -38,15 +32,13 @@ function InsightPublishDate(props: InsightPublishDateProps) {
       component="div"
       variant="body1"
       color="white"
-      fontWeight={variant === "main" ? "bold" : "semi-bold"}
+      fontWeight="bold"
       css={css}
       {...rest}
     >
-      {variant === "main" && (
-        <span>
-          <Calendar />
-        </span>
-      )}
+      <span>
+        <Calendar />
+      </span>
 
       <span>{date.format("MMM DD, YYYY")}</span>
     </Typography>

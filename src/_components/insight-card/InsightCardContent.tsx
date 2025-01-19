@@ -2,26 +2,19 @@
 
 "use client";
 
+import { useTheme } from "@mui/material";
+
 import { CardContent, CardContentProps } from "@/_components/Card";
 
-import { InsightCardVariant } from "./types";
-import { useTheme } from "@mui/material";
 import getInsightCardContentCss from "./getInsightCardContentCss";
 
-export type InsightCardContentProps = CardContentProps & {
-  /**
-   * The variant to use. It should match the insight card variant.
-   * @default "base"
-   */
-  variant?: InsightCardVariant;
-};
+export type InsightCardContentProps = CardContentProps;
 
 function InsightCardContent(props: InsightCardContentProps) {
-  const { variant = "base", ...rest } = props;
   const theme = useTheme();
-  const css = getInsightCardContentCss(theme, variant);
+  const css = getInsightCardContentCss(theme);
 
-  return <CardContent css={css} {...rest} />;
+  return <CardContent css={css} {...props} />;
 }
 
 export default InsightCardContent;

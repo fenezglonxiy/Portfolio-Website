@@ -6,9 +6,9 @@ const getInsightTitleCss = (theme: Theme) => css`
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   ${theme.typography.subtitle2};
-  font-weight: ${theme.typography.fontWeightBold};
+  font-weight: ${theme.typography.fontWeightSemibold};
 `;
 
 export default getInsightTitleCss;
