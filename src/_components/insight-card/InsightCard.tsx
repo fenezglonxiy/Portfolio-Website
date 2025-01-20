@@ -5,6 +5,7 @@
 import { useTheme } from "@mui/material";
 
 import { Card } from "@/_components/Card";
+import { VisuallyHidden } from "@/_components/visually-hidden";
 import { InsightCardDetails } from "@/types";
 
 import getInsightCardCss from "./getInsightCardCss";
@@ -12,8 +13,9 @@ import InsightReadTime from "./InsightReadTime";
 import InsightCardContent from "./InsightCardContent";
 import InsightCardMedia from "./InsightCardMedia";
 import InsightTitle from "./InsightTitle";
-import InsightSummary from "./InsightSummary";
+import InsightShortOverview from "./InsightShortOverview";
 import InsightTopic from "./InsightTopic";
+import InsightCardText from "./InsightCardText";
 
 export type InsightCardProps = Omit<
   React.ComponentPropsWithoutRef<"div">,
@@ -39,9 +41,13 @@ function InsightCard(props: InsightCardProps) {
       <InsightCardContent>
         <InsightTopic label={topic} />
 
-        <InsightTitle href="/">{title}</InsightTitle>
+        <VisuallyHidden href={href} label={title}>
+          <InsightCardText>
+            <InsightTitle>{title}</InsightTitle>
 
-        <InsightSummary>{summary}</InsightSummary>
+            <InsightShortOverview>{summary}</InsightShortOverview>
+          </InsightCardText>
+        </VisuallyHidden>
       </InsightCardContent>
     </Card>
   );

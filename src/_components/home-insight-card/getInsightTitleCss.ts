@@ -1,7 +1,6 @@
 import { css, Theme } from "@mui/material";
 
 const getInsightTitleCss = (theme: Theme) => css`
-  width: fit-content;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

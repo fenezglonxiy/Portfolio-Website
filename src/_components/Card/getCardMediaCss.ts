@@ -42,11 +42,7 @@ const getInvertedCardMediaRootCss = (theme: Theme, inverted: boolean) =>
     }
   `;
 
-const getCardMediaRootCss = (
-  theme: Theme,
-  props: CardMediaProps,
-  inverted: boolean
-) => css`
+const getCardMediaRootCss = (theme: Theme, inverted: boolean) => css`
   ${getInvertedCardMediaRootCss(theme, inverted)};
 `;
 
@@ -60,7 +56,7 @@ const getCardMediaCss = (
   props: CardMediaProps,
   inverted: boolean
 ) => ({
-  root: getCardMediaRootCss(theme, props, inverted),
+  root: getCardMediaRootCss(theme, inverted),
   media: getCardMediaMediaCss(),
 });
 

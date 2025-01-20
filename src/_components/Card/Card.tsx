@@ -62,7 +62,7 @@ const Card = React.forwardRef(function Card(
   } = props;
   const componentRef = React.useRef<HTMLDivElement>(null);
   const theme = useTheme();
-  const css = getCardCss(theme, { ...props, borderRadius });
+  const css = getCardCss(theme, { ...rest, borderRadius, inverted, variant });
 
   return (
     <MUICard

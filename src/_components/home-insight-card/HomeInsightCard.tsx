@@ -1,4 +1,5 @@
 import { Card } from "@/_components/Card";
+import { VisuallyHidden } from "@/_components/visually-hidden";
 import { InsightCardDetails } from "@/types";
 
 import HomeInsightCardContent from "./HomeInsightCardContent";
@@ -14,13 +15,15 @@ function HomeInsightCard(props: HomeInsightCardProps) {
 
   return (
     <Card variant="fill" borderRadius="none" {...rest}>
-      <HomeInsightCardMedia component="img" src={thumbnailSrc} />
+      <VisuallyHidden href={href} label={title}>
+        <HomeInsightCardMedia component="img" src={thumbnailSrc} />
 
-      <HomeInsightCardContent>
-        <InsightTitle href={href}>{title}</InsightTitle>
+        <HomeInsightCardContent>
+          <InsightTitle>{title}</InsightTitle>
 
-        <InsightSummary>{summary}</InsightSummary>
-      </HomeInsightCardContent>
+          <InsightSummary>{summary}</InsightSummary>
+        </HomeInsightCardContent>
+      </VisuallyHidden>
     </Card>
   );
 }

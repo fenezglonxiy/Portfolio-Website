@@ -1,14 +1,11 @@
-import { css, Theme } from "@mui/material";
+import { css } from "@mui/material";
 
-const getInsightTitleCss = (theme: Theme) => css`
-  width: fit-content;
+const getInsightTitleCss = () => css`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  ${theme.typography.subtitle2};
-  font-weight: ${theme.typography.fontWeightBold};
+  -webkit-line-clamp: 3;
 `;
 
 export default getInsightTitleCss;
