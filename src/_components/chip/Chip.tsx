@@ -16,6 +16,10 @@ declare module "@mui/material/Chip" {
     white: true;
     indigo: true;
   }
+
+  interface ChipPropsSizeOverrides {
+    large: true;
+  }
 }
 
 type ChipBaseProps = {
@@ -70,7 +74,7 @@ const Chip = React.forwardRef(function Chip(
     ...rest
   } = props;
   const theme = useTheme();
-  const css = getChipCss(theme, { ...props, variant, color, size });
+  const css = getChipCss(theme, { ...rest, variant, color, size });
 
   return (
     <MUIChip
