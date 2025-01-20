@@ -1,6 +1,6 @@
 import { alpha, css, Theme } from "@mui/material";
 
-const getMainInsightCardContentCss = (theme: Theme) => css`
+const getFeaturedInsightCardContentCss = (theme: Theme) => css`
   display: flex;
   flex-direction: column;
   gap: ${theme.spacing(8)};
@@ -24,4 +24,4 @@ const getMainInsightCardContentCss = (theme: Theme) => css`
   }
 `;
 
-export default getMainInsightCardContentCss;
+export default getFeaturedInsightCardContentCss;

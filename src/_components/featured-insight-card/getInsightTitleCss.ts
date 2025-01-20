@@ -9,11 +9,6 @@ const getInsightTitleCss = (theme: Theme) => css`
   -webkit-line-clamp: 2;
   ${theme.typography.h6};
   color: ${theme.palette.common.white};
-
-  &:hover,
-  &:focus {
-    color: ${theme.palette.neutral[400]};
-  }
 `;
 
 export default getInsightTitleCss;
