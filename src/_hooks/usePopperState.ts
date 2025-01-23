@@ -2,7 +2,7 @@ import React, { SyntheticEvent } from "react";
 
 import useId from "./useId";
 
-type PopperStateParams = {
+type PopperStateHookParams = {
   popperId?: string;
 };
 
@@ -112,7 +112,7 @@ export const bindPopper = (popperState: PopperState): PopperControlProps => {
   };
 };
 
-const usePopperState = (params?: PopperStateParams): PopperState => {
+const usePopperState = (params?: PopperStateHookParams): PopperState => {
   const [anchorEl, setAnchorEl] = React.useState<Element | null>(null);
   const isOpen = Boolean(anchorEl);
   const popperId = params?.popperId ?? useId();
