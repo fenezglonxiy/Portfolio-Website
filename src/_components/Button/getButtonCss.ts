@@ -1,4 +1,4 @@
-import { buttonClasses, css, Theme } from "@mui/material";
+import { alpha, buttonClasses, css, Theme } from "@mui/material";
 import { SerializedStyles } from "@emotion/react";
 
 import { ButtonProps } from "./Button";
@@ -9,35 +9,29 @@ const getButtonVariantCss = (variant: ButtonProps["variant"]) => {
     SerializedStyles
   > = {
     contained: css`
-      background-color: var(--button-background-color);
-      color: var(--button-color);
+      background-color: var(--variant-contained-background-color);
+      color: var(--variant-contained-color);
 
       &:hover,
       &:focus,
       &[aria-current="page"] {
-        background-color: var(
-          --button-hover-background-color,
-          var(--button-background-color)
-        );
-        color: var(--button-hover-color, var(--button-color));
+        background-color: var(--variant-contained-background-color);
+        color: var(--variant-contained-color);
       }
     `,
 
     outlined: css`
       border-width: 1px;
       border-style: solid;
-      border-color: var(--button-border-color);
-      color: var(--button-color);
+      border-color: var(--variant-outlined-border-color);
+      color: var(--variant-outlined-color);
       transition: opacity 0.2s;
 
       &:hover,
       &:focus,
       &[aria-current="page"] {
-        border-color: var(
-          --button-hover-border-color,
-          var(--button-border-color)
-        );
         background-color: transparent;
+
         &:hover,
         &:focus {
           opacity: 0.6;
@@ -46,12 +40,12 @@ const getButtonVariantCss = (variant: ButtonProps["variant"]) => {
     `,
 
     text: css`
-      color: var(--button-color);
+      color: var(--variant-text-color);
 
       &:hover,
       &:focus,
       &[aria-current="page"] {
-        background-color: var(--button-hover-background-color);
+        background-color: var(--variant-text-background-color);
       }
     `,
   };
@@ -89,100 +83,115 @@ const getButtonSizeCss = (theme: Theme, size: ButtonProps["size"]) => {
   return cssBySize[size as NonNullable<ButtonProps["size"]>];
 };
 
-const getButtonColorCss = (
-  theme: Theme,
-  variant: ButtonProps["variant"],
-  color: ButtonProps["color"]
-) => {
-  const cssByVariantColor: Record<
-    NonNullable<ButtonProps["variant"]>,
-    Record<NonNullable<ButtonProps["color"]>, SerializedStyles>
+const getButtonColorCss = (theme: Theme, color: ButtonProps["color"]) => {
+  const cssByColor: Record<
+    NonNullable<ButtonProps["color"]>,
+    SerializedStyles
   > = {
-    contained: {
-      primary: css`
-        --button-background-color: ${theme.palette.neutral[800]};
-        --button-color: ${theme.palette.common.white};
-        --button-hover-background-color: ${theme.palette.neutral[550]};
-        --button-hover-color: ${theme.palette.neutral[400]};
-      `,
+    primary: css`
+      --variant-contained-background-color: ${theme.palette.neutral[800]};
+      --variant-contained-color: ${theme.palette.common.white};
 
-      secondary: css`
-        --button-background-color: ${theme.palette.neutral[200]};
-        --button-color: ${theme.palette.neutral[800]};
-        --button-hover-background-color: ${theme.palette.neutral[400]};
-        --button-hover-color: ${theme.palette.neutral[650]};
-      `,
+      --variant-outlined-border-color: ${theme.palette.neutral[900]};
+      --variant-outlined-color: ${theme.palette.neutral[900]};
 
-      white: css`
-        --button-background-color: ${theme.palette.common.white};
-        --button-color: ${theme.palette.neutral[800]};
-        --button-hover-background-color: ${theme.palette.neutral[200]};
-        --button-hover-color: ${theme.palette.neutral[650]};
-      `,
+      --variant-text-color: ${theme.palette.primary.light};
 
-      indigo: css`
-        --button-background-color: ${theme.palette.indigo[600]};
-        --button-color: ${theme.palette.common.white};
-        --button-hover-background-color: ${theme.palette.indigo[700]};
-      `,
+      &:hover,
+      &:focus,
+      &[aria-current="page"] {
+        --variant-contained-background-color: ${theme.palette.neutral[550]};
+        --variant-contained-color: ${theme.palette.neutral[400]};
 
-      slate: css`
-        --button-background-color: ${theme.palette.slate[600]};
-        --button-color: ${theme.palette.common.white};
-        --button-hover-background-color: ${theme.palette.slate[700]};
-      `,
-    },
+        --variant-text-background-color: ${alpha(
+          theme.palette.primary.light,
+          0.08
+        )};
+      }
+    `,
 
-    outlined: {
-      primary: css`
-        --button-border-color: ${theme.palette.neutral[900]};
-        --button-color: ${theme.palette.neutral[900]};
-      `,
+    secondary: css`
+      --variant-contained-background-color: ${theme.palette.neutral[200]};
+      --variant-contained-color: ${theme.palette.neutral[800]};
 
-      // --button-hover-color: ${theme.palette.neutral[500]};
-      secondary: css`
-        --button-border-color: ${theme.palette.neutral[400]};
-        --button-color: ${theme.palette.neutral[800]};
-      `,
+      --variant-outlined-border-color: ${theme.palette.neutral[400]};
+      --variant-outlined-color: ${theme.palette.neutral[800]};
 
-      white: css`
-        --button-border-color: ${theme.palette.common.white};
-        --button-color: ${theme.palette.common.white};
-      `,
+      --variant-text-color: ${theme.palette.secondary.light};
 
-      indigo: css`
-        --button-border-color: ${theme.palette.indigo[600]};
-        --button-color: ${theme.palette.indigo[600]};
-      `,
+      &:hover,
+      &:focus,
+      &[aria-current="page"] {
+        --variant-contained-background-color: ${theme.palette.neutral[400]};
+        --variant-contained-color: ${theme.palette.neutral[650]};
 
-      slate: css`
-        --button-border-color: ${theme.palette.slate[600]};
-        --button-color: ${theme.palette.slate[600]};
-      `,
-    },
+        --variant-text-background-color: ${alpha(
+          theme.palette.secondary.light,
+          0.08
+        )};
+      }
+    `,
 
-    text: {
-      primary: css``,
+    white: css`
+      --variant-contained-background-color: ${theme.palette.common.white};
+      --variant-contained-color: ${theme.palette.neutral[800]};
 
-      secondary: css``,
+      --variant-outlined-border-color: ${theme.palette.common.white};
+      --variant-outlined-color: ${theme.palette.common.white};
 
-      white: css``,
+      --variant-text-color: ${theme.palette.common.white};
 
-      indigo: css`
-        --button-color: ${theme.palette.indigo[600]};
-        --button-hover-background-color: ${theme.palette.indigo[50]};
-      `,
+      &:hover,
+      &:focus,
+      &[aria-current="page"] {
+        --variant-contained-background-color: ${theme.palette.neutral[200]};
+        --variant-contained-color: ${theme.palette.neutral[650]};
 
-      slate: css`
-        --button-color: ${theme.palette.slate[600]};
-        --button-hover-background-color: ${theme.palette.slate[100]};
-      `,
-    },
+        --variant-text-background-color: ${alpha(
+          theme.palette.common.white,
+          0.08
+        )};
+      }
+    `,
+
+    indigo: css`
+      --variant-contained-background-color: ${theme.palette.indigo[600]};
+      --variant-contained-color: ${theme.palette.common.white};
+
+      --variant-outlined-border-color: ${theme.palette.indigo[600]};
+      --variant-outlined-color: ${theme.palette.indigo[600]};
+
+      --variant-text-color: ${theme.palette.indigo[600]};
+
+      &:hover,
+      &:focus,
+      &[aria-current="page"] {
+        --variant-contained-background-color: ${theme.palette.indigo[700]};
+
+        --variant-text-background-color: ${theme.palette.indigo[50]};
+      }
+    `,
+
+    slate: css`
+      --variant-contained-background-color: ${theme.palette.slate[600]};
+      --variant-contained-color: ${theme.palette.common.white};
+
+      --variant-outlined-border-color: ${theme.palette.slate[600]};
+      --variant-outlined-color: ${theme.palette.slate[600]};
+
+      --variant-text-color: ${theme.palette.slate[600]};
+
+      &:hover,
+      &:focus,
+      &[aria-current="page"] {
+        --variant-contained-background-color: ${theme.palette.slate[700]};
+
+        --variant-text-background-color: ${theme.palette.slate[50]};
+      }
+    `,
   };
 
-  return cssByVariantColor[variant as NonNullable<ButtonProps["variant"]>][
-    color as NonNullable<ButtonProps["color"]>
-  ];
+  return cssByColor[color as NonNullable<ButtonProps["color"]>];
 };
 
 const getButtonShapeCss = (theme: Theme, shape: ButtonProps["shape"]) => {
@@ -208,7 +217,7 @@ const getButtonShapeCss = (theme: Theme, shape: ButtonProps["shape"]) => {
 
 const getButtonCss = (theme: Theme, props: ButtonProps) => css`
   ${getButtonVariantCss(props.variant)};
-  ${getButtonColorCss(theme, props.variant, props.color)};
+  ${getButtonColorCss(theme, props.color)};
   ${getButtonSizeCss(theme, props.size)};
   ${getButtonShapeCss(theme, props.shape)};
   text-transform: capitalize;

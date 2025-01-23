@@ -38,7 +38,7 @@ function OutlinedInput(props: OutlinedInputProps) {
   const theme = useTheme();
   const css = getOutlinedInputCss(
     theme,
-    { ...props, borderRadius },
+    { ...rest, borderRadius },
     { filled, color: colorFromProps || color, includesLegendWithLabel }
   );
 

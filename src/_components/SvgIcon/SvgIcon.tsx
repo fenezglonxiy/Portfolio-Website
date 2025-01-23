@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useId } from "@/_hooks";
+import useId from "@/_hooks/useId";
 
 export type SvgIconProps = React.SVGProps<SVGSVGElement> & {
   /**

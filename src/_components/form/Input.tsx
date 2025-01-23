@@ -36,7 +36,7 @@ export type InputProps = {
    */
   borderRadius?: keyof Pick<
     NonNullable<ThemeOptions["shape"]>,
-    "none" | "sm" | "md" | "lg" | "pill"
+    "none" | "xs" | "sm" | "md" | "lg" | "pill"
   >;
 
   /**

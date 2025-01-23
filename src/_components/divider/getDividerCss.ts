@@ -24,6 +24,7 @@ const getDividerColorCss = (theme: Theme, color: DividerProps["color"]) => {
     "neutral-800": theme.palette.neutral[800],
     "neutral-850": theme.palette.neutral[850],
     "neutral-900": theme.palette.neutral[900],
+    "slate-200": theme.palette.slate[200],
   };
 
   return css`

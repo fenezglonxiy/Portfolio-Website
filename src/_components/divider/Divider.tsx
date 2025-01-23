@@ -36,6 +36,7 @@ type DividerBaseProps = {
     | "neutral-800"
     | "neutral-850"
     | "neutral-900"
+    | "slate-200"
     | "inherit";
 
   /**
@@ -72,7 +73,7 @@ const Divider = React.forwardRef(function Divider(
     ...rest
   } = props;
   const theme = useTheme();
-  const css = getDividerCss(theme, { ...props, color });
+  const css = getDividerCss(theme, { ...rest, color });
 
   return (
     <MUIDivider

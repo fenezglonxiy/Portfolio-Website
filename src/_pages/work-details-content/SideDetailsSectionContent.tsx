@@ -18,7 +18,7 @@ export type SideDetailsSectionContentProps =
 function SideDetailsSectionContent(props: SideDetailsSectionContentProps) {
   const { orientation = "horizontal", ...rest } = props;
   const theme = useTheme();
-  const css = getSideDetailsSectionContentCss(theme, { ...props, orientation });
+  const css = getSideDetailsSectionContentCss(theme, { ...rest, orientation });
 
   return <div css={css} {...rest} />;
 }

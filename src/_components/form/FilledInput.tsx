@@ -31,7 +31,7 @@ function FilledInput(props: FilledInputProps) {
   const theme = useTheme();
   const css = getFilledInputCss(
     theme,
-    { ...props, borderRadius },
+    { ...rest, borderRadius },
     { filled, color: colorFromProps || color, includesLegendWithLabel }
   );
 

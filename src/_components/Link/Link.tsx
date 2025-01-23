@@ -35,7 +35,7 @@ type LinkBaseProps = {
    * It supports the relevant theme colors for this component.
    * @default "primary"
    */
-  color?: "primary" | "secondary";
+  color?: "inherit" | "primary" | "secondary";
 
   /**
    * Control when the link should have an underline.

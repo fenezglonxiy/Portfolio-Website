@@ -54,7 +54,7 @@ const TimelineDot = React.forwardRef(function TimelineDot(
     ...rest
   } = props;
   const theme = useTheme();
-  const css = getTimelineDotCss(theme, { ...props, shape, size, color });
+  const css = getTimelineDotCss(theme, { ...rest, shape, size, color });
 
   return <Box ref={ref} component={component} css={css} {...rest} />;
 });

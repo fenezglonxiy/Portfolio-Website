@@ -31,7 +31,7 @@ const TabListBox = React.forwardRef(function TabListBox(
 ) {
   const { borderColor = "default", ...rest } = props;
   const theme = useTheme();
-  const css = getTabListBoxCss(theme, { ...props, borderColor });
+  const css = getTabListBoxCss(theme, { ...rest, borderColor });
 
   return <div ref={ref} css={css} {...rest} />;
 });

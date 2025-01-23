@@ -2,7 +2,7 @@ import React from "react";
 import { FormControl as MUIFormControl } from "@mui/material";
 import { OverrideProps } from "@mui/material/OverridableComponent";
 
-import { useId } from "@/_hooks";
+import useId from "@/_hooks/useId";
 
 import FormControlContext from "./FormControlContext";
 import useFormField from "./useFormField";

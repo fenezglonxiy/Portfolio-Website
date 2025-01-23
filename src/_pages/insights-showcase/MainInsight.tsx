@@ -1,6 +1,7 @@
 "use client";
 
-import { InsightCard } from "@/_components/insight-card";
+import { FeaturedInsightCard } from "@/_components/featured-insight-card";
+
 import { insightCard } from "@/dummyData";
 
 export type MainInsightProps = Omit<
@@ -11,7 +12,14 @@ export type MainInsightProps = Omit<
 function MainInsight(props: MainInsightProps) {
   return (
     <section {...props}>
-      <InsightCard variant="main" {...insightCard} />
+      <FeaturedInsightCard
+        href={insightCard.href}
+        thumbnailSrc={insightCard.thumbnailSrc}
+        title={insightCard.title}
+        summary={insightCard.summary}
+        publishDate={insightCard.publishDate}
+        tags={insightCard.tags}
+      />
     </section>
   );
 }
