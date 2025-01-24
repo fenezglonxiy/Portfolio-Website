@@ -5,8 +5,6 @@ import InsightDetailsCTABox from "@/_components/insight-details-cta-box/InsightD
 import InsightDetailsCTABoxContent from "@/_components/insight-details-cta-box/InsightDetailsCTABoxContent";
 import InsightDetailsCTABoxRightColumn from "@/_components/insight-details-cta-box/InsightDetailsCTABoxRightColumn";
 
-import InsightDetailsHeroContent from "./InsightDetailsHeroContent";
-import InsightDetailsHeroContainer from "./InsightDetailsHeroContainer";
 import InsightDetailsHeroText from "./InsightDetailsHeroText";
 import ShareInsightDetails from "@/_components/insight-details-cta-box/ShareInsightDetails";
 import InsightDetailsHeroMedia from "../insight-details-content/InsightDetailsHeroMedia";
@@ -20,6 +18,7 @@ function InsightDetailsHero(props: InsightDetailsHeroProps) {
 
       <InsightDetailsHeroText>
         <Breadcrumbs
+          aria-label="insight-publishDate-readTime-topic-breadcrumbs"
           component="ul"
           separator={
             <BreadcrumbsSeparator>
