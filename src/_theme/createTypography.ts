@@ -1,6 +1,32 @@
 import { css, SerializedStyles } from "@emotion/react";
 import { Theme } from "@mui/material";
 import { Typography } from "@mui/material/styles/createTypography";
+import React from "react";
+
+declare module "@mui/material/styles/createTypography" {
+  interface Typography {
+    fontWeightThin: React.CSSProperties["fontWeight"];
+    fontWeightExtraLight: React.CSSProperties["fontWeight"];
+    fontWeightExtraBold: React.CSSProperties["fontWeight"];
+    fontWeightBlack: React.CSSProperties["fontWeight"];
+    fontWeightSemibold: React.CSSProperties["fontWeight"];
+  }
+  interface TypographyOptions {
+    fontWeightThin: React.CSSProperties["fontWeight"];
+    fontWeightExtraLight: React.CSSProperties["fontWeight"];
+    fontWeightExtraBold: React.CSSProperties["fontWeight"];
+    fontWeightBlack: React.CSSProperties["fontWeight"];
+    fontWeightSemibold: React.CSSProperties["fontWeight"];
+  }
+
+  interface FontStyle {
+    fontWeightThin: React.CSSProperties["fontWeight"];
+    fontWeightExtraLight: React.CSSProperties["fontWeight"];
+    fontWeightExtraBold: React.CSSProperties["fontWeight"];
+    fontWeightBlack: React.CSSProperties["fontWeight"];
+    fontWeightSemibold: React.CSSProperties["fontWeight"];
+  }
+}
 
 declare module "@mui/material/styles" {
   interface TypographyVariants {
@@ -55,7 +81,7 @@ declare module "@mui/material/Typography" {
 }
 
 export const fontFamily: React.CSSProperties["fontFamily"] = [
-  "interTight",
+  "Inter Tight",
   "Arial",
   "sans-serif",
 ].join(", ");
@@ -190,10 +216,15 @@ const typography = (theme: Theme): Typography => ({
   fontFamily: fontFamily,
   htmlFontSize: 16,
   fontSize: 14,
+  fontWeightThin: fontWeightByType.thin,
+  fontWeightExtraLight: fontWeightByType["extra-light"],
   fontWeightLight: fontWeightByType.light,
   fontWeightRegular: fontWeightByType.regular,
   fontWeightMedium: fontWeightByType.medium,
+  fontWeightSemibold: fontWeightByType["semi-bold"],
   fontWeightBold: fontWeightByType.bold,
+  fontWeightExtraBold: fontWeightByType["extra-bold"],
+  fontWeightBlack: fontWeightByType.black,
   display: display,
   h1: h1,
   h2: h2,

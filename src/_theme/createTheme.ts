@@ -5,6 +5,17 @@ import createBreakpoints from "./createBreakpoints";
 import createZIndex from "./createZIndex";
 import createSpacing from "./createSpacing";
 import createTypography from "./createTypography";
+import createShape, { ShapeOptions } from "./createShape";
+
+declare module "@mui/material/styles" {
+  interface Theme {
+    shape: ShapeOptions;
+  }
+
+  interface ThemeOptions {
+    shape?: ShapeOptions;
+  }
+}
 
 const createTheme = (): Theme => {
   const theme = createMuiTheme({
@@ -12,6 +23,7 @@ const createTheme = (): Theme => {
     breakpoints: createBreakpoints,
     zIndex: createZIndex,
     spacing: createSpacing,
+    shape: createShape,
   });
 
   theme.typography = createTypography(theme);
