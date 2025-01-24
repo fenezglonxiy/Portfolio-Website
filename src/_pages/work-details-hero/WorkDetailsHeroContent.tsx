@@ -2,7 +2,6 @@
 
 "use client";
 
-import clsx from "clsx";
 import { useTheme } from "@mui/material";
 
 import { HeroContent, HeroContentProps } from "@/_components/hero";
@@ -16,13 +15,7 @@ function WorkDetailsHeroContent(props: WorkDetailsHeroContentProps) {
   const theme = useTheme();
   const css = getWorkDetailsHeroContentCss(theme);
 
-  return (
-    <HeroContent
-      css={css}
-      className={clsx("flow-spacer-y", className)}
-      {...rest}
-    />
-  );
+  return <HeroContent css={css} {...rest} />;
 }
 
 export default WorkDetailsHeroContent;

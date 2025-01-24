@@ -1,4 +1,4 @@
-import WorkDetailsContentContainer from "./WorkDetailsContentContainer";
+import WorkDetailsContainer from "./WorkDetailsContainer";
 import SideDetails from "./SideDetails";
 import WorkStartDateDetailsSection from "./WorkStartDateDetailsSection";
 import WorkDurationDetailsSection from "./WorkDurationDetailsSection";
@@ -27,7 +27,7 @@ function WorkDetailsContent(props: WorkDetailsContentProps) {
 
   return (
     <main {...rest}>
-      <WorkDetailsContentContainer>
+      <WorkDetailsContainer>
         <SideDetails>
           <WorkStartDateDetailsSection date={startDate} />
           <WorkDurationDetailsSection duration={duration} />
@@ -42,7 +42,7 @@ function WorkDetailsContent(props: WorkDetailsContentProps) {
           <WorkChallengeDetailsSection challenge={challenge} />
           <WorkResultsDetailsSection workResults={workResults} />
         </MainDetails>
-      </WorkDetailsContentContainer>
+      </WorkDetailsContainer>
     </main>
   );
 }

@@ -1,75 +1,55 @@
-import React from "react";
+/** @jsxImportSource @emotion/react */
 
-import { InsightCardDetails, InsightCardVariant } from "./types";
-import HomeInsightCard from "./home-insight-card/HomeInsightCard";
-import MainInsightCard from "./main-insight-card/MainInsightCard";
-import BaseInsightCard from "./base-insight-card/BaseInsightCard";
+"use client";
+
+import { useTheme } from "@mui/material";
+
+import { Card } from "@/_components/Card";
+import { VisuallyHidden } from "@/_components/visually-hidden";
+import { InsightCardDetails } from "@/types";
+
+import getInsightCardCss from "./getInsightCardCss";
+import InsightReadTime from "./InsightReadTime";
+import InsightCardContent from "./InsightCardContent";
+import InsightCardMedia from "./InsightCardMedia";
+import InsightTitle from "./InsightTitle";
+import InsightShortOverview from "./InsightShortOverview";
+import InsightTopic from "./InsightTopic";
+import InsightCardText from "./InsightCardText";
 
 export type InsightCardProps = Omit<
   React.ComponentPropsWithoutRef<"div">,
-  "children"
+  "children" | "color"
 > &
-  InsightCardDetails & {
-    /**
-     * Control the variant of the card.
-     * @default "base"
-     */
-    variant?: InsightCardVariant;
-  };
+  Pick<
+    InsightCardDetails,
+    "href" | "thumbnailSrc" | "title" | "summary" | "readTime" | "topic"
+  >;
 
 function InsightCard(props: InsightCardProps) {
-  const {
-    href,
-    thumbnailSrc,
-    title,
-    summary,
-    readTime,
-    publishDate,
-    topic,
-    tags,
-    variant = "base",
-    ...rest
-  } = props;
-
-  if (variant === "sub") {
-  }
-
-  if (variant === "home") {
-    return (
-      <HomeInsightCard
-        href={href}
-        thumbnailSrc={thumbnailSrc}
-        title={title}
-        summary={summary}
-        {...rest}
-      />
-    );
-  }
-
-  if (variant === "main") {
-    return (
-      <MainInsightCard
-        href={href}
-        thumbnailSrc={thumbnailSrc}
-        title={title}
-        summary={summary}
-        publishDate={publishDate}
-        tags={tags}
-        {...rest}
-      />
-    );
-  }
+  const { href, thumbnailSrc, title, summary, readTime, topic, ...rest } =
+    props;
+  const theme = useTheme();
+  const css = getInsightCardCss(theme);
 
   return (
-    <BaseInsightCard
-      href={href}
-      thumbnailSrc={thumbnailSrc}
-      title={title}
-      summary={summary}
-      readTime={readTime}
-      topic={topic}
-      {...rest}
-    />
+    <Card css={css} variant="fill" inverted {...rest}>
+      <InsightCardMedia component="img" src={thumbnailSrc} />
+
+      <InsightReadTime>{`${readTime} read`}</InsightReadTime>
+
+      <InsightCardContent>
+        <InsightTopic label={topic} />
+
+        <VisuallyHidden href={href} label={title}>
+          <InsightCardText>
+            <InsightTitle>{title}</InsightTitle>
+
+            <InsightShortOverview>{summary}</InsightShortOverview>
+          </InsightCardText>
+        </VisuallyHidden>
+      </InsightCardContent>
+    </Card>
   );
 }
 

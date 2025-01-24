@@ -1,7 +1,7 @@
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
 
-import { useId } from "@/_hooks";
+import useId from "@/_hooks/useId";
 
 import TabsContext from "./TabsContext";
 

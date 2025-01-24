@@ -26,7 +26,7 @@ type CardMediaBaseProps = {
   /**
    * Control the element used for the root node.
    *
-   * It should match with the media type for the component work properly.
+   * It should match the media type for the component work properly.
    */
   component: "video" | "audio" | "picture" | "iframe" | "img";
 };
@@ -44,11 +44,7 @@ export type CardMediaProps<
 
 const CardMedia: OverridableComponent<CardMediaTypeMap> = React.forwardRef(
   function CardMedia(props: CardMediaProps, ref: React.Ref<HTMLDivElement>) {
-    const {
-      className,
-
-      ...rest
-    } = props;
+    const { className, ...rest } = props;
     const { inverted } = useCardContext();
     const theme = useTheme();
     const css = getCardMediaCss(theme, props, inverted);

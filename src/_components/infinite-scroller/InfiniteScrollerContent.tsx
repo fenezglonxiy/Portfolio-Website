@@ -6,7 +6,8 @@ import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
 
 import mergeRefs from "@/_utils/mergeRefs";
-import { useIsomorphicLayoutEffect, useWindowSize } from "@/_hooks";
+import useIsomorphicLayoutEffect from "@/_hooks/useIsomorphicLayoutEffect";
+import useWindowSize from "@/_hooks/useWindowSize";
 
 import getScrollerContentCss from "./getInfiniteScrollerContentCss";
 import { useInfiniteScrollerContext } from "./InfiniteScrollerContext";

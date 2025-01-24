@@ -12,32 +12,13 @@ const getChipVariantCss = (
     SerializedStyles
   > = {
     filled: css`
-      background-color: var(--chip-background-color);
-      color: var(--chip-color);
-
-      ${clickable &&
-      css`
-        &:hover,
-        &:focus,
-        &[aria-selected="true"] {
-          background-color: var(--chip-hover-background-color);
-          color: var(--chip-hover-color, var(--chip-color));
-        }
-      `}
+      background-color: var(--variant-filled-background-color);
+      color: var(--variant-filled-color);
     `,
 
     outlined: css`
-      border-color: var(--chip-border-color);
-      color: var(--chip-color);
-
-      ${clickable &&
-      css`
-        &:hover,
-        &:focus,
-        &[aria-selected="true"] {
-          background-color: var(--chip-hover-background-color);
-        }
-      `}
+      border-color: var(--variant-outlined-border-color);
+      color: var(--variant-outlined-color);
     `,
   };
 
@@ -47,166 +28,264 @@ const getChipVariantCss = (
 const getChipColorCss = (
   theme: Theme,
   color: ChipProps["color"],
-  variant: ChipProps["variant"]
+  clickable: ChipProps["clickable"]
 ) => {
-  const cssByVariantColor: Record<
-    NonNullable<ChipProps["variant"]>,
-    Record<NonNullable<ChipProps["color"]>, SerializedStyles>
+  const cssByColor: Record<
+    NonNullable<ChipProps["color"]>,
+    SerializedStyles
   > = {
-    filled: {
-      default: css`
-        --chip-background-color: ${theme.palette.neutral[400]};
-        --chip-color: ${theme.palette.neutral[800]};
-        --chip-hover-background-color: ${theme.palette.neutral[500]};
-      `,
+    default: css`
+      --variant-filled-background-color: ${theme.palette.neutral[400]};
+      --variant-filled-color: ${theme.palette.neutral[800]};
 
-      primary: css`
-        --chip-background-color: ${theme.palette.primary.light};
-        --chip-color: ${theme.palette.neutral[800]};
-        --chip-hover-background-color: ${theme.palette.primary.main};
-      `,
+      --variant-outlined-border-color: ${alpha(
+        theme.palette.neutral[400],
+        0.7
+      )};
+      --variant-outlined-color: ${theme.palette.neutral[400]};
 
-      secondary: css`
-        --chip-background-color: ${theme.palette.secondary.light};
-        --chip-color: ${theme.palette.neutral[800]};
-        --chip-hover-background-color: ${theme.palette.secondary.main};
-      `,
+      ${clickable &&
+      css`
+        &:hover,
+        &:focus,
+        &[aria-selected="true"] {
+          --variant-filled-background-color: ${theme.palette.neutral[500]};
 
-      error: css`
-        --chip-background-color: ${theme.palette.error.light};
-        --chip-color: ${theme.palette.common.white};
-        --chip-hover-background-color: ${theme.palette.error.main};
-      `,
+          --variant-outlined-background-color: ${alpha(
+            theme.palette.neutral[400],
+            0.08
+          )};
+        }
+      `}
+    `,
 
-      info: css`
-        --chip-background-color: ${theme.palette.info.light};
-        --chip-color: ${theme.palette.neutral[800]};
-        --chip-hover-background-color: ${theme.palette.info.main};
-      `,
+    primary: css`
+      --variant-filled-background-color: ${theme.palette.primary.light};
+      --variant-filled-color: ${theme.palette.common.white};
 
-      success: css`
-        --chip-background-color: ${theme.palette.success.light};
-        --chip-color: ${theme.palette.neutral[800]};
-        --chip-hover-background-color: ${theme.palette.success.main};
-      `,
+      --variant-outlined-border-color: ${alpha(
+        theme.palette.primary.light,
+        0.7
+      )}
+      --variant-outlined-color: ${theme.palette.primary.light};
 
-      warning: css`
-        --chip-background-color: ${theme.palette.warning.light};
-        --chip-color: ${theme.palette.neutral[800]};
-        --chip-hover-background-color: ${theme.palette.warning.main};
-      `,
+      ${
+        clickable &&
+        css`
+          &:hover,
+          &:focus,
+          &[aria-selected="true"] {
+            --variant-filled-background-color: ${theme.palette.primary.main};
 
-      white: css`
-        --chip-background-color: ${theme.palette.common.white};
-        --chip-color: ${theme.palette.neutral[800]};
-        --chip-hover-background-color: ${alpha(
-          theme.palette.common.white,
-          0.32
-        )};
-      `,
+            --variant-outlined-background-color: ${alpha(
+              theme.palette.primary.light,
+              0.08
+            )};
+          }
+        `
+      }
+    `,
 
-      indigo: css`
-        --chip-background-color: ${theme.palette.indigo[50]};
-        --chip-color: ${theme.palette.indigo[600]};
-        --chip-hover-background-color: ${theme.palette.indigo[100]};
-      `,
-    },
+    secondary: css`
+      --variant-filled-background-color: ${theme.palette.secondary.light};
+      --variant-filled-color: ${theme.palette.common.white};
 
-    outlined: {
-      default: css`
-        --chip-border-color: ${alpha(theme.palette.neutral[400], 0.7)};
-        --chip-color: ${theme.palette.neutral[400]};
-        --chip-hover-background-color: ${alpha(
-          theme.palette.neutral[400],
-          0.08
-        )};
-      `,
+      --variant-outlined-border-color: ${alpha(
+        theme.palette.secondary.light,
+        0.7
+      )}
+      --variant-outlined-color: ${theme.palette.secondary.light};
 
-      primary: css`
-        --chip-border-color: ${alpha(theme.palette.primary.light, 0.7)};
-        --chip-color: ${theme.palette.primary.light};
-        --chip-hover-background-color: ${alpha(
-          theme.palette.primary.light,
-          0.08
-        )};
-      `,
+      ${
+        clickable &&
+        css`
+          &:hover,
+          &:focus,
+          &[aria-selected="true"] {
+            --variant-filled-background-color: ${theme.palette.secondary.main};
 
-      secondary: css`
-        --chip-border-color: ${alpha(theme.palette.secondary.light, 0.7)};
-        --chip-color: ${theme.palette.secondary.light};
-        --chip-hover-background-color: ${alpha(
-          theme.palette.secondary.light,
-          0.08
-        )};
-      `,
+            --variant-outlined-background-color: ${alpha(
+              theme.palette.secondary.light,
+              0.08
+            )};
+          }
+        `
+      }
+    `,
 
-      error: css`
-        --chip-border-color: ${alpha(theme.palette.error.light, 0.7)};
-        --chip-color: ${theme.palette.error.light};
-        --chip-hover-background-color: ${alpha(
-          theme.palette.error.light,
-          0.08
-        )};
-      `,
+    info: css`
+      --variant-filled-background-color: ${theme.palette.info.light};
+      --variant-filled-color: ${theme.palette.common.white};
 
-      info: css`
-        --chip-border-color: ${alpha(theme.palette.info.light, 0.7)};
-        --chip-color: ${theme.palette.info.light};
-        --chip-hover-background-color: ${alpha(theme.palette.info.light, 0.08)};
-      `,
+      --variant-outlined-border-color: ${alpha(theme.palette.info.light, 0.7)}
+      --variant-outlined-color: ${theme.palette.info.light};
 
-      success: css`
-        --chip-border-color: ${alpha(theme.palette.success.light, 0.7)};
-        --chip-color: ${theme.palette.success.light};
-        --chip-hover-background-color: ${alpha(
-          theme.palette.success.light,
-          0.08
-        )};
-      `,
+      ${
+        clickable &&
+        css`
+          &:hover,
+          &:focus,
+          &[aria-selected="true"] {
+            --variant-filled-background-color: ${theme.palette.info.main};
 
-      warning: css`
-        --chip-border-color: ${alpha(theme.palette.warning.light, 0.7)};
-        --chip-color: ${theme.palette.warning.light};
-        --chip-hover-background-color: ${alpha(
-          theme.palette.warning.light,
-          0.08
-        )};
-      `,
+            --variant-outlined-background-color: ${alpha(
+              theme.palette.info.light,
+              0.08
+            )};
+          }
+        `
+      }
+    `,
 
-      white: css`
-        --chip-border-color: ${theme.palette.common.white};
-        --chip-color: ${theme.palette.common.white};
-        --chip-hover-background-color: ${alpha(
-          theme.palette.common.white,
-          0.08
-        )};
-      `,
+    error: css`
+      --variant-filled-background-color: ${theme.palette.error.light};
+      --variant-filled-color: ${theme.palette.common.white};
 
-      indigo: css`
-        --chip-border-color: ${theme.palette.indigo[600]};
-        --chip-color: ${theme.palette.indigo[600]};
-        --chip-hover-background-color: ${alpha(
-          theme.palette.indigo[600],
-          0.08
-        )};
-      `,
-    },
+      --variant-outlined-border-color: ${alpha(theme.palette.error.light, 0.7)}
+      --variant-outlined-color: ${theme.palette.error.light};
+
+      ${
+        clickable &&
+        css`
+          &:hover,
+          &:focus,
+          &[aria-selected="true"] {
+            --variant-filled-background-color: ${theme.palette.error.main};
+
+            --variant-outlined-background-color: ${alpha(
+              theme.palette.error.light,
+              0.08
+            )};
+          }
+        `
+      }
+    `,
+
+    warning: css`
+      --variant-filled-background-color: ${theme.palette.warning.light};
+      --variant-filled-color: ${theme.palette.common.white};
+
+      --variant-outlined-border-color: ${alpha(
+        theme.palette.warning.light,
+        0.7
+      )}
+      --variant-outlined-color: ${theme.palette.warning.light};
+
+      ${
+        clickable &&
+        css`
+          &:hover,
+          &:focus,
+          &[aria-selected="true"] {
+            --variant-filled-background-color: ${theme.palette.warning.main};
+
+            --variant-outlined-background-color: ${alpha(
+              theme.palette.warning.light,
+              0.08
+            )};
+          }
+        `
+      }
+    `,
+
+    success: css`
+      --variant-filled-background-color: ${theme.palette.success.light};
+      --variant-filled-color: ${theme.palette.common.white};
+
+      --variant-outlined-border-color: ${alpha(
+        theme.palette.success.light,
+        0.7
+      )}
+      --variant-outlined-color: ${theme.palette.success.light};
+
+      ${
+        clickable &&
+        css`
+          &:hover,
+          &:focus,
+          &[aria-selected="true"] {
+            --variant-filled-background-color: ${theme.palette.success.main};
+
+            --variant-outlined-background-color: ${alpha(
+              theme.palette.success.light,
+              0.08
+            )};
+          }
+        `
+      }
+    `,
+
+    white: css`
+      --variant-filled-background-color: ${theme.palette.common.white};
+      --variant-filled-color: ${theme.palette.neutral[800]};
+
+      --variant-outlined-border-color: ${theme.palette.common.white};
+      --variant-outlined-color: ${theme.palette.common.white};
+
+      ${clickable &&
+      css`
+        &:hover,
+        &:focus,
+        &[aria-selected="true"] {
+          --variant-filled-background-color: ${alpha(
+            theme.palette.common.white,
+            0.32
+          )};
+
+          --variant-outlined-background-color: ${alpha(
+            theme.palette.common.white,
+            0.08
+          )};
+        }
+      `}
+    `,
+
+    indigo: css`
+      --variant-filled-background-color: ${theme.palette.indigo[50]};
+      --variant-filled-color: ${theme.palette.indigo[600]};
+
+      --variant-outlined-border-color: ${theme.palette.indigo[600]};
+      --variant-outlined-color: ${theme.palette.indigo[600]};
+
+      ${clickable &&
+      css`
+        &:hover,
+        &:focus,
+        &[aria-selected="true"] {
+          --variant-filled-background-color: ${theme.palette.indigo[100]};
+
+          --variant-outlined-background-color: ${alpha(
+            theme.palette.indigo[600],
+            0.08
+          )};
+        }
+      `};
+    `,
   };
 
-  return cssByVariantColor[variant as NonNullable<ChipProps["variant"]>][
-    color as NonNullable<ChipProps["color"]>
-  ];
+  return cssByColor[color as NonNullable<ChipProps["color"]>];
+};
+
+const getChipSizeCss = (theme: Theme, size: ChipProps["size"]) => {
+  const cssBySize: Record<NonNullable<ChipProps["size"]>, SerializedStyles> = {
+    small: css``,
+
+    medium: css`
+      ${theme.typography.caption};
+    `,
+
+    large: css`
+      ${theme.typography.body1};
+    `,
+  };
+
+  return cssBySize[size as NonNullable<ChipProps["size"]>];
 };
 
 const getChipCss = (theme: Theme, props: ChipProps) => css`
   ${getChipVariantCss(props.variant, props.clickable)};
-  ${getChipColorCss(theme, props.color, props.variant)};
-
-  ${props.size === "medium" &&
-  css`
-    ${theme.typography.caption};
-  `}
-
+  ${getChipColorCss(theme, props.color, props.clickable)};
+  ${getChipSizeCss(theme, props.size)};
   font-weight: ${theme.typography.fontWeightMedium};
 `;
 

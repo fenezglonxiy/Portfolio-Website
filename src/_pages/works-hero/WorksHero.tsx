@@ -1,5 +1,6 @@
 import {
   Hero,
+  HeroContainer,
   HeroContent,
   HeroHeading,
   HeroProps,
@@ -13,14 +14,16 @@ function WorksHero(props: WorksHeroProps) {
   return (
     <Hero {...props}>
       <HeroContent>
-        <HeroTitle>My works.</HeroTitle>
+        <HeroContainer>
+          <HeroTitle>My works.</HeroTitle>
 
-        <HeroHeading>
-          Creating beneficial{" "}
-          <Typography component="span" variant="inherit" color="neutral-450">
-            software
-          </Typography>
-        </HeroHeading>
+          <HeroHeading>
+            Creating beneficial{" "}
+            <Typography component="span" variant="inherit" color="neutral-450">
+              software
+            </Typography>
+          </HeroHeading>
+        </HeroContainer>
       </HeroContent>
     </Hero>
   );

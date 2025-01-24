@@ -8,6 +8,10 @@ const getLinkColorCss = (theme: Theme, color: LinkProps["color"]) => {
     NonNullable<LinkProps["color"]>,
     SerializedStyles
   > = {
+    inherit: css`
+      color: inherit;
+    `,
+
     primary: css`
       color: ${theme.palette.neutral[700]};
       text-decoration-color: ${theme.palette.neutral[700]};

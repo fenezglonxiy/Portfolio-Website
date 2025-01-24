@@ -87,6 +87,7 @@ function ContactForm(props: ContactFormProps) {
                   label="Email Address"
                   placeholder="Enter Your Email"
                   variant="standard"
+                  color="black"
                   {...field}
                 />
               )}
@@ -99,6 +100,7 @@ function ContactForm(props: ContactFormProps) {
                   label="Message"
                   placeholder="Write Your Message"
                   variant="standard"
+                  color="black"
                   multiline
                   minRows={4}
                   {...field}

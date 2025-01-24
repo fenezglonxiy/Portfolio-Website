@@ -2,7 +2,7 @@
 
 import moment from "moment";
 
-import { InsightCard } from "@/_components/insight-card";
+import { HomeInsightCard } from "@/_components/home-insight-card";
 
 import HomeInsightsContent from "./HomeInsightsContent";
 import HomeInsightsHeader from "./HomeInsightsHeader";
@@ -35,7 +35,13 @@ function HomeInsights(props: HomeInsightsProps) {
           {Array(3)
             .fill(insightCard)
             .map((card, idx) => (
-              <InsightCard key={idx} {...card} />
+              <HomeInsightCard
+                key={idx}
+                href={card.href}
+                thumbnailSrc={card.thumbnailSrc}
+                title={card.title}
+                summary={card.summary}
+              />
             ))}
         </HomeInsightsShowcase>
       </HomeInsightsContent>

@@ -52,10 +52,38 @@ function InsightCollection(props: InsightCollectionProps) {
 
         <TabPanel value="all">
           <TopicInsightPage>
-            <InsightCard variant="base" {...insightCard} />
-            <InsightCard variant="base" {...insightCard} />
-            <InsightCard variant="base" {...insightCard} />
-            <InsightCard variant="base" {...insightCard} />
+            <InsightCard
+              href={insightCard.href}
+              thumbnailSrc={insightCard.thumbnailSrc}
+              title={insightCard.title}
+              summary={insightCard.summary}
+              readTime={insightCard.readTime}
+              topic={insightCard.topic}
+            />
+            <InsightCard
+              href={insightCard.href}
+              thumbnailSrc={insightCard.thumbnailSrc}
+              title={insightCard.title}
+              summary={insightCard.summary}
+              readTime={insightCard.readTime}
+              topic={insightCard.topic}
+            />
+            <InsightCard
+              href={insightCard.href}
+              thumbnailSrc={insightCard.thumbnailSrc}
+              title={insightCard.title}
+              summary={insightCard.summary}
+              readTime={insightCard.readTime}
+              topic={insightCard.topic}
+            />
+            <InsightCard
+              href={insightCard.href}
+              thumbnailSrc={insightCard.thumbnailSrc}
+              title={insightCard.title}
+              summary={insightCard.summary}
+              readTime={insightCard.readTime}
+              topic={insightCard.topic}
+            />
           </TopicInsightPage>
         </TabPanel>
         <TabPanel value="design">Design</TabPanel>
