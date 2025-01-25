@@ -18,7 +18,7 @@ export type NotFoundHeroProps = Omit<HeroProps, "children">;
 
 function NotFoundHero(props: NotFoundHeroProps) {
   return (
-    <Hero>
+    <Hero {...props}>
       <HeroContent>
         <HeroContainer>
           <NotFoundHeroLayout>

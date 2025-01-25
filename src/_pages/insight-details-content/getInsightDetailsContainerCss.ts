@@ -1,6 +1,6 @@
 import { css, Theme } from "@mui/material";
 
-const getInsightDetailsContainerRootCss = (theme: Theme) => css`
+const getInsightDetailsContainerRootCss = () => css`
   display: flex;
   justify-content: center;
 `;
@@ -14,7 +14,7 @@ const getInsightDetailsContainerInnerCss = (theme: Theme) => css`
 `;
 
 const getInsightDetailsContainerCss = (theme: Theme) => ({
-  root: getInsightDetailsContainerRootCss(theme),
+  root: getInsightDetailsContainerRootCss(),
   inner: getInsightDetailsContainerInnerCss(theme),
 });
 

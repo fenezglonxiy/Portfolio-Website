@@ -33,7 +33,6 @@ function OtherInsights(props: OtherInsightsProps) {
                   thumbnailSrc={card.thumbnailSrc}
                   href={card.href}
                   publishDate={card.publishDate}
-                  readTime={card.readTime}
                   title={card.title}
                   summary={card.summary}
                   topic={card.topic}

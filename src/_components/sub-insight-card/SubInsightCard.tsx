@@ -24,13 +24,7 @@ export type SubInsightCardProps = Omit<
 > &
   Pick<
     InsightCardDetails,
-    | "thumbnailSrc"
-    | "href"
-    | "publishDate"
-    | "readTime"
-    | "title"
-    | "summary"
-    | "topic"
+    "thumbnailSrc" | "href" | "publishDate" | "title" | "summary" | "topic"
   >;
 
 function SubInsightCard(props: SubInsightCardProps) {
@@ -38,7 +32,6 @@ function SubInsightCard(props: SubInsightCardProps) {
     thumbnailSrc,
     href,
     publishDate,
-    readTime,
     title,
     summary,
     topic,

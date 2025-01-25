@@ -4,13 +4,12 @@
 
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
+import clsx from "clsx";
 import { useTheme } from "@mui/material";
 
-import { PopperProps } from "./Popper";
 import getPopperArrowCss from "./getPopperArrowCss";
-import clsx from "clsx";
 
-type PopperArrowBaseProps = Pick<PopperProps, "placement">;
+type PopperArrowBaseProps = React.ComponentPropsWithoutRef<"span">;
 
 export interface PopperArrowTypeMap<D extends React.ElementType = "span"> {
   props: PopperArrowBaseProps;
@@ -25,7 +24,7 @@ const PopperArrow = React.forwardRef(function PopperArrow(
   props: PopperArrowProps,
   ref: React.Ref<HTMLSpanElement>
 ) {
-  const { placement = "bottom", className, ...rest } = props;
+  const { className, ...rest } = props;
   const theme = useTheme();
   const css = getPopperArrowCss(theme);
 

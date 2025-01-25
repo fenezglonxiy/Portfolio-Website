@@ -62,6 +62,7 @@ const Tab = React.forwardRef(function Tab(
     <MUITab
       ref={ref}
       id={tabId}
+      iconPosition={iconPosition}
       value={value}
       aria-controls={tabPanelId}
       disableRipple

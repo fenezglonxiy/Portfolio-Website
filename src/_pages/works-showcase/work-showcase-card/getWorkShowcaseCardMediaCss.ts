@@ -1,8 +1,10 @@
-import { css, Theme } from "@mui/material";
+import { css } from "@mui/material";
 
-const getWorkShowcaseCardMediaCss = (theme: Theme) => css`
+const getWorkShowcaseCardMediaCss = () => css`
+  height: 420px;
+
   & > * {
-    height: 420px;
+    height: 100%;
   }
 `;
 
