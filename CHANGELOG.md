@@ -1,3 +1,12 @@
+## 1.0.1 (January 25, 2025)
+  - Fix grabbing error and add keyboard, and mousewheel swipeability for TestimonialCarousel
+  - Fix 'no-unescaped-entities'
+  - Fix 'no-explicit-any'
+  - Fix 'hook is called conditionally' or 'rules-of-hooks'
+  - Fix 'no-unused-vars'
+  - Fix 'no-empty-object-type'
+  - Merge branch 'release-1.0'
+
 ## 0.1.0 (January 24, 2025)
   - Update .gitignore
   - Add 404 Not Found page

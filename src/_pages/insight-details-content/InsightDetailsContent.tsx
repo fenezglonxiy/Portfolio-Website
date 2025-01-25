@@ -22,11 +22,14 @@ import InsightDetailsDivider from "./InsightDetailsDivider";
 import OtherInsights from "./OtherInsights";
 import InsightDetailsHero from "./InsightDetailsHero";
 
-export type InsightDetailsContentProps = {};
+export type InsightDetailsContentProps = Omit<
+  React.ComponentPropsWithoutRef<"main">,
+  "children"
+>;
 
 function InsightDetailsContent(props: InsightDetailsContentProps) {
   return (
-    <main>
+    <main {...props}>
       <InsightDetailsContainer>
         <InsightDetailsHero />
 

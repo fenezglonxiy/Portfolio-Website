@@ -21,7 +21,7 @@ type TabBaseProps = {
   /**
    * The value represents the component.
    */
-  value: any;
+  value: unknown;
 
   /**
    * The icon to display.
@@ -62,6 +62,7 @@ const Tab = React.forwardRef(function Tab(
     <MUITab
       ref={ref}
       id={tabId}
+      iconPosition={iconPosition}
       value={value}
       aria-controls={tabPanelId}
       disableRipple

@@ -85,7 +85,8 @@ const FormLabel = React.forwardRef(function FormLabel(
     ...rest
   } = props;
   const formControl = useFormControl();
-  const { inputId, labelId } = formControl;
+  const inputId = htmlFor || formControl.inputId;
+  const labelId = id || formControl.labelId;
   const { required, variant, color } = formControl;
   const showOptionalIndicator = !required || optional;
   const showRequiredIndicator = required && includesRequiredIndicatorWithLabel;

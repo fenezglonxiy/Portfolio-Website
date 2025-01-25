@@ -115,7 +115,8 @@ export const bindPopper = (popperState: PopperState): PopperControlProps => {
 const usePopperState = (params?: PopperStateHookParams): PopperState => {
   const [anchorEl, setAnchorEl] = React.useState<Element | null>(null);
   const isOpen = Boolean(anchorEl);
-  const popperId = params?.popperId ?? useId();
+  const popperIdFromHook = useId();
+  const popperId = params?.popperId ?? popperIdFromHook;
 
   const openPopper = (eventOrAnchorEl: SyntheticEvent | Element) => {
     const newAnchorEl =

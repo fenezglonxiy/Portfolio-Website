@@ -1,7 +1,7 @@
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
 
-type PaginationItemBaseProps = {};
+type PaginationItemBaseProps = React.ComponentPropsWithoutRef<"li">;
 
 export interface PaginationItemTypeMap<D extends React.ElementType = "li"> {
   props: PaginationItemBaseProps;

@@ -98,8 +98,10 @@ const CardContentBox = React.forwardRef(function CardContentBox(
   } = props;
   const theme = useTheme();
   const css = getCardContentBoxCss(theme, {
-    ...props,
+    ...rest,
     orientation,
+    justifyContent,
+    alignItems,
     flexWrap,
     flexGap,
     flex,

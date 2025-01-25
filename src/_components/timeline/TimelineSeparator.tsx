@@ -9,7 +9,7 @@ import { Box } from "@/_components/box";
 
 import getTimelineSeparatorCss from "./getTimelineSeparatorCss";
 
-type TimelineSeparatorBaseProps = {};
+type TimelineSeparatorBaseProps = React.ComponentPropsWithoutRef<"div">;
 
 export interface TimelineSeparatorTypeMap<D extends React.ElementType = "div"> {
   props: TimelineSeparatorBaseProps;

@@ -26,7 +26,7 @@ function ContactHero(props: ContactHeroProps) {
               transform="inherit"
               color="neutral-450"
             >
-              Let's talk
+              Let’s talk
             </Typography>
           </HeroHeading>
 

@@ -8,7 +8,7 @@ import React from "react";
 
 import getBreadcrumbsSeparatorCss from "./getBreadcrumbsSeparatorCss";
 
-type BreadcrumbsSeparatorBaseProps = {};
+type BreadcrumbsSeparatorBaseProps = React.ComponentPropsWithoutRef<"span">;
 
 export interface BreadcrumbsSeparatorTypeMap<
   D extends React.ElementType = "span"

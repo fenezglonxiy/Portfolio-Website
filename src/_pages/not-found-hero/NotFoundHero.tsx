@@ -18,7 +18,7 @@ export type NotFoundHeroProps = Omit<HeroProps, "children">;
 
 function NotFoundHero(props: NotFoundHeroProps) {
   return (
-    <Hero>
+    <Hero {...props}>
       <HeroContent>
         <HeroContainer>
           <NotFoundHeroLayout>
@@ -33,7 +33,7 @@ function NotFoundHero(props: NotFoundHeroProps) {
                 <HeroHeading>Oops!</HeroHeading>
 
                 <HeroSubheading>
-                  We couldn't find the page you were looking for
+                  We couldn&apos;t find the page you were looking for
                 </HeroSubheading>
 
                 <NotFoundHeroCTABox>

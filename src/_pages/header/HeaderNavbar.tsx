@@ -22,7 +22,7 @@ function HeaderNavbar(props: HeaderNavbarProps) {
   const css = getHeaderNavBarCss(theme);
 
   return (
-    <nav css={css.root} {...rest}>
+    <nav {...rest}>
       <ul css={css.navList}>
         {navList.map((item) => (
           <li key={item.label}>

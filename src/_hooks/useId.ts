@@ -1,11 +1,12 @@
 import { useId as useReactId } from "react";
 
 const useId = (idFromProps?: string): string => {
+  const id = useReactId();
+
   if (idFromProps) {
     return idFromProps;
   }
 
-  const id = useReactId();
   return `pw-${id}`;
 };
 

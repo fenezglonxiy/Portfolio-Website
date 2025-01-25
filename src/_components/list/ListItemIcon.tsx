@@ -8,7 +8,7 @@ import React from "react";
 
 import getListItemIconCss from "./getListItemIconCss";
 
-type ListItemIconBaseProps = {};
+type ListItemIconBaseProps = React.ComponentPropsWithoutRef<"div">;
 
 export interface ListItemIconTypeMap<D extends React.ElementType = "div"> {
   props: ListItemIconBaseProps;

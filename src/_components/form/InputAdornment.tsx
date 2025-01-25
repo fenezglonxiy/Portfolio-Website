@@ -15,11 +15,6 @@ type InputAdornmentBaseProps = {
    * @default "standard"
    */
   variant?: "standard" | "filled";
-
-  /**
-   * Control the vertical alignment of the content inside.
-   */
-  verticalAligned?: "top" | "center";
 };
 
 export interface InputAdornmentTypeMap<D extends React.ElementType = "div"> {
@@ -35,17 +30,13 @@ const InputAdornment = React.forwardRef(function InputAdornment(
   props: InputAdornmentProps,
   ref: React.Ref<HTMLDivElement>
 ) {
-  const {
-    position = "start",
-    variant = "standard",
-    verticalAligned,
-    ...rest
-  } = props;
+  const { position = "start", variant = "standard", ...rest } = props;
 
   return (
     <MUIInputAdornment
       ref={ref}
       position={position}
+      variant={variant}
       aria-hidden
       disableTypography
       {...rest}

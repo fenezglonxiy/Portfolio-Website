@@ -1,7 +1,7 @@
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
 
-type HeroBaseProps = {};
+type HeroBaseProps = React.ComponentPropsWithoutRef<"div">;
 
 export interface HeroTypeMap<D extends React.ElementType = "div"> {
   props: HeroBaseProps;

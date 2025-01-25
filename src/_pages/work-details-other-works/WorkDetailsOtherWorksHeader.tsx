@@ -19,7 +19,7 @@ function WorkDetailsOtherWorksHeader(props: WorkDetailsOtherWorksHeaderProps) {
     <div css={css} {...props}>
       <div>
         <Typography variant="h3" fontWeight="semi-bold">
-          What's next?
+          What’s next?
         </Typography>
       </div>
 
