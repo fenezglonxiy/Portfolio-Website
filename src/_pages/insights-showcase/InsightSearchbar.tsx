@@ -1,8 +1,6 @@
 import { TextField } from "@/_components/form";
 
-export type InsightSearchbarProps = {};
-
-function InsightSearchbar(props: InsightSearchbarProps) {
+function InsightSearchbar() {
   return (
     <TextField
       label="Search insight"

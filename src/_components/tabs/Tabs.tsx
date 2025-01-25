@@ -9,7 +9,7 @@ type TabsBaseProps = {
   /**
    * The value of the current selected `Tab`.
    */
-  value: any;
+  value: unknown;
 };
 
 export interface TabsTypeMap<D extends React.ElementType = "div"> {

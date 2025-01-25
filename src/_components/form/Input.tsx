@@ -2,7 +2,7 @@
 
 "use client";
 
-import { InputBaseComponentProps, useTheme } from "@mui/material";
+import { InputBaseComponentProps } from "@mui/material";
 import React from "react";
 import { ThemeOptions } from "@mui/material/styles";
 

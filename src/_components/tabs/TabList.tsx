@@ -86,7 +86,7 @@ type TabListBaseProps = {
    *
    * **Warning**: This is a generic event not a change event.
    */
-  onChange?: (event: React.SyntheticEvent, value: any) => void;
+  onChange?: (event: React.SyntheticEvent, value: unknown) => void;
 };
 
 export interface TabListTypeMap<D extends React.ElementType = "div"> {

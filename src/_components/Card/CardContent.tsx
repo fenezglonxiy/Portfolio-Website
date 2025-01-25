@@ -9,7 +9,8 @@ import React from "react";
 import getCardContentCss from "./getCardContentCss";
 import { useCardContext } from "./CardContext";
 
-type CardContentBaseProps = {};
+type CardContentBaseProps = React.ComponentPropsWithoutRef<"div">;
+
 export interface CardContentTypeMap<D extends React.ElementType = "div"> {
   props: CardContentBaseProps;
   defaultComponent: D;

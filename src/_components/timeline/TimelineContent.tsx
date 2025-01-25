@@ -10,7 +10,7 @@ import { Box } from "@/_components/box";
 
 import getTimelineContentCss from "./getTimelineContentCss";
 
-type TimelineContentBaseProps = {};
+type TimelineContentBaseProps = React.ComponentPropsWithoutRef<"div">;
 
 export interface TimelineContentTypeMap<D extends React.ElementType = "div"> {
   props: TimelineContentBaseProps;

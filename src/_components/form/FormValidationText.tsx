@@ -49,13 +49,12 @@ const FormValidationText = React.forwardRef(function FormValidationText(
   const hasError = !!formField?.error;
   const body = hasError ? formField?.error?.message : children;
   const component = hasError ? "p" : "div";
+  const theme = useTheme();
+  const css = getValidationTextCss(theme);
 
   if (!body) {
     return null;
   }
-
-  const theme = useTheme();
-  const css = getValidationTextCss(theme);
 
   return (
     <Typography

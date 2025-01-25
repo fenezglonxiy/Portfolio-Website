@@ -154,12 +154,13 @@ const Typography = React.forwardRef(function Typography(
   } = props;
   const theme = useTheme();
   const css = getTypographyCss(theme, {
-    ...props,
+    ...rest,
     align,
     display,
     variant,
     color,
     transform,
+    fontWeight,
   });
 
   return (

@@ -9,7 +9,7 @@ type TabsContextValue = {
   /**
    * The value represents the current selected `Tab`.
    */
-  value: any;
+  value: unknown;
 };
 
 const TabsContext = React.createContext<TabsContextValue>(
@@ -17,9 +17,9 @@ const TabsContext = React.createContext<TabsContextValue>(
 );
 
 export const useTabsContext = (
-  tabValue: any
+  tabValue: unknown
 ): {
-  currentValue: string;
+  currentValue: unknown;
   tabId: string;
   tabPanelId: string;
 } => {

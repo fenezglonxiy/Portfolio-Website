@@ -10,7 +10,7 @@ function HeaderLetsTalk() {
         iconPosition="end"
         icon={<ArrowRight size="sm" />}
       >
-        Let's Talk
+        Let’s Talk
       </Button>
     </div>
   );

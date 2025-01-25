@@ -1,6 +1,6 @@
-import { css, Theme } from "@mui/material";
+import { css } from "@mui/material";
 
-const getWorkDetailsHeroContentCss = (theme: Theme) => css`
+const getWorkDetailsHeroContentCss = () => css`
   padding-bottom: 0;
 `;
 

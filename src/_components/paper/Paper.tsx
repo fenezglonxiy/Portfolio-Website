@@ -52,7 +52,7 @@ const Paper = React.forwardRef(function Paper(
     ...rest
   } = props;
   const theme = useTheme();
-  const css = getPaperCss(theme, props);
+  const css = getPaperCss(theme, { ...rest, borderRadius });
 
   return (
     <MUIPaper

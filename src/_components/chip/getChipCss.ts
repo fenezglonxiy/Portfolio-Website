@@ -3,10 +3,7 @@ import { alpha, css, Theme } from "@mui/material";
 
 import { ChipProps } from "./Chip";
 
-const getChipVariantCss = (
-  variant: ChipProps["variant"],
-  clickable: ChipProps["clickable"]
-) => {
+const getChipVariantCss = (variant: ChipProps["variant"]) => {
   const cssByVariant: Record<
     NonNullable<ChipProps["variant"]>,
     SerializedStyles
@@ -283,7 +280,7 @@ const getChipSizeCss = (theme: Theme, size: ChipProps["size"]) => {
 };
 
 const getChipCss = (theme: Theme, props: ChipProps) => css`
-  ${getChipVariantCss(props.variant, props.clickable)};
+  ${getChipVariantCss(props.variant)};
   ${getChipColorCss(theme, props.color, props.clickable)};
   ${getChipSizeCss(theme, props.size)};
   font-weight: ${theme.typography.fontWeightMedium};

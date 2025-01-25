@@ -61,7 +61,7 @@ function AboutMeHero(props: AboutMeHeroProps) {
                   icon={<ArrowRight size="md" />}
                   iconPosition="end"
                 >
-                  Let's Talk
+                  Let’s Talk
                 </Button>
               </HeroActions>
             </div>

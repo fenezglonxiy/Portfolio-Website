@@ -2,7 +2,6 @@
 
 "use client";
 
-import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
 
 import { VisuallyHidden } from "@/_components/visually-hidden";
