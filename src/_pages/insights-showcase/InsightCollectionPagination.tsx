@@ -8,11 +8,12 @@ import {
   PaginationPrevious,
 } from "@/_components/pagination";
 
-export type InsightCollectionPaginationProps = {};
+export type InsightCollectionPaginationProps =
+  React.ComponentPropsWithoutRef<"nav">;
 
 function InsightCollectionPagination(props: InsightCollectionPaginationProps) {
   return (
-    <Pagination>
+    <Pagination {...props}>
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious

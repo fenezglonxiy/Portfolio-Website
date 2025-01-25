@@ -8,7 +8,7 @@ import React from "react";
 
 import getTimelineCss from "./getTimelineCss";
 
-type TimelineBaseProps = {};
+type TimelineBaseProps = React.ComponentPropsWithoutRef<"ul">;
 
 export interface TimelineTypeMap<D extends React.ElementType = "ul"> {
   props: TimelineBaseProps;

@@ -8,7 +8,7 @@ import React from "react";
 
 import getPaginationContentCss from "./getPaginationContentCss";
 
-type PaginationContentBaseProps = {};
+type PaginationContentBaseProps = React.ComponentPropsWithoutRef<"ul">;
 
 export interface PaginationContentTypeMap<D extends React.ElementType = "ul"> {
   props: PaginationContentBaseProps;

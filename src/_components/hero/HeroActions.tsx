@@ -8,7 +8,7 @@ import React from "react";
 
 import getHeroActionsCss from "./getHeroActionsCss";
 
-type HeroActionsBaseProps = {};
+type HeroActionsBaseProps = React.ComponentPropsWithoutRef<"div">;
 
 export interface HeroActionsTypeMap<D extends React.ElementType = "div"> {
   props: HeroActionsBaseProps;

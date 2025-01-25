@@ -10,11 +10,14 @@ import OtherInsightsContent from "./OtherInsightsContent";
 import OtherInsightsShowcase from "./OtherInsightsShowcase";
 import OtherInsightsCTABox from "./OtherInsightsCTABox";
 
-export type OtherInsightsProps = {};
+export type OtherInsightsProps = Omit<
+  React.ComponentPropsWithoutRef<"div">,
+  "children"
+>;
 
 function OtherInsights(props: OtherInsightsProps) {
   return (
-    <div>
+    <div {...props}>
       <OtherInsightsContent>
         <OtherInsightsContainer>
           <Typography component="h4" variant="h5" color="slate-800">

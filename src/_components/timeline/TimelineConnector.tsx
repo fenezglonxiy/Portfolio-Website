@@ -10,7 +10,7 @@ import { Box } from "@/_components/box";
 
 import getTimelineConnectorCss from "./getTimelineConnectorCss";
 
-type TimelineConnectorBaseProps = {};
+type TimelineConnectorBaseProps = React.ComponentPropsWithoutRef<"span">;
 
 export interface TimelineConnectorTypeMap<
   D extends React.ElementType = "span"
