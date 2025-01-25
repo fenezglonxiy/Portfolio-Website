@@ -33,7 +33,7 @@ function NotFoundHero(props: NotFoundHeroProps) {
                 <HeroHeading>Oops!</HeroHeading>
 
                 <HeroSubheading>
-                  We couldn't find the page you were looking for
+                  We couldn&apos;t find the page you were looking for
                 </HeroSubheading>
 
                 <NotFoundHeroCTABox>
