@@ -24,7 +24,7 @@ const getTabListTextColorCss = (
       color: ${alpha(theme.palette.common.white, 0.7)};
 
       &.${tabClasses.selected} {
-        color: ${theme.palette.primary.light};
+        color: ${theme.palette.primary.main};
       }
     `,
 
@@ -32,7 +32,7 @@ const getTabListTextColorCss = (
       color: ${alpha(theme.palette.common.white, 0.7)};
 
       &.${tabClasses.selected} {
-        color: ${theme.palette.secondary.light};
+        color: ${theme.palette.secondary.main};
       }
     `,
 
@@ -57,11 +57,11 @@ const getTabListIndicatorColorCss = (
     SerializedStyles
   > = {
     primary: css`
-      background-color: ${theme.palette.primary.light};
+      background-color: ${theme.palette.primary.main};
     `,
 
     secondary: css`
-      background-color: ${theme.palette.secondary.light};
+      background-color: ${theme.palette.secondary.main};
     `,
 
     indigo: css`
