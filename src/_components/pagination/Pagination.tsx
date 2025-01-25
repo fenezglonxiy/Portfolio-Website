@@ -6,7 +6,7 @@ import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
 import getPaginationCss from "./getPaginationCss";
 
-type PaginationBaseProps = {};
+type PaginationBaseProps = React.ComponentPropsWithoutRef<"nav">;
 
 export interface PaginationTypeMap<D extends React.ElementType = "nav"> {
   props: PaginationBaseProps;

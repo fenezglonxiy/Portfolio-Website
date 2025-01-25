@@ -21,7 +21,7 @@ function TestimonialCardQuote(props: TestimonialCardQuoteProps) {
       color="neutral-800"
       {...rest}
     >
-      "{children}"
+      &ldquo;{children}&rdquo;
     </Typography>
   );
 }

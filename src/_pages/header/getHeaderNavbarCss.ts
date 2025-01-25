@@ -1,7 +1,5 @@
 import { css, Theme } from "@mui/material";
 
-const getHeaderNavbarRootCss = (theme: Theme) => css``;
-
 const getHeaderNavListCss = (theme: Theme) => css`
   display: flex;
   align-items: center;
@@ -9,7 +7,6 @@ const getHeaderNavListCss = (theme: Theme) => css`
 `;
 
 const getHeaderNavbarCss = (theme: Theme) => ({
-  root: getHeaderNavbarRootCss(theme),
   navList: getHeaderNavListCss(theme),
 });
 

@@ -10,7 +10,7 @@ import mergeRefs from "@/_utils/mergeRefs";
 import getInfiniteScrollerCss from "./getInfiniteScrollerCss";
 import InfiniteScrollerContext from "./InfiniteScrollerContext";
 
-type InfiniteScrollerBaseProps = {};
+type InfiniteScrollerBaseProps = React.ComponentPropsWithoutRef<"div">;
 
 export interface InfiniteScrollerTypeMap<D extends React.ElementType = "div"> {
   props: InfiniteScrollerBaseProps;

@@ -7,7 +7,7 @@ import React from "react";
 
 import getTimelineItemCss from "./getTimelineItemCss";
 
-type TimelineItemBaseProps = {};
+type TimelineItemBaseProps = React.ComponentPropsWithoutRef<"li">;
 
 export interface TimelineItemTypeMap<D extends React.ElementType = "li"> {
   props: TimelineItemBaseProps;

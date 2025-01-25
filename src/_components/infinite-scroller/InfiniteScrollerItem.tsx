@@ -3,7 +3,7 @@ import React from "react";
 
 import { Box } from "@/_components/box";
 
-type InfiniteScrollerItemBaseProps = {};
+type InfiniteScrollerItemBaseProps = React.ComponentPropsWithoutRef<"div">;
 
 export interface InfiniteScrollerItemTypeMap<
   D extends React.ElementType = "div"

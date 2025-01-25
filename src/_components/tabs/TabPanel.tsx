@@ -6,7 +6,7 @@ type TabPanelBaseProps = {
   /**
    * The value represents the `Tab`.
    */
-  value: any;
+  value: unknown;
 };
 
 export interface TabPanelTypeMap<D extends React.ElementType = "div"> {

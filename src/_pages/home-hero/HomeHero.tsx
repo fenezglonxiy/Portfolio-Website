@@ -54,7 +54,7 @@ function HomeHero(props: HomeHeroProps) {
                 iconPosition="end"
                 icon={<ArrowRight size="md" />}
               >
-                Let's talk
+                Let’s talk
               </Button>
             </HeroActions>
 

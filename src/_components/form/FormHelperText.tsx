@@ -4,7 +4,7 @@ import { FormHelperText as MUIFormHelperText } from "@mui/material";
 
 import useFormControl from "./useFormControl";
 
-type FormHelperTextBaseProps = {};
+type FormHelperTextBaseProps = React.ComponentPropsWithoutRef<"div">;
 
 export interface FormHelperTextTypeMap<D extends React.ElementType = "div"> {
   props: FormHelperTextBaseProps;

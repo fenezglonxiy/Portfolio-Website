@@ -65,7 +65,7 @@ function Footer(props: FooterProps) {
 
               <div>
                 <Typography variant="h5" fontWeight="semi-bold">
-                  Let's talk with me
+                  Let’s talk with me
                 </Typography>
               </div>
             </div>

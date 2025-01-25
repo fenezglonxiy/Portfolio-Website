@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 
 // Import Swiper React components
 import {
+  Keyboard,
   Pagination,
   Swiper,
   SwiperProps,
@@ -33,7 +34,12 @@ function TestimonialCarousel(props: TestimonialCarouselProps) {
       slidesPerView={"auto"}
       spaceBetween={40}
       grabCursor={true}
-      modules={[Pagination]}
+      touchEventsTarget="container"
+      mousewheel={true}
+      keyboard={{
+        enabled: true,
+      }}
+      modules={[Pagination, Keyboard]}
       {...rest}
     >
       {testimonials.map((testimonial, idx) => (

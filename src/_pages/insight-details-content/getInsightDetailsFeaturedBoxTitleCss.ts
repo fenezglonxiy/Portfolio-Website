@@ -1,5 +1,4 @@
 import { css, Theme } from "@mui/material";
-import { SerializedStyles } from "@emotion/react";
 
 import { InsightDetailsFeaturedBoxTitleProps } from "./InsightDetailsFeaturedBoxTitle";
 
