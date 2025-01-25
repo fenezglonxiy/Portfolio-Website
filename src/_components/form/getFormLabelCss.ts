@@ -101,7 +101,7 @@ const getFormLabelColorCss = (
       }
 
       &.${formLabelClasses.focused} {
-        color: ${theme.palette.primary.light};
+        color: ${theme.palette.primary.main};
       }
     `,
 
@@ -113,7 +113,7 @@ const getFormLabelColorCss = (
       }
 
       &.${formLabelClasses.focused} {
-        color: ${theme.palette.secondary.light};
+        color: ${theme.palette.secondary.main};
       }
     `,
 
@@ -125,7 +125,7 @@ const getFormLabelColorCss = (
       }
 
       &.${formLabelClasses.focused} {
-        color: ${theme.palette.info.light};
+        color: ${theme.palette.info.main};
       }
     `,
 
@@ -137,7 +137,7 @@ const getFormLabelColorCss = (
       }
 
       &.${formLabelClasses.focused} {
-        color: ${theme.palette.warning.light};
+        color: ${theme.palette.warning.main};
       }
     `,
 
@@ -149,7 +149,7 @@ const getFormLabelColorCss = (
       }
 
       &.${formLabelClasses.focused} {
-        color: ${theme.palette.error.light};
+        color: ${theme.palette.error.main};
       }
     `,
 
@@ -161,7 +161,7 @@ const getFormLabelColorCss = (
       }
 
       &.${formLabelClasses.focused} {
-        color: ${theme.palette.success.light};
+        color: ${theme.palette.success.main};
       }
     `,
 
