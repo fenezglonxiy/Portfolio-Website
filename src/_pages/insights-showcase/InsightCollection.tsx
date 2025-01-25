@@ -24,8 +24,8 @@ function InsightCollection(props: InsightCollectionProps) {
   const css = getInsightCollectionCss(theme);
   const [tabValue, setTabValue] = React.useState("all");
 
-  const handleChangeTab = (_: any, newValue: string) => {
-    setTabValue(newValue);
+  const handleChangeTab = (_: React.SyntheticEvent, newValue: unknown) => {
+    setTabValue(newValue as string);
   };
 
   return (

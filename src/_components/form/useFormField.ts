@@ -5,12 +5,20 @@ import { useFormFieldContext } from "./FormFieldContext";
 
 const useFormField = () => {
   const fieldContext = useFormFieldContext();
-  const { getFieldState, formState } = useFormContext();
-  const fieldState = getFieldState(fieldContext.name, formState);
+  const formContext = useFormContext();
 
   if (_.isEmpty(fieldContext)) {
     return undefined;
   }
+
+  if (!formContext) {
+    return undefined;
+  }
+
+  const fieldState = formContext.getFieldState(
+    fieldContext.name,
+    formContext.formState
+  );
 
   return {
     name: fieldContext.name,

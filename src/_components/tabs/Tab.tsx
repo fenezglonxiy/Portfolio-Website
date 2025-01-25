@@ -21,7 +21,7 @@ type TabBaseProps = {
   /**
    * The value represents the component.
    */
-  value: any;
+  value: unknown;
 
   /**
    * The icon to display.
