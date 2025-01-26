@@ -218,7 +218,7 @@ const typography = (theme: Theme): Typography => ({
   fontSize: 14,
   fontWeightThin: fontWeightByType.thin,
   fontWeightExtraLight: fontWeightByType["extra-light"],
-  fontWeightLight: fontWeightByType.main,
+  fontWeightLight: fontWeightByType.light,
   fontWeightRegular: fontWeightByType.regular,
   fontWeightMedium: fontWeightByType.medium,
   fontWeightSemibold: fontWeightByType["semi-bold"],
