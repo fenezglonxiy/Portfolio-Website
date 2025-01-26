@@ -24,6 +24,13 @@ type InfiniteScrollerContentBaseProps = {
    * @default "left"
    */
   scrollingDirection?: "left" | "right";
+
+  /**
+   * Control the type of event on item make the scroller pause.
+   *
+   * @default "hovered"
+   */
+  pauseWhenItemIs: "hovered" | "active" | "focused";
 };
 
 export interface InfiniteScrollerContentTypeMap<
@@ -46,6 +53,7 @@ const InfiniteScrollerContent = React.forwardRef(
       children,
       scrollingSpeed = 20,
       scrollingDirection = "left",
+      pauseWhenItemIs = "hovered",
       ...rest
     } = props;
     const componentRef = React.useRef<HTMLDivElement>(null);
@@ -113,9 +121,10 @@ const InfiniteScrollerContent = React.forwardRef(
     }, [width]);
 
     const css = getScrollerContentCss(animated as boolean, {
-      ...props,
+      ...rest,
       scrollingSpeed,
       scrollingDirection,
+      pauseWhenItemIs,
     });
 
     return (
