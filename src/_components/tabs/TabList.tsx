@@ -13,10 +13,6 @@ declare module "@mui/material/Tabs" {
   interface TabsPropsIndicatorColorOverrides {
     indigo: true;
   }
-
-  interface TabsPropsTextColorOverrides {
-    slate: true;
-  }
 }
 
 type TabListBaseProps = {
@@ -129,7 +125,6 @@ const TabList = React.forwardRef(function Tabs(
       variant={variant}
       orientation={orientation}
       scrollButtons={scrollButtons}
-      textColor={textColor}
       indicatorColor={indicatorColor}
       allowScrollButtonsMobile
       {...rest}
