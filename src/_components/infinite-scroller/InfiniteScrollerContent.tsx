@@ -30,7 +30,7 @@ type InfiniteScrollerContentBaseProps = {
    *
    * @default "hovered"
    */
-  pauseWhenItemIs: "hovered" | "active" | "focused";
+  pauseWhenItemIs?: "hovered" | "active" | "focused";
 };
 
 export interface InfiniteScrollerContentTypeMap<
