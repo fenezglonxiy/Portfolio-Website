@@ -11,7 +11,7 @@ export type FeaturedInsightCardMediaProps = CardMediaProps;
 function FeaturedInsightCardMedia(props: FeaturedInsightCardMediaProps) {
   const css = getFeaturedInsightCardMediaCss();
 
-  return <CardMedia css={css} {...props} />;
+  return <CardMedia component="img" css={css} {...props} />;
 }
 
 export default FeaturedInsightCardMedia;

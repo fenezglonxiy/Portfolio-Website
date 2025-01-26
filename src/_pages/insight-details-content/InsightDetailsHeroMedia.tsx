@@ -16,12 +16,7 @@ function InsightDetailsHeroMedia(props: InsightDetailsHeroMediaProps) {
 
   return (
     <div css={css}>
-      <Media
-        loading="eager"
-        role="representation"
-        borderRadius="md"
-        {...props}
-      />
+      <Media role="representation" borderRadius="md" {...props} />
     </div>
   );
 }
