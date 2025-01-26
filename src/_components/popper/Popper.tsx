@@ -93,7 +93,7 @@ const Popper = React.forwardRef(function Popper(
       css={css}
       {...rest}
     >
-      {arrow && <PopperArrow ref={setArrowRef} placement={placement} />}
+      {arrow && <PopperArrow ref={setArrowRef} />}
       {children}
     </MUIPopper>
   );
