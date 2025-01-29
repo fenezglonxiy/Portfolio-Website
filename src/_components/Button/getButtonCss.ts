@@ -95,7 +95,7 @@ const getButtonColorCss = (theme: Theme, color: ButtonProps["color"]) => {
       --variant-outlined-border-color: ${theme.palette.neutral[900]};
       --variant-outlined-color: ${theme.palette.neutral[900]};
 
-      --variant-text-color: ${theme.palette.primary.light};
+      --variant-text-color: ${theme.palette.primary.main};
 
       &:hover,
       &:focus,
@@ -104,7 +104,7 @@ const getButtonColorCss = (theme: Theme, color: ButtonProps["color"]) => {
         --variant-contained-color: ${theme.palette.neutral[400]};
 
         --variant-text-background-color: ${alpha(
-          theme.palette.primary.light,
+          theme.palette.primary.main,
           0.08
         )};
       }
@@ -117,7 +117,7 @@ const getButtonColorCss = (theme: Theme, color: ButtonProps["color"]) => {
       --variant-outlined-border-color: ${theme.palette.neutral[400]};
       --variant-outlined-color: ${theme.palette.neutral[800]};
 
-      --variant-text-color: ${theme.palette.secondary.light};
+      --variant-text-color: ${theme.palette.secondary.main};
 
       &:hover,
       &:focus,
@@ -126,7 +126,7 @@ const getButtonColorCss = (theme: Theme, color: ButtonProps["color"]) => {
         --variant-contained-color: ${theme.palette.neutral[650]};
 
         --variant-text-background-color: ${alpha(
-          theme.palette.secondary.light,
+          theme.palette.secondary.main,
           0.08
         )};
       }

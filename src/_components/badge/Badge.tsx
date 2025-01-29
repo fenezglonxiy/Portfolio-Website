@@ -108,7 +108,13 @@ const Badge = React.forwardRef(function Badge(
     ...rest
   } = props;
   const theme = useTheme();
-  const css = getBadgeCss(theme);
+  const css = getBadgeCss(theme, {
+    ...rest,
+    anchorOrigin,
+    variant,
+    color,
+    overlap,
+  });
 
   return (
     <MUIBadge

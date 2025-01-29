@@ -2,34 +2,14 @@
 
 "use client";
 
-import {
-  OverridableComponent,
-  OverrideProps,
-} from "@mui/material/OverridableComponent";
 import React from "react";
 import { ThemeOptions, useTheme } from "@mui/material";
 
-import { Box } from "@/_components/box";
+import { CardMedia, CardMediaProps } from "@/_components/Card";
+
 import getMediaCss from "./getMediaCss";
 
-type MediaBaseProps = {
-  /**
-   * Control the element used for the root node.
-   *
-   * It should match the media type for the component to work properly.
-   */
-  component: "video" | "audio" | "picture" | "iframe" | "img";
-
-  /**
-   * Control the source of the media.
-   */
-  src: string;
-
-  /**
-   * Control the alternative text for the media.
-   */
-  alt?: string;
-
+export type MediaProps = CardMediaProps & {
   /**
    * Control the border-radius of the media.
    * @default "none"
@@ -45,23 +25,17 @@ type MediaBaseProps = {
   fullWidth?: boolean;
 };
 
-export interface MediaTypeMap<D extends React.ElementType = "div"> {
-  props: MediaBaseProps;
-  defaultComponent: D;
-}
+const Media = React.forwardRef(function Media(
+  props: MediaProps,
+  ref: React.Ref<HTMLDivElement>
+) {
+  const { borderRadius = "none", fullWidth, ...rest } = props;
+  const theme = useTheme();
+  const css = getMediaCss(theme, { ...rest, borderRadius, fullWidth });
 
-export type MediaProps<
-  D extends React.ElementType = MediaTypeMap["defaultComponent"]
-> = OverrideProps<MediaTypeMap<D>, D>;
+  return <CardMedia ref={ref} css={css} {...rest} />;
+});
 
-const Media: OverridableComponent<MediaTypeMap> = React.forwardRef(
-  function Media(props: MediaProps, ref: React.Ref<HTMLDivElement>) {
-    const { borderRadius = "none", fullWidth, ...rest } = props;
-    const theme = useTheme();
-    const css = getMediaCss(theme, { ...rest, borderRadius, fullWidth });
-
-    return <Box ref={ref} css={css} {...rest} />;
-  }
-);
+Media.displayName = "Media";
 
 export default Media;
