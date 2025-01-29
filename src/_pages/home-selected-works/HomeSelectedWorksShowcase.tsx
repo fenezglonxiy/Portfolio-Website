@@ -27,8 +27,8 @@ function HomeSelectedWorksShowcase(props: HomeSelectedWorksShowcaseProps) {
           thumbnailSrc={work.thumbnailSrc}
           workTitle={work.workTitle}
           workBusinessSectors={work.workBusinessSectors}
-          workDuration={work.workDuration}
           workStartDate={work.workStartDate}
+          workEndDate={work.workEndDate}
           workSummary={work.workSummary}
           workDetailsHref={work.workDetailsHref}
         />

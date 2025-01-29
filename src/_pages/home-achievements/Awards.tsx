@@ -53,8 +53,8 @@ function Awards(props: awardsProps) {
                 </AchievementTimelineTitle>
 
                 <AchievementTimelineDate
-                  date={award.date}
-                  duration={award.duration}
+                  achievementDate={award.achievementDate}
+                  expiryDate={award.expiryDate}
                 />
               </AchievementTimelineContent>
 

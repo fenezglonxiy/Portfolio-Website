@@ -1,8 +1,7 @@
 "use client";
 
-import moment from "moment";
-
 import { HomeInsightCard } from "@/_components/home-insight-card";
+import { insightCard } from "@/dummyData";
 
 import HomeInsightsContent from "./HomeInsightsContent";
 import HomeInsightsHeader from "./HomeInsightsHeader";
@@ -12,18 +11,6 @@ export type HomeInsightsProps = Omit<
   React.ComponentPropsWithoutRef<"section">,
   "children"
 >;
-
-const insightCard = {
-  href: "/",
-  topic: "Test",
-  tags: ["Test"],
-  thumbnailSrc: "/insight-card-thumbnail.png",
-  title:
-    "The Power of Typography in Visual Design: Enhancing Communication and Impact",
-  summary:
-    "Dive into the fascinating world of color theory and learn how to create captivating visual designs by",
-  publishDate: moment(),
-};
 
 function HomeInsights(props: HomeInsightsProps) {
   return (

@@ -3,6 +3,7 @@
 "use client";
 
 import { useTheme } from "@mui/material";
+import { format } from "date-fns";
 
 import { Typography } from "@/_components/Typography";
 import { Calendar } from "@/_icons";
@@ -40,7 +41,7 @@ function InsightPublishDate(props: InsightPublishDateProps) {
         <Calendar />
       </span>
 
-      <span>{date.format("MMM DD, YYYY")}</span>
+      <span>{format(date, "MMM dd, yyyy")}</span>
     </Typography>
   );
 }

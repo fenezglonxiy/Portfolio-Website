@@ -30,12 +30,12 @@ export type WorkCardDetails = {
   /**
    * The date when the work begins.
    */
-  workStartDate: moment.Moment;
+  workStartDate: Date;
 
   /**
-   * The work duration.
+   * The date when the work ends.
    */
-  workDuration: moment.Duration;
+  workEndDate: Date;
 
   /**
    * A summary of what you have achieved during the work.
@@ -61,7 +61,7 @@ function WorkCard(props: WorkCardProps) {
     workTitle,
     workBusinessSectors,
     workStartDate,
-    workDuration,
+    workEndDate,
     workSummary,
     workDetailsHref,
     ...rest
@@ -83,7 +83,7 @@ function WorkCard(props: WorkCardProps) {
 
               <WorkCardWorkTimestamps
                 startDate={workStartDate}
-                duration={workDuration}
+                endDate={workEndDate}
               />
             </WorkCardContentBox>
           </WorkCardContentBox>

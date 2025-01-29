@@ -3,14 +3,13 @@ import SideDetailsSection, {
 } from "./SideDetailsSection";
 import SideDetailsSectionTitle from "./SideDetailsSectionTitle";
 import SideDetailsSectionContent from "./SideDetailsSectionContent";
-import { WorkDetails } from "./types";
 import SideDetailsText from "./SideDetailsText";
 
 export type WorkDurationDetailsSectionProps = SideDetailsSectionProps & {
   /**
    * The work duration.
    */
-  duration: WorkDetails["duration"];
+  duration: number;
 
   children?: undefined | null;
 };
@@ -23,7 +22,7 @@ function WorkDurationDetailsSection(props: WorkDurationDetailsSectionProps) {
       <SideDetailsSectionTitle>Duration</SideDetailsSectionTitle>
 
       <SideDetailsSectionContent orientation="vertical">
-        <SideDetailsText>{duration.asHours()} hours</SideDetailsText>
+        <SideDetailsText>{duration} hours</SideDetailsText>
       </SideDetailsSectionContent>
     </SideDetailsSection>
   );

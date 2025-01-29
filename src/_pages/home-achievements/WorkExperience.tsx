@@ -50,8 +50,8 @@ function WorkExperience(props: WorkExperienceProps) {
                 <AchievementTimelineTitle>{exp.title}</AchievementTimelineTitle>
 
                 <AchievementTimelineDate
-                  date={exp.date}
-                  duration={exp.duration}
+                  achievementDate={exp.achievementDate}
+                  expiryDate={exp.expiryDate}
                 />
               </AchievementTimelineContent>
 
