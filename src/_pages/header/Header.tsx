@@ -8,13 +8,9 @@ import HeaderContent from "./HeaderContent";
 import HeaderLogo from "./HeaderLogo";
 import HeaderNavbar from "./HeaderNavbar";
 import HeaderLetsTalk from "./HeaderLetsTalk";
-import dynamic from "next/dynamic";
+import HeaderLocalTime from "./HeaderLocalTime";
 
-const HeaderTimezone = dynamic(() => import("./HeaderTimezone"), {
-  ssr: false,
-});
-
-export type HeaderProps = React.HTMLAttributes<HTMLDivElement>;
+export type HeaderProps = React.ComponentPropsWithoutRef<"div">;
 
 function Header(props: HeaderProps) {
   const navList: Array<NavItem> = [
@@ -43,7 +39,7 @@ function Header(props: HeaderProps) {
 
         <HeaderNavbar navList={navList} />
 
-        <HeaderTimezone />
+        <HeaderLocalTime />
 
         <HeaderLetsTalk />
       </HeaderContent>
