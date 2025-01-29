@@ -1,4 +1,4 @@
-import moment from "moment";
+import { addMonths } from "date-fns";
 import { Metadata } from "next";
 
 import { WorkDetailsContent } from "@/_pages/work-details-content";
@@ -8,8 +8,8 @@ import { WorkDetailsOtherWorks } from "@/_pages/work-details-other-works";
 export const metadata: Metadata = {};
 
 const work = {
-  startDate: moment(),
-  duration: moment.duration(2, "month"),
+  startDate: new Date(),
+  endDate: addMonths(new Date(), 2),
   businessSectors: ["Construction"],
   services: ["Web Design", "Web Development", "Mobile Development"],
   about:

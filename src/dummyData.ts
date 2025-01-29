@@ -1,16 +1,16 @@
-import moment from "moment";
+import { addMonths } from "date-fns";
 
-import { Achievement } from "./types";
+import { Achievement, InsightCardDetails } from "./types";
 import { WorkCardDetails } from "./_components/work-card";
 import { TestimonialCardDetails } from "./_components/testimonial-card";
+import { WorkShowcaseCardDetails } from "./_pages/works-showcase/work-showcase-card/WorkShowcaseCard";
 
 export const workExperienceTimelineItem: Achievement = {
   svgHref: "google.svg#google",
   svgWidth: 24,
   svgHeight: 24,
   title: "Web developer at Google",
-  date: moment("202402", "YYYYMM"),
-  duration: moment.duration(moment().diff(moment("202402", "YYYYMM"))),
+  achievementDate: new Date(2024, 1),
   referenceHref: "/",
 };
 
@@ -19,7 +19,7 @@ export const awardTimelineItem: Achievement = {
   svgWidth: 24,
   svgHeight: 24,
   title: "Web developer at Google",
-  date: moment("202402", "YYYYMM"),
+  achievementDate: new Date(2024, 1),
   referenceHref: "/",
 };
 
@@ -27,8 +27,8 @@ export const workCard: WorkCardDetails = {
   thumbnailSrc: "card-thumbnail.png",
   workTitle: "Struktura",
   workBusinessSectors: ["Construction", "Test"],
-  workStartDate: moment(),
-  workDuration: moment.duration(2, "month"),
+  workStartDate: new Date(2024, 1),
+  workEndDate: addMonths(new Date(2024, 1), 2),
   workSummary:
     "This exploration centers on crafting an engaging layout, selecting an appealing color palette, and utilizing captivating imagery to enhance the overall user experience",
   workDetailsHref: "/",
@@ -43,7 +43,7 @@ export const testimonialCard: TestimonialCardDetails = {
   endorserOrganizationLogoSrc: "/teamwork.png",
 };
 
-export const insightCard = {
+export const insightCard: InsightCardDetails = {
   href: "/",
   thumbnailSrc: "/insight-card-thumbnail.png",
   title:
@@ -51,7 +51,20 @@ export const insightCard = {
   summary:
     "Dive into the fascinating world of color theory and learn how to create captivating visual designs by",
   readTime: "60min",
-  publishDate: moment(),
+  publishDate: new Date(),
   topic: "Business",
   tags: ["UI/UX", "Design System", "Sleep & Care"],
 };
+
+export const workShowcaseCard: WorkShowcaseCardDetails = {
+  thumbnailSrc: "image.png",
+  workTitle: "Struktura",
+  workBusinessSectors: ["Construction", "Test"],
+  workStartDate: new Date(),
+  workEndDate: addMonths(new Date(), 2),
+  workSummary:
+    "This exploration centers on crafting an engaging layout, selecting an appealing color palette, and utilizing captivating imagery to enhance the overall user experience",
+  workServices: ["Web Design", "Web Development", "Mobile Development"],
+  workDetailsHref: "/",
+};
+

@@ -1,33 +1,33 @@
 import clsx from "clsx";
-import moment from "moment";
+import { format } from "date-fns";
 
 import { Typography, TypographyProps } from "@/_components/Typography";
 
 export type WorkCardWorkTimestampsProps = TypographyProps & {
   /**
-   * Specify the date when the work begins.
+   * The date when the work begins.
    */
-  startDate: moment.Moment;
+  startDate: Date;
 
   /**
-   * Specify the duration of the work.
+   * The date when the work ends.
    */
-  duration: moment.Duration;
+  endDate: Date;
 };
 
 function WorkCardWorkTimestamps(props: WorkCardWorkTimestampsProps) {
   const {
     startDate: startDateFromProps,
-    duration,
+    endDate: endDateFromProps,
     variant = "body2Medium",
     color = "neutral-550",
     fontWeight = "medium",
     className,
     ...rest
   } = props;
-  const dateFormat = "MMM YYYY";
-  const startDate = startDateFromProps.format(dateFormat);
-  const endDate = moment(startDateFromProps).add(duration).format(dateFormat);
+  const dateFormat = "MMM yyyy";
+  const startDate = format(startDateFromProps, dateFormat);
+  const endDate = format(endDateFromProps, dateFormat);
 
   return (
     <Typography

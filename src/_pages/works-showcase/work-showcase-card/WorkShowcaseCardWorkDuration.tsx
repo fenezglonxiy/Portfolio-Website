@@ -1,12 +1,11 @@
 import { Typography } from "@/_components/Typography";
 
 import WorkShowcaseCardContentBox from "./WorkShowcaseCardContentBox";
-import { WorkShowcaseCardProps } from "./WorkShowcaseCard";
 import WorkShowcaseCardContentBoxTitle from "./WorkShowcaseCardContentBoxTitle";
 
 export type WorkShowcaseCardWorkDurationProps =
   React.ComponentPropsWithoutRef<"div"> & {
-    duration: WorkShowcaseCardProps["workDuration"];
+    duration: number;
     children?: undefined | null;
   };
 
@@ -21,7 +20,7 @@ function WorkShowcaseCardWorkDuration(
         Duration
       </WorkShowcaseCardContentBoxTitle>
 
-      <Typography variant="body1Medium">{duration.asHours()} hours</Typography>
+      <Typography variant="body1Medium">{duration} hours</Typography>
     </WorkShowcaseCardContentBox>
   );
 }

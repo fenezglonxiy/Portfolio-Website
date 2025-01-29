@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 import { Typography } from "@/_components/Typography";
 
 import WorkShowcaseCardContentBox from "./WorkShowcaseCardContentBox";
@@ -22,7 +24,7 @@ function WorkShowcaseCardWorkStartDate(
       </WorkShowcaseCardContentBoxTitle>
 
       <Typography variant="body1Medium">
-        {startDate.format("MMMM YYYY")}
+        {format(startDate, "MMMM yyyy")}
       </Typography>
     </WorkShowcaseCardContentBox>
   );

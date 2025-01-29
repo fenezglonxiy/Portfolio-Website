@@ -1,3 +1,5 @@
+import { differenceInHours } from "date-fns";
+
 import WorkDetailsContainer from "./WorkDetailsContainer";
 import SideDetails from "./SideDetails";
 import WorkStartDateDetailsSection from "./WorkStartDateDetailsSection";
@@ -16,7 +18,7 @@ export type WorkDetailsContentProps = React.ComponentPropsWithoutRef<"main"> &
 function WorkDetailsContent(props: WorkDetailsContentProps) {
   const {
     startDate,
-    duration,
+    endDate,
     businessSectors,
     services,
     about,
@@ -24,6 +26,7 @@ function WorkDetailsContent(props: WorkDetailsContentProps) {
     workResults,
     ...rest
   } = props;
+  const duration = differenceInHours(endDate, startDate);
 
   return (
     <main {...rest}>

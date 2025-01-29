@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 import SideDetailsSection, {
   SideDetailsSectionProps,
 } from "./SideDetailsSection";
@@ -23,7 +25,7 @@ function WorkStartDateDetailsSection(props: WorkStartDateDetailsSectionProps) {
       <SideDetailsSectionTitle>Start date</SideDetailsSectionTitle>
 
       <SideDetailsSectionContent orientation="vertical">
-        <SideDetailsText>{date.format("MMMM YYYY")}</SideDetailsText>
+        <SideDetailsText>{format(date, "MMMM yyyy")}</SideDetailsText>
       </SideDetailsSectionContent>
     </SideDetailsSection>
   );

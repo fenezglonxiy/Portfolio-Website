@@ -2,6 +2,8 @@
 
 "use client";
 
+import { differenceInHours } from "date-fns";
+
 import { Card, CardProps } from "@/_components/Card";
 import { WorkCardDetails } from "@/_components/work-card";
 import { Button } from "@/_components/Button";
@@ -35,11 +37,12 @@ function WorkShowcaseCard(props: WorkShowcaseCardProps) {
     workSummary,
     workBusinessSectors,
     workStartDate,
-    workDuration,
+    workEndDate,
     workServices,
     workDetailsHref,
     ...rest
   } = props;
+  const workDuration = differenceInHours(workEndDate, workStartDate);
   const css = getWorkShowcaseCardCss();
 
   return (

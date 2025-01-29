@@ -1,15 +1,13 @@
-import moment from "moment";
-
 export type WorkDetails = {
   /**
    * The date when the work begins.
    */
-  startDate: moment.Moment;
+  startDate: Date;
 
   /**
-   * The work duration.
+   * The date when the work ends.
    */
-  duration: moment.Duration;
+  endDate: Date;
 
   /**
    * The business sectors that the work relates to.

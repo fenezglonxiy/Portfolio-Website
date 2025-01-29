@@ -7,8 +7,12 @@ import { NavItem } from "@/types";
 import HeaderContent from "./HeaderContent";
 import HeaderLogo from "./HeaderLogo";
 import HeaderNavbar from "./HeaderNavbar";
-import HeaderTimezone from "./HeaderTimezone";
 import HeaderLetsTalk from "./HeaderLetsTalk";
+import dynamic from "next/dynamic";
+
+const HeaderTimezone = dynamic(() => import("./HeaderTimezone"), {
+  ssr: false,
+});
 
 export type HeaderProps = React.HTMLAttributes<HTMLDivElement>;
 

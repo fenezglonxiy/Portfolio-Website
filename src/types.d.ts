@@ -38,12 +38,12 @@ type Achievement = {
   /**
    * The date when the achievement title is first achieved.
    */
-  date: moment.Moment;
+  achievementDate: Date;
 
   /**
-   * The period that the achievement title is achieved.
+   * The date when the achievement title is expired.
    */
-  duration?: moment.Duration;
+  expiryDate?: Date;
 
   /**
    * A URL or path to navigate to the achievement.
@@ -90,7 +90,7 @@ export type InsightCardDetails = {
   /**
    * The publish date of the insight.
    */
-  publishDate: moment.Moment;
+  publishDate: Date;
 
   /**
    * The subject that the insight discusses.

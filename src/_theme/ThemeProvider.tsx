@@ -1,27 +1,16 @@
 "use client";
 
-import {
-  Theme,
-  ThemeProvider as MUIProvider,
-  CssBaseline,
-} from "@mui/material";
-import React from "react";
-import EmotionThemeProvider from "./EmotionThemeProvider";
+import createTheme from "./createTheme";
+import MUIThemeProvider from "./MUIThemeProvider";
+
+const theme = createTheme();
 
 type ThemeProviderProps = {
-  theme: Theme;
   children: React.ReactNode;
 };
 
-function ThemeProvider({ theme, children }: ThemeProviderProps) {
-  return (
-    <MUIProvider theme={theme}>
-      <EmotionThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
-      </EmotionThemeProvider>
-    </MUIProvider>
-  );
+function ThemeProvider({ children }: ThemeProviderProps) {
+  return <MUIThemeProvider theme={theme}>{children}</MUIThemeProvider>;
 }
 
 export default ThemeProvider;
