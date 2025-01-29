@@ -24,7 +24,9 @@ const InfiniteScrollerItem = React.forwardRef(function InfiniteScrollerItem(
 ) {
   const { component = "div", ...rest } = props;
 
-  return <Box ref={ref} component={component} {...rest} />;
+  return (
+    <Box ref={ref} component={component} tabIndex="-1" aria-hidden {...rest} />
+  );
 });
 
 InfiniteScrollerItem.displayName = "InfiniteScrollerItem";

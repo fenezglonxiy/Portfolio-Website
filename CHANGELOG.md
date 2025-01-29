@@ -1,3 +1,6 @@
+## 1.0.2 (January 26, 2025)
+
+
 ## 1.0.1 (January 25, 2025)
   - Fix grabbing error and add keyboard, and mousewheel swipeability for TestimonialCarousel
   - Fix 'no-unescaped-entities'

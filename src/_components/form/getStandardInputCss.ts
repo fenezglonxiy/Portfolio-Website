@@ -18,7 +18,7 @@ const getStandardInputColorCss = (
         theme.palette.common.black,
         0.87
       )};
-      --input-focused-border-bottom-color: ${theme.palette.primary.light};
+      --input-focused-border-bottom-color: ${theme.palette.primary.main};
       --input-filled-border-bottom-color: ${alpha(
         theme.palette.common.black,
         0.42
@@ -37,7 +37,7 @@ const getStandardInputColorCss = (
         theme.palette.common.black,
         0.87
       )};
-      --input-focused-border-bottom-color: ${theme.palette.secondary.light};
+      --input-focused-border-bottom-color: ${theme.palette.secondary.main};
       --input-filled-border-bottom-color: ${alpha(
         theme.palette.common.black,
         0.42
@@ -56,7 +56,7 @@ const getStandardInputColorCss = (
         theme.palette.common.black,
         0.87
       )};
-      --input-focused-border-bottom-color: ${theme.palette.info.light};
+      --input-focused-border-bottom-color: ${theme.palette.info.main};
       --input-filled-border-bottom-color: ${alpha(
         theme.palette.common.black,
         0.42
@@ -75,7 +75,7 @@ const getStandardInputColorCss = (
         theme.palette.common.black,
         0.87
       )};
-      --input-focused-border-bottom-color: ${theme.palette.warning.light};
+      --input-focused-border-bottom-color: ${theme.palette.warning.main};
       --input-filled-border-bottom-color: ${alpha(
         theme.palette.common.black,
         0.42
@@ -94,7 +94,7 @@ const getStandardInputColorCss = (
         theme.palette.common.black,
         0.87
       )};
-      --input-focused-border-bottom-color: ${theme.palette.error.light};
+      --input-focused-border-bottom-color: ${theme.palette.error.main};
       --input-filled-border-bottom-color: ${alpha(
         theme.palette.common.black,
         0.42
@@ -113,7 +113,7 @@ const getStandardInputColorCss = (
         theme.palette.common.black,
         0.87
       )};
-      --input-focused-border-bottom-color: ${theme.palette.success.light};
+      --input-focused-border-bottom-color: ${theme.palette.success.main};
       --input-filled-border-bottom-color: ${alpha(
         theme.palette.common.black,
         0.42

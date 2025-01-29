@@ -17,9 +17,9 @@ const getOutlinedInputColorCss = (
       --input-border-color: ${alpha(theme.palette.common.black, 0.23)};
       --input-filled-border-color: ${alpha(theme.palette.common.black, 0.23)};
       --input-hovered-border-color: ${alpha(theme.palette.common.black, 0.87)};
-      --input-focused-border-color: ${theme.palette.primary.light};
+      --input-focused-border-color: ${theme.palette.primary.main};
       --input-focused-box-shadow-color: ${alpha(
-        theme.palette.primary.light,
+        theme.palette.primary.main,
         0.25
       )};
       --input-disabled-color: ${alpha(theme.palette.common.black, 0.38)};
@@ -33,9 +33,9 @@ const getOutlinedInputColorCss = (
       --input-border-color: ${alpha(theme.palette.common.black, 0.23)};
       --input-filled-border-color: ${alpha(theme.palette.common.black, 0.23)};
       --input-hovered-border-color: ${alpha(theme.palette.common.black, 0.87)};
-      --input-focused-border-color: ${theme.palette.secondary.light};
+      --input-focused-border-color: ${theme.palette.secondary.main};
       --input-focused-box-shadow-color: ${alpha(
-        theme.palette.secondary.light,
+        theme.palette.secondary.main,
         0.25
       )};
       --input-disabled-color: ${alpha(theme.palette.common.black, 0.38)};
@@ -49,11 +49,8 @@ const getOutlinedInputColorCss = (
       --input-border-color: ${alpha(theme.palette.common.black, 0.23)};
       --input-filled-border-color: ${alpha(theme.palette.common.black, 0.23)};
       --input-hovered-border-color: ${alpha(theme.palette.common.black, 0.87)};
-      --input-focused-border-color: ${theme.palette.info.light};
-      --input-focused-box-shadow-color: ${alpha(
-        theme.palette.info.light,
-        0.25
-      )};
+      --input-focused-border-color: ${theme.palette.info.main};
+      --input-focused-box-shadow-color: ${alpha(theme.palette.info.main, 0.25)};
       --input-disabled-color: ${alpha(theme.palette.common.black, 0.38)};
       --input-disabled-background-color: transparent;
       --input-disabled-border-color: ${alpha(theme.palette.common.black, 0.26)};
@@ -65,9 +62,9 @@ const getOutlinedInputColorCss = (
       --input-border-color: ${alpha(theme.palette.common.black, 0.23)};
       --input-filled-border-color: ${alpha(theme.palette.common.black, 0.23)};
       --input-hovered-border-color: ${alpha(theme.palette.common.black, 0.87)};
-      --input-focused-border-color: ${theme.palette.success.light};
+      --input-focused-border-color: ${theme.palette.success.main};
       --input-focused-box-shadow-color: ${alpha(
-        theme.palette.success.light,
+        theme.palette.success.main,
         0.25
       )};
       --input-disabled-color: ${alpha(theme.palette.common.black, 0.38)};
@@ -81,9 +78,9 @@ const getOutlinedInputColorCss = (
       --input-border-color: ${alpha(theme.palette.common.black, 0.23)};
       --input-filled-border-color: ${alpha(theme.palette.common.black, 0.23)};
       --input-hovered-border-color: ${alpha(theme.palette.common.black, 0.87)};
-      --input-focused-border-color: ${theme.palette.warning.light};
+      --input-focused-border-color: ${theme.palette.warning.main};
       --input-focused-box-shadow-color: ${alpha(
-        theme.palette.warning.light,
+        theme.palette.warning.main,
         0.25
       )};
       --input-disabled-color: ${alpha(theme.palette.common.black, 0.38)};
@@ -97,9 +94,9 @@ const getOutlinedInputColorCss = (
       --input-border-color: ${alpha(theme.palette.common.black, 0.23)};
       --input-filled-border-color: ${alpha(theme.palette.common.black, 0.23)};
       --input-hovered-border-color: ${alpha(theme.palette.common.black, 0.87)};
-      --input-focused-border-color: ${theme.palette.error.light};
+      --input-focused-border-color: ${theme.palette.error.main};
       --input-focused-box-shadow-color: ${alpha(
-        theme.palette.error.light,
+        theme.palette.error.main,
         0.25
       )};
       --input-disabled-color: ${alpha(theme.palette.common.black, 0.38)};

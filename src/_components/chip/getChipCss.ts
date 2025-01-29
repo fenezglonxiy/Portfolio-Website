@@ -57,14 +57,11 @@ const getChipColorCss = (
     `,
 
     primary: css`
-      --variant-filled-background-color: ${theme.palette.primary.light};
+      --variant-filled-background-color: ${theme.palette.primary.main};
       --variant-filled-color: ${theme.palette.common.white};
 
-      --variant-outlined-border-color: ${alpha(
-        theme.palette.primary.light,
-        0.7
-      )}
-      --variant-outlined-color: ${theme.palette.primary.light};
+      --variant-outlined-border-color: ${alpha(theme.palette.primary.main, 0.7)}
+      --variant-outlined-color: ${theme.palette.primary.main};
 
       ${
         clickable &&
@@ -75,7 +72,7 @@ const getChipColorCss = (
             --variant-filled-background-color: ${theme.palette.primary.main};
 
             --variant-outlined-background-color: ${alpha(
-              theme.palette.primary.light,
+              theme.palette.primary.main,
               0.08
             )};
           }
@@ -84,14 +81,14 @@ const getChipColorCss = (
     `,
 
     secondary: css`
-      --variant-filled-background-color: ${theme.palette.secondary.light};
+      --variant-filled-background-color: ${theme.palette.secondary.main};
       --variant-filled-color: ${theme.palette.common.white};
 
       --variant-outlined-border-color: ${alpha(
-        theme.palette.secondary.light,
+        theme.palette.secondary.main,
         0.7
       )}
-      --variant-outlined-color: ${theme.palette.secondary.light};
+      --variant-outlined-color: ${theme.palette.secondary.main};
 
       ${
         clickable &&
@@ -102,7 +99,7 @@ const getChipColorCss = (
             --variant-filled-background-color: ${theme.palette.secondary.main};
 
             --variant-outlined-background-color: ${alpha(
-              theme.palette.secondary.light,
+              theme.palette.secondary.main,
               0.08
             )};
           }
@@ -111,11 +108,11 @@ const getChipColorCss = (
     `,
 
     info: css`
-      --variant-filled-background-color: ${theme.palette.info.light};
+      --variant-filled-background-color: ${theme.palette.info.main};
       --variant-filled-color: ${theme.palette.common.white};
 
-      --variant-outlined-border-color: ${alpha(theme.palette.info.light, 0.7)}
-      --variant-outlined-color: ${theme.palette.info.light};
+      --variant-outlined-border-color: ${alpha(theme.palette.info.main, 0.7)}
+      --variant-outlined-color: ${theme.palette.info.main};
 
       ${
         clickable &&
@@ -126,7 +123,7 @@ const getChipColorCss = (
             --variant-filled-background-color: ${theme.palette.info.main};
 
             --variant-outlined-background-color: ${alpha(
-              theme.palette.info.light,
+              theme.palette.info.main,
               0.08
             )};
           }
@@ -135,11 +132,11 @@ const getChipColorCss = (
     `,
 
     error: css`
-      --variant-filled-background-color: ${theme.palette.error.light};
+      --variant-filled-background-color: ${theme.palette.error.main};
       --variant-filled-color: ${theme.palette.common.white};
 
-      --variant-outlined-border-color: ${alpha(theme.palette.error.light, 0.7)}
-      --variant-outlined-color: ${theme.palette.error.light};
+      --variant-outlined-border-color: ${alpha(theme.palette.error.main, 0.7)}
+      --variant-outlined-color: ${theme.palette.error.main};
 
       ${
         clickable &&
@@ -150,7 +147,7 @@ const getChipColorCss = (
             --variant-filled-background-color: ${theme.palette.error.main};
 
             --variant-outlined-background-color: ${alpha(
-              theme.palette.error.light,
+              theme.palette.error.main,
               0.08
             )};
           }
@@ -159,14 +156,11 @@ const getChipColorCss = (
     `,
 
     warning: css`
-      --variant-filled-background-color: ${theme.palette.warning.light};
+      --variant-filled-background-color: ${theme.palette.warning.main};
       --variant-filled-color: ${theme.palette.common.white};
 
-      --variant-outlined-border-color: ${alpha(
-        theme.palette.warning.light,
-        0.7
-      )}
-      --variant-outlined-color: ${theme.palette.warning.light};
+      --variant-outlined-border-color: ${alpha(theme.palette.warning.main, 0.7)}
+      --variant-outlined-color: ${theme.palette.warning.main};
 
       ${
         clickable &&
@@ -177,7 +171,7 @@ const getChipColorCss = (
             --variant-filled-background-color: ${theme.palette.warning.main};
 
             --variant-outlined-background-color: ${alpha(
-              theme.palette.warning.light,
+              theme.palette.warning.main,
               0.08
             )};
           }
@@ -186,14 +180,11 @@ const getChipColorCss = (
     `,
 
     success: css`
-      --variant-filled-background-color: ${theme.palette.success.light};
+      --variant-filled-background-color: ${theme.palette.success.main};
       --variant-filled-color: ${theme.palette.common.white};
 
-      --variant-outlined-border-color: ${alpha(
-        theme.palette.success.light,
-        0.7
-      )}
-      --variant-outlined-color: ${theme.palette.success.light};
+      --variant-outlined-border-color: ${alpha(theme.palette.success.main, 0.7)}
+      --variant-outlined-color: ${theme.palette.success.main};
 
       ${
         clickable &&
@@ -204,7 +195,7 @@ const getChipColorCss = (
             --variant-filled-background-color: ${theme.palette.success.main};
 
             --variant-outlined-background-color: ${alpha(
-              theme.palette.success.light,
+              theme.palette.success.main,
               0.08
             )};
           }

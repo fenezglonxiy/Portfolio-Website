@@ -26,21 +26,21 @@ const getInfiniteScrollerContentCss = (
       linear infinite;
   `};
 
-  ${props.pauseWhenItemIsHovered &&
+  ${props.pauseWhenItemIs === "hovered" &&
   css`
     &:has(*:hover) {
       ${getPausedInfiniteScrollerContentCss()}
     }
   `};
 
-  ${props.pauseWhenItemIsActive &&
+  ${props.pauseWhenItemIs === "active" &&
   css`
     &:has(*:active) {
       ${getPausedInfiniteScrollerContentCss()}
     }
   `};
 
-  ${props.pauseWhenItemIsFocus &&
+  ${props.pauseWhenItemIs === "focused" &&
   css`
     &:has(*:focus) {
       ${getPausedInfiniteScrollerContentCss()}
