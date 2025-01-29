@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { useLocale, useTimeZone } from "next-intl";
 
 import ThemeProvider from "@/_theme/ThemeProvider";
@@ -7,6 +8,13 @@ import IntlProvider from "@/i18n/IntlProvider";
 import FontIconLinks from "@/_icons/FontIconLinks";
 
 import "./globals.css";
+
+export const metadata: Metadata = {
+  title: {
+    default: "TranHoangDat - Portfolio Website",
+    template: "%s | TranHoangDat - Portfolio Website",
+  },
+};
 
 export default function RootLayout({
   children,

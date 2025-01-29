@@ -8,7 +8,9 @@ import { HomeTestimonials } from "@/_pages/home-testimonials";
 import { HomeAchievements } from "@/_pages/home-achievements";
 import { HomeInsights } from "@/_pages/home-insights";
 
-export const metadata: Metadata = {};
+export const metadata: Metadata = {
+  title: "Home | TranHoangDat - Portfolio Website",
+};
 
 export default function Home() {
   return (
