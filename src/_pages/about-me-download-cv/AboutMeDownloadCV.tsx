@@ -25,6 +25,7 @@ function AboutMeDownloadCV(props: AboutMeDownloadCVProps) {
         <Typography variant="h2">Want to know more about me?</Typography>
 
         <Button
+          href="/api/download-cv"
           variant="outlined"
           color="primary"
           size="large"

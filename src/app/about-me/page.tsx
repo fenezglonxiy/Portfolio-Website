@@ -7,7 +7,9 @@ import { AboutMeHero } from "@/_pages/about-me-hero";
 import { AboutMeSkills } from "@/_pages/about-me-skills";
 import { ToolsInfiniteScroller } from "@/_pages/tools-infinite-scroller";
 
-export const metadata: Metadata = {};
+export const metadata: Metadata = {
+  title: "About Me",
+};
 
 export default function AboutMe() {
   return (
