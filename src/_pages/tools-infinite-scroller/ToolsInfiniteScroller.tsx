@@ -11,21 +11,38 @@ export type ToolsInfiniteScrollerProps = InfiniteScrollerProps & {
 };
 
 function ToolsInfiniteScroller(props: ToolsInfiniteScrollerProps) {
+  const dirPath = "/img/tools/";
+  const tools = [
+    {
+      name: "nextjs",
+      imageSrc: `${dirPath}nextjs.png`,
+    },
+    {
+      name: "angular",
+      imageSrc: `${dirPath}angular.png`,
+    },
+    {
+      name: "figma",
+      imageSrc: `${dirPath}figma.png`,
+    },
+    {
+      name: "github",
+      imageSrc: `${dirPath}github.png`,
+    },
+    {
+      name: "jira",
+      imageSrc: `${dirPath}jira.png`,
+    },
+  ];
+
   return (
     <InfiniteScroller {...props}>
       <InfiniteScrollerContent>
-        <ToolInfiniteScrollerItem
-          toolImageSrc="/figma.png"
-          toolImageAlt="figma"
-        />
-        <ToolInfiniteScrollerItem
-          toolImageSrc="/greylock.png"
-          toolImageAlt="greylock"
-        />
-        <ToolInfiniteScrollerItem
-          toolImageSrc="/codecov.png"
-          toolImageAlt="codecov"
-        />
+        {tools.map((tool) => (
+          <ToolInfiniteScrollerItem key={tool.name}>
+            <img src={tool.imageSrc} alt={tool.name} loading="lazy" />
+          </ToolInfiniteScrollerItem>
+        ))}
       </InfiniteScrollerContent>
     </InfiniteScroller>
   );
