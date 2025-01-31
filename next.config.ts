@@ -4,7 +4,14 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    localPatterns: [
+      {
+        pathname: "/img/**",
+        search: "",
+      },
+    ],
+  },
 };
 
 export default withNextIntl(nextConfig);

@@ -1,12 +1,6 @@
-/** @jsxImportSource @emotion/react */
-
-"use client";
-
 import React from "react";
 
 import { Typography, TypographyProps } from "@/_components/Typography";
-
-import getSkillTitleCss from "./getSkillTitleCss";
 
 export type SkillTitleProps = React.ComponentPropsWithoutRef<"div"> & {
   /**
@@ -40,7 +34,6 @@ function SkillTitle(props: SkillTitleProps) {
     fontWeight = "semi-bold",
     ...rest
   } = props;
-  const css = getSkillTitleCss();
 
   return (
     <Typography
@@ -48,7 +41,6 @@ function SkillTitle(props: SkillTitleProps) {
       variant={variant}
       color={color}
       fontWeight={fontWeight}
-      css={css}
       {...rest}
     />
   );
