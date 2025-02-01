@@ -1,10 +1,4 @@
-/** @jsxImportSource @emotion/react */
-
-"use client";
-
 import { Typography, TypographyProps } from "@/_components/Typography";
-
-import getSkillDescriptionCss from "./getSkillDescriptionCss";
 
 export type SkillDescriptionProps = React.ComponentPropsWithoutRef<"div"> & {
   /**
@@ -32,16 +26,9 @@ export type SkillDescriptionProps = React.ComponentPropsWithoutRef<"div"> & {
 
 function SkillDescription(props: SkillDescriptionProps) {
   const { variant = "body2Medium", color = "neutral-550", ...rest } = props;
-  const css = getSkillDescriptionCss();
 
   return (
-    <Typography
-      component="div"
-      variant={variant}
-      color={color}
-      css={css}
-      {...rest}
-    />
+    <Typography component="div" variant={variant} color={color} {...rest} />
   );
 }
 

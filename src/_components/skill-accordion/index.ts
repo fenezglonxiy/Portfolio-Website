@@ -10,7 +10,5 @@ export { default as SkillAccordionSummary } from "./SkillAccordionSummary";
 export { type SkillAccordionSummaryProps } from "./SkillAccordionSummary";
 export { default as SkillDescription } from "./SkillDescription";
 export { type SkillDescriptionProps } from "./SkillDescription";
-export { default as SkillIcon } from "./SkillIcon";
-export { type SkillIconProps } from "./SkillIcon";
 export { default as SkillTitle } from "./SkillTitle";
 export { type SkillTitleProps } from "./SkillTitle";
