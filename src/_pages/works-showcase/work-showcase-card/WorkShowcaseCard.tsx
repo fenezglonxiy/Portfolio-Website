@@ -11,15 +11,21 @@ import { Button } from "@/_components/Button";
 import WorkShowcaseCardMedia from "./WorkShowcaseCardMedia";
 import WorkShowcaseCardContent from "./WorkShowcaseCardContent";
 import WorkShowcaseCardActions from "./WorkShowcaseCardActions";
-import WorkShowcaseCardWorkOverview from "./WorkShowcaseCardWorkOverview";
-import WorkShowcaseCardWorkTitle from "./WorkShowcaseCardWorkTitle";
-import WorkShowcaseCardContentBox from "./WorkShowcaseCardContentBox";
-import WorkShowcaseCardWorkSummary from "./WorkShowcaseCardWorkSummary";
-import WorkShowcaseCardWorkBusinessSectors from "./WorkShowcaseCardWorkBusinessSectors";
-import WorkShowcaseCardWorkServices from "./WorkShowcaseCardWorkServices";
+import WorkOverview from "./WorkOverview";
+import WorkTitle from "./WorkTitle";
+import WorkSummary from "./WorkSummary";
 import getWorkShowcaseCardCss from "./getWorkShowcaseCardCss";
-import WorkShowcaseCardWorkStartDate from "./WorkShowcaseCardWorkStartDate";
-import WorkShowcaseCardWorkDuration from "./WorkShowcaseCardWorkDuration";
+import WorkStartDate from "./WorkStartDate";
+import WorkSection from "./WorkSection";
+import WorkSectionTitle from "./WorkSectionTitle";
+import WorkDuration from "./WorkDuration";
+import WorkBusinessSectorBox from "./WorkBusinessSectorBox";
+import WorkBusinessSector from "./WorkBusinessSector";
+import WorkServiceBox from "./WorkServiceBox";
+import WorkService from "./WorkService";
+import WorkTimeTracking from "./WorkTimeTracking";
+import WorkShowcaseCardText from "./WorkShowcaseCardText";
+import WorkShowcaseCardSectionBox from "./WorkShowcaseCardSectionBox";
 
 export type WorkShowcaseCardDetails = WorkCardDetails & {
   /**
@@ -50,37 +56,49 @@ function WorkShowcaseCard(props: WorkShowcaseCardProps) {
       <WorkShowcaseCardMedia component="img" src={thumbnailSrc} />
 
       <WorkShowcaseCardContent>
-        <WorkShowcaseCardWorkOverview>
-          <WorkShowcaseCardContentBox verticalSpacing={3} flex="1">
-            <WorkShowcaseCardWorkTitle>{workTitle}</WorkShowcaseCardWorkTitle>
+        <WorkOverview>
+          <WorkShowcaseCardText>
+            <WorkTitle>{workTitle}</WorkTitle>
 
-            <WorkShowcaseCardWorkSummary>
-              {workSummary}
-            </WorkShowcaseCardWorkSummary>
-          </WorkShowcaseCardContentBox>
+            <WorkSummary>{workSummary}</WorkSummary>
+          </WorkShowcaseCardText>
 
-          <WorkShowcaseCardContentBox
-            orientation="vertical"
-            flexGap={4}
-            flex="1"
-          >
-            <WorkShowcaseCardWorkBusinessSectors
-              businessSectors={workBusinessSectors}
-            />
+          <WorkShowcaseCardSectionBox>
+            <WorkSection>
+              <WorkSectionTitle>Business Sectors</WorkSectionTitle>
 
-            <WorkShowcaseCardWorkServices services={workServices} />
+              <WorkBusinessSectorBox>
+                {workBusinessSectors.map((businessSector, idx) => (
+                  <WorkBusinessSector key={idx} label={businessSector} />
+                ))}
+              </WorkBusinessSectorBox>
+            </WorkSection>
 
-            <WorkShowcaseCardContentBox orientation="horizontal">
-              <WorkShowcaseCardContentBox flex="1">
-                <WorkShowcaseCardWorkStartDate startDate={workStartDate} />
-              </WorkShowcaseCardContentBox>
+            <WorkSection>
+              <WorkSectionTitle>Services</WorkSectionTitle>
 
-              <WorkShowcaseCardContentBox flex="1">
-                <WorkShowcaseCardWorkDuration duration={workDuration} />
-              </WorkShowcaseCardContentBox>
-            </WorkShowcaseCardContentBox>
-          </WorkShowcaseCardContentBox>
-        </WorkShowcaseCardWorkOverview>
+              <WorkServiceBox>
+                {workServices.map((service, idx) => (
+                  <WorkService key={idx} label={service} />
+                ))}
+              </WorkServiceBox>
+            </WorkSection>
+
+            <WorkTimeTracking>
+              <WorkSection>
+                <WorkSectionTitle>Start Date</WorkSectionTitle>
+
+                <WorkStartDate>{workStartDate}</WorkStartDate>
+              </WorkSection>
+
+              <WorkSection>
+                <WorkSectionTitle>Duration</WorkSectionTitle>
+
+                <WorkDuration>{workDuration}</WorkDuration>
+              </WorkSection>
+            </WorkTimeTracking>
+          </WorkShowcaseCardSectionBox>
+        </WorkOverview>
 
         <WorkShowcaseCardActions>
           <Button variant="outlined" href={workDetailsHref}>

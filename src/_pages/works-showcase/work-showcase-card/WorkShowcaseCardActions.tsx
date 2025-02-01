@@ -1,5 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
+"use client";
+
 import { CardActions, CardActionsProps } from "@/_components/Card";
 
 import getWorkShowcaseCardActionsCss from "./getWorkShowcaseCardActionsCss";

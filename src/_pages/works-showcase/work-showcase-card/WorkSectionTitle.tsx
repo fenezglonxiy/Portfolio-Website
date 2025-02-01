@@ -1,12 +1,12 @@
 import { Typography } from "@/_components/Typography";
 
-export type WorkShowcaseCardWorkSummaryProps = Omit<
+export type WorkSectionTitleProps = Omit<
   React.ComponentPropsWithoutRef<"p">,
   "color"
 >;
 
-function WorkShowcaseCardWorkSummary(props: WorkShowcaseCardWorkSummaryProps) {
+function WorkSectionTitle(props: WorkSectionTitleProps) {
   return <Typography variant="body2Medium" color="neutral-550" {...props} />;
 }
 
-export default WorkShowcaseCardWorkSummary;
+export default WorkSectionTitle;
