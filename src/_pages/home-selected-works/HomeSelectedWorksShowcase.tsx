@@ -4,7 +4,8 @@
 
 import { useTheme } from "@mui/material";
 
-import { WorkCard, WorkCardDetails } from "@/_components/work-card";
+import { WorkCard } from "@/_components/work-card";
+import { WorkCardDetails } from "@/types";
 
 import getHomeSelectedWorksShowcaseCss from "./getHomeSelectedWorksShowcaseCss";
 
