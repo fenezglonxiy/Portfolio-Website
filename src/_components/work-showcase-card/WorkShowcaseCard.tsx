@@ -2,11 +2,9 @@
 
 "use client";
 
-import { differenceInHours } from "date-fns";
-
 import { Card, CardProps } from "@/_components/Card";
-import { WorkCardDetails } from "@/_components/work-card";
 import { Button } from "@/_components/Button";
+import { WorkCardDetails } from "@/types";
 
 import WorkShowcaseCardMedia from "./WorkShowcaseCardMedia";
 import WorkShowcaseCardContent from "./WorkShowcaseCardContent";
@@ -15,10 +13,8 @@ import WorkOverview from "./WorkOverview";
 import WorkTitle from "./WorkTitle";
 import WorkSummary from "./WorkSummary";
 import getWorkShowcaseCardCss from "./getWorkShowcaseCardCss";
-import WorkStartDate from "./WorkStartDate";
 import WorkSection from "./WorkSection";
 import WorkSectionTitle from "./WorkSectionTitle";
-import WorkDuration from "./WorkDuration";
 import WorkBusinessSectorBox from "./WorkBusinessSectorBox";
 import WorkBusinessSector from "./WorkBusinessSector";
 import WorkServiceBox from "./WorkServiceBox";
@@ -26,19 +22,13 @@ import WorkService from "./WorkService";
 import WorkTimeTracking from "./WorkTimeTracking";
 import WorkShowcaseCardText from "./WorkShowcaseCardText";
 import WorkShowcaseCardSectionBox from "./WorkShowcaseCardSectionBox";
+import WorkTimePoint from "./WorkTimePoint";
 
-export type WorkShowcaseCardDetails = WorkCardDetails & {
-  /**
-   * The services that the work provides.
-   */
-  workServices: string[];
-};
-
-export type WorkShowcaseCardProps = CardProps & WorkShowcaseCardDetails;
+export type WorkShowcaseCardProps = CardProps & WorkCardDetails;
 
 function WorkShowcaseCard(props: WorkShowcaseCardProps) {
   const {
-    thumbnailSrc,
+    mediaSrc,
     workTitle,
     workSummary,
     workBusinessSectors,
@@ -48,12 +38,11 @@ function WorkShowcaseCard(props: WorkShowcaseCardProps) {
     workDetailsHref,
     ...rest
   } = props;
-  const workDuration = differenceInHours(workEndDate, workStartDate);
   const css = getWorkShowcaseCardCss();
 
   return (
     <Card variant="fill" css={css} {...rest}>
-      <WorkShowcaseCardMedia component="img" src={thumbnailSrc} />
+      <WorkShowcaseCardMedia component="img" src={mediaSrc} />
 
       <WorkShowcaseCardContent>
         <WorkOverview>
@@ -88,13 +77,13 @@ function WorkShowcaseCard(props: WorkShowcaseCardProps) {
               <WorkSection>
                 <WorkSectionTitle>Start Date</WorkSectionTitle>
 
-                <WorkStartDate>{workStartDate}</WorkStartDate>
+                <WorkTimePoint>{workStartDate}</WorkTimePoint>
               </WorkSection>
 
               <WorkSection>
-                <WorkSectionTitle>Duration</WorkSectionTitle>
+                <WorkSectionTitle>End Date</WorkSectionTitle>
 
-                <WorkDuration>{workDuration}</WorkDuration>
+                <WorkTimePoint>{workEndDate}</WorkTimePoint>
               </WorkSection>
             </WorkTimeTracking>
           </WorkShowcaseCardSectionBox>

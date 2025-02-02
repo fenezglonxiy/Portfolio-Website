@@ -1,20 +1,22 @@
+import { format } from "date-fns";
+
 import { Typography } from "@/_components/Typography";
 
-export type WorkDurationProps = Omit<
+export type WorkTimePointProps = Omit<
   React.ComponentPropsWithoutRef<"div">,
   "children" | "color"
 > & {
-  children: number;
+  children: Date;
 };
 
-function WorkDuration(props: WorkDurationProps) {
+function WorkTimePoint(props: WorkTimePointProps) {
   const { children, ...rest } = props;
 
   return (
     <Typography component="div" variant="body1Medium" {...rest}>
-      {children} hours
+      {format(children, "MMMM yyyy")}
     </Typography>
   );
 }
 
-export default WorkDuration;
+export default WorkTimePoint;

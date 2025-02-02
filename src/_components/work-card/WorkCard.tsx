@@ -1,5 +1,6 @@
 import { Card, CardProps } from "@/_components/Card";
 import { Button } from "@/_components/Button";
+import { WorkCardDetails } from "@/types";
 
 import WorkCardMedia from "./WorkCardMedia";
 import WorkCardContent from "./WorkCardContent";
@@ -11,53 +12,12 @@ import WorkCardWorkSummary from "./WorkCardWorkSummary";
 import WorkCardActions from "./WorkCardActions";
 import WorkCardWorkBusinessSectors from "./WorkCardWorkBusinessSectors";
 
-export type WorkCardDetails = {
-  /**
-   * Control the card thumbnail.
-   */
-  thumbnailSrc: string;
-
-  /**
-   * The work title.
-   */
-  workTitle: string;
-
-  /**
-   * The business sectors that the work relates to.
-   */
-  workBusinessSectors: string[];
-
-  /**
-   * The date when the work begins.
-   */
-  workStartDate: Date;
-
-  /**
-   * The date when the work ends.
-   */
-  workEndDate: Date;
-
-  /**
-   * A summary of what you have achieved during the work.
-   */
-  workSummary: string;
-
-  /**
-   * A URL or path to navigate to the details page of work.
-   */
-  workDetailsHref: string;
-
-  /**
-   * Restrict providing children.
-   */
-  children?: undefined | null;
-};
-
-export type WorkCardProps = CardProps & WorkCardDetails;
+export type WorkCardProps = Omit<CardProps, "children"> &
+  Omit<WorkCardDetails, "workServices">;
 
 function WorkCard(props: WorkCardProps) {
   const {
-    thumbnailSrc,
+    mediaSrc,
     workTitle,
     workBusinessSectors,
     workStartDate,
@@ -69,7 +29,7 @@ function WorkCard(props: WorkCardProps) {
 
   return (
     <Card {...rest}>
-      <WorkCardMedia component="img" src={thumbnailSrc} />
+      <WorkCardMedia component="img" src={mediaSrc} />
 
       <WorkCardContent>
         <WorkCardWorkOverview>

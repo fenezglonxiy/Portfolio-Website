@@ -4,13 +4,13 @@
 
 import { useTheme } from "@mui/material";
 
-import { workShowcaseCard } from "@/dummyData";
+import { workShowcaseCards } from "@/dummyData";
+import { WorkShowcaseCard } from "@/_components/work-showcase-card";
 
 import getWorksShowcaseCss from "./getWorksShowcaseCss";
 import WorksShowcaseContent from "./WorksShowcaseContent";
-import { WorkShowcaseCard } from "./work-showcase-card";
 
-export type WorksShowcaseProps = React.HTMLAttributes<HTMLDivElement> & {
+export type WorksShowcaseProps = React.ComponentPropsWithoutRef<"div"> & {
   children?: undefined | null;
 };
 
@@ -21,21 +21,19 @@ function WorksShowcase(props: WorksShowcaseProps) {
   return (
     <section css={css} {...props}>
       <WorksShowcaseContent>
-        {Array(4)
-          .fill(workShowcaseCard)
-          .map((work, idx) => (
-            <WorkShowcaseCard
-              key={idx}
-              thumbnailSrc={work.thumbnailSrc}
-              workBusinessSectors={work.workBusinessSectors}
-              workDetailsHref={work.workDetailsHref}
-              workEndDate={work.workEndDate}
-              workServices={work.workServices}
-              workStartDate={work.workStartDate}
-              workSummary={work.workSummary}
-              workTitle={work.workTitle}
-            />
-          ))}
+        {workShowcaseCards.map((work, idx) => (
+          <WorkShowcaseCard
+            key={idx}
+            mediaSrc={work.mediaSrc}
+            workBusinessSectors={work.workBusinessSectors}
+            workDetailsHref={work.workDetailsHref}
+            workEndDate={work.workEndDate}
+            workServices={work.workServices}
+            workStartDate={work.workStartDate}
+            workSummary={work.workSummary}
+            workTitle={work.workTitle}
+          />
+        ))}
       </WorksShowcaseContent>
     </section>
   );
