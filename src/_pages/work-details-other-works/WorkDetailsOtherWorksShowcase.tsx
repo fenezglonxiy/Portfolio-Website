@@ -5,7 +5,7 @@
 import { useTheme } from "@mui/material";
 
 import { WorkCard } from "@/_components/work-card";
-import { WorkCardDetails } from "@/_components/work-card/WorkCard";
+import { WorkCardDetails } from "@/types";
 
 import getWorkDetailsOtherWorksShowcaseCss from "./getWorkDetailsOtherWorksShowcaseCss";
 
@@ -27,7 +27,7 @@ function WorkDetailsOtherWorksShowcase(
       {works.map((work, idx) => (
         <WorkCard
           key={idx}
-          thumbnailSrc={work.thumbnailSrc}
+          mediaSrc={work.mediaSrc}
           workTitle={work.workTitle}
           workBusinessSectors={work.workBusinessSectors}
           workStartDate={work.workStartDate}
