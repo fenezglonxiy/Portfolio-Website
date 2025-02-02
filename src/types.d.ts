@@ -61,6 +61,48 @@ type BorderRadius =
   | "match-parent"
   | "inherit";
 
+export type WorkCardDetails = {
+  /**
+   * Control the card media source.
+   */
+  mediaSrc: string;
+
+  /**
+   * The work title.
+   */
+  workTitle: string;
+
+  /**
+   * The business sectors that the work relates to.
+   */
+  workBusinessSectors: string[];
+
+  /**
+   * The date when the work begins.
+   */
+  workStartDate: Date;
+
+  /**
+   * The date when the work ends.
+   */
+  workEndDate: Date;
+
+  /**
+   * An summary of what you have achieved during the work.
+   */
+  workSummary: string;
+
+  /**
+   * A URL or path to navigate to the details page of work.
+   */
+  workDetailsHref: string;
+
+  /**
+   * The services that the work provides.
+   */
+  workServices: string[];
+};
+
 export type InsightCardDetails = {
   /**
    * A URL or path to navigate to the insight details page.

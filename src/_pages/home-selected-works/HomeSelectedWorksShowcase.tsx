@@ -24,7 +24,7 @@ function HomeSelectedWorksShowcase(props: HomeSelectedWorksShowcaseProps) {
       {works.map((work, idx) => (
         <WorkCard
           key={idx}
-          thumbnailSrc={work.thumbnailSrc}
+          mediaSrc={work.mediaSrc}
           workTitle={work.workTitle}
           workBusinessSectors={work.workBusinessSectors}
           workStartDate={work.workStartDate}
