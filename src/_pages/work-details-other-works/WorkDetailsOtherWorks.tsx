@@ -4,7 +4,7 @@
 
 import { useTheme } from "@mui/material";
 
-import { workCard } from "@/dummyData";
+import { workCards } from "@/dummyData";
 
 import WorkDetailsOtherWorksContent from "./WorkDetailsOtherWorksContent";
 import WorkDetailsOtherWorksHeader from "./WorkDetailsOtherWorksHeader";
@@ -23,7 +23,7 @@ function WorkDetailsOtherWorks(props: WorkDetailsOtherWorksProps) {
       <WorkDetailsOtherWorksContent>
         <WorkDetailsOtherWorksHeader />
 
-        <WorkDetailsOtherWorksShowcase works={Array(2).fill(workCard)} />
+        <WorkDetailsOtherWorksShowcase works={Array(2).fill(workCards)} />
       </WorkDetailsOtherWorksContent>
     </aside>
   );
