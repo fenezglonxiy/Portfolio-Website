@@ -21,16 +21,52 @@ export const awardTimelineItem: Achievement = {
   referenceHref: "/",
 };
 
-export const workCard = {
-  thumbnailSrc: "card-thumbnail.png",
-  workTitle: "Struktura",
-  workBusinessSectors: ["Construction", "Test"],
-  workStartDate: new Date(2024, 1),
-  workEndDate: addMonths(new Date(2024, 1), 2),
-  workSummary:
-    "This exploration centers on crafting an engaging layout, selecting an appealing color palette, and utilizing captivating imagery to enhance the overall user experience",
-  workDetailsHref: "/",
-};
+export const workCards: WorkCardDetails[] = [
+  {
+    mediaSrc: "card-thumbnail.png",
+    workTitle: "Personal Website",
+    workBusinessSectors: ["None"],
+    workStartDate: new Date(2023, 11),
+    workEndDate: new Date(),
+    workSummary:
+      "Developed an online space to show my work, skills, and experience and let others contact me for work.",
+    workServices: ["Web Development"],
+    workDetailsHref: "/works/portfolio-website",
+  },
+  {
+    mediaSrc: "card-thumbnail.png",
+    workTitle: "English Tutor Webapp",
+    workBusinessSectors: ["Education"],
+    workStartDate: new Date(2022, 1),
+    workEndDate: new Date(2022, 4),
+    workSummary:
+      "Developed a system that provides online one-on-one English tutoring services where students and tutors can join online classrooms and discuss topics under tutor guidance in English.",
+    workServices: ["Web Design", "Web Development"],
+    workDetailsHref: "/works/english-tutor-webapp",
+  },
+  {
+    mediaSrc: "card-thumbnail.png",
+    workTitle: "Video Calling Webapp",
+    workBusinessSectors: ["None"],
+    workStartDate: new Date(2022, 1),
+    workEndDate: new Date(2022, 2),
+    workSummary:
+      "Developed a system where two users can join an online room, see each other through webcams, and talk to each other through microphones and headphones.",
+    workServices: ["Web Development"],
+    workDetailsHref: "/works/video-calling-webapp",
+  },
+  {
+    mediaSrc: "card-thumbnail.png",
+    workTitle: "MyCoin Webapp",
+    workBusinessSectors: ["Financial accounting"],
+    workStartDate: new Date(2022, 1),
+    workEndDate: new Date(2022, 2),
+    workSummary:
+      "Developed a system where users can authenticate using their keystore file, get coins by performing transactions, and send coins to another wallet.",
+    workServices: ["Web Development"],
+    workDetailsHref: "/works/my-coin-webapp",
+  },
+];
 
 export const testimonialCard: TestimonialCardDetails = {
   quote:

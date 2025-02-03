@@ -3,7 +3,8 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import { workCard } from "@/dummyData";
+
+import { workCards } from "@/dummyData";
 
 import getHomeSelectedWorksCss from "./getHomeSelectedWorksCss";
 import HomeSelectedWorksContent from "./HomeSelectedWorksContent";
@@ -24,7 +25,7 @@ function HomeSelectedWorks(props: HomeSelectedWorksProps) {
       <HomeSelectedWorksContent>
         <HomeSelectedWorksHeader />
 
-        <HomeSelectedWorksShowcase works={Array(4).fill(workCard)} />
+        <HomeSelectedWorksShowcase works={workCards} />
       </HomeSelectedWorksContent>
     </section>
   );

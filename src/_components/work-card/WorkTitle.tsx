@@ -2,13 +2,13 @@ import React from "react";
 
 import { Typography } from "@/_components/Typography";
 
-export type WorkCardWorkTitleProps = Omit<
+export type WorkTitleProps = Omit<
   React.ComponentPropsWithoutRef<"h6">,
   "color"
 >;
 
-function WorkCardWorkTitle(props: WorkCardWorkTitleProps) {
+function WorkTitle(props: WorkTitleProps) {
   return <Typography variant="h6" color="neutral-800" {...props} />;
 }
 
-export default WorkCardWorkTitle;
+export default WorkTitle;
