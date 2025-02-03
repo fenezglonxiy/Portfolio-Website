@@ -4,13 +4,16 @@ import { WorkCardDetails } from "@/types";
 
 import WorkCardMedia from "./WorkCardMedia";
 import WorkCardContent from "./WorkCardContent";
-import WorkCardWorkOverview from "./WorkCardWorkOverview";
+import WorkOverview from "./WorkOverview";
 import WorkCardContentBox from "./WorkCardContentBox";
-import WorkCardWorkTitle from "./WorkCardWorkTitle";
-import WorkCardWorkTimestamps from "./WorkCardWorkTimestamps";
-import WorkCardWorkSummary from "./WorkCardWorkSummary";
+import WorkTitle from "./WorkTitle";
+import WorkTimeTracking from "./WorkTimeTracking";
+import WorkSummary from "./WorkSummary";
 import WorkCardActions from "./WorkCardActions";
-import WorkCardWorkBusinessSectors from "./WorkCardWorkBusinessSectors";
+import WorkBusinessSectorBox from "./WorkBusinessSectorBox";
+import WorkTimePoint from "./WorkTimePoint";
+import WorkBusinessSector from "./WorkBusinessSector";
+import WorkTimePointDivider from "./WorkTimePointDivider";
 
 export type WorkCardProps = Omit<CardProps, "children"> &
   Omit<WorkCardDetails, "workServices">;
@@ -32,24 +35,27 @@ function WorkCard(props: WorkCardProps) {
       <WorkCardMedia component="img" src={mediaSrc} />
 
       <WorkCardContent>
-        <WorkCardWorkOverview>
+        <WorkOverview>
           <WorkCardContentBox verticalSpacing={3}>
-            <WorkCardWorkTitle>{workTitle}</WorkCardWorkTitle>
+            <WorkTitle>{workTitle}</WorkTitle>
 
             <WorkCardContentBox verticalSpacing={2}>
-              <WorkCardWorkBusinessSectors
-                businessSectors={workBusinessSectors}
-              />
+              <WorkBusinessSectorBox>
+                {workBusinessSectors.map((businessSector, idx) => (
+                  <WorkBusinessSector key={idx} label={businessSector} />
+                ))}
+              </WorkBusinessSectorBox>
 
-              <WorkCardWorkTimestamps
-                startDate={workStartDate}
-                endDate={workEndDate}
-              />
+              <WorkTimeTracking>
+                <WorkTimePoint>{workStartDate}</WorkTimePoint>
+                <WorkTimePointDivider />
+                <WorkTimePoint>{workEndDate}</WorkTimePoint>
+              </WorkTimeTracking>
             </WorkCardContentBox>
           </WorkCardContentBox>
 
-          <WorkCardWorkSummary>{workSummary}</WorkCardWorkSummary>
-        </WorkCardWorkOverview>
+          <WorkSummary>{workSummary}</WorkSummary>
+        </WorkOverview>
 
         <WorkCardActions>
           <Button href={workDetailsHref} variant="contained" color="primary">
