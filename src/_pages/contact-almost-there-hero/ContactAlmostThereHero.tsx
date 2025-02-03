@@ -13,7 +13,7 @@ function ContactAlmostThereHero(props: ContactAlmostThereHeroProps) {
     <Hero {...props}>
       <HeroContent>
         <HeroContainer verticalSpacing={6}>
-          <HeroHeading>Awesome, we're almost there</HeroHeading>
+          <HeroHeading>Awesome, we&apos;re almost there</HeroHeading>
 
           <HeroSubheading>
             Thank you for sharing your ideas about your next project with me.
