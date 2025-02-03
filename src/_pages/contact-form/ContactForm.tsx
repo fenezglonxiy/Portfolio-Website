@@ -4,6 +4,7 @@
 
 import { useTheme } from "@mui/material";
 import React from "react";
+import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,6 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/_components/Button";
 import { ArrowRight } from "@/_icons";
 import { Form, FormField, TextField } from "@/_components/form";
+import sendEmail from "@/_utils/sendEmail";
 
 import getContactForm from "./getContactFormCss";
 
@@ -26,8 +28,6 @@ const formSchema = z.object({
 });
 
 function ContactForm(props: ContactFormProps) {
-  const theme = useTheme();
-  const css = getContactForm(theme);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,11 +37,25 @@ function ContactForm(props: ContactFormProps) {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
+  const isLoading =
+    form.formState.isSubmitting || form.formState.isSubmitSuccessful;
+
+  const router = useRouter();
+
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    sendEmail({
+      from: values.email,
+      text: `
+        ${values.name} - <${values.email}>
+
+        ${values.message}
+      `,
+      senderName: values.name,
+      subject: "Contact - Portfolio Website",
+    });
+
+    router.push("/contact-almost-there");
+  };
 
   const [disabled, setDisabled] = React.useState(false);
 
@@ -56,6 +70,9 @@ function ContactForm(props: ContactFormProps) {
       setDisabled(true);
     }
   }, [form.formState.submitCount, form.formState.isValid]);
+
+  const theme = useTheme();
+  const css = getContactForm(theme);
 
   return (
     <section {...props}>
@@ -75,6 +92,7 @@ function ContactForm(props: ContactFormProps) {
                   placeholder="Enter Your Name"
                   variant="standard"
                   color="black"
+                  autoComplete="off"
                   {...field}
                 />
               )}
@@ -88,6 +106,7 @@ function ContactForm(props: ContactFormProps) {
                   placeholder="Enter Your Email"
                   variant="standard"
                   color="black"
+                  autoComplete="off"
                   {...field}
                 />
               )}
@@ -101,6 +120,7 @@ function ContactForm(props: ContactFormProps) {
                   placeholder="Write Your Message"
                   variant="standard"
                   color="black"
+                  autoComplete="off"
                   multiline
                   minRows={4}
                   {...field}
@@ -116,7 +136,7 @@ function ContactForm(props: ContactFormProps) {
                 size="large"
                 icon={<ArrowRight />}
                 iconPosition="end"
-                disabled={disabled}
+                disabled={disabled || isLoading}
               >
                 Submit
               </Button>
