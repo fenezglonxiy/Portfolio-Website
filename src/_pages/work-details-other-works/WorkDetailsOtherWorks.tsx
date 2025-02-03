@@ -23,7 +23,7 @@ function WorkDetailsOtherWorks(props: WorkDetailsOtherWorksProps) {
       <WorkDetailsOtherWorksContent>
         <WorkDetailsOtherWorksHeader />
 
-        <WorkDetailsOtherWorksShowcase works={Array(2).fill(workCards)} />
+        <WorkDetailsOtherWorksShowcase works={workCards} />
       </WorkDetailsOtherWorksContent>
     </aside>
   );
