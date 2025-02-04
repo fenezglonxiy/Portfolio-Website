@@ -32,5 +32,5 @@ export type WorkDetails = {
   /**
    * Describe the results achieved after the work duration.
    */
-  workResults: string;
+  results: string;
 };

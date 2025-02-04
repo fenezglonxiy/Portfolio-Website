@@ -5,14 +5,16 @@ const getSideDetailsRootCss = () => css`
   max-width: 315px;
 `;
 
-const getSideDetailsContainerCss = (theme: Theme) =>
+const getSideDetailsContentCss = (theme: Theme) =>
   css`
-    --flow-spacing-y: ${theme.spacing(8)};
+    display: flex;
+    flex-direction: column;
+    gap: ${theme.spacing(8)};
   `;
 
 const getSideDetailsCss = (theme: Theme) => ({
   root: getSideDetailsRootCss(),
-  container: getSideDetailsContainerCss(theme),
+  content: getSideDetailsContentCss(theme),
 });
 
 export default getSideDetailsCss;

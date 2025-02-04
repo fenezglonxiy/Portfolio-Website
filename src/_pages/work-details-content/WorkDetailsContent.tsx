@@ -1,18 +1,23 @@
-import { differenceInHours } from "date-fns";
-
 import WorkDetailsContainer from "./WorkDetailsContainer";
 import SideDetails from "./SideDetails";
-import WorkStartDateDetailsSection from "./WorkStartDateDetailsSection";
-import WorkDurationDetailsSection from "./WorkDurationDetailsSection";
-import WorkBusinessSectorsDetailsSection from "./WorkBusinessSectorsDetailsSection";
-import WorkServicesDetailsSection from "./WorkServicesDetailsSection";
 import MainDetails from "./MainDetails";
-import WorkAboutDetailsSection from "./WorkAboutDetailsSection";
-import WorkChallengeDetailsSection from "./WorkChallengeDetailsSection";
-import WorkResultsDetailsSection from "./WorkResultsDetailsSection";
 import { WorkDetails } from "./types";
+import SideDetailsSection from "./SideDetailsSection";
+import SideDetailsSectionTitle from "./SideDetailsSectionTitle";
+import SideDetailsSectionContent from "./SideDetailsSectionContent";
+import WorkTimePoint from "./WorkTimePoint";
+import WorkBusinessSectorBox from "./WorkBusinessSectorBox";
+import WorkBusinessSector from "./WorkBusinessSector";
+import WorkServiceBox from "./WorkServiceBox";
+import WorkService from "./WorkService";
+import MainDetailsSection from "./MainDetailsSection";
+import MainDetailsSectionContent from "./MainDetailsSectionContent";
+import MainDetailsSectionTitle from "./MainDetailsSectionTitle";
 
-export type WorkDetailsContentProps = React.ComponentPropsWithoutRef<"main"> &
+export type WorkDetailsContentProps = Omit<
+  React.ComponentPropsWithoutRef<"main">,
+  "results"
+> &
   WorkDetails;
 
 function WorkDetailsContent(props: WorkDetailsContentProps) {
@@ -23,27 +28,71 @@ function WorkDetailsContent(props: WorkDetailsContentProps) {
     services,
     about,
     challenge,
-    workResults,
+    results,
     ...rest
   } = props;
-  const duration = differenceInHours(endDate, startDate);
 
   return (
     <main {...rest}>
       <WorkDetailsContainer>
         <SideDetails>
-          <WorkStartDateDetailsSection date={startDate} />
-          <WorkDurationDetailsSection duration={duration} />
-          <WorkBusinessSectorsDetailsSection
-            businessSectors={businessSectors}
-          />
-          <WorkServicesDetailsSection services={services} />
+          <SideDetailsSection>
+            <SideDetailsSectionTitle>Start Date</SideDetailsSectionTitle>
+
+            <SideDetailsSectionContent>
+              <WorkTimePoint date={startDate} />
+            </SideDetailsSectionContent>
+          </SideDetailsSection>
+
+          <SideDetailsSection>
+            <SideDetailsSectionTitle>End Date</SideDetailsSectionTitle>
+
+            <SideDetailsSectionContent>
+              <WorkTimePoint date={endDate} />
+            </SideDetailsSectionContent>
+          </SideDetailsSection>
+
+          <SideDetailsSection>
+            <SideDetailsSectionTitle>Business Sectors</SideDetailsSectionTitle>
+
+            <SideDetailsSectionContent>
+              <WorkBusinessSectorBox>
+                {businessSectors.map((businessSector, idx) => (
+                  <WorkBusinessSector key={idx} label={businessSector} />
+                ))}
+              </WorkBusinessSectorBox>
+            </SideDetailsSectionContent>
+          </SideDetailsSection>
+
+          <SideDetailsSection>
+            <SideDetailsSectionTitle>Services</SideDetailsSectionTitle>
+
+            <SideDetailsSectionContent>
+              <WorkServiceBox>
+                {services.map((service, idx) => (
+                  <WorkService key={idx} label={service} />
+                ))}
+              </WorkServiceBox>
+            </SideDetailsSectionContent>
+          </SideDetailsSection>
         </SideDetails>
 
         <MainDetails>
-          <WorkAboutDetailsSection about={about} />
-          <WorkChallengeDetailsSection challenge={challenge} />
-          <WorkResultsDetailsSection workResults={workResults} />
+          <MainDetailsSection>
+            <MainDetailsSectionContent>{about}</MainDetailsSectionContent>
+          </MainDetailsSection>
+
+          <MainDetailsSection>
+            <MainDetailsSectionTitle>Challenge</MainDetailsSectionTitle>
+
+            <MainDetailsSectionContent>{challenge}</MainDetailsSectionContent>
+          </MainDetailsSection>
+
+          <MainDetailsSection>
+            <MainDetailsSectionTitle>Results</MainDetailsSectionTitle>
+
+            <MainDetailsSectionContent>{results}</MainDetailsSectionContent>
+          </MainDetailsSection>
         </MainDetails>
       </WorkDetailsContainer>
     </main>

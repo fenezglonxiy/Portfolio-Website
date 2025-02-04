@@ -15,9 +15,7 @@ function SideDetails(props: SideDetailsProps) {
 
   return (
     <aside css={css.root} {...rest}>
-      <ul css={css.container} className="flow-spacer-y">
-        {children}
-      </ul>
+      <ul css={css.content}>{children}</ul>
     </aside>
   );
 }
