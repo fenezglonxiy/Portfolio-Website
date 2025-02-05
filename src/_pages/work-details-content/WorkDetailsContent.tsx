@@ -13,6 +13,7 @@ import WorkService from "./WorkService";
 import MainDetailsSection from "./MainDetailsSection";
 import MainDetailsSectionContent from "./MainDetailsSectionContent";
 import MainDetailsSectionTitle from "./MainDetailsSectionTitle";
+import WorkTeamSize from "./WorkTeamSize";
 
 export type WorkDetailsContentProps = Omit<
   React.ComponentPropsWithoutRef<"main">,
@@ -36,6 +37,14 @@ function WorkDetailsContent(props: WorkDetailsContentProps) {
     <main {...rest}>
       <WorkDetailsContainer>
         <SideDetails>
+          <SideDetailsSection>
+            <SideDetailsSectionTitle>Team Size</SideDetailsSectionTitle>
+
+            <SideDetailsSectionContent>
+              <WorkTeamSize size={13} />
+            </SideDetailsSectionContent>
+          </SideDetailsSection>
+
           <SideDetailsSection>
             <SideDetailsSectionTitle>Start Date</SideDetailsSectionTitle>
 
