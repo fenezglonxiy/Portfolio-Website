@@ -10,11 +10,10 @@ import getSkillShowcaseContentCss from "./getSkillShowcaseContentCss";
 export type SkillShowcaseContentProps = React.ComponentPropsWithoutRef<"div">;
 
 function SkillShowcaseContent(props: SkillShowcaseContentProps) {
-  const { className, ...rest } = props;
   const theme = useTheme();
   const css = getSkillShowcaseContentCss(theme);
 
-  return <div css={css} {...rest} />;
+  return <div css={css} {...props} />;
 }
 
 export default SkillShowcaseContent;
