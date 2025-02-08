@@ -56,9 +56,12 @@ const slugToWork = {
     endDate: new Date(2022, 2),
     businessSectors: ["None"],
     services: ["Web Development"],
-    about: "",
-    challenge: "",
-    results: "",
+    about:
+      "The video-calling feature is the most crucial of the English Tutor Webapp, so we, the developer team of the English Tutor Webapp, searched for solutions, discussed, and decided to carry on a Proof of Concept to represent the agreed solution, which is using the simple-peer package to implement the video-calling feature. And I volunteered to carry on the Proof of Concept.",
+    challenge:
+      "The simple-peer package was a new package for me, so I had to go through its documentation and some tutorials to solve the problem in the local environment.\nHowever, I didn't have enough time to deal with problems around the feature, for example, connection loss, high latency, etc. Additionally, I couldn't deploy a signaling server for the simple-peer package to work in the production environment.",
+    results:
+      " I created a Proof of Concept including a representation to introduce the simple-peer package and show my approach, and an example project was successful in allowing two people to video-call in the local environment.",
   },
   "mycoin-webapp": {
     title: "MyCoin Webapp",
