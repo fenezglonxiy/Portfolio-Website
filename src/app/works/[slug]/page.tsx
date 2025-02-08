@@ -61,7 +61,7 @@ const slugToWork = {
     challenge:
       "The simple-peer package was a new package for me, so I had to go through its documentation and some tutorials to solve the problem in the local environment.\nHowever, I didn't have enough time to deal with problems around the feature, for example, connection loss, high latency, etc. Additionally, I couldn't deploy a signaling server for the simple-peer package to work in the production environment.",
     results:
-      " I created a Proof of Concept including a representation to introduce the simple-peer package and show my approach, and an example project was successful in allowing two people to video-call in the local environment.",
+      "I created a Proof of Concept including a representation to introduce the simple-peer package and show my approach, and an example project was successful in allowing two people to video-call in the local environment.",
   },
   "mycoin-webapp": {
     title: "MyCoin Webapp",
@@ -72,9 +72,12 @@ const slugToWork = {
     endDate: new Date(2022, 2),
     businessSectors: ["Financial accounting"],
     services: ["Web Development"],
-    about: "",
-    challenge: "",
-    results: "",
+    about:
+      "Since 2020, crypto has always been an attractive investment channel to investors. Therefore, there have been many platforms produced to cater to trading crypto. The crypto trading platform prevents interference and frauding from one party and provides security, availability, data reconciliation, and trust and consensus between traders as high as possible based on the properties of the decentralized system. I created a crypto trading platform for my custom and dummy coin called MyCoin to get an overview of how the decentralized system works.",
+    challenge:
+      "Decentralized architecture was a new architecture type for me so I had to go through many documentation to understand its concepts and how it works.\nAdditionally, I lacked the skills and time to set up, configure, and deploy a standard (high security, highly scalable, highly elastic, etc) signaling server for a crypto trading platform to work in the production environment.",
+    results:
+      "I created a crypto trading platform allowing nodes in the local environment to authenticate using their keystore file, get coins by performing transactions, and send coins to another wallet.",
   },
   "todoist-clone": {
     title: "Todoist Clone",
