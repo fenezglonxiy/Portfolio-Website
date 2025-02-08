@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { useLocale, useTimeZone } from "next-intl";
+import { ReactLenis } from "lenis/react";
 
 import ThemeProvider from "@/_theme/ThemeProvider";
 import { Header } from "@/_pages/header";
@@ -31,11 +32,13 @@ export default function RootLayout({
       </head>
       <body>
         <IntlProvider locale={locale} timeZone={timeZone}>
-          <ThemeProvider>
-            <Header />
-            {children}
-            <Footer />
-          </ThemeProvider>
+          <ReactLenis root>
+            <ThemeProvider>
+              <Header />
+              {children}
+              <Footer />
+            </ThemeProvider>
+          </ReactLenis>
         </IntlProvider>
       </body>
     </html>
