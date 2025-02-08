@@ -2,24 +2,23 @@
 
 "use client";
 
+import React from "react";
 import { useTheme } from "@mui/material";
 
 import getAboutMeSkillsContentCss from "./getAboutMeSkillsContentCss";
 
 export type AboutMeSkillsContentProps = React.ComponentPropsWithoutRef<"div">;
 
-function AboutMeSkillsContent(props: AboutMeSkillsContentProps) {
-  const { children, ...rest } = props;
+const AboutMeSkillsContent = React.forwardRef(function AboutMeSkillsContent(
+  props: AboutMeSkillsContentProps,
+  ref: React.Ref<HTMLDivElement>
+) {
   const theme = useTheme();
   const css = getAboutMeSkillsContentCss(theme);
 
-  return (
-    <div css={css.root} {...rest}>
-      <div css={css.container} className="flow-spacer-y">
-        {children}
-      </div>
-    </div>
-  );
-}
+  return <div ref={ref} css={css} {...props} />;
+});
+
+AboutMeSkillsContent.displayName = "AboutMeSkillsContent";
 
 export default AboutMeSkillsContent;

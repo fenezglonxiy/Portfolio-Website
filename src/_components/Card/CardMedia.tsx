@@ -25,7 +25,7 @@ const CardMedia = React.forwardRef(function CardMedia(
 
   return (
     <div className={className} css={css.root}>
-      <MUICardMedia ref={ref} component="img" css={css.media} {...rest} />
+      <MUICardMedia ref={ref} css={css.media} {...rest} />
     </div>
   );
 });
