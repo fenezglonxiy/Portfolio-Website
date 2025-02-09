@@ -88,9 +88,12 @@ const slugToWork = {
     endDate: new Date(2021, 5),
     businessSectors: ["Project management"],
     services: ["Web Development"],
-    about: "",
-    challenge: "",
-    results: "",
+    about:
+      "Todoist is one of the best to-do list apps. It has every feature you need on a to-do list app, for example, capturing and organizing tasks, sorting tasks using built-in filters or custom filters, planning your schedule in the calendar view, etc. Todoist helps you clear your mind, stay organized, and focus on what you need and when you need it. I tried to build a clone version of Todoist while I learned React. In other words, Todoist Clone is my first React project.",
+    challenge:
+      "I had many problems in building components. I built the modal component and menu in the wrong way. I should have rendered these components inside the body tag and calculated their position in most cases instead of positioning them relative to their trigger component, for example, the button component. Additionally, I also had many problems in encapsulating components. I shouldn't have encapsulated same-action or same-appearance (color, layout, etc.) or attached things (button with menu or modal, etc.) into components. I should have read more about the anatomy of user interface components to encapsulate components more appropriately.\nFor styling, I should have set up a theme using CSS variables to prevent duplicated styles scattered among the code. Additionally, I should have used the module CSS approach instead of regular .scss files. The consequence of importing regular .scss files was conflicted components' styles.\nFurthermore, I also had performance issues with the calendar view for rendering all slots in the calendar instead of lazy rendering slots when the user scrolls down.",
+    results:
+      "Although the project has too many problems and the source code is poorly written, the application still allows the user to authenticate and authorize the user. The authorized user can create boards, create tasks, organize tasks using simple filters, and invite others to collaborate on the same board. I am proud of our team because we tried our best and gained much experience from this project.",
   },
 };
 
