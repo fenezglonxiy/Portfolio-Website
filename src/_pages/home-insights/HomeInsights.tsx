@@ -1,36 +1,48 @@
 "use client";
 
 import { HomeInsightCard } from "@/_components/home-insight-card";
+import { Typography } from "@/_components/Typography";
+import { Button } from "@/_components/Button";
 import { insightCard } from "@/dummyData";
 
 import HomeInsightsContent from "./HomeInsightsContent";
 import HomeInsightsHeader from "./HomeInsightsHeader";
 import HomeInsightsShowcase from "./HomeInsightsShowcase";
+import HomeInsightsContainer from "./HomeInsightsContainer";
 
-export type HomeInsightsProps = Omit<
-  React.ComponentPropsWithoutRef<"section">,
-  "children"
->;
+type Props = Omit<React.ComponentPropsWithoutRef<"section">, "children">;
 
-function HomeInsights(props: HomeInsightsProps) {
+function HomeInsights(props: Props) {
   return (
     <section {...props}>
       <HomeInsightsContent>
-        <HomeInsightsHeader />
+        <HomeInsightsContainer>
+          <HomeInsightsHeader>
+            <Typography variant="h3" color="neutral-800" fontWeight="semi-bold">
+              Insights
+            </Typography>
 
-        <HomeInsightsShowcase>
-          {Array(3)
-            .fill(insightCard)
-            .map((card, idx) => (
-              <HomeInsightCard
-                key={idx}
-                href={card.href}
-                thumbnailSrc={card.thumbnailSrc}
-                title={card.title}
-                summary={card.summary}
-              />
-            ))}
-        </HomeInsightsShowcase>
+            <div>
+              <Button href="/insights" variant="outlined" size="large">
+                View All Insights
+              </Button>
+            </div>
+          </HomeInsightsHeader>
+
+          <HomeInsightsShowcase>
+            {Array(3)
+              .fill(insightCard)
+              .map((card, idx) => (
+                <HomeInsightCard
+                  key={idx}
+                  href={card.href}
+                  thumbnailSrc={card.thumbnailSrc}
+                  title={card.title}
+                  summary={card.summary}
+                />
+              ))}
+          </HomeInsightsShowcase>
+        </HomeInsightsContainer>
       </HomeInsightsContent>
     </section>
   );

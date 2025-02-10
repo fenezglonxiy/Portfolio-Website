@@ -4,12 +4,16 @@
 
 import { useTheme } from "@mui/material";
 
+import { Typography } from "@/_components/Typography";
+import { Button } from "@/_components/Button";
+import { WorkCard } from "@/_components/work-card";
 import { workCards } from "@/dummyData";
 
 import getHomeSelectedWorksCss from "./getHomeSelectedWorksCss";
 import HomeSelectedWorksContent from "./HomeSelectedWorksContent";
 import HomeSelectedWorksHeader from "./HomeSelectedWorksHeader";
-import HomeSelectedWorksShowcase from "./HomeSelectedWorksShowcase";
+import SelectedWorksShowcase from "./SelectedWorksShowcase";
+import HomeSelectedWorksContainer from "./HomeSelectedWorksContainer";
 
 export type HomeSelectedWorksProps = Omit<
   React.HTMLAttributes<HTMLDivElement>,
@@ -23,9 +27,39 @@ function HomeSelectedWorks(props: HomeSelectedWorksProps) {
   return (
     <section css={css} {...props}>
       <HomeSelectedWorksContent>
-        <HomeSelectedWorksHeader />
+        <HomeSelectedWorksContainer>
+          <HomeSelectedWorksHeader>
+            <Typography variant="h3" fontWeight="semi-bold">
+              Selected works
+            </Typography>
 
-        <HomeSelectedWorksShowcase works={workCards} />
+            <div>
+              <Button
+                href="/works"
+                variant="outlined"
+                color="primary"
+                size="large"
+              >
+                View All Works
+              </Button>
+            </div>
+          </HomeSelectedWorksHeader>
+
+          <SelectedWorksShowcase>
+            {workCards.map((work, idx) => (
+              <WorkCard
+                key={idx}
+                mediaSrc={work.mediaSrc}
+                workTitle={work.workTitle}
+                workBusinessSectors={work.workBusinessSectors}
+                workStartDate={work.workStartDate}
+                workEndDate={work.workEndDate}
+                workSummary={work.workSummary}
+                workDetailsHref={work.workDetailsHref}
+              />
+            ))}
+          </SelectedWorksShowcase>
+        </HomeSelectedWorksContainer>
       </HomeSelectedWorksContent>
     </section>
   );

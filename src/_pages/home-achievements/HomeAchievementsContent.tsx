@@ -6,19 +6,13 @@ import { useTheme } from "@mui/material";
 
 import getHomeAchievementsContentCss from "./getHomeAchievementsContentCss";
 
-export type HomeAchievementsContentProps =
-  React.ComponentPropsWithoutRef<"div">;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HomeAchievementsContent(props: HomeAchievementsContentProps) {
-  const { children, ...rest } = props;
+function HomeAchievementsContent(props: Props) {
   const theme = useTheme();
   const css = getHomeAchievementsContentCss(theme);
 
-  return (
-    <div css={css.root} {...rest}>
-      <div css={css.container}>{children}</div>
-    </div>
-  );
+  return <div css={css} {...props} />;
 }
 
 export default HomeAchievementsContent;

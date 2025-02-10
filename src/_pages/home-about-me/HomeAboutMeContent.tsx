@@ -6,20 +6,13 @@ import { useTheme } from "@mui/material";
 
 import getHomeAboutMeContentCss from "./getHomeAboutMeContentCss";
 
-type HomeAboutMeContentProps = React.HTMLAttributes<HTMLDivElement>;
+type Props = React.HTMLAttributes<HTMLDivElement>;
 
-function HomeAboutMeContent(props: HomeAboutMeContentProps) {
-  const { children, ...rest } = props;
+function HomeAboutMeContent(props: Props) {
   const theme = useTheme();
   const css = getHomeAboutMeContentCss(theme);
 
-  return (
-    <div css={css.root} {...rest}>
-      <div css={css.container} className="flow-spacer-y">
-        {children}
-      </div>
-    </div>
-  );
+  return <div css={css} {...props} />;
 }
 
 export default HomeAboutMeContent;

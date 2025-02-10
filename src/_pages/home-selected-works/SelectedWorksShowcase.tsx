@@ -4,15 +4,15 @@
 
 import { useTheme } from "@mui/material";
 
-import getHomeInsightsContentCss from "./getHomeInsightsContentCss";
+import getSelectedWorksShowcaseCss from "./getSelectedWorksShowcaseCss";
 
 type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HomeInsightsContent(props: Props) {
+function SelectedWorksShowcase(props: Props) {
   const theme = useTheme();
-  const css = getHomeInsightsContentCss(theme);
+  const css = getSelectedWorksShowcaseCss(theme);
 
   return <div css={css} {...props} />;
 }
 
-export default HomeInsightsContent;
+export default SelectedWorksShowcase;

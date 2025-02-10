@@ -4,15 +4,15 @@
 
 import { useTheme } from "@mui/material";
 
-import getHomeInsightsContentCss from "./getHomeInsightsContentCss";
+import getLetsTalkCss from "./getLetsTalkCss";
 
 type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HomeInsightsContent(props: Props) {
+function LetsTalk(props: Props) {
   const theme = useTheme();
-  const css = getHomeInsightsContentCss(theme);
+  const css = getLetsTalkCss(theme);
 
   return <div css={css} {...props} />;
 }
 
-export default HomeInsightsContent;
+export default LetsTalk;

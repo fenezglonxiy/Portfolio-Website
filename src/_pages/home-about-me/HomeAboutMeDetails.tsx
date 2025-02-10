@@ -3,24 +3,13 @@
 "use client";
 
 import getHomeAboutMeDetailsCss from "./getHomeAboutMeDetailsCss";
-import HomeAboutMeSkills from "./HomeAboutMeSkills";
-import HomeAboutMeBusinessAttention from "./HomeAboutMeBusinessAttention";
 
-type HomeAboutMeDetailsProps = Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  "children"
->;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HomeAboutMeDetails(props: HomeAboutMeDetailsProps) {
+function HomeAboutMeDetails(props: Props) {
   const css = getHomeAboutMeDetailsCss();
 
-  return (
-    <div css={css.root} {...props}>
-      <HomeAboutMeBusinessAttention />
-
-      <HomeAboutMeSkills />
-    </div>
-  );
+  return <div css={css.root} {...props} />;
 }
 
 export default HomeAboutMeDetails;

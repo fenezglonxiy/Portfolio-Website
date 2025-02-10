@@ -1,18 +1,11 @@
 import { css, Theme } from "@mui/material";
 
-const getHomeInsightsContentRootCss = (theme: Theme) => css`
+const getHomeInsightsContentCss = (theme: Theme) => css`
   padding: ${theme.spacing(18)};
-`;
 
-const getHomeInsightsContentContainerCss = (theme: Theme) => css`
-  --flow-spacing-y: ${theme.spacing(14)};
-  max-width: 1440px;
-  margin: 0 auto;
+  ${theme.breakpoints.down(theme.breakpoints.values.xl)} {
+    padding: ${theme.spacing(18)} ${theme.spacing(10)};
+  }
 `;
-
-const getHomeInsightsContentCss = (theme: Theme) => ({
-  root: getHomeInsightsContentRootCss(theme),
-  container: getHomeInsightsContentContainerCss(theme),
-});
 
 export default getHomeInsightsContentCss;

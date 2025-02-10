@@ -41,8 +41,9 @@ const InfiniteScroller = React.forwardRef(function InfiniteScroller(
     <div
       ref={mergeRefs(ref, componentRef)}
       css={css}
-      {...rest}
       data-animated={animated}
+      tabIndex={-1}
+      {...rest}
     >
       <InfiniteScrollerContext.Provider
         value={{
