@@ -21,15 +21,18 @@ const slugToWork = {
   "portfolio-website": {
     title: "Portfolio Website.",
     summary:
-      "Developed an online space to show my work, skills, and experience and let others contact me for work.",
+      "Developed an online space to show my work, skills, and work experience and let others contact me for work.",
     mediaSrc: "/image.png",
-    startDate: new Date(2023, 11),
+    startDate: new Date(2024, 11),
     endDate: new Date(),
     businessSectors: ["None"],
     services: ["Web Development"],
-    about: "",
-    challenge: "",
-    results: "",
+    about:
+      "The Portfolio Website is an online space to show my work, skills, and experience. I built this project to seek jobs.",
+    challenge:
+      "The biggest challenge I faced in this project was the animation. This was the first time I used the gsap package to add the animation and dealt with the animation at smaller screen sizes.",
+    results:
+      "The visitor can view my work, consider what skills I have, and evaluate my work experience. If I fit the position the visitor is searching for, they can contact me for work through the website.",
   },
   "english-tutor-webapp": {
     title: "English Tutor Webapp",
