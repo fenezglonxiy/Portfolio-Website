@@ -10,24 +10,38 @@ import WorkDetailsHeroContent from "./WorkDetailsHeroContainer";
 import WorkDetailsHeroText from "./WorkDetailsHeroText";
 import WorkDetailsHeroContainer from "./WorkDetailsHeroContainer";
 
-export type WorkDetailsHeroProps = HeroProps;
+export type WorkDetailsHeroProps = HeroProps & {
+  /**
+   * The title of the work.
+   */
+  title: string;
+
+  /**
+   * The summary of the work.
+   */
+  summary: string;
+
+  /**
+   * The source of the work's media.
+   */
+  mediaSrc: string;
+};
 
 function WorkDetailsHero(props: WorkDetailsHeroProps) {
+  const { title, summary, mediaSrc, ...rest } = props;
+
   return (
-    <Hero {...props}>
+    <Hero {...rest}>
       <WorkDetailsHeroContent>
         <WorkDetailsHeroContainer>
           <WorkDetailsHeroText>
-            <HeroTitle>Struktura.</HeroTitle>
+            <HeroTitle>{title}</HeroTitle>
 
-            <HeroHeading variant="h3">
-              Utilizing captivating imagery to enhance the overall user
-              experience
-            </HeroHeading>
+            <HeroHeading variant="h3">{summary}</HeroHeading>
           </WorkDetailsHeroText>
 
           <div>
-            <HeroMedia component="img" src="image.png" />
+            <HeroMedia component="img" src={mediaSrc} />
           </div>
         </WorkDetailsHeroContainer>
       </WorkDetailsHeroContent>

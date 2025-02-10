@@ -2,7 +2,7 @@ import { Achievement, InsightCardDetails, WorkCardDetails } from "./types";
 import { TestimonialCardDetails } from "./_components/testimonial-card";
 
 export const workExperienceTimelineItem: Achievement = {
-  svgHref: "google.svg#google",
+  svgHref: "/google.svg#google",
   svgWidth: 24,
   svgHeight: 24,
   title: "Web developer at Google",
@@ -11,7 +11,7 @@ export const workExperienceTimelineItem: Achievement = {
 };
 
 export const awardTimelineItem: Achievement = {
-  svgHref: "google.svg#google",
+  svgHref: "/google.svg#google",
   svgWidth: 24,
   svgHeight: 24,
   title: "Web developer at Google",
@@ -21,7 +21,7 @@ export const awardTimelineItem: Achievement = {
 
 export const workCards: WorkCardDetails[] = [
   {
-    mediaSrc: "card-thumbnail.png",
+    mediaSrc: "/card-thumbnail.png",
     workTitle: "Personal Website",
     workBusinessSectors: ["None"],
     workStartDate: new Date(2023, 11),
@@ -32,7 +32,7 @@ export const workCards: WorkCardDetails[] = [
     workDetailsHref: "/works/portfolio-website",
   },
   {
-    mediaSrc: "card-thumbnail.png",
+    mediaSrc: "/card-thumbnail.png",
     workTitle: "English Tutor Webapp",
     workBusinessSectors: ["Education"],
     workStartDate: new Date(2022, 1),
@@ -43,7 +43,7 @@ export const workCards: WorkCardDetails[] = [
     workDetailsHref: "/works/english-tutor-webapp",
   },
   {
-    mediaSrc: "card-thumbnail.png",
+    mediaSrc: "/card-thumbnail.png",
     workTitle: "Video Calling Webapp",
     workBusinessSectors: ["None"],
     workStartDate: new Date(2022, 1),
@@ -54,7 +54,7 @@ export const workCards: WorkCardDetails[] = [
     workDetailsHref: "/works/video-calling-webapp",
   },
   {
-    mediaSrc: "card-thumbnail.png",
+    mediaSrc: "/card-thumbnail.png",
     workTitle: "MyCoin Webapp",
     workBusinessSectors: ["Financial accounting"],
     workStartDate: new Date(2022, 1),
@@ -90,7 +90,7 @@ export const insightCard: InsightCardDetails = {
 
 export const workShowcaseCards: WorkCardDetails[] = [
   {
-    mediaSrc: "image.png",
+    mediaSrc: "/image.png",
     workTitle: "Personal Website",
     workBusinessSectors: ["None"],
     workStartDate: new Date(2023, 11),
@@ -101,7 +101,7 @@ export const workShowcaseCards: WorkCardDetails[] = [
     workDetailsHref: "/works/portfolio-website",
   },
   {
-    mediaSrc: "image.png",
+    mediaSrc: "/image.png",
     workTitle: "English Tutor Webapp",
     workBusinessSectors: ["Education"],
     workStartDate: new Date(2022, 1),
@@ -112,7 +112,7 @@ export const workShowcaseCards: WorkCardDetails[] = [
     workDetailsHref: "/works/english-tutor-webapp",
   },
   {
-    mediaSrc: "image.png",
+    mediaSrc: "/image.png",
     workTitle: "Video Calling Webapp",
     workBusinessSectors: ["None"],
     workStartDate: new Date(2022, 1),
@@ -123,7 +123,7 @@ export const workShowcaseCards: WorkCardDetails[] = [
     workDetailsHref: "/works/video-calling-webapp",
   },
   {
-    mediaSrc: "image.png",
+    mediaSrc: "/image.png",
     workTitle: "MyCoin Webapp",
     workBusinessSectors: ["Financial accounting"],
     workStartDate: new Date(2022, 1),
@@ -134,7 +134,7 @@ export const workShowcaseCards: WorkCardDetails[] = [
     workDetailsHref: "/works/my-coin-webapp",
   },
   {
-    mediaSrc: "image.png",
+    mediaSrc: "/image.png",
     workTitle: "Todoist Clone",
     workBusinessSectors: ["Project management"],
     workStartDate: new Date(2021, 2),

@@ -14,7 +14,7 @@ const heightBySize: Record<NonNullable<SvgIconProps["size"]>, number> = {
 
 function ArrowRight(props: Omit<SvgIconProps, "children">) {
   const { size = "sm", ...rest } = props;
-  const useHref = `arrow-right.svg#${size}`;
+  const useHref = `/arrow-right.svg#${size}`;
   const width = widthBySize[size];
   const height = heightBySize[size];
 
