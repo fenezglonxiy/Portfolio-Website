@@ -10,7 +10,9 @@ const workExperienceTimelineItem: Achievement = {
   referenceHref: "/",
 };
 
-export const workExperience = Array(3).fill(workExperienceTimelineItem);
+export const workExperience: Achievement[] = Array(3).fill(
+  workExperienceTimelineItem
+);
 
 const awardTimelineItem: Achievement = {
   svgHref: "/google.svg#google",
@@ -21,7 +23,7 @@ const awardTimelineItem: Achievement = {
   referenceHref: "/",
 };
 
-export const awards = Array(3).fill(awardTimelineItem);
+export const awards: Achievement[] = Array(3).fill(awardTimelineItem);
 
 export const workCards: WorkCardDetails[] = [
   {

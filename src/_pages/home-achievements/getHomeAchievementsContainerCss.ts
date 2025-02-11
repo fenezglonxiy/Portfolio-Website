@@ -8,7 +8,7 @@ const getHomeAchievementsContainerCss = (theme: Theme) => css`
   gap: ${theme.spacing(8)};
 
   ${theme.breakpoints.down(theme.breakpoints.values.xl)} {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
     gap: ${theme.spacing(20)};
   }
 `;
