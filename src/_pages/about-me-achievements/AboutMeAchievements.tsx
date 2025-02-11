@@ -1,6 +1,6 @@
 "use client";
 
-import { awardTimelineItem, workExperienceTimelineItem } from "@/dummyData";
+import { awards, workExperience } from "@/dummyData";
 
 import AboutMeAchievementsContent from "./AboutMeAchievementsContent";
 import WorkExperience from "./WorkExperience";
@@ -15,11 +15,9 @@ function AboutMeAchievements(props: AboutMeAchievementsProps) {
   return (
     <section {...props}>
       <AboutMeAchievementsContent>
-        <WorkExperience
-          workExperience={Array(3).fill(workExperienceTimelineItem)}
-        />
+        <WorkExperience workExperience={workExperience} />
 
-        <Awards awards={Array(3).fill(awardTimelineItem)} />
+        <Awards awards={awards} />
       </AboutMeAchievementsContent>
     </section>
   );

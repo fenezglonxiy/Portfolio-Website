@@ -1,7 +1,7 @@
 import { Achievement, InsightCardDetails, WorkCardDetails } from "./types";
 import { TestimonialCardDetails } from "./_components/testimonial-card";
 
-export const workExperienceTimelineItem: Achievement = {
+const workExperienceTimelineItem: Achievement = {
   svgHref: "/google.svg#google",
   svgWidth: 24,
   svgHeight: 24,
@@ -10,7 +10,9 @@ export const workExperienceTimelineItem: Achievement = {
   referenceHref: "/",
 };
 
-export const awardTimelineItem: Achievement = {
+export const workExperience = Array(3).fill(workExperienceTimelineItem);
+
+const awardTimelineItem: Achievement = {
   svgHref: "/google.svg#google",
   svgWidth: 24,
   svgHeight: 24,
@@ -18,6 +20,8 @@ export const awardTimelineItem: Achievement = {
   achievementDate: new Date(2024, 1),
   referenceHref: "/",
 };
+
+export const awards = Array(3).fill(awardTimelineItem);
 
 export const workCards: WorkCardDetails[] = [
   {

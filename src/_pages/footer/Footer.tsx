@@ -10,6 +10,7 @@ import FooterNavList from "./FooterNavList";
 import FooterContact from "./FooterContact";
 import FooterLetsTalk from "./FooterLetsTalk";
 import FooterLetsTalkText from "./FooterLetsTalkText";
+import FooterNavListItem from "./FooterNavListItem";
 
 export type FooterProps = React.ComponentPropsWithoutRef<"div">;
 
@@ -21,23 +22,23 @@ function Footer(props: FooterProps) {
           <FooterTrademark />
 
           <FooterNavList>
-            <li>
+            <FooterNavListItem>
               <Link href="/works" variant="body2Medium">
                 Works
               </Link>
-            </li>
+            </FooterNavListItem>
 
-            <li>
+            <FooterNavListItem>
               <Link href="/insights" variant="body2Medium">
                 Insights
               </Link>
-            </li>
+            </FooterNavListItem>
 
-            <li>
+            <FooterNavListItem>
               <Link href="/about-me" variant="body2Medium">
                 About me
               </Link>
-            </li>
+            </FooterNavListItem>
           </FooterNavList>
         </FooterNav>
 

@@ -6,18 +6,13 @@ import { useTheme } from "@mui/material";
 
 import getHeaderContentCss from "./getHeaderContentCss";
 
-type HeaderContentProps = React.HTMLAttributes<HTMLDivElement>;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HeaderContent(props: HeaderContentProps) {
-  const { children, ...rest } = props;
+function HeaderContent(props: Props) {
   const theme = useTheme();
   const css = getHeaderContentCss(theme);
 
-  return (
-    <div css={css.root} {...rest}>
-      <div css={css.container}>{children}</div>
-    </div>
-  );
+  return <div css={css} {...props} />;
 }
 
 export default HeaderContent;

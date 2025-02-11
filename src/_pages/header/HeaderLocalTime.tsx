@@ -12,9 +12,9 @@ const LocalTime = dynamic(() => import("@/_components/local-time/LocalTime"), {
 
 import getHeaderLocalTimeCss from "./getHeaderLocalTimeCss";
 
-type HeaderLocalTimeProps = React.ComponentPropsWithoutRef<"div">;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HeaderLocalTime(props: HeaderLocalTimeProps) {
+function HeaderLocalTime(props: Props) {
   const theme = useTheme();
   const css = getHeaderLocalTimeCss(theme);
 

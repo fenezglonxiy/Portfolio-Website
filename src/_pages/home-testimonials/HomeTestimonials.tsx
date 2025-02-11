@@ -36,12 +36,11 @@ const testimonials = [
   },
 ];
 
-export type HomeTestimonialsProps =
-  React.ComponentPropsWithoutRef<"section"> & {
-    children?: undefined | null;
-  };
+type Props = React.ComponentPropsWithoutRef<"section"> & {
+  children?: undefined | null;
+};
 
-function HomeTestimonials(props: HomeTestimonialsProps) {
+function HomeTestimonials(props: Props) {
   const theme = useTheme();
   const css = getHomeTestimonialsCss(theme);
 

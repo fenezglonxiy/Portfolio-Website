@@ -1,18 +1,6 @@
 import { ThemeOptions } from "@mui/material/styles";
 import { Url } from "next/dist/shared/lib/router/router";
 
-type NavItem = {
-  /**
-   * Control the URL or path to navigate to.
-   */
-  href: string;
-
-  /**
-   * Control the link label.
-   */
-  label: string;
-};
-
 type Achievement = {
   /**
    * A URL or path to navigate to the svg icon or the svg image of the

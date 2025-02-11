@@ -6,8 +6,4 @@ const getHeaderNavListCss = (theme: Theme) => css`
   gap: ${theme.spacing(7)};
 `;
 
-const getHeaderNavbarCss = (theme: Theme) => ({
-  navList: getHeaderNavListCss(theme),
-});
-
-export default getHeaderNavbarCss;
+export default getHeaderNavListCss;

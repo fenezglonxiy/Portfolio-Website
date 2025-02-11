@@ -6,20 +6,13 @@ import { useTheme } from "@mui/material";
 
 import getHomeInsightsContentCss from "./getHomeInsightsContentCss";
 
-export type HomeInsightsContentProps = React.ComponentPropsWithoutRef<"div">;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HomeInsightsContent(props: HomeInsightsContentProps) {
-  const { children, ...rest } = props;
+function HomeInsightsContent(props: Props) {
   const theme = useTheme();
   const css = getHomeInsightsContentCss(theme);
 
-  return (
-    <div css={css.root} {...rest}>
-      <div className="flow-spacer-y" css={css.container}>
-        {children}
-      </div>
-    </div>
-  );
+  return <div css={css} {...props} />;
 }
 
 export default HomeInsightsContent;
