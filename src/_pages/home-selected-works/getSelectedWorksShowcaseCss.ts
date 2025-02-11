@@ -6,7 +6,7 @@ const getSelectedWorksShowcaseCss = (theme: Theme) => css`
   gap: ${theme.spacing(6)};
 
   ${theme.breakpoints.down(theme.breakpoints.values.xl)} {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
   }
 `;
 
