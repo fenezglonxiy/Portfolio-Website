@@ -1,25 +1,13 @@
-/** @jsxImportSource @emotion/react */
-
-"use client";
-
-import { useTheme } from "@mui/material";
-
 import { workShowcaseCards } from "@/dummyData";
 import { WorkShowcaseCard } from "@/_components/work-showcase-card";
 
-import getWorksShowcaseCss from "./getWorksShowcaseCss";
 import WorksShowcaseContent from "./WorksShowcaseContent";
 
-export type WorksShowcaseProps = React.ComponentPropsWithoutRef<"div"> & {
-  children?: undefined | null;
-};
+type Props = Omit<React.ComponentPropsWithoutRef<"section">, "children">;
 
-function WorksShowcase(props: WorksShowcaseProps) {
-  const theme = useTheme();
-  const css = getWorksShowcaseCss(theme);
-
+function WorksShowcase(props: Props) {
   return (
-    <section css={css} {...props}>
+    <section {...props}>
       <WorksShowcaseContent>
         {workShowcaseCards.map((work, idx) => (
           <WorkShowcaseCard

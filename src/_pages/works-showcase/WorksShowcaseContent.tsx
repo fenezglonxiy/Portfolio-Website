@@ -7,9 +7,9 @@ import clsx from "clsx";
 
 import getWorksShowcaseContentCss from "./getWorksShowcaseContentCss";
 
-export type WorksShowcaseContentProps = React.HTMLAttributes<HTMLDivElement>;
+type Props = React.HTMLAttributes<HTMLDivElement>;
 
-function WorksShowcaseContent(props: WorksShowcaseContentProps) {
+function WorksShowcaseContent(props: Props) {
   const { className, ...rest } = props;
   const theme = useTheme();
   const css = getWorksShowcaseContentCss(theme);
