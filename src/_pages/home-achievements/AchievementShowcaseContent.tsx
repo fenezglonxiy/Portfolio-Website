@@ -5,7 +5,7 @@ import {
 
 type Props = AchievementTimelineProps;
 
-function AchievementShowcaseContent(props: AchievementTimelineProps) {
+function AchievementShowcaseContent(props: Props) {
   return <AchievementTimeline {...props} />;
 }
 

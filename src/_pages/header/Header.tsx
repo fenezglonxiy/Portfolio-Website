@@ -41,9 +41,11 @@ function Header(props: Props) {
         start: "top top",
         end: "max",
         onUpdate: (self) => {
-          self.direction === -1
-            ? popDownAnimation.play()
-            : popDownAnimation.reverse();
+          if (self.direction === -1) {
+            popDownAnimation.play();
+          } else {
+            popDownAnimation.reverse();
+          }
         },
       });
     },
