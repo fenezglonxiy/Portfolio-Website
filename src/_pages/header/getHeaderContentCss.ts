@@ -1,20 +1,15 @@
 import { css, Theme } from "@mui/material";
 
-const getHeaderContentRootCss = (theme: Theme) => css`
-  display: flex;
-  justify-content: center;
-  padding: ${theme.spacing(4)} ${theme.spacing(15)};
+const getHeaderContentCss = (theme: Theme) => css`
+  position: fixed;
+  width: 100%;
+  height: 82px;
+  top: 0;
+  left: 0;
+  transition: ease 0.3s;
+  z-index: ${theme.zIndex.appBar};
+  background-color: ${theme.palette.common.white};
+  border-bottom: 1px solid ${theme.palette.neutral[200]};
 `;
-
-const getHeaderContentContainerCss = (theme: Theme) => css`
-  display: flex;
-  align-items: center;
-  gap: ${theme.spacing(8)};
-`;
-
-const getHeaderContentCss = (theme: Theme) => ({
-  root: getHeaderContentRootCss(theme),
-  container: getHeaderContentContainerCss(theme),
-});
 
 export default getHeaderContentCss;

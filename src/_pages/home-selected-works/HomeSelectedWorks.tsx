@@ -15,12 +15,9 @@ import HomeSelectedWorksHeader from "./HomeSelectedWorksHeader";
 import SelectedWorksShowcase from "./SelectedWorksShowcase";
 import HomeSelectedWorksContainer from "./HomeSelectedWorksContainer";
 
-export type HomeSelectedWorksProps = Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  "children"
->;
+type Props = Omit<React.HTMLAttributes<HTMLDivElement>, "children">;
 
-function HomeSelectedWorks(props: HomeSelectedWorksProps) {
+function HomeSelectedWorks(props: Props) {
   const theme = useTheme();
   const css = getHomeSelectedWorksCss(theme);
 

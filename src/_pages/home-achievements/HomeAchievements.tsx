@@ -16,12 +16,11 @@ import AchievementShowcaseContent from "./AchievementShowcaseContent";
 import AchievementShowcaseItem from "./AchievementShowcaseItem";
 import AchievementShowcaseDivider from "./AchievementShowcaseDivider";
 
-export type HomeAchievementsProps =
-  React.ComponentPropsWithoutRef<"section"> & {
-    children?: undefined | null;
-  };
+type Props = React.ComponentPropsWithoutRef<"section"> & {
+  children?: undefined | null;
+};
 
-function HomeAchievements(props: HomeAchievementsProps) {
+function HomeAchievements(props: Props) {
   const theme = useTheme();
   const css = getHomeAchievementsCss(theme);
 
