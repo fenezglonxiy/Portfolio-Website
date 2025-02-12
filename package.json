@@ -18,6 +18,7 @@
     "@types/nodemailer": "^6.4.17",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "dompurify": "^3.2.4",
     "gsap": "^3.12.7",
     "lenis": "^1.1.20",
     "lodash": "^4.17.21",
