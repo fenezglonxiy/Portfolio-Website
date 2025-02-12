@@ -22,7 +22,13 @@ function WorkTeamSize(props: WorkTeamSizeProps) {
   const noun = size === 1 ? "person" : "people";
 
   return (
-    <Typography component="span" variant="inherit" {...rest}>
+    <Typography
+      component="span"
+      variant="body1"
+      fontWeight="medium"
+      color="neutral-550"
+      {...rest}
+    >
       {size} {noun}
     </Typography>
   );

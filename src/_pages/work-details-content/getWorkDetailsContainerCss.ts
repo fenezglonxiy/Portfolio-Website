@@ -2,6 +2,10 @@ import { css, Theme } from "@mui/material";
 
 const getWorkDetailsContainerRootCss = (theme: Theme) => css`
   padding: ${theme.spacing(18)} ${theme.spacing(25)};
+
+  ${theme.breakpoints.down(theme.breakpoints.values.xl)} {
+    padding: ${theme.spacing(16)} ${theme.spacing(10)};
+  }
 `;
 
 const getWorkDetailsContainerInnerCss = (theme: Theme) => css`
