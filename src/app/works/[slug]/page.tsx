@@ -46,6 +46,9 @@ const slugToWork = {
         The visitor can view my work, consider what skills I have, and evaluate my work experience. If I fit the position the visitor is searching for, they can contact me for work through the website.
       </p>
     </div>`,
+    git: "https://github.com/fenezglonxiy/Portfolio-Website",
+    demo: undefined,
+    deployment: undefined,
   },
   "english-tutor-webapp": {
     title: "English Tutor Webapp",
@@ -121,6 +124,9 @@ const slugToWork = {
         The system could create an online classroom based on a scheduled learning/teaching session, where the tutor and the student can video-call, in the local environment. But it failed in the production environment.
       </p>
     </div>`,
+    git: "https://github.com/Nhom-1-D-an-CNPM-2022",
+    demo: "https://drive.google.com/file/d/11YxZQo4y2nAbPhDmkXnqA72-YOU5Tj2o/view?pli=1",
+    deployment: undefined,
   },
   "video-calling-webapp": {
     title: "Video Calling Webapp",
@@ -153,6 +159,9 @@ const slugToWork = {
         I created a Proof of Concept including a representation to introduce the simple-peer package and show my approach, and an example project was successful in allowing two people to video-call in the local environment.
       </p>
     </div>`,
+    git: "https://github.com/TranHoangDat/PoC-VideoCallingApp",
+    demo: undefined,
+    deployment: undefined,
   },
   "mycoin-webapp": {
     title: "MyCoin Webapp",
@@ -185,6 +194,9 @@ const slugToWork = {
         I created a crypto trading platform allowing nodes in the local environment to authenticate using their keystore file, get coins by performing transactions, and send coins to another wallet.
       </p>
     </div>`,
+    git: "https://github.com/TranHoangDat/MyCoin",
+    demo: "https://youtu.be/-6XbG6ksi80",
+    deployment: undefined,
   },
   "todoist-clone": {
     title: "Todoist Clone",
@@ -220,6 +232,9 @@ const slugToWork = {
         Although the project has too many problems and the source code is poorly written, the application still allows the user to authenticate and authorize the user. The authorized user can create boards, create tasks, organize tasks using simple filters, and invite others to collaborate on the same board. I am proud of our team because we tried our best and gained much experience from this project.
       </p>
     </div>`,
+    git: "https://github.com/TranHoangDat/Solo",
+    demo: "https://drive.google.com/file/d/1JDtmBKz9ahUNdxZM3YlArVHMr2cGMIYS/view",
+    deployment: undefined,
   },
 };
 
@@ -249,6 +264,9 @@ export default async function WorkDetails(props: Props) {
         about={work.about}
         challenge={work.challenge}
         results={work.results}
+        git={work.git}
+        demo={work.demo}
+        deployment={work.deployment}
       />
       <WorkDetailsOtherWorks />
     </article>

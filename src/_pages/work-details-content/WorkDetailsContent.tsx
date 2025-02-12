@@ -14,6 +14,7 @@ import MainDetailsSection from "./MainDetailsSection";
 import MainDetailsSectionContent from "./MainDetailsSectionContent";
 import MainDetailsSectionTitle from "./MainDetailsSectionTitle";
 import WorkTeamSize from "./WorkTeamSize";
+import WorkResourceLink from "./WorkResourceLink";
 
 export type WorkDetailsContentProps = Omit<
   React.ComponentPropsWithoutRef<"main">,
@@ -23,6 +24,7 @@ export type WorkDetailsContentProps = Omit<
 
 function WorkDetailsContent(props: WorkDetailsContentProps) {
   const {
+    teamSize,
     startDate,
     endDate,
     businessSectors,
@@ -30,8 +32,16 @@ function WorkDetailsContent(props: WorkDetailsContentProps) {
     about,
     challenge,
     results,
+    git,
+    demo,
+    deployment,
     ...rest
   } = props;
+  const resources = [
+    { type: "git", href: git, title: "Git repository" },
+    { type: "demo", href: demo, title: "Demo" },
+    { type: "deployment", href: deployment, title: "Deployment" },
+  ] as const;
 
   return (
     <main {...rest}>
@@ -41,7 +51,7 @@ function WorkDetailsContent(props: WorkDetailsContentProps) {
             <SideDetailsSectionTitle>Team Size</SideDetailsSectionTitle>
 
             <SideDetailsSectionContent>
-              <WorkTeamSize size={13} />
+              <WorkTeamSize size={teamSize} />
             </SideDetailsSectionContent>
           </SideDetailsSection>
 
@@ -84,6 +94,24 @@ function WorkDetailsContent(props: WorkDetailsContentProps) {
               </WorkServiceBox>
             </SideDetailsSectionContent>
           </SideDetailsSection>
+
+          {resources.map(
+            (resource, idx) =>
+              resource.href && (
+                <SideDetailsSection key={idx}>
+                  <SideDetailsSectionTitle>
+                    {resource.title}
+                  </SideDetailsSectionTitle>
+
+                  <SideDetailsSectionContent>
+                    <WorkResourceLink
+                      type={resource.type}
+                      href={resource.href}
+                    />
+                  </SideDetailsSectionContent>
+                </SideDetailsSection>
+              )
+          )}
         </SideDetails>
 
         <MainDetails>
