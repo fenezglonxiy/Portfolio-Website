@@ -2,34 +2,14 @@
 
 "use client";
 
-import { Button } from "@/_components/Button";
-import { Typography } from "@/_components/Typography";
-
 import getWorkDetailsOtherWorksHeaderCss from "./getWorkDetailsOtherWorksHeaderCss";
 
-export type WorkDetailsOtherWorksHeaderProps =
-  React.HTMLAttributes<HTMLDivElement> & {
-    children?: undefined | null;
-  };
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function WorkDetailsOtherWorksHeader(props: WorkDetailsOtherWorksHeaderProps) {
+function WorkDetailsOtherWorksHeader(props: Props) {
   const css = getWorkDetailsOtherWorksHeaderCss();
 
-  return (
-    <div css={css} {...props}>
-      <div>
-        <Typography variant="h3" fontWeight="semi-bold">
-          What’s next?
-        </Typography>
-      </div>
-
-      <div>
-        <Button href="/works" variant="outlined" color="primary" size="large">
-          View All Works
-        </Button>
-      </div>
-    </div>
-  );
+  return <div css={css} {...props} />;
 }
 
 export default WorkDetailsOtherWorksHeader;

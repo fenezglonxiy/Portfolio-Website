@@ -68,7 +68,7 @@ export const workCards: WorkCardDetails[] = [
     workSummary:
       "Developed a system where users can authenticate using their keystore file, get coins by performing transactions, and send coins to another wallet.",
     workServices: ["Web Development"],
-    workDetailsHref: "/works/my-coin-webapp",
+    workDetailsHref: "/works/mycoin-webapp",
   },
 ];
 
@@ -137,7 +137,7 @@ export const workShowcaseCards: WorkCardDetails[] = [
     workSummary:
       "Developed a system where users can authenticate using their keystore file, get coins by performing transactions, and send coins to another wallet.",
     workServices: ["Web Development"],
-    workDetailsHref: "/works/my-coin-webapp",
+    workDetailsHref: "/works/mycoin-webapp",
   },
   {
     mediaSrc: "/image.png",

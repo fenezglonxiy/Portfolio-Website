@@ -6,7 +6,7 @@ import {
   HeroTitle,
 } from "@/_components/hero";
 
-import WorkDetailsHeroContent from "./WorkDetailsHeroContainer";
+import WorkDetailsHeroContent from "./WorkDetailsHeroContent";
 import WorkDetailsHeroText from "./WorkDetailsHeroText";
 import WorkDetailsHeroContainer from "./WorkDetailsHeroContainer";
 

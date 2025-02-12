@@ -65,6 +65,12 @@ type ButtonBaseProps = {
    * A URL or path to navigate to.
    */
   href?: Url;
+
+  /**
+   * The `target` HTML Attribute of `<a>` tag. It's only available when `href`
+   * prop is specified
+   */
+  target?: React.HTMLAttributeAnchorTarget;
 };
 
 export interface ButtonTypeMap<D extends React.ElementType = "button"> {

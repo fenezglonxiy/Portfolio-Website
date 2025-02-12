@@ -2,14 +2,17 @@
 
 "use client";
 
+import { useTheme } from "@mui/material";
+
 import { HeroContent, HeroContentProps } from "@/_components/hero";
 
 import getWorkDetailsHeroContentCss from "./getWorkDetailsHeroContentCss";
 
-export type WorkDetailsHeroContentProps = HeroContentProps;
+type Props = HeroContentProps;
 
-function WorkDetailsHeroContent(props: WorkDetailsHeroContentProps) {
-  const css = getWorkDetailsHeroContentCss();
+function WorkDetailsHeroContent(props: Props) {
+  const theme = useTheme();
+  const css = getWorkDetailsHeroContentCss(theme);
 
   return <HeroContent css={css} {...props} />;
 }
