@@ -201,11 +201,11 @@ export const bindMenu = (popupState: PopupState): MenuControlProps => {
 };
 
 const usePopupState = (params: PopupStateHookParams): PopupState => {
-  const { variant, id: idFromParams, triggerId: triggerIdFromProps } = params;
+  const { variant, id: idFromParams, triggerId: triggerIdFromParams } = params;
   const [anchorEl, setAnchorEl] = React.useState<Element | null>(null);
   const isOpen = Boolean(anchorEl);
-  const popupId = idFromParams ? idFromParams : useId();
-  const triggerId = triggerIdFromProps ? triggerIdFromProps : useId();
+  const popupId = useId();
+  const triggerId = useId();
 
   const open = (eventOrAnchorEl: SyntheticEvent | Element) => {
     const newAnchorEl =
@@ -251,8 +251,8 @@ const usePopupState = (params: PopupStateHookParams): PopupState => {
     setAnchorEl,
     isOpen,
     variant,
-    popupId,
-    triggerId,
+    popupId: idFromParams ? idFromParams : popupId,
+    triggerId: triggerIdFromParams ? triggerIdFromParams : triggerId,
   };
 };
 

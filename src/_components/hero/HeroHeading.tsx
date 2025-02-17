@@ -33,7 +33,7 @@ function HeroHeading(props: HeroHeadingProps) {
     <Typography
       component="h2"
       variant="display"
-      color="neutral-900"
+      color={color}
       transform={transform}
       css={css}
       {...rest}

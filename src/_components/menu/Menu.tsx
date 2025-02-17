@@ -22,7 +22,10 @@ type MenuBaseProps = {
    * `onClose`
    */
   onClose?: {
-    bivarianceHack(event: {}, reason: "backdropClick" | "escapeKeyDown"): void;
+    bivarianceHack(
+      event: object,
+      reason: "backdropClick" | "escapeKeyDown"
+    ): void;
   }["bivarianceHack"];
 
   /**
@@ -46,7 +49,7 @@ type MenuBaseProps = {
    */
   TransitionComponent?: React.JSXElementConstructor<
     TransitionProps & {
-      children: React.ReactElement<unknown, any>;
+      children: React.ReactElement;
     }
   >;
 
