@@ -7,7 +7,7 @@ const getFooterContactCss = (theme: Theme) => css`
   background-color: ${theme.palette.neutral[800]};
 
   ${theme.breakpoints.down(theme.breakpoints.values.xl)} {
-    padding: ${theme.spacing(10)} ${theme.spacing(20)};
+    padding: ${theme.spacing(20)} ${theme.spacing(10)};
   }
 `;
 

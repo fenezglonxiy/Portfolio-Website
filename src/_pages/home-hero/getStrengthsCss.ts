@@ -1,7 +1,10 @@
-import { css } from "@mui/material";
+import { css, Theme } from "@mui/material";
 
-const getStrengthsCss = () => css`
-  max-width: 520px;
+const getStrengthsCss = (theme: Theme) => css`
+  ${theme.breakpoints.up(theme.breakpoints.values.md)} {
+    justify-self: flex-end;
+    max-width: 520px;
+  }
 `;
 
 export default getStrengthsCss;

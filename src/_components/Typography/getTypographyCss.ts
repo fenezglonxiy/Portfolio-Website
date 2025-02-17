@@ -95,7 +95,6 @@ const getTypographyCss = (theme: Theme, props: TypographyProps) => css`
   text-align: ${props.align};
   text-transform: ${props.transform};
   ${getTypographyColorCss(theme, props.color)};
-  ${theme.typography[props.variant as NonNullable<TypographyProps["variant"]>]};
   ${getTypographyFontWeightCss(theme, props.fontWeight)};
 `;
 

@@ -10,6 +10,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/_components/Button";
 import { Link } from "@/_components/Link";
 import { ArrowRight } from "@/_icons";
+import usePopupState, { bindMenu, bindTrigger } from "@/_hooks/usePopupState";
 
 import HeaderContent from "./HeaderContent";
 import HeaderLogo from "./HeaderLogo";
@@ -19,6 +20,10 @@ import HeaderContainer from "./HeaderContainer";
 import HeaderNavList from "./HeaderNavList";
 import HeaderNavListItem from "./HeaderNavListItem";
 import getHeaderCss from "./getHeaderCss";
+import HeaderLetsTalk from "./HeaderLetsTalk";
+import HeaderBurgerNav from "./HeaderBurgerNav";
+import BurgerNavMenu from "./BurgerNavMenu";
+import BurgerNavMenuItem from "./BurgerNavMenuItem";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,6 +76,10 @@ function Header(props: Props) {
     },
   ] as const;
 
+  const menuState = usePopupState({ variant: "menu" });
+
+  const handleBurgerNavMenuItemClick = () => menuState.close();
+
   const css = getHeaderCss();
 
   return (
@@ -88,9 +97,9 @@ function Header(props: Props) {
               ))}
             </HeaderNavList>
 
-            <HeaderLocalTime />
+            <HeaderLetsTalk>
+              <HeaderLocalTime />
 
-            <div>
               <Button
                 href="/contact"
                 variant="outlined"
@@ -100,7 +109,30 @@ function Header(props: Props) {
               >
                 Let’s Talk
               </Button>
-            </div>
+            </HeaderLetsTalk>
+
+            <HeaderBurgerNav>
+              <Button
+                variant="outlined"
+                shape="pill"
+                {...bindTrigger(menuState)}
+              >
+                <i className="fa-sharp fa-light fa-bars"></i>
+              </Button>
+
+              <BurgerNavMenu {...bindMenu(menuState)}>
+                {navList.map((item, idx) => (
+                  <BurgerNavMenuItem
+                    key={idx}
+                    onClick={handleBurgerNavMenuItemClick}
+                  >
+                    <Link variant="h3" color="inherit" href={item.href}>
+                      {item.label}
+                    </Link>
+                  </BurgerNavMenuItem>
+                ))}
+              </BurgerNavMenu>
+            </HeaderBurgerNav>
           </HeaderNav>
         </HeaderContainer>
       </HeaderContent>

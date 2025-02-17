@@ -4,15 +4,15 @@
 
 import { useTheme } from "@mui/material";
 
-import getHomeAboutMeDetailsCss from "./getHomeAboutMeDetailsCss";
+import getHeaderLetsTalkCss from "./getHeaderLetsTalkCss";
 
 type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HomeAboutMeDetails(props: Props) {
+function HeaderLetsTalk(props: Props) {
   const theme = useTheme();
-  const css = getHomeAboutMeDetailsCss(theme);
+  const css = getHeaderLetsTalkCss(theme);
 
   return <div css={css} {...props} />;
 }
 
-export default HomeAboutMeDetails;
+export default HeaderLetsTalk;

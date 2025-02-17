@@ -124,9 +124,9 @@ const h1 = css`
 `;
 
 const h2 = css`
-  font-size: 60px;
-  line-height: 78px;
-  letter-spacing: -2.4px;
+  font-size: 64px;
+  line-height: 64px;
+  letter-spacing: -1.28px;
   font-weight: ${fontWeightByType.bold};
 `;
 

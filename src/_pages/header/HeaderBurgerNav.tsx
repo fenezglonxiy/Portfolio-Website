@@ -4,15 +4,15 @@
 
 import { useTheme } from "@mui/material";
 
-import getHomeAboutMeDetailsCss from "./getHomeAboutMeDetailsCss";
+import getHeaderBurgerNavCss from "./getHeaderBurgerNavCss";
 
 type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HomeAboutMeDetails(props: Props) {
+function HeaderBurgerNav(props: Props) {
   const theme = useTheme();
-  const css = getHomeAboutMeDetailsCss(theme);
+  const css = getHeaderBurgerNavCss(theme);
 
   return <div css={css} {...props} />;
 }
 
-export default HomeAboutMeDetails;
+export default HeaderBurgerNav;

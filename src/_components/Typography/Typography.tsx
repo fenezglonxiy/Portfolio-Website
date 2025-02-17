@@ -17,7 +17,7 @@ type FontStyle = keyof MUIFontStyle;
 
 export type TypographyVariants = keyof Omit<
   MUITypographyVariants,
-  "pxToRem" | FontStyle
+  "pxToRem" | FontStyle | "button" | "overline"
 >;
 
 const typographyElementByVariant: Record<
@@ -39,8 +39,6 @@ const typographyElementByVariant: Record<
   body2Medium: "p",
   caption: "p",
   inherit: "p",
-  overline: "p",
-  button: "p",
 };
 
 type TypographyBaseProps = {
@@ -170,6 +168,7 @@ const Typography = React.forwardRef(function Typography(
         component ||
         typographyElementByVariant[variant as NonNullable<TypographyVariants>]
       }
+      variant={variant}
       css={css}
       {...rest}
     />

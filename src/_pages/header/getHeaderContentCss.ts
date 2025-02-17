@@ -10,6 +10,14 @@ const getHeaderContentCss = (theme: Theme) => css`
   z-index: ${theme.zIndex.appBar};
   background-color: ${theme.palette.common.white};
   border-bottom: 1px solid ${theme.palette.neutral[200]};
+
+  ${theme.breakpoints.down(theme.breakpoints.values.lg)} {
+    padding: 0 ${theme.spacing(10)};
+  }
+
+  ${theme.breakpoints.down(theme.breakpoints.values.sm)} {
+    padding: 0 ${theme.spacing(5)};
+  }
 `;
 
 export default getHeaderContentCss;

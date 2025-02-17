@@ -1,12 +1,9 @@
-import { css } from "@mui/material";
+import { css, Theme } from "@mui/material";
 
-const getHomeAboutMeDetailsRootCss = () => css`
-  display: flex;
-  justify-content: space-between;
+const getHomeAboutMeDetailsCss = (theme: Theme) => css`
+  display: grid;
+  grid-template-columns: 65% auto;
+  row-gap: ${theme.spacing(8)};
 `;
-
-const getHomeAboutMeDetailsCss = () => ({
-  root: getHomeAboutMeDetailsRootCss(),
-});
 
 export default getHomeAboutMeDetailsCss;

@@ -4,15 +4,15 @@
 
 import { useTheme } from "@mui/material";
 
-import getHomeAboutMeDetailsCss from "./getHomeAboutMeDetailsCss";
+import getHomeAboutMeCTABoxCss from "./getHomeAboutMeCTABoxCss";
 
 type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HomeAboutMeDetails(props: Props) {
+function HomeAboutMeCTABox(props: Props) {
   const theme = useTheme();
-  const css = getHomeAboutMeDetailsCss(theme);
+  const css = getHomeAboutMeCTABoxCss(theme);
 
   return <div css={css} {...props} />;
 }
 
-export default HomeAboutMeDetails;
+export default HomeAboutMeCTABox;

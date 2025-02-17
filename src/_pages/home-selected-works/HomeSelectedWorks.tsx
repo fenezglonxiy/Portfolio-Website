@@ -1,15 +1,10 @@
-/** @jsxImportSource @emotion/react */
-
 "use client";
-
-import { useTheme } from "@mui/material";
 
 import { Typography } from "@/_components/Typography";
 import { Button } from "@/_components/Button";
 import { WorkCard } from "@/_components/work-card";
 import { workCards } from "@/dummyData";
 
-import getHomeSelectedWorksCss from "./getHomeSelectedWorksCss";
 import HomeSelectedWorksContent from "./HomeSelectedWorksContent";
 import HomeSelectedWorksHeader from "./HomeSelectedWorksHeader";
 import SelectedWorksShowcase from "./SelectedWorksShowcase";
@@ -18,11 +13,8 @@ import HomeSelectedWorksContainer from "./HomeSelectedWorksContainer";
 type Props = Omit<React.HTMLAttributes<HTMLDivElement>, "children">;
 
 function HomeSelectedWorks(props: Props) {
-  const theme = useTheme();
-  const css = getHomeSelectedWorksCss(theme);
-
   return (
-    <section css={css} {...props}>
+    <section {...props}>
       <HomeSelectedWorksContent>
         <HomeSelectedWorksContainer>
           <HomeSelectedWorksHeader>

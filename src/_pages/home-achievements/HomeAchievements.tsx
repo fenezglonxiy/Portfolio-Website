@@ -1,13 +1,9 @@
-/** @jsxImportSource @emotion/react */
-
 "use client";
 
 import React from "react";
-import { useTheme } from "@mui/material";
 
 import { awards, workExperience } from "@/dummyData";
 
-import getHomeAchievementsCss from "./getHomeAchievementsCss";
 import HomeAchievementsContent from "./HomeAchievementsContent";
 import HomeAchievementsContainer from "./HomeAchievementsContainer";
 import AchievementShowcase from "./AchievementShowcase";
@@ -21,11 +17,8 @@ type Props = React.ComponentPropsWithoutRef<"section"> & {
 };
 
 function HomeAchievements(props: Props) {
-  const theme = useTheme();
-  const css = getHomeAchievementsCss(theme);
-
   return (
-    <section css={css} {...props}>
+    <section {...props}>
       <HomeAchievementsContent>
         <HomeAchievementsContainer>
           <AchievementShowcase>
