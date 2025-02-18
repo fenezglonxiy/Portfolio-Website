@@ -16,6 +16,12 @@ const getHomeTestimonialsContentCss = (theme: Theme) => css`
       padding-inline: ${theme.spacing(10)};
     }
   }
+
+  ${theme.breakpoints.down(theme.breakpoints.values.sm)} {
+    & .swiper {
+      padding-inline: ${theme.spacing(5)};
+    }
+  }
 `;
 
 export default getHomeTestimonialsContentCss;

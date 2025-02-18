@@ -6,6 +6,7 @@ import React from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTheme } from "@mui/material";
 
 import { Button } from "@/_components/Button";
 import { Link } from "@/_components/Link";
@@ -24,6 +25,7 @@ import HeaderLetsTalk from "./HeaderLetsTalk";
 import HeaderBurgerNav from "./HeaderBurgerNav";
 import BurgerNavMenu from "./BurgerNavMenu";
 import BurgerNavMenuItem from "./BurgerNavMenuItem";
+import BurgerNavMenuLink from "./BurgerNavMenuLink";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -80,11 +82,15 @@ function Header(props: Props) {
 
   const handleBurgerNavMenuItemClick = () => menuState.close();
 
-  const css = getHeaderCss();
+  const theme = useTheme();
+  const css = getHeaderCss(theme);
 
   return (
     <header ref={header} css={css} {...props}>
-      <HeaderContent className="app-header-content">
+      <HeaderContent
+        className="app-header-content"
+        data-burger-nav-menu-opened={menuState.isOpen}
+      >
         <HeaderContainer>
           <HeaderNav>
             <HeaderLogo />
@@ -126,9 +132,9 @@ function Header(props: Props) {
                     key={idx}
                     onClick={handleBurgerNavMenuItemClick}
                   >
-                    <Link variant="h3" color="inherit" href={item.href}>
+                    <BurgerNavMenuLink href={item.href}>
                       {item.label}
-                    </Link>
+                    </BurgerNavMenuLink>
                   </BurgerNavMenuItem>
                 ))}
               </BurgerNavMenu>

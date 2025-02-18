@@ -9,6 +9,8 @@ import HomeInsightsContent from "./HomeInsightsContent";
 import HomeInsightsHeader from "./HomeInsightsHeader";
 import HomeInsightsShowcase from "./HomeInsightsShowcase";
 import HomeInsightsContainer from "./HomeInsightsContainer";
+import HomeInsightsCTABox from "./HomeInsightsCTABox";
+import HomeInsightsHeaderCTABox from "./HomeInsightsHeaderCTABox";
 
 type Props = Omit<React.ComponentPropsWithoutRef<"section">, "children">;
 
@@ -22,11 +24,11 @@ function HomeInsights(props: Props) {
               Insights
             </Typography>
 
-            <div>
+            <HomeInsightsHeaderCTABox>
               <Button href="/insights" variant="outlined" size="large">
                 View All Insights
               </Button>
-            </div>
+            </HomeInsightsHeaderCTABox>
           </HomeInsightsHeader>
 
           <HomeInsightsShowcase>
@@ -42,6 +44,18 @@ function HomeInsights(props: Props) {
                 />
               ))}
           </HomeInsightsShowcase>
+
+          <HomeInsightsCTABox>
+            <Button
+              href="/insights"
+              variant="outlined"
+              size="medium"
+              shape="pill"
+              fullWidth
+            >
+              View All Insights
+            </Button>
+          </HomeInsightsCTABox>
         </HomeInsightsContainer>
       </HomeInsightsContent>
     </section>

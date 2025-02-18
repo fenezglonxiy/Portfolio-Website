@@ -9,6 +9,8 @@ import HomeSelectedWorksContent from "./HomeSelectedWorksContent";
 import HomeSelectedWorksHeader from "./HomeSelectedWorksHeader";
 import SelectedWorksShowcase from "./SelectedWorksShowcase";
 import HomeSelectedWorksContainer from "./HomeSelectedWorksContainer";
+import HomeSelectedWorksCTABox from "./HomeSelectedWorksCTABox";
+import HomeSelectedWorksHeaderCTABox from "./HomeSelectedWorksHeaderCTABox";
 
 type Props = Omit<React.HTMLAttributes<HTMLDivElement>, "children">;
 
@@ -22,7 +24,7 @@ function HomeSelectedWorks(props: Props) {
               Selected works
             </Typography>
 
-            <div>
+            <HomeSelectedWorksHeaderCTABox>
               <Button
                 href="/works"
                 variant="outlined"
@@ -31,7 +33,7 @@ function HomeSelectedWorks(props: Props) {
               >
                 View All Works
               </Button>
-            </div>
+            </HomeSelectedWorksHeaderCTABox>
           </HomeSelectedWorksHeader>
 
           <SelectedWorksShowcase>
@@ -48,6 +50,19 @@ function HomeSelectedWorks(props: Props) {
               />
             ))}
           </SelectedWorksShowcase>
+
+          <HomeSelectedWorksCTABox>
+            <Button
+              href="/works"
+              variant="outlined"
+              color="primary"
+              size="medium"
+              shape="pill"
+              fullWidth
+            >
+              View All Works
+            </Button>
+          </HomeSelectedWorksCTABox>
         </HomeSelectedWorksContainer>
       </HomeSelectedWorksContent>
     </section>

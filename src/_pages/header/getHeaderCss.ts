@@ -1,7 +1,11 @@
-import { css } from "@mui/material";
+import { css, Theme } from "@mui/material";
 
-const getHeaderCss = () => css`
+const getHeaderCss = (theme: Theme) => css`
   height: 82px;
+
+  ${theme.breakpoints.down(theme.breakpoints.values.sm)} {
+    height: 74px;
+  }
 `;
 
 export default getHeaderCss;

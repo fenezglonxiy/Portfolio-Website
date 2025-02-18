@@ -26,6 +26,12 @@ const getBurgerNavMenuCss = (theme: Theme) => css`
     grid-template-columns: 1fr;
     gap: ${theme.spacing(10)};
   }
+
+  ${theme.breakpoints.down(theme.breakpoints.values.sm)} {
+    .${collapseClasses.root} {
+      top: 74px;
+    }
+  }
 `;
 
 export default getBurgerNavMenuCss;

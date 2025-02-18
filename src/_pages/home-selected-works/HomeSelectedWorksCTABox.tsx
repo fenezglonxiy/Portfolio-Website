@@ -4,15 +4,15 @@
 
 import { useTheme } from "@mui/material";
 
-import getHomeSelectedWorksHeaderCss from "./getHomeSelectedWorksHeaderCss";
+import getHomeSelectedWorksCTABoxCss from "./getHomeSelectedWorksCTABoxCss";
 
 type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HomeSelectedWorksHeader(props: Props) {
+function HomeSelectedWorksCTABox(props: Props) {
   const theme = useTheme();
-  const css = getHomeSelectedWorksHeaderCss(theme);
+  const css = getHomeSelectedWorksCTABoxCss(theme);
 
   return <div css={css} {...props} />;
 }
 
-export default HomeSelectedWorksHeader;
+export default HomeSelectedWorksCTABox;

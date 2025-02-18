@@ -17,6 +17,13 @@ const getHeaderContentCss = (theme: Theme) => css`
 
   ${theme.breakpoints.down(theme.breakpoints.values.sm)} {
     padding: 0 ${theme.spacing(5)};
+    height: 74px;
+  }
+
+  &[data-burger-nav-menu-opened="true"] {
+    color: ${theme.palette.common.white};
+    background-color: ${theme.palette.neutral[900]};
+    border-bottom-color: ${theme.palette.common.white};
   }
 `;
 
