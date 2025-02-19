@@ -1,9 +1,12 @@
-import { css } from "@mui/material";
+import { css, Theme } from "@mui/material";
 
-const getHeaderContainerCss = () => css`
+const getHeaderContainerCss = (theme: Theme) => css`
   height: 100%;
   display: flex;
-  justify-content: center;
+
+  ${theme.breakpoints.up(theme.breakpoints.values.lg)} {
+    justify-content: center;
+  }
 `;
 
 export default getHeaderContainerCss;

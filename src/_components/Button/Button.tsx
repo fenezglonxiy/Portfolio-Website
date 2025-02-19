@@ -11,6 +11,10 @@ import { Url } from "next/dist/shared/lib/router/router";
 import getButtonCss from "./getButtonCss";
 
 declare module "@mui/material/Button" {
+  interface ButtonPropsSizeOverrides {
+    large: true;
+  }
+
   interface ButtonPropsColorOverrides {
     white: true;
     indigo: true;
@@ -112,6 +116,8 @@ const Button = React.forwardRef(function Button(
       ref={ref}
       css={css}
       variant={variant}
+      size={size}
+      color={color}
       startIcon={icon && iconPosition === "start" ? icon : undefined}
       endIcon={icon && iconPosition === "end" ? icon : undefined}
       disableElevation

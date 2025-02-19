@@ -9,6 +9,7 @@ import HomeAboutMeContainer from "./HomeAboutMeContainer";
 import BusinessAttention from "./BusinessAttention";
 import SkillList from "./SkillList";
 import SkillListItem from "./SkillListItem";
+import HomeAboutMeCTABox from "./HomeAboutMeCTABox";
 
 type Props = Omit<React.ComponentPropsWithoutRef<"div">, "children">;
 
@@ -18,31 +19,14 @@ function HomeAboutMe(props: Props) {
       <HomeAboutMeContent>
         <HomeAboutMeContainer>
           <HomeAboutMeSummary>
-            <Typography variant="h1" color="neutral-900" fontWeight="semi-bold">
-              A web developer focused on creating efficient digital experience
-            </Typography>
+            A web developer focused on creating efficient digital experience
           </HomeAboutMeSummary>
 
           <HomeAboutMeDetails>
             <BusinessAttention>
-              <Typography variant="body1Medium" color="neutral-700">
-                Concentrate on your primary objective in expanding your
-                business, and delegate it to me to ensure that your business is
-                efficiently operated digitally and distinguishes itself from the
-                competitors.
-              </Typography>
-
-              <div>
-                <Button
-                  href="/about-me"
-                  size="large"
-                  shape="pill"
-                  iconPosition="end"
-                  icon={<ArrowRight size="md" />}
-                >
-                  About Me
-                </Button>
-              </div>
+              Concentrate on your primary objective in expanding your business,
+              and delegate it to me to ensure that your business is efficiently
+              operated digitally and distinguishes itself from the competitors.
             </BusinessAttention>
 
             <SkillList>
@@ -56,6 +40,18 @@ function HomeAboutMe(props: Props) {
                 </Typography>
               </SkillListItem>
             </SkillList>
+
+            <HomeAboutMeCTABox>
+              <Button
+                href="/about-me"
+                size="large"
+                shape="pill"
+                iconPosition="end"
+                icon={<ArrowRight size="md" />}
+              >
+                About Me
+              </Button>
+            </HomeAboutMeCTABox>
           </HomeAboutMeDetails>
         </HomeAboutMeContainer>
       </HomeAboutMeContent>

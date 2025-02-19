@@ -2,14 +2,17 @@
 
 "use client";
 
+import { useTheme } from "@mui/material";
+
 import getHomeAboutMeDetailsCss from "./getHomeAboutMeDetailsCss";
 
 type Props = React.ComponentPropsWithoutRef<"div">;
 
 function HomeAboutMeDetails(props: Props) {
-  const css = getHomeAboutMeDetailsCss();
+  const theme = useTheme();
+  const css = getHomeAboutMeDetailsCss(theme);
 
-  return <div css={css.root} {...props} />;
+  return <div css={css} {...props} />;
 }
 
 export default HomeAboutMeDetails;

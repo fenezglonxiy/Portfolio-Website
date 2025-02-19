@@ -1,22 +1,9 @@
-/** @jsxImportSource @emotion/react */
+import { Typography } from "@/_components/Typography";
 
-"use client";
-
-import { useTheme } from "@mui/material";
-import clsx from "clsx";
-
-import getBusinessAttentionCss from "./getBusinessAttentionCss";
-
-type Props = React.ComponentPropsWithoutRef<"div">;
+type Props = Omit<React.ComponentPropsWithoutRef<"p">, "color">;
 
 function BusinessAttention(props: Props) {
-  const { className, ...rest } = props;
-  const theme = useTheme();
-  const css = getBusinessAttentionCss(theme);
-
-  return (
-    <div css={css} className={clsx("flow-spacer-y", className)} {...rest} />
-  );
+  return <Typography variant="body1Medium" color="neutral-700" {...props} />;
 }
 
 export default BusinessAttention;

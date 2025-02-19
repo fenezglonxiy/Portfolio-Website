@@ -5,10 +5,7 @@ import { ClickAwayListener } from "@mui/material";
 
 import { IconButton } from "@/_components/icon-button";
 import { Popper } from "@/_components/popper";
-import usePopperState, {
-  bindPopper,
-  bindTrigger,
-} from "@/_hooks/usePopperState";
+
 import { Paper } from "@/_components/paper";
 import {
   List,
@@ -19,11 +16,12 @@ import {
 } from "@/_components/list";
 import { Typography } from "@/_components/Typography";
 import { Tooltip } from "@/_components/tooltip";
+import usePopupState, { bindPopper, bindTrigger } from "@/_hooks/usePopupState";
 
 export type ShareInsightDetailsProps = React.ComponentPropsWithoutRef<"div">;
 
 function ShareInsightDetails(props: ShareInsightDetailsProps) {
-  const popperState = usePopperState();
+  const popperState = usePopupState({ variant: "popper" });
 
   return (
     <ClickAwayListener onClickAway={popperState.close}>

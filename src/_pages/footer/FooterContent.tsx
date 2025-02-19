@@ -2,14 +2,15 @@
 
 "use client";
 
-import React from "react";
+import { useTheme } from "@mui/material";
 
 import getFooterContentCss from "./getFooterContentCss";
 
-export type FooterContentProps = React.ComponentPropsWithoutRef<"div">;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function FooterContent(props: FooterContentProps) {
-  const css = getFooterContentCss();
+function FooterContent(props: Props) {
+  const theme = useTheme();
+  const css = getFooterContentCss(theme);
 
   return <div css={css} {...props} />;
 }

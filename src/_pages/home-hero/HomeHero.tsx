@@ -45,6 +45,7 @@ function HomeHero(props: Props) {
                 size="large"
                 iconPosition="end"
                 icon={<ArrowRight size="md" />}
+                fullWidth
               >
                 Let’s talk
               </Button>
