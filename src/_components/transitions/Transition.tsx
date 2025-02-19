@@ -1,7 +1,12 @@
 import { Transition as RTGTransition } from "react-transition-group";
 import { TransitionProps as MUITransitionProps } from "@mui/material/transitions";
 
-export const reflow = (node: Element) => node.scrollTop;
+export type TransitionStatus =
+  | "entering"
+  | "entered"
+  | "exiting"
+  | "exited"
+  | "unmounted";
 
 interface ComponentProps {
   easing?: string | { enter?: string; exit?: string };

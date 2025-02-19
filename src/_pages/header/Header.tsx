@@ -109,9 +109,10 @@ function Header(props: Props) {
               <Button
                 href="/contact"
                 variant="outlined"
+                color={menuState.isOpen ? "white" : "primary"}
                 iconPosition="end"
-                icon={<ArrowRight size="sm" />}
                 shape="pill"
+                icon={<ArrowRight size="sm" />}
               >
                 Let’s Talk
               </Button>
@@ -121,6 +122,7 @@ function Header(props: Props) {
               <Button
                 variant="outlined"
                 shape="pill"
+                color={menuState.isOpen ? "white" : "primary"}
                 {...bindTrigger(menuState)}
               >
                 <i className="fa-sharp fa-light fa-bars"></i>

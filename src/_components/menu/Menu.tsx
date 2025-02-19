@@ -54,6 +54,11 @@ type MenuBaseProps = {
   >;
 
   /**
+   * Props applied to the transition element.
+   */
+  TransitionProps?: object;
+
+  /**
    * The length of the transition in `ms` or 'auto'
    *
    * @default 'auto'

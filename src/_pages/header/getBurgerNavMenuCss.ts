@@ -1,20 +1,15 @@
-import { collapseClasses, css, menuClasses, Theme } from "@mui/material";
+import { css, menuClasses, Theme } from "@mui/material";
 
 const getBurgerNavMenuCss = (theme: Theme) => css`
-  .${collapseClasses.root} {
-    position: absolute;
-    top: 82px;
-    width: 100%;
-  }
-
   .${menuClasses.paper} {
     overflow: hidden;
-    position: static;
     max-height: none;
     min-height: auto;
     max-width: none;
     min-width: auto;
     width: 100%;
+    top: 82px !important;
+    left: 0 !important;
     color: ${theme.palette.common.white};
     background-color: ${theme.palette.neutral[900]};
     border-radius: 0;
@@ -28,8 +23,8 @@ const getBurgerNavMenuCss = (theme: Theme) => css`
   }
 
   ${theme.breakpoints.down(theme.breakpoints.values.sm)} {
-    .${collapseClasses.root} {
-      top: 74px;
+    .${menuClasses.paper} {
+      top: 74px !important;
     }
   }
 `;

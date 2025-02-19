@@ -1,12 +1,12 @@
 import { Link } from "@/_components/Link";
 import { Logo } from "@/_components/Logo";
 
-type HeaderLogoProps = React.HTMLAttributes<HTMLDivElement>;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HeaderLogo(props: HeaderLogoProps) {
+function HeaderLogo(props: Props) {
   return (
     <div {...props}>
-      <Link href="/">
+      <Link href="/" color="inherit">
         <Logo />
       </Link>
     </div>

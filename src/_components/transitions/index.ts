@@ -3,6 +3,5 @@ export { default as Fade } from "./Fade";
 export { default as Grow } from "./Grow";
 export { default as Slide } from "./Slide";
 export { default as Transition } from "./Transition";
-export { reflow } from "./Transition";
 export { type TransitionProps } from "./Transition";
 export { default as Zoom } from "./Zoom";

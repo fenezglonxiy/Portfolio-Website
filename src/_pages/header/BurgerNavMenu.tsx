@@ -2,10 +2,11 @@
 
 "use client";
 
+import React from "react";
 import { useTheme } from "@mui/material";
 
 import { Menu, MenuProps } from "@/_components/menu";
-import { Collapse } from "@/_components/transitions";
+import { Slide } from "@/_components/transitions";
 
 import getBurgerNavMenuCss from "./getBurgerNavMenuCss";
 
@@ -18,8 +19,11 @@ function BurgerNavMenu(props: Props) {
   return (
     <Menu
       css={css}
-      TransitionComponent={Collapse}
+      TransitionComponent={Slide}
       transitionDuration={300}
+      TransitionProps={{
+        direction: "down",
+      }}
       {...props}
     />
   );

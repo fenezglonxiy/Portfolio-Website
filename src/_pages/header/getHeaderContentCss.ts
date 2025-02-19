@@ -6,8 +6,8 @@ const getHeaderContentCss = (theme: Theme) => css`
   height: 82px;
   top: 0;
   left: 0;
-  transition: ease 0.3s;
-  z-index: ${theme.zIndex.appBar};
+  transition: all ease 0.3s;
+  z-index: ${theme.zIndex.header};
   background-color: ${theme.palette.common.white};
   border-bottom: 1px solid ${theme.palette.neutral[200]};
 
