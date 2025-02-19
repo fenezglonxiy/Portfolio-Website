@@ -128,7 +128,10 @@ function Header(props: Props) {
                 <i className="fa-sharp fa-light fa-bars"></i>
               </Button>
 
-              <BurgerNavMenu {...bindMenu(menuState)}>
+              <BurgerNavMenu
+                data-lenis-prevent={menuState.isOpen ? "true" : undefined}
+                {...bindMenu(menuState)}
+              >
                 {navList.map((item, idx) => (
                   <BurgerNavMenuItem
                     key={idx}
