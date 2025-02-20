@@ -19,7 +19,7 @@ function FooterTrademark(props: FooterTrademarkProps) {
   return (
     <div className="flow-spacer-y" css={css} {...props}>
       <div>
-        <Link href="/">
+        <Link href="/" color="inherit">
           <Logo />
         </Link>
       </div>
