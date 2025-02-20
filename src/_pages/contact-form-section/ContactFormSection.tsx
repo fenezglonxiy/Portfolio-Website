@@ -1,8 +1,5 @@
-/** @jsxImportSource @emotion/react */
-
 "use client";
 
-import { useTheme } from "@mui/material";
 import React from "react";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
@@ -14,9 +11,11 @@ import { ArrowRight } from "@/_icons";
 import { Form, FormField, TextField } from "@/_components/form";
 import sendEmail from "@/_utils/sendEmail";
 
-import getContactForm from "./getContactFormCss";
+import ContactFormSectionContent from "./ContactFormSectionContent";
+import ContactForm from "./ContactForm";
+import ContactFormCTABox from "./ContactFormCTABox";
 
-export type ContactFormProps = React.ComponentPropsWithoutRef<"section">;
+type Props = Omit<React.ComponentPropsWithoutRef<"section">, "children">;
 
 const formSchema = z.object({
   name: z.string().nonempty("Please fill in your name"),
@@ -27,7 +26,7 @@ const formSchema = z.object({
   message: z.string().nonempty("Please fill in your message"),
 });
 
-function ContactForm(props: ContactFormProps) {
+function ContactFormSection(props: Props) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -71,18 +70,11 @@ function ContactForm(props: ContactFormProps) {
     }
   }, [form.formState.submitCount, form.formState.isValid]);
 
-  const theme = useTheme();
-  const css = getContactForm(theme);
-
   return (
     <section {...props}>
-      <div css={css.container}>
+      <ContactFormSectionContent>
         <Form {...form}>
-          <form
-            css={css.form}
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="flow-spacer-y"
-          >
+          <ContactForm onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
               control={form.control}
               name="name"
@@ -127,7 +119,7 @@ function ContactForm(props: ContactFormProps) {
                 />
               )}
             />
-            <div css={css.ctaBox}>
+            <ContactFormCTABox>
               <Button
                 type="submit"
                 variant="contained"
@@ -137,15 +129,16 @@ function ContactForm(props: ContactFormProps) {
                 icon={<ArrowRight />}
                 iconPosition="end"
                 disabled={disabled || isLoading}
+                fullWidth
               >
                 Submit
               </Button>
-            </div>
-          </form>
+            </ContactFormCTABox>
+          </ContactForm>
         </Form>
-      </div>
+      </ContactFormSectionContent>
     </section>
   );
 }
 
-export default ContactForm;
+export default ContactFormSection;
