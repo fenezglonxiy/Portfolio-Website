@@ -13,7 +13,7 @@ const getButtonVariantCss = (variant: ButtonProps["variant"]) => {
       color: var(--variant-contained-color);
 
       &:hover,
-      &:focus,
+      &:focus-visible,
       &[aria-current="page"] {
         background-color: var(--variant-contained-background-color);
         color: var(--variant-contained-color);
@@ -28,12 +28,12 @@ const getButtonVariantCss = (variant: ButtonProps["variant"]) => {
       transition: opacity 0.2s;
 
       &:hover,
-      &:focus,
+      &:focus-visible,
       &[aria-current="page"] {
         background-color: transparent;
 
         &:hover,
-        &:focus {
+        &:focus-visible {
           opacity: 0.6;
         }
       }
@@ -43,7 +43,7 @@ const getButtonVariantCss = (variant: ButtonProps["variant"]) => {
       color: var(--variant-text-color);
 
       &:hover,
-      &:focus,
+      &:focus-visible,
       &[aria-current="page"] {
         background-color: var(--variant-text-background-color);
       }
@@ -98,7 +98,7 @@ const getButtonColorCss = (theme: Theme, color: ButtonProps["color"]) => {
       --variant-text-color: ${theme.palette.primary.main};
 
       &:hover,
-      &:focus,
+      &:focus-visible,
       &[aria-current="page"] {
         --variant-contained-background-color: ${theme.palette.neutral[550]};
         --variant-contained-color: ${theme.palette.neutral[400]};
@@ -120,7 +120,7 @@ const getButtonColorCss = (theme: Theme, color: ButtonProps["color"]) => {
       --variant-text-color: ${theme.palette.secondary.main};
 
       &:hover,
-      &:focus,
+      &:focus-visible,
       &[aria-current="page"] {
         --variant-contained-background-color: ${theme.palette.neutral[400]};
         --variant-contained-color: ${theme.palette.neutral[650]};
@@ -142,7 +142,7 @@ const getButtonColorCss = (theme: Theme, color: ButtonProps["color"]) => {
       --variant-text-color: ${theme.palette.common.white};
 
       &:hover,
-      &:focus,
+      &:focus-visible,
       &[aria-current="page"] {
         --variant-contained-background-color: ${theme.palette.neutral[200]};
         --variant-contained-color: ${theme.palette.neutral[650]};
@@ -164,7 +164,7 @@ const getButtonColorCss = (theme: Theme, color: ButtonProps["color"]) => {
       --variant-text-color: ${theme.palette.indigo[600]};
 
       &:hover,
-      &:focus,
+      &:focus-visible,
       &[aria-current="page"] {
         --variant-contained-background-color: ${theme.palette.indigo[700]};
 
@@ -182,7 +182,7 @@ const getButtonColorCss = (theme: Theme, color: ButtonProps["color"]) => {
       --variant-text-color: ${theme.palette.slate[600]};
 
       &:hover,
-      &:focus,
+      &:focus-visible,
       &[aria-current="page"] {
         --variant-contained-background-color: ${theme.palette.slate[700]};
 

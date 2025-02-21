@@ -17,7 +17,7 @@ const getLinkColorCss = (theme: Theme, color: LinkProps["color"]) => {
       text-decoration-color: ${theme.palette.neutral[700]};
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         color: ${theme.palette.neutral[600]};
         text-decoration-color: ${theme.palette.neutral[600]};
       }
@@ -28,7 +28,7 @@ const getLinkColorCss = (theme: Theme, color: LinkProps["color"]) => {
       text-decoration-color: ${theme.palette.common.white};
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         color: ${theme.palette.neutral[450]};
         text-decoration-color: ${theme.palette.neutral[450]};
       }
@@ -47,7 +47,7 @@ const getLinkUnderlineCss = (underline: LinkProps["underline"]) => css`
   ${underline === "hover" &&
   css`
     &:hover,
-    &:focus {
+    &:focus-visible {
       text-decoration: underline;
     }
   `};
