@@ -3,6 +3,7 @@ import { Typography } from "@/_components/Typography";
 import { Download } from "@/_icons";
 
 import AboutMeDownloadCVContent from "./AboutMeDownloadCVContent";
+import AboutMeDownloadCVHeader from "./AboutMeDownloadCVHeader";
 
 type Props = React.ComponentPropsWithoutRef<"section"> & {
   children?: undefined | null;
@@ -12,7 +13,11 @@ function AboutMeDownloadCV(props: Props) {
   return (
     <section {...props}>
       <AboutMeDownloadCVContent>
-        <Typography variant="h2">Want to know more about me?</Typography>
+        <AboutMeDownloadCVHeader>
+          <Typography component="h2" variant="inherit">
+            Want to know more about me?
+          </Typography>
+        </AboutMeDownloadCVHeader>
 
         <Button
           href="/api/download-cv"

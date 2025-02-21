@@ -17,7 +17,15 @@ function SkillTitle(props: SkillTitleProps) {
   const theme = useTheme();
   const css = getSkillTitleCss(theme);
 
-  return <Typography component="h3" css={css} {...props} />;
+  return (
+    <Typography
+      component="h3"
+      variant="h2"
+      fontWeight="semi-bold"
+      css={css}
+      {...props}
+    />
+  );
 }
 
 export default SkillTitle;
