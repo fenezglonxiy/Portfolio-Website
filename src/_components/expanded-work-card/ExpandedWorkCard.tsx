@@ -6,13 +6,13 @@ import { Card, CardProps } from "@/_components/Card";
 import { Button } from "@/_components/Button";
 import { WorkCardDetails } from "@/types";
 
-import WorkShowcaseCardMedia from "./WorkShowcaseCardMedia";
-import WorkShowcaseCardContent from "./WorkShowcaseCardContent";
-import WorkShowcaseCardActions from "./WorkShowcaseCardActions";
+import ExpandedWorkCardMedia from "./ExpandedWorkCardMedia";
+import ExpandedWorkCardContent from "./ExpandedWorkCardContent";
+import ExpandedWorkCardActions from "./ExpandedWorkCardActions";
 import WorkOverview from "./WorkOverview";
 import WorkTitle from "./WorkTitle";
 import WorkSummary from "./WorkSummary";
-import getWorkShowcaseCardCss from "./getWorkShowcaseCardCss";
+import getExpandedWorkCardCss from "./getExpandedWorkCardCss";
 import WorkSection from "./WorkSection";
 import WorkSectionTitle from "./WorkSectionTitle";
 import WorkBusinessSectorBox from "./WorkBusinessSectorBox";
@@ -20,13 +20,13 @@ import WorkBusinessSector from "./WorkBusinessSector";
 import WorkServiceBox from "./WorkServiceBox";
 import WorkService from "./WorkService";
 import WorkTimeTracking from "./WorkTimeTracking";
-import WorkShowcaseCardText from "./WorkShowcaseCardText";
-import WorkShowcaseCardSectionBox from "./WorkShowcaseCardSectionBox";
+import ExpandedWorkCardText from "./ExpandedWorkCardText";
+import WorkSectionBox from "./WorkSectionBox";
 import WorkTimePoint from "./WorkTimePoint";
 
-export type WorkShowcaseCardProps = CardProps & WorkCardDetails;
+type Props = CardProps & WorkCardDetails;
 
-function WorkShowcaseCard(props: WorkShowcaseCardProps) {
+function ExpandedWorkCard(props: Props) {
   const {
     mediaSrc,
     workTitle,
@@ -38,21 +38,21 @@ function WorkShowcaseCard(props: WorkShowcaseCardProps) {
     workDetailsHref,
     ...rest
   } = props;
-  const css = getWorkShowcaseCardCss();
+  const css = getExpandedWorkCardCss();
 
   return (
-    <Card variant="fill" css={css} {...rest}>
-      <WorkShowcaseCardMedia component="img" src={mediaSrc} />
+    <Card variant="fill" css={css} borderRadius="none" {...rest}>
+      <ExpandedWorkCardMedia component="img" src={mediaSrc} />
 
-      <WorkShowcaseCardContent>
+      <ExpandedWorkCardContent>
         <WorkOverview>
-          <WorkShowcaseCardText>
+          <ExpandedWorkCardText>
             <WorkTitle>{workTitle}</WorkTitle>
 
             <WorkSummary>{workSummary}</WorkSummary>
-          </WorkShowcaseCardText>
+          </ExpandedWorkCardText>
 
-          <WorkShowcaseCardSectionBox>
+          <WorkSectionBox>
             <WorkSection>
               <WorkSectionTitle>Business Sectors</WorkSectionTitle>
 
@@ -86,17 +86,17 @@ function WorkShowcaseCard(props: WorkShowcaseCardProps) {
                 <WorkTimePoint>{workEndDate}</WorkTimePoint>
               </WorkSection>
             </WorkTimeTracking>
-          </WorkShowcaseCardSectionBox>
+          </WorkSectionBox>
         </WorkOverview>
 
-        <WorkShowcaseCardActions>
+        <ExpandedWorkCardActions>
           <Button variant="outlined" href={workDetailsHref}>
             View Details Work
           </Button>
-        </WorkShowcaseCardActions>
-      </WorkShowcaseCardContent>
+        </ExpandedWorkCardActions>
+      </ExpandedWorkCardContent>
     </Card>
   );
 }
 
-export default WorkShowcaseCard;
+export default ExpandedWorkCard;

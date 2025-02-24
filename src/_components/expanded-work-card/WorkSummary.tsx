@@ -1,11 +1,8 @@
 import { Typography } from "@/_components/Typography";
 
-export type WorkSummaryProps = Omit<
-  React.ComponentPropsWithoutRef<"p">,
-  "color"
->;
+type Props = Omit<React.ComponentPropsWithoutRef<"p">, "color">;
 
-function WorkSummary(props: WorkSummaryProps) {
+function WorkSummary(props: Props) {
   return <Typography variant="body2Medium" color="neutral-550" {...props} />;
 }
 

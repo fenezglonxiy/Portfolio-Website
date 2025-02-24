@@ -6,9 +6,9 @@ import { useTheme } from "@mui/material";
 
 import getWorkOverviewCss from "./getWorkOverviewCss";
 
-export type WorkOverviewProps = React.ComponentPropsWithoutRef<"div">;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function WorkOverview(props: WorkOverviewProps) {
+function WorkOverview(props: Props) {
   const theme = useTheme();
   const css = getWorkOverviewCss(theme);
 

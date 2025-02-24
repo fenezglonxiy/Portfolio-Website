@@ -2,14 +2,14 @@ import { format } from "date-fns";
 
 import { Typography } from "@/_components/Typography";
 
-export type WorkTimePointProps = Omit<
+type Props = Omit<
   React.ComponentPropsWithoutRef<"div">,
   "children" | "color"
 > & {
   children: Date;
 };
 
-function WorkTimePoint(props: WorkTimePointProps) {
+function WorkTimePoint(props: Props) {
   const { children, ...rest } = props;
 
   return (

@@ -1,11 +1,8 @@
 import { Typography } from "@/_components/Typography";
 
-export type WorkTitleProps = Omit<
-  React.ComponentPropsWithoutRef<"h4">,
-  "color"
->;
+type Props = Omit<React.ComponentPropsWithoutRef<"h4">, "color">;
 
-function WorkTitle(props: WorkTitleProps) {
+function WorkTitle(props: Props) {
   return <Typography variant="h4" {...props} />;
 }
 

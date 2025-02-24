@@ -4,9 +4,9 @@
 
 import getWorkTimeTrackingCss from "./getWorkTimeTrackingCss";
 
-export type WorkTimeTrackingProps = React.ComponentPropsWithoutRef<"div">;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function WorkTimeTracking(props: WorkTimeTrackingProps) {
+function WorkTimeTracking(props: Props) {
   const css = getWorkTimeTrackingCss();
 
   return <div css={css} {...props} />;
