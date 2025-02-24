@@ -14,7 +14,7 @@ function MainDetails(props: MainDetailsProps) {
   const css = getMainDetailsCss(theme);
 
   return (
-    <main css={css.root} {...rest}>
+    <main {...rest}>
       <ul css={css.container} className="flow-spacer-y">
         {children}
       </ul>

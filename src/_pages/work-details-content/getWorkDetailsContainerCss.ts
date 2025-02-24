@@ -16,8 +16,8 @@ const getWorkDetailsContainerInnerCss = (theme: Theme) => css`
   max-width: 1050px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 315px 1fr;
-  gap: ${theme.spacing(8)};
+  grid-template-columns: 195px 1fr;
+  gap: ${theme.spacing(20)};
 
   ${theme.breakpoints.down(theme.breakpoints.values.md)} {
     grid-template-columns: 1fr;

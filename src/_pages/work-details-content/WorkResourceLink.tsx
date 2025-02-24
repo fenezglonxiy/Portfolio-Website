@@ -40,6 +40,7 @@ function WorkResourceLink(props: Props) {
       icon={<ArrowUpRight />}
       iconPosition="end"
       target="_blank"
+      fullWidth
       {...rest}
     >
       {label}
