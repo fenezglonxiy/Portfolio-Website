@@ -7,9 +7,9 @@ import clsx from "clsx";
 
 import getWorkServiceBoxProps from "./getWorkServiceBoxCss";
 
-export type WorkServiceBoxProps = React.ComponentPropsWithoutRef<"div">;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function WorkServiceBox(props: WorkServiceBoxProps) {
+function WorkServiceBox(props: Props) {
   const { className, ...rest } = props;
   const theme = useTheme();
   const css = getWorkServiceBoxProps(theme);

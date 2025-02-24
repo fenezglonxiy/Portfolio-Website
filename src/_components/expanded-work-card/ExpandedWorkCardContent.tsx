@@ -7,14 +7,14 @@ import clsx from "clsx";
 
 import { CardContent, CardContentProps } from "@/_components/Card";
 
-import getWorkShowcaseCardContentCss from "./getWorkShowcaseCardContentCss";
+import getExpandedWorkCardContentCss from "./getExpandedWorkCardContentCss";
 
-export type WorkShowcaseCardContentProps = CardContentProps;
+type Props = CardContentProps;
 
-function WorkShowcaseCardContent(props: WorkShowcaseCardContentProps) {
+function ExpandedWorkCardContent(props: Props) {
   const { className, ...rest } = props;
   const theme = useTheme();
-  const css = getWorkShowcaseCardContentCss(theme);
+  const css = getExpandedWorkCardContentCss(theme);
 
   return (
     <CardContent
@@ -25,4 +25,4 @@ function WorkShowcaseCardContent(props: WorkShowcaseCardContentProps) {
   );
 }
 
-export default WorkShowcaseCardContent;
+export default ExpandedWorkCardContent;

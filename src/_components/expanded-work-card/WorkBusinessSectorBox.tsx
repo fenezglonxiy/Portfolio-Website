@@ -7,9 +7,9 @@ import clsx from "clsx";
 
 import getWorkBusinessSectorBoxProps from "./getWorkBusinessSectorBoxCss";
 
-export type WorkBusinessSectorBoxProps = React.ComponentPropsWithoutRef<"div">;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function WorkBusinessSectorBox(props: WorkBusinessSectorBoxProps) {
+function WorkBusinessSectorBox(props: Props) {
   const { className, ...rest } = props;
   const theme = useTheme();
   const css = getWorkBusinessSectorBoxProps(theme);

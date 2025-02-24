@@ -1,8 +1,8 @@
 import { Chip, ChipProps } from "@/_components/chip";
 
-export type WorkServiceProps = ChipProps;
+type Props = ChipProps;
 
-function WorkService(props: WorkServiceProps) {
+function WorkService(props: Props) {
   return <Chip {...props} />;
 }
 

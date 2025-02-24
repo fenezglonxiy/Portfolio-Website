@@ -7,9 +7,9 @@ import clsx from "clsx";
 
 import getWorkSectionCss from "./getWorkSectionCss";
 
-export type WorkSectionProps = React.ComponentPropsWithoutRef<"section">;
+type Props = React.ComponentPropsWithoutRef<"section">;
 
-function WorkSection(props: WorkSectionProps) {
+function WorkSection(props: Props) {
   const { className, ...rest } = props;
   const theme = useTheme();
   const css = getWorkSectionCss(theme);
