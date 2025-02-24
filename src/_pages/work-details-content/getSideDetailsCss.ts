@@ -1,9 +1,5 @@
 import { css, Theme } from "@mui/material";
 
-const getSideDetailsRootCss = () => css`
-  flex: 1 1 315px;
-  max-width: 315px;
-`;
 
 const getSideDetailsContentCss = (theme: Theme) =>
   css`
@@ -13,7 +9,6 @@ const getSideDetailsContentCss = (theme: Theme) =>
   `;
 
 const getSideDetailsCss = (theme: Theme) => ({
-  root: getSideDetailsRootCss(),
   content: getSideDetailsContentCss(theme),
 });
 
