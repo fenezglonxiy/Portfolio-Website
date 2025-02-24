@@ -14,6 +14,8 @@ import WorkDetailsOtherWorksHeader from "./WorkDetailsOtherWorksHeader";
 import getWorkDetailsOtherWorksCss from "./getWorkDetailsOtherWorksCss";
 import WorkDetailsOtherWorksShowcase from "./WorkDetailsOtherWorksShowcase";
 import WorkDetailsOtherWorksContainer from "./WorkDetailsOtherWorksContainer";
+import WorkDetailsOtherWorksCTABox from "./WorkDetailsOtherWorksCTABox";
+import WorkDetailsOtherWorksHeaderCTABox from "./WorkDetailsOtherWorksHeaderCTABox";
 
 export type WorkDetailsOtherWorksProps =
   React.ComponentPropsWithoutRef<"aside">;
@@ -31,7 +33,7 @@ function WorkDetailsOtherWorks(props: WorkDetailsOtherWorksProps) {
               What’s next?
             </Typography>
 
-            <div>
+            <WorkDetailsOtherWorksHeaderCTABox>
               <Button
                 href="/works"
                 variant="outlined"
@@ -40,7 +42,7 @@ function WorkDetailsOtherWorks(props: WorkDetailsOtherWorksProps) {
               >
                 View All Works
               </Button>
-            </div>
+            </WorkDetailsOtherWorksHeaderCTABox>
           </WorkDetailsOtherWorksHeader>
 
           <WorkDetailsOtherWorksShowcase>
@@ -57,6 +59,18 @@ function WorkDetailsOtherWorks(props: WorkDetailsOtherWorksProps) {
               />
             ))}
           </WorkDetailsOtherWorksShowcase>
+
+          <WorkDetailsOtherWorksCTABox>
+            <Button
+              href="/works"
+              variant="outlined"
+              color="primary"
+              shape="pill"
+              fullWidth
+            >
+              View All Works
+            </Button>
+          </WorkDetailsOtherWorksCTABox>
         </WorkDetailsOtherWorksContainer>
       </WorkDetailsOtherWorksContent>
     </aside>

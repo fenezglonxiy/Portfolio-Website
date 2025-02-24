@@ -14,7 +14,7 @@ function SideDetails(props: SideDetailsProps) {
   const css = getSideDetailsCss(theme);
 
   return (
-    <aside css={css.root} {...rest}>
+    <aside {...rest}>
       <ul css={css.content}>{children}</ul>
     </aside>
   );
