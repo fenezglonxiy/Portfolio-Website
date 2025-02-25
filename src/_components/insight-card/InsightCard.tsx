@@ -33,7 +33,7 @@ function InsightCard(props: InsightCardProps) {
   const css = getInsightCardCss(theme);
 
   return (
-    <Card css={css} variant="fill" inverted {...rest}>
+    <Card css={css} variant="fill" {...rest}>
       <InsightCardMedia component="img" src={thumbnailSrc} />
 
       <InsightReadTime>{`${readTime} read`}</InsightReadTime>

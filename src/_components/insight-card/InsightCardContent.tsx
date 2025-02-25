@@ -8,9 +8,9 @@ import { CardContent, CardContentProps } from "@/_components/Card";
 
 import getInsightCardContentCss from "./getInsightCardContentCss";
 
-export type InsightCardContentProps = CardContentProps;
+type Props = CardContentProps;
 
-function InsightCardContent(props: InsightCardContentProps) {
+function InsightCardContent(props: Props) {
   const theme = useTheme();
   const css = getInsightCardContentCss(theme);
 
