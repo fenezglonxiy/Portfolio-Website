@@ -80,7 +80,7 @@ function Header(props: Props) {
 
   const menuState = usePopupState({ variant: "menu" });
 
-  const handleBurgerNavMenuItemClick = () => menuState.close();
+  const handleCloseBurgerNavMenu = () => menuState.close();
 
   const theme = useTheme();
   const css = getHeaderCss(theme);
@@ -93,7 +93,7 @@ function Header(props: Props) {
       >
         <HeaderContainer>
           <HeaderNav>
-            <HeaderLogo />
+            <HeaderLogo onClick={handleCloseBurgerNavMenu} />
 
             <HeaderNavList>
               {navList.map((item, idx) => (
@@ -113,6 +113,7 @@ function Header(props: Props) {
                 iconPosition="end"
                 shape="pill"
                 icon={<ArrowRight size="sm" />}
+                onClick={handleCloseBurgerNavMenu}
               >
                 Let’s Talk
               </Button>
@@ -135,7 +136,7 @@ function Header(props: Props) {
                 {navList.map((item, idx) => (
                   <BurgerNavMenuItem
                     key={idx}
-                    onClick={handleBurgerNavMenuItemClick}
+                    onClick={handleCloseBurgerNavMenu}
                   >
                     <BurgerNavMenuLink href={item.href}>
                       {item.label}

@@ -1,11 +1,8 @@
 import { Typography } from "../Typography";
 
-export type WorkTimePointDividerProps = Omit<
-  React.ComponentPropsWithoutRef<"span">,
-  "color" | "children"
->;
+type Props = Omit<React.ComponentPropsWithoutRef<"span">, "color" | "children">;
 
-function WorkTimePointDivider(props: WorkTimePointDividerProps) {
+function WorkTimePointDivider(props: Props) {
   return (
     <Typography component="span" variant="inherit" {...props}>
       -

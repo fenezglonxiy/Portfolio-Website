@@ -2,12 +2,9 @@ import clsx from "clsx";
 
 import { Typography } from "@/_components/Typography";
 
-export type WorkTimeTrackingProps = Omit<
-  React.ComponentPropsWithoutRef<"div">,
-  "color"
->;
+type Props = Omit<React.ComponentPropsWithoutRef<"div">, "color">;
 
-function WorkTimeTracking(props: WorkTimeTrackingProps) {
+function WorkTimeTracking(props: Props) {
   const { className, ...rest } = props;
 
   return (

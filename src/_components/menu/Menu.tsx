@@ -67,6 +67,12 @@ type MenuBaseProps = {
     | "auto"
     | number
     | { appear?: number; enter?: number; exit?: number };
+
+  /**
+   * If `true`, the Menu waits until a nested Transition is completed before
+   * closing.
+   */
+  closeAfterTransition?: boolean;
 };
 
 export interface MenuTypeMap<D extends React.ElementType = "div"> {

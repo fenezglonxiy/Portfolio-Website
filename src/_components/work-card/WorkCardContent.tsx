@@ -8,9 +8,9 @@ import { CardContent, CardContentProps } from "@/_components/Card";
 
 import getWorkCardContentCss from "./getWorkCardContentCss";
 
-export type WorkCardContentProps = CardContentProps;
+type Props = CardContentProps;
 
-function WorkCardContent(props: WorkCardContentProps) {
+function WorkCardContent(props: Props) {
   const theme = useTheme();
   const css = getWorkCardContentCss(theme);
 

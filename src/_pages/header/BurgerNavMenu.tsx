@@ -2,7 +2,6 @@
 
 "use client";
 
-import React from "react";
 import { useTheme } from "@mui/material";
 
 import { Menu, MenuProps } from "@/_components/menu";
@@ -24,6 +23,7 @@ function BurgerNavMenu(props: Props) {
       TransitionProps={{
         direction: "down",
       }}
+      closeAfterTransition={true}
       {...props}
     />
   );
