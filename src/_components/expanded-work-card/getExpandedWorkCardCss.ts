@@ -1,7 +1,7 @@
 import { css } from "@mui/material";
 
 const getExpandedWorkCardCss = () => css`
-  --card-background-color: inherit;
+  background-color: transparent;
 `;
 
 export default getExpandedWorkCardCss;

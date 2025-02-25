@@ -4,6 +4,7 @@
 
 import { Card, CardProps } from "@/_components/Card";
 import { Button } from "@/_components/Button";
+import { VisuallyHidden } from "@/_components/visually-hidden";
 import { WorkCardDetails } from "@/types";
 
 import ExpandedWorkCardMedia from "./ExpandedWorkCardMedia";
@@ -42,52 +43,56 @@ function ExpandedWorkCard(props: Props) {
 
   return (
     <Card variant="fill" css={css} borderRadius="none" {...rest}>
-      <ExpandedWorkCardMedia component="img" src={mediaSrc} />
+      <VisuallyHidden href={workDetailsHref} label={workTitle}>
+        <ExpandedWorkCardMedia component="img" src={mediaSrc} />
+      </VisuallyHidden>
 
       <ExpandedWorkCardContent>
-        <WorkOverview>
-          <ExpandedWorkCardText>
-            <WorkTitle>{workTitle}</WorkTitle>
+        <VisuallyHidden href={workDetailsHref} label={workTitle}>
+          <WorkOverview>
+            <ExpandedWorkCardText>
+              <WorkTitle>{workTitle}</WorkTitle>
 
-            <WorkSummary>{workSummary}</WorkSummary>
-          </ExpandedWorkCardText>
+              <WorkSummary>{workSummary}</WorkSummary>
+            </ExpandedWorkCardText>
 
-          <WorkSectionBox>
-            <WorkSection>
-              <WorkSectionTitle>Business Sectors</WorkSectionTitle>
-
-              <WorkBusinessSectorBox>
-                {workBusinessSectors.map((businessSector, idx) => (
-                  <WorkBusinessSector key={idx} label={businessSector} />
-                ))}
-              </WorkBusinessSectorBox>
-            </WorkSection>
-
-            <WorkSection>
-              <WorkSectionTitle>Services</WorkSectionTitle>
-
-              <WorkServiceBox>
-                {workServices.map((service, idx) => (
-                  <WorkService key={idx} label={service} />
-                ))}
-              </WorkServiceBox>
-            </WorkSection>
-
-            <WorkTimeTracking>
+            <WorkSectionBox>
               <WorkSection>
-                <WorkSectionTitle>Start Date</WorkSectionTitle>
+                <WorkSectionTitle>Business Sectors</WorkSectionTitle>
 
-                <WorkTimePoint>{workStartDate}</WorkTimePoint>
+                <WorkBusinessSectorBox>
+                  {workBusinessSectors.map((businessSector, idx) => (
+                    <WorkBusinessSector key={idx} label={businessSector} />
+                  ))}
+                </WorkBusinessSectorBox>
               </WorkSection>
 
               <WorkSection>
-                <WorkSectionTitle>End Date</WorkSectionTitle>
+                <WorkSectionTitle>Services</WorkSectionTitle>
 
-                <WorkTimePoint>{workEndDate}</WorkTimePoint>
+                <WorkServiceBox>
+                  {workServices.map((service, idx) => (
+                    <WorkService key={idx} label={service} />
+                  ))}
+                </WorkServiceBox>
               </WorkSection>
-            </WorkTimeTracking>
-          </WorkSectionBox>
-        </WorkOverview>
+
+              <WorkTimeTracking>
+                <WorkSection>
+                  <WorkSectionTitle>Start Date</WorkSectionTitle>
+
+                  <WorkTimePoint>{workStartDate}</WorkTimePoint>
+                </WorkSection>
+
+                <WorkSection>
+                  <WorkSectionTitle>End Date</WorkSectionTitle>
+
+                  <WorkTimePoint>{workEndDate}</WorkTimePoint>
+                </WorkSection>
+              </WorkTimeTracking>
+            </WorkSectionBox>
+          </WorkOverview>
+        </VisuallyHidden>
 
         <ExpandedWorkCardActions>
           <Button variant="outlined" href={workDetailsHref}>
