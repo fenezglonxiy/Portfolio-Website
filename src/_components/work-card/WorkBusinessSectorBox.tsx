@@ -1,8 +1,8 @@
 import clsx from "clsx";
 
-export type WorkBusinessSectorBoxProps = React.ComponentPropsWithoutRef<"div">;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function WorkBusinessSectorBox(props: WorkBusinessSectorBoxProps) {
+function WorkBusinessSectorBox(props: Props) {
   const { className, ...rest } = props;
 
   return <div className={clsx("flow-spacer-x", className)} {...rest} />;

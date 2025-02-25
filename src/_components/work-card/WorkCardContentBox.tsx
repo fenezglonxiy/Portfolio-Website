@@ -1,6 +1,4 @@
-import { CardContentBox, CardContentBoxProps } from "../Card";
-
-export type WorkCardContentBoxProps = CardContentBoxProps;
+import { CardContentBox } from "@/_components/Card";
 
 const WorkCardContentBox = CardContentBox;
 

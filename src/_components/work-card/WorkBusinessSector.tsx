@@ -1,8 +1,8 @@
 import { Chip, ChipProps } from "@/_components/chip";
 
-export type WorkBusinessSectorProps = ChipProps;
+type Props = ChipProps;
 
-function WorkBusinessSector(props: WorkBusinessSectorProps) {
+function WorkBusinessSector(props: Props) {
   return <Chip {...props} />;
 }
 

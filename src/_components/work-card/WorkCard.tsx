@@ -1,5 +1,12 @@
+/** @jsxImportSource @emotion/react */
+
+"use client";
+
+import { useTheme } from "@mui/material";
+
 import { Card, CardProps } from "@/_components/Card";
 import { Button } from "@/_components/Button";
+import { VisuallyHidden } from "@/_components/visually-hidden";
 import { WorkCardDetails } from "@/types";
 
 import WorkCardMedia from "./WorkCardMedia";
@@ -14,11 +21,12 @@ import WorkBusinessSectorBox from "./WorkBusinessSectorBox";
 import WorkTimePoint from "./WorkTimePoint";
 import WorkBusinessSector from "./WorkBusinessSector";
 import WorkTimePointDivider from "./WorkTimePointDivider";
+import getWorkCardCss from "./getWorkCardCss";
 
-export type WorkCardProps = Omit<CardProps, "children"> &
+type Props = Omit<CardProps, "children"> &
   Omit<WorkCardDetails, "workServices">;
 
-function WorkCard(props: WorkCardProps) {
+function WorkCard(props: Props) {
   const {
     mediaSrc,
     workTitle,
@@ -30,32 +38,39 @@ function WorkCard(props: WorkCardProps) {
     ...rest
   } = props;
 
+  const theme = useTheme();
+  const css = getWorkCardCss(theme);
+
   return (
-    <Card {...rest}>
-      <WorkCardMedia component="img" src={mediaSrc} />
+    <Card css={css} {...rest}>
+      <VisuallyHidden href={workDetailsHref} label={workTitle}>
+        <WorkCardMedia component="img" src={mediaSrc} />
+      </VisuallyHidden>
 
       <WorkCardContent>
-        <WorkOverview>
-          <WorkCardContentBox verticalSpacing={3}>
-            <WorkTitle>{workTitle}</WorkTitle>
+        <VisuallyHidden href={workDetailsHref} label={workTitle}>
+          <WorkOverview>
+            <WorkCardContentBox verticalSpacing={3}>
+              <WorkTitle>{workTitle}</WorkTitle>
 
-            <WorkCardContentBox verticalSpacing={2}>
-              <WorkBusinessSectorBox>
-                {workBusinessSectors.map((businessSector, idx) => (
-                  <WorkBusinessSector key={idx} label={businessSector} />
-                ))}
-              </WorkBusinessSectorBox>
+              <WorkCardContentBox verticalSpacing={2}>
+                <WorkBusinessSectorBox>
+                  {workBusinessSectors.map((businessSector, idx) => (
+                    <WorkBusinessSector key={idx} label={businessSector} />
+                  ))}
+                </WorkBusinessSectorBox>
 
-              <WorkTimeTracking>
-                <WorkTimePoint>{workStartDate}</WorkTimePoint>
-                <WorkTimePointDivider />
-                <WorkTimePoint>{workEndDate}</WorkTimePoint>
-              </WorkTimeTracking>
+                <WorkTimeTracking>
+                  <WorkTimePoint>{workStartDate}</WorkTimePoint>
+                  <WorkTimePointDivider />
+                  <WorkTimePoint>{workEndDate}</WorkTimePoint>
+                </WorkTimeTracking>
+              </WorkCardContentBox>
             </WorkCardContentBox>
-          </WorkCardContentBox>
 
-          <WorkSummary>{workSummary}</WorkSummary>
-        </WorkOverview>
+            <WorkSummary>{workSummary}</WorkSummary>
+          </WorkOverview>
+        </VisuallyHidden>
 
         <WorkCardActions>
           <Button href={workDetailsHref} variant="contained" color="primary">

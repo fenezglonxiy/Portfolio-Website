@@ -8,9 +8,9 @@ import { CardMedia, CardMediaProps } from "@/_components/Card";
 
 import getWorkCardMediaCss from "./getWorkCardMediaCss";
 
-export type WorkCardMediaProps = CardMediaProps;
+type Props = CardMediaProps;
 
-function WorkCardMedia(props: WorkCardMediaProps) {
+function WorkCardMedia(props: Props) {
   const theme = useTheme();
   const css = getWorkCardMediaCss(theme);
 
