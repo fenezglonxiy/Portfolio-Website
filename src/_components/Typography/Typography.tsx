@@ -125,6 +125,12 @@ type TypographyBaseProps = {
    * @default "none"
    */
   transform?: "uppercase" | "lowercase" | "capitalize" | "inherit" | "none";
+
+  /**
+   * The maximum number of lines of the text content.
+   * If it is exceeded, the rest will be replaced by ellipsis.
+   */
+  lineClamp?: React.CSSProperties["WebkitLineClamp"];
 };
 
 export interface TypographyTypeMap<D extends React.ElementType = "p"> {
@@ -141,13 +147,14 @@ const Typography = React.forwardRef(function Typography(
   ref: React.Ref<HTMLSpanElement>
 ) {
   const {
+    component,
     align = "inherit",
     display,
     variant = "body1",
     color = "inherit",
     transform = "none",
     fontWeight,
-    component,
+    lineClamp,
     ...rest
   } = props;
   const theme = useTheme();
@@ -159,6 +166,7 @@ const Typography = React.forwardRef(function Typography(
     color,
     transform,
     fontWeight,
+    lineClamp,
   });
 
   return (

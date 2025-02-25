@@ -90,12 +90,25 @@ const getTypographyFontWeightCss = (
   `;
 };
 
+const getTypographyTextOverflowCss = (
+  lineClamp: TypographyProps["lineClamp"]
+) =>
+  lineClamp &&
+  css`
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: ${lineClamp};
+  `;
+
 const getTypographyCss = (theme: Theme, props: TypographyProps) => css`
   display: ${props.display};
   text-align: ${props.align};
   text-transform: ${props.transform};
   ${getTypographyColorCss(theme, props.color)};
   ${getTypographyFontWeightCss(theme, props.fontWeight)};
+  ${getTypographyTextOverflowCss(props.lineClamp)};
 `;
 
 export default getTypographyCss;

@@ -1,12 +1,12 @@
 import { css, Theme } from "@mui/material";
 
-const getCardHighlightCss = (theme: Theme) => css`
+const getInsightReadTimeCss = (theme: Theme) => css`
   --pseudo-circle-radius: calc(var(--card-border-radius) / 2);
   grid-row: 2 / 3;
   grid-column: 1 / 2;
   position: relative;
   padding: ${theme.spacing(3)};
-  outline: var(--inverted-card-grid-gap) solid var(--card-background-color);
+  outline: var(--card-grid-gap) solid var(--card-background-color);
   border-radius: 0 var(--card-border-radius) 0 0;
   background-color: var(--card-content-background-color);
 
@@ -30,9 +30,9 @@ const getCardHighlightCss = (theme: Theme) => css`
   & > div {
     position: absolute;
     left: 0;
-    bottom: calc(-1 * var(--inverted-card-grid-gap));
+    bottom: calc(-1 * var(--card-grid-gap));
     width: 100%;
-    height: var(--inverted-card-grid-gap);
+    height: var(--card-grid-gap);
     background-color: var(--card-content-background-color);
   }
 
@@ -49,11 +49,11 @@ const getCardHighlightCss = (theme: Theme) => css`
   }
 
   &::after {
-    bottom: calc(-1 * var(--inverted-card-grid-gap));
+    bottom: calc(-1 * var(--card-grid-gap));
     right: calc(-2 * var(--pseudo-circle-radius));
     box-shadow: calc(-1 * var(--pseudo-circle-radius))
       var(--pseudo-circle-radius) var(--card-content-background-color);
   }
 `;
 
-export default getCardHighlightCss;
+export default getInsightReadTimeCss;
