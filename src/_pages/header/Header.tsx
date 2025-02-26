@@ -69,10 +69,6 @@ function Header(props: Props) {
       label: "Works",
     },
     {
-      href: "/insights",
-      label: "Insights",
-    },
-    {
       href: "/about-me",
       label: "About me",
     },

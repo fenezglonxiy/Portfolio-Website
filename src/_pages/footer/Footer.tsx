@@ -29,12 +29,6 @@ function Footer(props: FooterProps) {
             </FooterNavListItem>
 
             <FooterNavListItem>
-              <Link href="/insights" variant="body2Medium">
-                Insights
-              </Link>
-            </FooterNavListItem>
-
-            <FooterNavListItem>
               <Link href="/about-me" variant="body2Medium">
                 About me
               </Link>
