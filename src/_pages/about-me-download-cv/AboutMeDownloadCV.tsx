@@ -11,7 +11,7 @@ type Props = React.ComponentPropsWithoutRef<"section"> & {
 
 function AboutMeDownloadCV(props: Props) {
   return (
-    <section {...props}>
+    <section id="download-cv" {...props}>
       <AboutMeDownloadCVContent>
         <AboutMeDownloadCVHeader>
           <Typography component="h2" variant="inherit">

@@ -103,6 +103,16 @@ function Header(props: Props) {
               <HeaderLocalTime />
 
               <Button
+                href="/about-me#download-cv"
+                variant="outlined"
+                color={menuState.isOpen ? "white" : "secondary"}
+                shape="pill"
+                onClick={handleCloseBurgerNavMenu}
+              >
+                Download CV
+              </Button>
+
+              <Button
                 href="/contact"
                 variant="outlined"
                 color={menuState.isOpen ? "white" : "primary"}
