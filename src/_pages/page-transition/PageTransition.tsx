@@ -113,7 +113,7 @@ const revealTransition = () => {
   });
 };
 
-type PageWrapperProps = React.PropsWithChildren<undefined>;
+type PageWrapperProps = React.PropsWithChildren;
 
 export function PageTransitionPageWrapper(props: PageWrapperProps) {
   const { children } = props;
