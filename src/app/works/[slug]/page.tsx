@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { WorkDetailsContent } from "@/_pages/work-details-content";
 import { WorkDetailsHero } from "@/_pages/work-details-hero";
 import { WorkDetailsOtherWorks } from "@/_pages/work-details-other-works";
+import { PageTransitionPageWrapper } from "@/_pages/page-transition";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -249,26 +250,28 @@ export default async function WorkDetails(props: Props) {
   const work = slugToWork[slug as keyof typeof slugToWork];
 
   return (
-    <article>
-      <WorkDetailsHero
-        title={work.title}
-        summary={work.summary}
-        mediaSrc={work.mediaSrc}
-      />
-      <WorkDetailsContent
-        teamSize={work.teamSize}
-        startDate={work.startDate}
-        endDate={work.endDate}
-        businessSectors={work.businessSectors}
-        services={work.services}
-        about={work.about}
-        challenge={work.challenge}
-        results={work.results}
-        git={work.git}
-        demo={work.demo}
-        deployment={work.deployment}
-      />
-      <WorkDetailsOtherWorks />
-    </article>
+    <PageTransitionPageWrapper>
+      <article>
+        <WorkDetailsHero
+          title={work.title}
+          summary={work.summary}
+          mediaSrc={work.mediaSrc}
+        />
+        <WorkDetailsContent
+          teamSize={work.teamSize}
+          startDate={work.startDate}
+          endDate={work.endDate}
+          businessSectors={work.businessSectors}
+          services={work.services}
+          about={work.about}
+          challenge={work.challenge}
+          results={work.results}
+          git={work.git}
+          demo={work.demo}
+          deployment={work.deployment}
+        />
+        <WorkDetailsOtherWorks />
+      </article>
+    </PageTransitionPageWrapper>
   );
 }

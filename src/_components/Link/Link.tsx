@@ -7,8 +7,10 @@ import { default as NextLink } from "next/link";
 import React from "react";
 import { Url } from "next/dist/shared/lib/router/router";
 import { useTheme } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 import { TypographyProps } from "@/_components/Typography";
+import { pageTransitionRoute } from "@/_pages/page-transition";
 
 import getLinkCss from "./getLinkCss";
 
@@ -61,8 +63,21 @@ const Link = React.forwardRef(
       variant = "body2Medium",
       color = "primary",
       underline = "none",
+      onClick,
       ...rest
     } = props;
+    const router = useRouter();
+
+    const handleClick = (
+      event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    ) => {
+      event.preventDefault();
+      pageTransitionRoute(router, href);
+
+      if (onClick) {
+        onClick(event);
+      }
+    };
 
     const theme = useTheme();
     const css = getLinkCss(theme, {
@@ -75,7 +90,7 @@ const Link = React.forwardRef(
 
     return (
       <NextLink ref={ref} href={href} passHref legacyBehavior>
-        <a css={css} {...rest} />
+        <a css={css} onClick={handleClick} {...rest} />
       </NextLink>
     );
   }
