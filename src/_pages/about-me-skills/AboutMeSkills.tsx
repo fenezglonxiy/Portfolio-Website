@@ -188,7 +188,12 @@ function AboutMeSkills(props: AboutMeSkillsProps) {
         </SkillShowcase>
 
         <AboutMeSkillsCTA>
-          <Button shape="pill" icon={<ArrowRight />} iconPosition="end">
+          <Button
+            href="/works"
+            shape="pill"
+            icon={<ArrowRight />}
+            iconPosition="end"
+          >
             See my work
           </Button>
         </AboutMeSkillsCTA>

@@ -76,8 +76,6 @@ function Header(props: Props) {
 
   const menuState = usePopupState({ variant: "menu" });
 
-  const handleCloseBurgerNavMenu = () => menuState.close();
-
   const theme = useTheme();
   const css = getHeaderCss(theme);
 
@@ -89,7 +87,7 @@ function Header(props: Props) {
       >
         <HeaderContainer>
           <HeaderNav>
-            <HeaderLogo onClick={handleCloseBurgerNavMenu} />
+            <HeaderLogo onClick={menuState.close} />
 
             <HeaderNavList>
               {navList.map((item, idx) => (
@@ -107,7 +105,7 @@ function Header(props: Props) {
                 variant="outlined"
                 color={menuState.isOpen ? "white" : "secondary"}
                 shape="pill"
-                onClick={handleCloseBurgerNavMenu}
+                onClick={menuState.close}
               >
                 Download CV
               </Button>
@@ -119,7 +117,7 @@ function Header(props: Props) {
                 iconPosition="end"
                 shape="pill"
                 icon={<ArrowRight size="sm" />}
-                onClick={handleCloseBurgerNavMenu}
+                onClick={menuState.close}
               >
                 Let’s Talk
               </Button>
@@ -140,10 +138,7 @@ function Header(props: Props) {
                 {...bindMenu(menuState)}
               >
                 {navList.map((item, idx) => (
-                  <BurgerNavMenuItem
-                    key={idx}
-                    onClick={handleCloseBurgerNavMenu}
-                  >
+                  <BurgerNavMenuItem key={idx} onClick={menuState.close}>
                     <BurgerNavMenuLink href={item.href}>
                       {item.label}
                     </BurgerNavMenuLink>

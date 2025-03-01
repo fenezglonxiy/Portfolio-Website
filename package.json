@@ -15,7 +15,6 @@
     "@hookform/resolvers": "^3.9.1",
     "@mui/icons-material": "^6.1.9",
     "@mui/material": "^6.1.9",
-    "@mui/utils": "^6.4.3",
     "@types/nodemailer": "^6.4.17",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",

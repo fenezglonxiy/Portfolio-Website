@@ -7,6 +7,7 @@ import { Header } from "@/_pages/header";
 import { Footer } from "@/_pages/footer";
 import IntlProvider from "@/i18n/IntlProvider";
 import FontIconLinks from "@/_icons/FontIconLinks";
+import { PageTransition } from "@/_pages/page-transition";
 
 import "./globals.css";
 
@@ -34,6 +35,7 @@ export default function RootLayout({
         <IntlProvider locale={locale} timeZone={timeZone}>
           <ReactLenis root>
             <ThemeProvider>
+              <PageTransition />
               <Header />
               {children}
               <Footer />
