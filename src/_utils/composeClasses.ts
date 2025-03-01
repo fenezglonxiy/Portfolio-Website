@@ -37,7 +37,7 @@ export default function composeClasses<ClassKey extends string>(
   getUtilityClass: (slot: string) => string,
   classes: Record<string, string> | undefined = undefined
 ): Record<ClassKey, string> {
-  const output: Record<ClassKey, string> = {} as any;
+  const output: Record<ClassKey, string> = {} as Record<ClassKey, string>;
 
   for (const slotName in slots) {
     const slot = slots[slotName];

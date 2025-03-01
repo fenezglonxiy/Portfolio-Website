@@ -67,12 +67,13 @@ const PageTransitionBlock = styled("div", {
     flex: 1,
     willChange: "transform",
     margin: theme.spacing(-0.5),
-    background: theme.palette.neutral[200],
+    background: theme.palette.neutral[900],
   }))
 );
 
 const animateTransition = () => {
   return new Promise((resolve) => {
+    gsap.set(`.${pageTransitionClasses.root}`, { display: "flex" });
     gsap.set(`.${pageTransitionClasses.root}`, { zIndex: 100000 });
 
     gsap.set(`.${pageTransitionClasses.block}`, {
@@ -112,14 +113,17 @@ const revealTransition = () => {
   });
 };
 
-type PageWrapperProps = React.PropsWithChildren<{}>;
+type PageWrapperProps = React.PropsWithChildren<undefined>;
 
 export function PageTransitionPageWrapper(props: PageWrapperProps) {
   const { children } = props;
 
   useIsomorphicLayoutEffect(() => {
     revealTransition().then(() => {
-      gsap.set(`.${pageTransitionClasses.root}`, { zIndex: 0 });
+      gsap.set(`.${pageTransitionClasses.root}`, {
+        display: "none",
+        zIndex: 0,
+      });
       gsap.set(`.${pageTransitionClasses.block}`, { visibility: "hidden" });
     });
   }, []);
