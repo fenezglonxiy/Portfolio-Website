@@ -1,26 +1,44 @@
-/** @jsxImportSource @emotion/react */
-
-"use client";
-
-import { useTheme } from "@mui/material";
+import { styled } from "@mui/material";
+import memoTheme from "@mui/material/utils/memoTheme";
+import clsx from "clsx";
 
 import { Typography } from "@/_components/Typography";
 
-import getSkillDescriptionCss from "./getSkillDescriptionCss";
+import skillDescriptionClasses from "./skillDescriptionClasses";
 
-export type SkillDescriptionProps = React.ComponentPropsWithoutRef<"div">;
+type SkillDescriptionRootProps = React.ComponentPropsWithoutRef<"div">;
 
-function SkillDescription(props: SkillDescriptionProps) {
-  const { children, ...rest } = props;
-  const theme = useTheme();
-  const css = getSkillDescriptionCss(theme);
+const SkillDescriptionRoot = styled("div", {
+  name: "PwSkillCardSkillDescription",
+  slot: "Root",
+})<SkillDescriptionRootProps>(
+  memoTheme(({ theme }) => ({
+    flex: 1,
+    alignSelf: "flex-end",
+
+    [`${theme.breakpoints.between(
+      theme.breakpoints.values.md,
+      theme.breakpoints.values.lg
+    )}`]: {
+      paddingTop: theme.spacing(22),
+    },
+  }))
+);
+
+type Props = SkillDescriptionRootProps;
+
+function SkillDescription(props: Props) {
+  const { className, children, ...rest } = props;
 
   return (
-    <div css={css} {...rest}>
+    <SkillDescriptionRoot
+      className={clsx(skillDescriptionClasses.root, className)}
+      {...rest}
+    >
       <Typography variant="body1Medium" fontWeight="regular">
         {children}
       </Typography>
-    </div>
+    </SkillDescriptionRoot>
   );
 }
 

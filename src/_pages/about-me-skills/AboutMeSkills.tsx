@@ -13,6 +13,7 @@ import {
   SkillCardMedia,
   SkillDescription,
   SkillTitle,
+  skillTitleClasses,
 } from "@/_components/skill-card";
 import { Button } from "@/_components/Button";
 import useWindowSize from "@/_hooks/useWindowSize";
@@ -22,18 +23,20 @@ import { ArrowRight } from "@/_icons";
 import AboutMeSkillsContent from "./AboutMeSkillsContent";
 import SkillShowcaseHeader from "./SkillShowcaseHeader";
 import SkillShowcaseContent from "./SkillShowcaseContent";
-import AboutMeSkillsCTA from "./AboutMeSkillsCTA";
+import AboutMeSkillsCTABox from "./AboutMeSkillsCTABox";
 import SkillShowcaseTitle from "./SkillShowcaseTitle";
 import SkillShowcase from "./SkillShowcase";
 import SkillList from "./SkillList";
-import SkillItem from "./SkillItem";
-
-export type AboutMeSkillsProps = React.ComponentPropsWithoutRef<"section"> & {
-  children?: undefined | null;
-};
+import SkillListItem from "./SkillListItem";
+import skillListItemClasses from "./skillListItemClasses";
+import skillShowcaseClasses from "./skillShowcaseClasses";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
+
+type Props = React.ComponentPropsWithoutRef<"section"> & {
+  children?: undefined | null;
+};
 
 const skills = [
   {
@@ -56,12 +59,12 @@ const skills = [
   },
 ];
 
-function AboutMeSkills(props: AboutMeSkillsProps) {
-  const content = React.useRef(null);
+function AboutMeSkills(props: Props) {
+  const contentRef = React.useRef(null);
   const { width } = useWindowSize();
 
   // The entering of the skill showcase triggers the animation.
-  const animTrigger = ".about-me-skill-showcase";
+  const animTrigger = `.${skillShowcaseClasses.root}`;
 
   // The skill showcase is pinned and the skill items start scrolling when
   // the top of the skill showcase hits 82px, which is the height of the
@@ -104,11 +107,13 @@ function AboutMeSkills(props: AboutMeSkillsProps) {
 
   useGSAP(
     () => {
-      const items = gsap.utils.toArray<HTMLElement>(".about-me-skill-item");
+      const items = gsap.utils.toArray<HTMLElement>(
+        `.${skillListItemClasses.root}`
+      );
       skillItems.current = items;
 
       const skillTitles = gsap.utils.toArray<HTMLElement>(
-        ".about-me-skill-title"
+        `.${skillTitleClasses.root}`
       );
       skillTitle.current = skillTitles[0];
 
@@ -116,7 +121,7 @@ function AboutMeSkills(props: AboutMeSkillsProps) {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     },
-    { scope: content }
+    { scope: contentRef }
   );
 
   useIsomorphicLayoutEffect(() => {
@@ -158,8 +163,8 @@ function AboutMeSkills(props: AboutMeSkillsProps) {
 
   return (
     <section {...props}>
-      <AboutMeSkillsContent ref={content}>
-        <SkillShowcase className="about-me-skill-showcase">
+      <AboutMeSkillsContent ref={contentRef}>
+        <SkillShowcase>
           <SkillShowcaseHeader>
             <SkillShowcaseTitle>I can help you with</SkillShowcaseTitle>
           </SkillShowcaseHeader>
@@ -167,12 +172,10 @@ function AboutMeSkills(props: AboutMeSkillsProps) {
           <SkillShowcaseContent>
             <SkillList>
               {skills.map((skill, idx) => (
-                <SkillItem className="about-me-skill-item" key={idx}>
-                  <SkillCard className="about-me-skill-card">
+                <SkillListItem key={idx}>
+                  <SkillCard>
                     <SkillCardContainer>
-                      <SkillTitle className="about-me-skill-title">
-                        {skill.title}
-                      </SkillTitle>
+                      <SkillTitle>{skill.title}</SkillTitle>
 
                       <SkillCardContent>
                         <SkillDescription>{skill.description}</SkillDescription>
@@ -181,13 +184,13 @@ function AboutMeSkills(props: AboutMeSkillsProps) {
                       </SkillCardContent>
                     </SkillCardContainer>
                   </SkillCard>
-                </SkillItem>
+                </SkillListItem>
               ))}
             </SkillList>
           </SkillShowcaseContent>
         </SkillShowcase>
 
-        <AboutMeSkillsCTA>
+        <AboutMeSkillsCTABox>
           <Button
             href="/works"
             shape="pill"
@@ -196,7 +199,7 @@ function AboutMeSkills(props: AboutMeSkillsProps) {
           >
             See my work
           </Button>
-        </AboutMeSkillsCTA>
+        </AboutMeSkillsCTABox>
       </AboutMeSkillsContent>
     </section>
   );

@@ -1,18 +1,32 @@
-/** @jsxImportSource @emotion/react */
+import { styled } from "@mui/material";
+import memoTheme from "@mui/material/utils/memoTheme";
+import clsx from "clsx";
 
-"use client";
+import skillShowcaseHeaderClasses from "./skillShowcaseHeaderClasses";
 
-import { useTheme } from "@mui/material";
+type SkillShowcaseHeaderRootProps = React.ComponentPropsWithoutRef<"header">;
 
-import getSkillShowcaseHeaderCss from "./getSkillShowcaseHeaderCss";
+const SkillShowcaseHeaderRoot = styled("header", {
+  name: "PwAboutMeSkillShowcaseHeader",
+  slot: "Root",
+})<SkillShowcaseHeaderRootProps>(
+  memoTheme(({ theme }) => ({
+    position: "relative",
+    padding: `0 ${theme.spacing(8)}`,
+  }))
+);
 
-export type SkillShowcaseHeaderProps = React.ComponentPropsWithoutRef<"div">;
+type Props = SkillShowcaseHeaderRootProps;
 
-function SkillShowcaseHeader(props: SkillShowcaseHeaderProps) {
-  const theme = useTheme();
-  const css = getSkillShowcaseHeaderCss(theme);
+function SkillShowcaseHeader(props: Props) {
+  const { className, ...rest } = props;
 
-  return <div css={css} {...props} />;
+  return (
+    <SkillShowcaseHeaderRoot
+      className={clsx(skillShowcaseHeaderClasses.root, className)}
+      {...rest}
+    />
+  );
 }
 
 export default SkillShowcaseHeader;

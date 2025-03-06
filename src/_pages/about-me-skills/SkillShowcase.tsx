@@ -1,15 +1,28 @@
-/** @jsxImportSource @emotion/react */
+import { styled } from "@mui/material";
+import clsx from "clsx";
 
-"use client";
+import skillShowcaseClasses from "./skillShowcaseClasses";
 
-import getSkillShowcaseCss from "./getSkillShowcaseCss";
+type SkillShowcaseRootProps = React.ComponentPropsWithoutRef<"section">;
 
-export type SkillShowcaseProps = React.ComponentPropsWithoutRef<"div">;
+const SkillShowcaseRoot = styled("section", {
+  name: "PwAboutMeSkillShowcase",
+  slot: "Root",
+})({
+  position: "relative",
+});
 
-function SkillShowcase(props: SkillShowcaseProps) {
-  const css = getSkillShowcaseCss();
+type Props = SkillShowcaseRootProps;
 
-  return <div css={css} {...props} />;
+function SkillShowcase(props: Props) {
+  const { className, ...rest } = props;
+
+  return (
+    <SkillShowcaseRoot
+      className={clsx(skillShowcaseClasses.root, className)}
+      {...rest}
+    />
+  );
 }
 
 export default SkillShowcase;

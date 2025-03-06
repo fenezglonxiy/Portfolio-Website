@@ -1,9 +1,30 @@
+import { styled } from "@mui/material";
+import clsx from "clsx";
+
 import { Card } from "@/_components/Card";
 
-export type SkillCardProps = React.ComponentPropsWithoutRef<"div">;
+import skillCardClasses from "./skillCardClasses";
 
-function SkillCard(props: SkillCardProps) {
-  return <Card variant="fill" borderRadius="none" {...props} />;
+type SkillCardRootProps = React.ComponentPropsWithoutRef<"div">;
+
+const SkillCardRoot = styled(Card, {
+  name: "PwSkillCard",
+  slot: "Root",
+})({});
+
+type Props = SkillCardRootProps;
+
+function SkillCard(props: Props) {
+  const { className, ...rest } = props;
+
+  return (
+    <SkillCardRoot
+      variant="fill"
+      borderRadius="none"
+      className={clsx(skillCardClasses.root, className)}
+      {...rest}
+    />
+  );
 }
 
 export default SkillCard;

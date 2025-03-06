@@ -1,20 +1,46 @@
-/** @jsxImportSource @emotion/react */
-
-"use client";
-
-import { useTheme } from "@mui/material";
+import { styled } from "@mui/material";
+import memoTheme from "@mui/material/utils/memoTheme";
+import clsx from "clsx";
 
 import { CardContent, CardContentProps } from "@/_components/Card";
 
-import getSkillCardContentCss from "./getSkillCardContentCss";
+import skillCardContentClasses from "./skillCardContentClasses";
 
-export type SkillCardContentProps = CardContentProps;
+type SkillCardContentRootProps = CardContentProps;
 
-function SkillCardContent(props: SkillCardContentProps) {
-  const theme = useTheme();
-  const css = getSkillCardContentCss(theme);
+const SkillCardContentRoot = styled(CardContent, {
+  name: "PwSkillCardContent",
+  slot: "Root",
+})<SkillCardContentRootProps>(
+  memoTheme(({ theme }) => ({
+    display: "flex",
+    gap: theme.spacing(27.5),
 
-  return <CardContent css={css} {...props} />;
+    [`&.${skillCardContentClasses.root}`]: {
+      padding: 0,
+    },
+
+    [`${theme.breakpoints.down(theme.breakpoints.values.lg)}`]: {
+      gap: theme.spacing(10),
+    },
+
+    [`${theme.breakpoints.down(theme.breakpoints.values.md)}`]: {
+      flexDirection: "column-reverse",
+    },
+  }))
+);
+
+type Props = CardContentProps;
+
+function SkillCardContent(props: Props) {
+  const { className, ...rest } = props;
+
+  return (
+    <SkillCardContentRoot
+      className={clsx(skillCardContentClasses.root, className)}
+      {...rest}
+    />
+  );
 }
 
 export default SkillCardContent;
