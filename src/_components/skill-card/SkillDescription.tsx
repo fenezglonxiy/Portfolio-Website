@@ -6,39 +6,30 @@ import { Typography } from "@/_components/Typography";
 
 import skillDescriptionClasses from "./skillDescriptionClasses";
 
-type SkillDescriptionRootProps = React.ComponentPropsWithoutRef<"div">;
+type SkillDescriptionRootProps = Omit<
+  React.ComponentPropsWithoutRef<"p">,
+  "color"
+>;
 
-const SkillDescriptionRoot = styled("div", {
+const SkillDescriptionRoot = styled(Typography, {
   name: "PwSkillCardSkillDescription",
   slot: "Root",
-})<SkillDescriptionRootProps>(
-  memoTheme(({ theme }) => ({
-    flex: 1,
-    alignSelf: "flex-end",
-
-    [`${theme.breakpoints.between(
-      theme.breakpoints.values.md,
-      theme.breakpoints.values.lg
-    )}`]: {
-      paddingTop: theme.spacing(22),
-    },
-  }))
-);
+})<SkillDescriptionRootProps>({
+  overflow: "hidden",
+});
 
 type Props = SkillDescriptionRootProps;
 
 function SkillDescription(props: Props) {
-  const { className, children, ...rest } = props;
+  const { className, ...rest } = props;
 
   return (
     <SkillDescriptionRoot
+      variant="body1Medium"
+      fontWeight="regular"
       className={clsx(skillDescriptionClasses.root, className)}
       {...rest}
-    >
-      <Typography variant="body1Medium" fontWeight="regular">
-        {children}
-      </Typography>
-    </SkillDescriptionRoot>
+    />
   );
 }
 

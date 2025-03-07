@@ -12,6 +12,8 @@ import {
   SkillCardContent,
   SkillCardMedia,
   SkillDescription,
+  SkillDescriptionBox,
+  skillDescriptionClasses,
   SkillTitle,
   skillTitleClasses,
 } from "@/_components/skill-card";
@@ -19,6 +21,7 @@ import { Button } from "@/_components/Button";
 import useWindowSize from "@/_hooks/useWindowSize";
 import useIsomorphicLayoutEffect from "@/_hooks/useIsomorphicLayoutEffect";
 import { ArrowRight } from "@/_icons";
+import { TextAnimation } from "@/_components/text-animation";
 
 import AboutMeSkillsContent from "./AboutMeSkillsContent";
 import SkillShowcaseHeader from "./SkillShowcaseHeader";
@@ -30,6 +33,7 @@ import SkillList from "./SkillList";
 import SkillListItem from "./SkillListItem";
 import skillListItemClasses from "./skillListItemClasses";
 import skillShowcaseClasses from "./skillShowcaseClasses";
+import skillShowcaseTitleClasses from "./skillShowcaseTitleClasses";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
@@ -105,6 +109,10 @@ function AboutMeSkills(props: Props) {
 
   const theme = useTheme();
 
+  const pinShowcaseScrollTriggerId = "pin-about-me-skill-showcase";
+
+  const timeline = gsap.timeline();
+
   useGSAP(
     () => {
       const items = gsap.utils.toArray<HTMLElement>(
@@ -129,13 +137,15 @@ function AboutMeSkills(props: Props) {
       return;
     }
 
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    ScrollTrigger.getById(pinShowcaseScrollTriggerId)?.kill();
+    timeline.kill();
 
     if (width < theme.breakpoints.values.lg) {
       return;
     }
 
     ScrollTrigger.create({
+      id: pinShowcaseScrollTriggerId,
       trigger: animTrigger,
       start: animStart,
       end: () => skillShowcasePinEnd(),
@@ -144,7 +154,7 @@ function AboutMeSkills(props: Props) {
     });
 
     skillItems.current.forEach((item, idx) => {
-      gsap.to(item, {
+      timeline.to(item, {
         y: () => skillItemScrollDest(idx),
         ease: "none",
         scrollTrigger: {
@@ -157,7 +167,8 @@ function AboutMeSkills(props: Props) {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getById(pinShowcaseScrollTriggerId)?.kill();
+      timeline.kill();
     };
   }, [width, skillItems, skillItems.current]);
 
@@ -166,7 +177,12 @@ function AboutMeSkills(props: Props) {
       <AboutMeSkillsContent ref={contentRef}>
         <SkillShowcase>
           <SkillShowcaseHeader>
-            <SkillShowcaseTitle>I can help you with</SkillShowcaseTitle>
+            <TextAnimation
+              textBoxClassName={skillShowcaseTitleClasses.root}
+              type="words"
+            >
+              <SkillShowcaseTitle>I can help you with</SkillShowcaseTitle>
+            </TextAnimation>
           </SkillShowcaseHeader>
 
           <SkillShowcaseContent>
@@ -175,10 +191,25 @@ function AboutMeSkills(props: Props) {
                 <SkillListItem key={idx}>
                   <SkillCard>
                     <SkillCardContainer>
-                      <SkillTitle>{skill.title}</SkillTitle>
+                      <TextAnimation
+                        textBoxClassName={skillTitleClasses.root}
+                        type="title"
+                      >
+                        <SkillTitle>{skill.title}</SkillTitle>
+                      </TextAnimation>
 
                       <SkillCardContent>
-                        <SkillDescription>{skill.description}</SkillDescription>
+                        <SkillDescriptionBox>
+                          <TextAnimation
+                            textBoxClassName={skillDescriptionClasses.root}
+                            type="lines"
+                            delay={0.2}
+                          >
+                            <SkillDescription>
+                              {skill.description}
+                            </SkillDescription>
+                          </TextAnimation>
+                        </SkillDescriptionBox>
 
                         <SkillCardMedia component="img" src={skill.mediaSrc} />
                       </SkillCardContent>
