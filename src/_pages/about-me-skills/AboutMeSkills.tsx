@@ -34,6 +34,11 @@ import SkillListItem from "./SkillListItem";
 import skillListItemClasses from "./skillListItemClasses";
 import skillShowcaseClasses from "./skillShowcaseClasses";
 import skillShowcaseTitleClasses from "./skillShowcaseTitleClasses";
+import {
+  LinesAnimation,
+  TitleAnimation,
+  WordsAnimation,
+} from "@/_components/animation";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
@@ -177,12 +182,9 @@ function AboutMeSkills(props: Props) {
       <AboutMeSkillsContent ref={contentRef}>
         <SkillShowcase>
           <SkillShowcaseHeader>
-            <TextAnimation
-              textBoxClassName={skillShowcaseTitleClasses.root}
-              type="words"
-            >
+            <WordsAnimation textBoxClassName={skillShowcaseTitleClasses.root}>
               <SkillShowcaseTitle>I can help you with</SkillShowcaseTitle>
-            </TextAnimation>
+            </WordsAnimation>
           </SkillShowcaseHeader>
 
           <SkillShowcaseContent>
@@ -191,24 +193,20 @@ function AboutMeSkills(props: Props) {
                 <SkillListItem key={idx}>
                   <SkillCard>
                     <SkillCardContainer>
-                      <TextAnimation
-                        textBoxClassName={skillTitleClasses.root}
-                        type="title"
-                      >
+                      <TitleAnimation textBoxClassName={skillTitleClasses.root}>
                         <SkillTitle>{skill.title}</SkillTitle>
-                      </TextAnimation>
+                      </TitleAnimation>
 
                       <SkillCardContent>
                         <SkillDescriptionBox>
-                          <TextAnimation
+                          <LinesAnimation
                             textBoxClassName={skillDescriptionClasses.root}
-                            type="lines"
                             delay={0.2}
                           >
                             <SkillDescription>
                               {skill.description}
                             </SkillDescription>
-                          </TextAnimation>
+                          </LinesAnimation>
                         </SkillDescriptionBox>
 
                         <SkillCardMedia component="img" src={skill.mediaSrc} />
