@@ -1,5 +1,4 @@
 import { styled } from "@mui/material";
-import memoTheme from "@mui/material/utils/memoTheme";
 import clsx from "clsx";
 
 import { Typography } from "@/_components/Typography";
