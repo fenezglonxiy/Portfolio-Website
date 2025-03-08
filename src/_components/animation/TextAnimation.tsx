@@ -80,7 +80,7 @@ export const defaultDelay = 0.1;
 
 export const defaultStagger = 0;
 
-export type TextAnimationProps = TextAnimationRootProps & {
+export type TextAnimationProps = Omit<TextAnimationRootProps, "children"> & {
   /**
    * The `className` of the children box contains the `#text` node to which the
    * animation is applied.
@@ -105,4 +105,9 @@ export type TextAnimationProps = TextAnimationRootProps & {
    * begin.
    */
   stagger?: number;
+
+  /**
+   * A single child content element.
+   */
+  children: React.ReactElement<unknown, any>;
 };

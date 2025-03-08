@@ -21,7 +21,6 @@ import { Button } from "@/_components/Button";
 import useWindowSize from "@/_hooks/useWindowSize";
 import useIsomorphicLayoutEffect from "@/_hooks/useIsomorphicLayoutEffect";
 import { ArrowRight } from "@/_icons";
-import { TextAnimation } from "@/_components/text-animation";
 
 import AboutMeSkillsContent from "./AboutMeSkillsContent";
 import SkillShowcaseHeader from "./SkillShowcaseHeader";
@@ -36,6 +35,7 @@ import skillShowcaseClasses from "./skillShowcaseClasses";
 import skillShowcaseTitleClasses from "./skillShowcaseTitleClasses";
 import {
   LinesAnimation,
+  Slide,
   TitleAnimation,
   WordsAnimation,
 } from "@/_components/animation";
@@ -116,7 +116,7 @@ function AboutMeSkills(props: Props) {
 
   const pinShowcaseScrollTriggerId = "pin-about-me-skill-showcase";
 
-  const timeline = gsap.timeline();
+  const stackTimeline = gsap.timeline();
 
   useGSAP(
     () => {
@@ -130,6 +130,15 @@ function AboutMeSkills(props: Props) {
       );
       skillTitle.current = skillTitles[0];
 
+      ScrollTrigger.create({
+        id: pinShowcaseScrollTriggerId,
+        trigger: animTrigger,
+        start: animStart,
+        end: () => skillShowcasePinEnd(),
+        pin: true,
+        pinSpacing: false,
+      });
+
       return () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
@@ -142,8 +151,11 @@ function AboutMeSkills(props: Props) {
       return;
     }
 
-    ScrollTrigger.getById(pinShowcaseScrollTriggerId)?.kill();
-    timeline.kill();
+    const pinShowcaseScrollTrigger = ScrollTrigger.getById(
+      pinShowcaseScrollTriggerId
+    );
+    pinShowcaseScrollTrigger?.kill();
+    stackTimeline.kill();
 
     if (width < theme.breakpoints.values.lg) {
       return;
@@ -159,7 +171,7 @@ function AboutMeSkills(props: Props) {
     });
 
     skillItems.current.forEach((item, idx) => {
-      timeline.to(item, {
+      stackTimeline.to(item, {
         y: () => skillItemScrollDest(idx),
         ease: "none",
         scrollTrigger: {
@@ -172,8 +184,8 @@ function AboutMeSkills(props: Props) {
     });
 
     return () => {
-      ScrollTrigger.getById(pinShowcaseScrollTriggerId)?.kill();
-      timeline.kill();
+      stackTimeline.kill();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [width, skillItems, skillItems.current]);
 
@@ -209,7 +221,12 @@ function AboutMeSkills(props: Props) {
                           </LinesAnimation>
                         </SkillDescriptionBox>
 
-                        <SkillCardMedia component="img" src={skill.mediaSrc} />
+                        <Slide direction="left">
+                          <SkillCardMedia
+                            component="img"
+                            src={skill.mediaSrc}
+                          />
+                        </Slide>
                       </SkillCardContent>
                     </SkillCardContainer>
                   </SkillCard>

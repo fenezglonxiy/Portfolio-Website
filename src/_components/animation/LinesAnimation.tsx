@@ -21,8 +21,7 @@ import textAnimationClasses from "./textAnimationClasses";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(CustomEase);
-CustomEase.create("quart.easeOut", "0.25, 1, 0.5, 1");
-CustomEase.create("quad.easeOut", "0.5, 1, 0.89, 1");
+CustomEase.create("quart.out", "0.25, 1, 0.5, 1");
 
 type Props = TextAnimationProps;
 
@@ -35,7 +34,6 @@ const LinesAnimation = React.forwardRef(function LinesAnimation(
     duration: durationFromProps,
     delay: delayFromProps,
     stagger: staggerFromProps,
-    className,
     children,
     ...rest
   } = props;
@@ -93,14 +91,14 @@ const LinesAnimation = React.forwardRef(function LinesAnimation(
             opacity: 0,
             y: "101%",
             duration,
-            ease: "quart.easeOut",
+            ease: "quart.out",
           },
           idx / (stagger || 15)
         );
       });
 
       return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        timeline.kill();
       };
     },
     { scope: rootRef }

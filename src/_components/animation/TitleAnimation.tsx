@@ -21,8 +21,8 @@ import textAnimationClasses from "./textAnimationClasses";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(CustomEase);
-CustomEase.create("quart.easeOut", "0.25, 1, 0.5, 1");
-CustomEase.create("quad.easeOut", "0.5, 1, 0.89, 1");
+CustomEase.create("quart.out", "0.25, 1, 0.5, 1");
+CustomEase.create("quad.out", "0.5, 1, 0.89, 1");
 
 type Props = TextAnimationProps;
 
@@ -35,7 +35,6 @@ const TitleAnimation = React.forwardRef(function TitleAnimation(
     duration: durationFromProps,
     delay: delayFromProps,
     stagger: staggerFromProps,
-    className,
     children,
     ...rest
   } = props;
@@ -95,7 +94,7 @@ const TitleAnimation = React.forwardRef(function TitleAnimation(
           {
             y: 0,
             duration,
-            ease: "quart.easeOut",
+            ease: "quart.out",
           }
         );
 
@@ -111,14 +110,14 @@ const TitleAnimation = React.forwardRef(function TitleAnimation(
             rotateY: "0deg",
             z: "0rem",
             duration,
-            ease: "quad.easeOut",
+            ease: "quad.out",
           },
           position
         );
       });
 
       return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        timeline.kill();
       };
     },
     { scope: rootRef }
