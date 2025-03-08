@@ -6,7 +6,6 @@ import React from "react";
 
 import { Card as MUICard, ThemeOptions, useTheme } from "@mui/material";
 import { OverrideProps } from "@mui/material/OverridableComponent";
-import mergeRefs from "@/_utils/mergeRefs";
 
 import getCardCss from "./getCardCss";
 
@@ -47,18 +46,10 @@ const Card = React.forwardRef(function Card(
   ref: React.Ref<HTMLDivElement>
 ) {
   const { borderRadius = "md", variant = "elevation", ...rest } = props;
-  const componentRef = React.useRef<HTMLDivElement>(null);
   const theme = useTheme();
   const css = getCardCss(theme, { ...rest, borderRadius, variant });
 
-  return (
-    <MUICard
-      ref={mergeRefs(ref, componentRef)}
-      variant={variant}
-      css={css}
-      {...rest}
-    />
-  );
+  return <MUICard ref={ref} variant={variant} css={css} {...rest} />;
 });
 
 Card.displayName = "Card";

@@ -1,19 +1,48 @@
-/** @jsxImportSource @emotion/react */
+import { styled } from "@mui/material";
+import memoTheme from "@mui/material/utils/memoTheme";
+import clsx from "clsx";
 
-"use client";
+import { skillCardClasses } from "@/_components/skill-card";
 
-import { useTheme } from "@mui/material";
-import React from "react";
+import skillListItemClasses from "./skillListItemClasses";
+import skillShowcaseContentClasses from "./skillShowcaseContentClasses";
 
-import getSkillShowcaseContentCss from "./getSkillShowcaseContentCss";
+type SkillShowcaseContentRootProps = React.ComponentPropsWithoutRef<"div">;
 
-export type SkillShowcaseContentProps = React.ComponentPropsWithoutRef<"div">;
+const SkillShowcaseContentRoot = styled("div", {
+  name: "PwAboutMeSkillShowcaseContent",
+  slot: "Root",
+})<SkillShowcaseContentRootProps>(
+  memoTheme(({ theme }) => ({
+    [`& .${skillListItemClasses.root}:first-of-type .${skillCardClasses.root}`]:
+      {
+        backgroundColor: theme.palette.indigo[400],
+      },
 
-function SkillShowcaseContent(props: SkillShowcaseContentProps) {
-  const theme = useTheme();
-  const css = getSkillShowcaseContentCss(theme);
+    [`& .${skillListItemClasses.root}:nth-of-type(2) .${skillCardClasses.root}`]:
+      {
+        backgroundColor: theme.palette.neutral[300],
+      },
 
-  return <div css={css} {...props} />;
+    [`& .${skillListItemClasses.root}:nth-of-type(3) .${skillCardClasses.root}`]:
+      {
+        backgroundColor: theme.palette.slate[900],
+        color: "white",
+      },
+  }))
+);
+
+type Props = SkillShowcaseContentRootProps;
+
+function SkillShowcaseContent(props: Props) {
+  const { className, ...rest } = props;
+
+  return (
+    <SkillShowcaseContentRoot
+      className={(clsx(skillShowcaseContentClasses.root), className)}
+      {...rest}
+    />
+  );
 }
 
 export default SkillShowcaseContent;

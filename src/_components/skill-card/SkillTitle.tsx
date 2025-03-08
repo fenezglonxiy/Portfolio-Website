@@ -1,29 +1,45 @@
-/** @jsxImportSource @emotion/react */
-
-"use client";
-
-import { useTheme } from "@mui/material";
+import React from "react";
+import { styled } from "@mui/material";
+import memoTheme from "@mui/material/utils/memoTheme";
+import clsx from "clsx";
 
 import { Typography } from "@/_components/Typography";
 
-import getSkillTitleCss from "./getSkillTitleCss";
+import skillTitleClasses from "./skillTitleClasses";
 
-export type SkillTitleProps = Omit<
-  React.ComponentPropsWithoutRef<"h1">,
-  "color"
->;
+type SkillTitleRootProps = Omit<React.ComponentPropsWithoutRef<"h1">, "color">;
 
-function SkillTitle(props: SkillTitleProps) {
-  const theme = useTheme();
-  const css = getSkillTitleCss(theme);
+const SkillTitleRoot = styled(Typography, {
+  name: "PwSkillCardSkillTitle",
+  slot: "Root",
+})<SkillTitleRootProps>(
+  memoTheme(({ theme }) => ({
+    position: "absolute",
+
+    [`&.${skillTitleClasses.root}`]: {
+      fontWeight: `${theme.typography.fontWeightSemibold}`,
+    },
+
+    [`${theme.breakpoints.down(theme.breakpoints.values.xl)}`]: {
+      ...theme.typography.h3,
+    },
+
+    [`${theme.breakpoints.down(theme.breakpoints.values.lg)}`]: {
+      ...theme.typography.h4,
+    },
+  }))
+);
+
+type Props = SkillTitleRootProps;
+
+function SkillTitle(props: Props) {
+  const { className, ...rest } = props;
 
   return (
-    <Typography
-      component="h3"
+    <SkillTitleRoot
       variant="h2"
-      fontWeight="semi-bold"
-      css={css}
-      {...props}
+      className={clsx(skillTitleClasses.root, className)}
+      {...rest}
     />
   );
 }

@@ -1,26 +1,34 @@
-/** @jsxImportSource @emotion/react */
-
-"use client";
-
-import { useTheme } from "@mui/material";
+import { styled } from "@mui/material";
+import clsx from "clsx";
 
 import { Typography } from "@/_components/Typography";
 
-import getSkillDescriptionCss from "./getSkillDescriptionCss";
+import skillDescriptionClasses from "./skillDescriptionClasses";
 
-export type SkillDescriptionProps = React.ComponentPropsWithoutRef<"div">;
+type SkillDescriptionRootProps = Omit<
+  React.ComponentPropsWithoutRef<"p">,
+  "color"
+>;
 
-function SkillDescription(props: SkillDescriptionProps) {
-  const { children, ...rest } = props;
-  const theme = useTheme();
-  const css = getSkillDescriptionCss(theme);
+const SkillDescriptionRoot = styled(Typography, {
+  name: "PwSkillCardSkillDescription",
+  slot: "Root",
+})<SkillDescriptionRootProps>({
+  overflow: "hidden",
+});
+
+type Props = SkillDescriptionRootProps;
+
+function SkillDescription(props: Props) {
+  const { className, ...rest } = props;
 
   return (
-    <div css={css} {...rest}>
-      <Typography variant="body1Medium" fontWeight="regular">
-        {children}
-      </Typography>
-    </div>
+    <SkillDescriptionRoot
+      variant="body1Medium"
+      fontWeight="regular"
+      className={clsx(skillDescriptionClasses.root, className)}
+      {...rest}
+    />
   );
 }
 

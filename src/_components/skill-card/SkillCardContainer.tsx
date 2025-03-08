@@ -1,18 +1,33 @@
-/** @jsxImportSource @emotion/react */
+import { styled } from "@mui/material";
+import memoTheme from "@mui/material/utils/memoTheme";
+import clsx from "clsx";
 
-"use client";
+import skillCardContainerClasses from "./skillCardContainerClasses";
 
-import { useTheme } from "@mui/material";
+type SkillCardContainerRootProps = React.ComponentPropsWithoutRef<"div">;
 
-import getSkillCardContainerCss from "./getSkillCardContainerCss";
+const SkillCardContainerRoot = styled("div", {
+  name: "PwSkillCardContainer",
+  slot: "Root",
+})(
+  memoTheme(({ theme }) => ({
+    width: "100%",
+    height: "100%",
+    padding: theme.spacing(6),
+  }))
+);
 
-export type SkillCardContainerProps = React.ComponentPropsWithoutRef<"div">;
+type Props = SkillCardContainerRootProps;
 
-function SkillCardContainer(props: SkillCardContainerProps) {
-  const theme = useTheme();
-  const css = getSkillCardContainerCss(theme);
+function SkillCardContainer(props: Props) {
+  const { className, ...rest } = props;
 
-  return <div css={css} {...props} />;
+  return (
+    <SkillCardContainerRoot
+      className={clsx(skillCardContainerClasses.root, className)}
+      {...rest}
+    />
+  );
 }
 
 export default SkillCardContainer;

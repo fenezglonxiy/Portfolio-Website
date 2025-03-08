@@ -1,22 +1,36 @@
-/** @jsxImportSource @emotion/react */
-
-"use client";
-
 import React from "react";
-import { useTheme } from "@mui/material";
+import { styled } from "@mui/material";
+import memoTheme from "@mui/material/utils/memoTheme";
+import clsx from "clsx";
 
-import getAboutMeSkillsContentCss from "./getAboutMeSkillsContentCss";
+import aboutMeSkillsContentClasses from "./aboutMeSkillsContentClasses";
 
-export type AboutMeSkillsContentProps = React.ComponentPropsWithoutRef<"div">;
+type AboutMeSkillsContentRootProps = React.ComponentPropsWithoutRef<"div">;
+
+const AboutMeSkillsContentRoot = styled("div", {
+  name: "PwAboutMeSkillsContent",
+  slot: "Root",
+})<AboutMeSkillsContentRootProps>(
+  memoTheme(({ theme }) => ({
+    padding: `${theme.spacing(10)} 0 ${theme.spacing(27)}`,
+  }))
+);
+
+type Props = AboutMeSkillsContentRootProps;
 
 const AboutMeSkillsContent = React.forwardRef(function AboutMeSkillsContent(
-  props: AboutMeSkillsContentProps,
+  props: Props,
   ref: React.Ref<HTMLDivElement>
 ) {
-  const theme = useTheme();
-  const css = getAboutMeSkillsContentCss(theme);
+  const { className, ...rest } = props;
 
-  return <div ref={ref} css={css} {...props} />;
+  return (
+    <AboutMeSkillsContentRoot
+      ref={ref}
+      className={clsx(aboutMeSkillsContentClasses.root, className)}
+      {...rest}
+    />
+  );
 });
 
 AboutMeSkillsContent.displayName = "AboutMeSkillsContent";
