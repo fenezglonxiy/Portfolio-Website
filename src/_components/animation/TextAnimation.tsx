@@ -107,6 +107,8 @@ export type TextAnimationProps = Omit<TextAnimationRootProps, "children"> & {
   stagger?: number;
 
   /**
+   * eslint-disable  @typescript-eslint/no-explicit-any
+   *
    * A single child content element.
    */
   children: React.ReactElement<unknown, any>;
