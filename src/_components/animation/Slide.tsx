@@ -116,10 +116,9 @@ type Props = Omit<SlideRootProps, "children"> & {
   delay?: number;
 
   /**
-   * eslint-disable  @typescript-eslint/no-explicit-any
-   *
    * A single child content element.
    */
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   children: React.ReactElement<unknown, any>;
 };
 
