@@ -1,38 +1,76 @@
-import moment from "moment";
-
-import { Achievement } from "./types";
-import { WorkCardDetails } from "./_components/work-card";
+import { Achievement, InsightCardDetails, WorkCardDetails } from "./types";
 import { TestimonialCardDetails } from "./_components/testimonial-card";
 
-export const workExperienceTimelineItem: Achievement = {
-  svgHref: "google.svg#google",
+const workExperienceTimelineItem: Achievement = {
+  svgHref: "/google.svg#google",
   svgWidth: 24,
   svgHeight: 24,
   title: "Web developer at Google",
-  date: moment("202402", "YYYYMM"),
-  duration: moment.duration(moment().diff(moment("202402", "YYYYMM"))),
+  achievementDate: new Date(2024, 1),
   referenceHref: "/",
 };
 
-export const awardTimelineItem: Achievement = {
-  svgHref: "google.svg#google",
+export const workExperience: Achievement[] = Array(3).fill(
+  workExperienceTimelineItem
+);
+
+const awardTimelineItem: Achievement = {
+  svgHref: "/google.svg#google",
   svgWidth: 24,
   svgHeight: 24,
   title: "Web developer at Google",
-  date: moment("202402", "YYYYMM"),
+  achievementDate: new Date(2024, 1),
   referenceHref: "/",
 };
 
-export const workCard: WorkCardDetails = {
-  thumbnailSrc: "card-thumbnail.png",
-  workTitle: "Struktura",
-  workBusinessSectors: ["Construction", "Test"],
-  workStartDate: moment(),
-  workDuration: moment.duration(2, "month"),
-  workSummary:
-    "This exploration centers on crafting an engaging layout, selecting an appealing color palette, and utilizing captivating imagery to enhance the overall user experience",
-  workDetailsHref: "/",
-};
+export const awards: Achievement[] = Array(3).fill(awardTimelineItem);
+
+export const workCards: WorkCardDetails[] = [
+  {
+    mediaSrc: "/card-thumbnail.png",
+    workTitle: "Personal Website",
+    workBusinessSectors: ["None"],
+    workStartDate: new Date(2023, 11),
+    workEndDate: new Date(),
+    workSummary:
+      "Developed an online space to show my work, skills, and experience and let others contact me for work.",
+    workServices: ["Web Development"],
+    workDetailsHref: "/works/portfolio-website",
+  },
+  {
+    mediaSrc: "/card-thumbnail.png",
+    workTitle: "English Tutor Webapp",
+    workBusinessSectors: ["Education"],
+    workStartDate: new Date(2022, 1),
+    workEndDate: new Date(2022, 4),
+    workSummary:
+      "Developed a system that provides online one-on-one English tutoring services where students and tutors can join online classrooms and discuss topics under tutor guidance in English.",
+    workServices: ["Web Design", "Web Development"],
+    workDetailsHref: "/works/english-tutor-webapp",
+  },
+  {
+    mediaSrc: "/card-thumbnail.png",
+    workTitle: "Video Calling Webapp",
+    workBusinessSectors: ["None"],
+    workStartDate: new Date(2022, 1),
+    workEndDate: new Date(2022, 2),
+    workSummary:
+      "Developed a system where two users can join an online room, see each other through webcams, and talk to each other through microphones and headphones.",
+    workServices: ["Web Development"],
+    workDetailsHref: "/works/video-calling-webapp",
+  },
+  {
+    mediaSrc: "/card-thumbnail.png",
+    workTitle: "MyCoin Webapp",
+    workBusinessSectors: ["Financial accounting"],
+    workStartDate: new Date(2022, 1),
+    workEndDate: new Date(2022, 2),
+    workSummary:
+      "Developed a system where users can authenticate using their keystore file, get coins by performing transactions, and send coins to another wallet.",
+    workServices: ["Web Development"],
+    workDetailsHref: "/works/mycoin-webapp",
+  },
+];
 
 export const testimonialCard: TestimonialCardDetails = {
   quote:
@@ -43,7 +81,7 @@ export const testimonialCard: TestimonialCardDetails = {
   endorserOrganizationLogoSrc: "/teamwork.png",
 };
 
-export const insightCard = {
+export const insightCard: InsightCardDetails = {
   href: "/",
   thumbnailSrc: "/insight-card-thumbnail.png",
   title:
@@ -51,7 +89,65 @@ export const insightCard = {
   summary:
     "Dive into the fascinating world of color theory and learn how to create captivating visual designs by",
   readTime: "60min",
-  publishDate: moment(),
+  publishDate: new Date(),
   topic: "Business",
   tags: ["UI/UX", "Design System", "Sleep & Care"],
 };
+
+export const workShowcaseCards: WorkCardDetails[] = [
+  {
+    mediaSrc: "/image.png",
+    workTitle: "Personal Website",
+    workBusinessSectors: ["None"],
+    workStartDate: new Date(2023, 11),
+    workEndDate: new Date(),
+    workSummary:
+      "Developed an online space to show my work, skills, and experience and let others contact me for work.",
+    workServices: ["Web Development"],
+    workDetailsHref: "/works/portfolio-website",
+  },
+  {
+    mediaSrc: "/image.png",
+    workTitle: "English Tutor Webapp",
+    workBusinessSectors: ["Education"],
+    workStartDate: new Date(2022, 1),
+    workEndDate: new Date(2022, 4),
+    workSummary:
+      "Developed a system that provides online one-on-one English tutoring services where students and tutors can join online classrooms and discuss topics under tutor guidance in English.",
+    workServices: ["Web Design", "Web Development"],
+    workDetailsHref: "/works/english-tutor-webapp",
+  },
+  {
+    mediaSrc: "/image.png",
+    workTitle: "Video Calling Webapp",
+    workBusinessSectors: ["None"],
+    workStartDate: new Date(2022, 1),
+    workEndDate: new Date(2022, 2),
+    workSummary:
+      "Developed a system where two users can join an online room, see each other through webcams, and talk to each other through microphones and headphones.",
+    workServices: ["Web Development"],
+    workDetailsHref: "/works/video-calling-webapp",
+  },
+  {
+    mediaSrc: "/image.png",
+    workTitle: "MyCoin Webapp",
+    workBusinessSectors: ["Financial accounting"],
+    workStartDate: new Date(2022, 1),
+    workEndDate: new Date(2022, 2),
+    workSummary:
+      "Developed a system where users can authenticate using their keystore file, get coins by performing transactions, and send coins to another wallet.",
+    workServices: ["Web Development"],
+    workDetailsHref: "/works/mycoin-webapp",
+  },
+  {
+    mediaSrc: "/image.png",
+    workTitle: "Todoist Clone",
+    workBusinessSectors: ["Project management"],
+    workStartDate: new Date(2021, 2),
+    workEndDate: new Date(2021, 5),
+    workSummary:
+      "Developed a system where users can manage their to-do things on their boards, and also join the same board to manage their collaborative to-do things.",
+    workServices: ["Web Development"],
+    workDetailsHref: "/works/todoist-clone",
+  },
+];

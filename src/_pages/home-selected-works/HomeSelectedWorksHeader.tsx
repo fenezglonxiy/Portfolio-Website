@@ -1,33 +1,18 @@
 /** @jsxImportSource @emotion/react */
 
-import { Button } from "@/_components/Button";
-import { Typography } from "@/_components/Typography";
+"use client";
+
+import { useTheme } from "@mui/material";
 
 import getHomeSelectedWorksHeaderCss from "./getHomeSelectedWorksHeaderCss";
 
-export type HomeSelectedWorksHeaderProps =
-  React.HTMLAttributes<HTMLDivElement> & {
-    children?: undefined | null;
-  };
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HomeSelectedWorksHeader(props: HomeSelectedWorksHeaderProps) {
-  const css = getHomeSelectedWorksHeaderCss();
+function HomeSelectedWorksHeader(props: Props) {
+  const theme = useTheme();
+  const css = getHomeSelectedWorksHeaderCss(theme);
 
-  return (
-    <div css={css} {...props}>
-      <div>
-        <Typography variant="h3" fontWeight="semi-bold">
-          Selected works
-        </Typography>
-      </div>
-
-      <div>
-        <Button href="/works" variant="outlined" color="primary" size="large">
-          View All Works
-        </Button>
-      </div>
-    </div>
-  );
+  return <div css={css} {...props} />;
 }
 
 export default HomeSelectedWorksHeader;

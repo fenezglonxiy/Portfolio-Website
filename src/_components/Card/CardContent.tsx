@@ -1,13 +1,6 @@
-/** @jsxImportSource @emotion/react */
-
-"use client";
-
-import { CardContent as MUICardContent, useTheme } from "@mui/material";
+import { CardContent as MUICardContent } from "@mui/material";
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import React from "react";
-
-import getCardContentCss from "./getCardContentCss";
-import { useCardContext } from "./CardContext";
 
 type CardContentBaseProps = React.ComponentPropsWithoutRef<"div">;
 
@@ -24,11 +17,7 @@ const CardContent = React.forwardRef(function CardContent(
   props: CardContentProps,
   ref: React.Ref<HTMLDivElement>
 ) {
-  const { inverted } = useCardContext();
-  const theme = useTheme();
-  const css = getCardContentCss(theme, props, inverted);
-
-  return <MUICardContent ref={ref} css={css} {...props} />;
+  return <MUICardContent ref={ref} {...props} />;
 });
 
 CardContent.displayName = "CardContent";

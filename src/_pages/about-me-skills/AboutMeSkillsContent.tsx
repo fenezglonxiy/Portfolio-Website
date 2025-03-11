@@ -1,25 +1,43 @@
-/** @jsxImportSource @emotion/react */
+import React from "react";
+import { styled } from "@mui/material";
+import memoTheme from "@mui/material/utils/memoTheme";
+import clsx from "clsx";
 
-"use client";
+import aboutMeSkillsContentClasses from "./aboutMeSkillsContentClasses";
 
-import { useTheme } from "@mui/material";
+type AboutMeSkillsContentRootProps = React.ComponentPropsWithoutRef<"div">;
 
-import getAboutMeSkillsContentCss from "./getAboutMeSkillsContentCss";
+const AboutMeSkillsContentRoot = styled("div", {
+  name: "PwAboutMeSkillsContent",
+  slot: "Root",
+})<AboutMeSkillsContentRootProps>(
+  memoTheme(({ theme }) => ({
+    padding: `${theme.spacing(10)} 0 ${theme.spacing(27)}`,
 
-export type AboutMeSkillsContentProps = React.ComponentPropsWithoutRef<"div">;
+    [`& > .pin-spacer`]: {
+      maxWidth: "100% !important",
+      width: "100% !important",
+    },
+  }))
+);
 
-function AboutMeSkillsContent(props: AboutMeSkillsContentProps) {
-  const { children, ...rest } = props;
-  const theme = useTheme();
-  const css = getAboutMeSkillsContentCss(theme);
+type Props = AboutMeSkillsContentRootProps;
+
+const AboutMeSkillsContent = React.forwardRef(function AboutMeSkillsContent(
+  props: Props,
+  ref: React.Ref<HTMLDivElement>
+) {
+  const { className, ...rest } = props;
 
   return (
-    <div css={css.root} {...rest}>
-      <div css={css.container} className="flow-spacer-y">
-        {children}
-      </div>
-    </div>
+    <AboutMeSkillsContentRoot
+      ref={ref}
+      className={clsx(aboutMeSkillsContentClasses.root, className)}
+      {...rest}
+    />
   );
-}
+});
+
+AboutMeSkillsContent.displayName = "AboutMeSkillsContent";
 
 export default AboutMeSkillsContent;

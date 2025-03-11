@@ -14,10 +14,8 @@ function SideDetails(props: SideDetailsProps) {
   const css = getSideDetailsCss(theme);
 
   return (
-    <aside css={css.root} {...rest}>
-      <ul css={css.container} className="flow-spacer-y">
-        {children}
-      </ul>
+    <aside {...rest}>
+      <ul css={css.content}>{children}</ul>
     </aside>
   );
 }

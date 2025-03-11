@@ -1,8 +1,8 @@
 import { HeroContainer, HeroContainerProps } from "@/_components/hero";
 
-export type WorkDetailsHeroContainerProps = HeroContainerProps;
+type Props = HeroContainerProps;
 
-function WorkDetailsHeroContainer(props: WorkDetailsHeroContainerProps) {
+function WorkDetailsHeroContainer(props: Props) {
   return <HeroContainer verticalSpacing={6} {...props} />;
 }
 

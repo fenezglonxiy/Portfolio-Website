@@ -7,9 +7,9 @@ import clsx from "clsx";
 
 import getInsightCardTextCss from "./getInsightCardTextCss";
 
-export type InsightCardTextProps = React.ComponentPropsWithoutRef<"div">;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function InsightCardText(props: InsightCardTextProps) {
+function InsightCardText(props: Props) {
   const { className, ...rest } = props;
   const theme = useTheme();
   const css = getInsightCardTextCss(theme);

@@ -1,19 +1,18 @@
-import { Button } from "@/_components/Button";
-import { ArrowRight } from "@/_icons";
+/** @jsxImportSource @emotion/react */
 
-function HeaderLetsTalk() {
-  return (
-    <div>
-      <Button
-        href="/contact"
-        variant="outlined"
-        iconPosition="end"
-        icon={<ArrowRight size="sm" />}
-      >
-        Let’s Talk
-      </Button>
-    </div>
-  );
+"use client";
+
+import { useTheme } from "@mui/material";
+
+import getHeaderLetsTalkCss from "./getHeaderLetsTalkCss";
+
+type Props = React.ComponentPropsWithoutRef<"div">;
+
+function HeaderLetsTalk(props: Props) {
+  const theme = useTheme();
+  const css = getHeaderLetsTalkCss(theme);
+
+  return <div css={css} {...props} />;
 }
 
 export default HeaderLetsTalk;

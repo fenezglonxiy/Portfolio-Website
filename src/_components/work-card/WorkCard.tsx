@@ -1,95 +1,76 @@
+/** @jsxImportSource @emotion/react */
+
+"use client";
+
+import { useTheme } from "@mui/material";
+
 import { Card, CardProps } from "@/_components/Card";
 import { Button } from "@/_components/Button";
+import { VisuallyHidden } from "@/_components/visually-hidden";
+import { WorkCardDetails } from "@/types";
 
 import WorkCardMedia from "./WorkCardMedia";
 import WorkCardContent from "./WorkCardContent";
-import WorkCardWorkOverview from "./WorkCardWorkOverview";
+import WorkOverview from "./WorkOverview";
 import WorkCardContentBox from "./WorkCardContentBox";
-import WorkCardWorkTitle from "./WorkCardWorkTitle";
-import WorkCardWorkTimestamps from "./WorkCardWorkTimestamps";
-import WorkCardWorkSummary from "./WorkCardWorkSummary";
+import WorkTitle from "./WorkTitle";
+import WorkTimeTracking from "./WorkTimeTracking";
+import WorkSummary from "./WorkSummary";
 import WorkCardActions from "./WorkCardActions";
-import WorkCardWorkBusinessSectors from "./WorkCardWorkBusinessSectors";
+import WorkBusinessSectorBox from "./WorkBusinessSectorBox";
+import WorkTimePoint from "./WorkTimePoint";
+import WorkBusinessSector from "./WorkBusinessSector";
+import WorkTimePointDivider from "./WorkTimePointDivider";
+import getWorkCardCss from "./getWorkCardCss";
 
-export type WorkCardDetails = {
-  /**
-   * Control the card thumbnail.
-   */
-  thumbnailSrc: string;
+type Props = Omit<CardProps, "children"> &
+  Omit<WorkCardDetails, "workServices">;
 
-  /**
-   * The work title.
-   */
-  workTitle: string;
-
-  /**
-   * The business sectors that the work relates to.
-   */
-  workBusinessSectors: string[];
-
-  /**
-   * The date when the work begins.
-   */
-  workStartDate: moment.Moment;
-
-  /**
-   * The work duration.
-   */
-  workDuration: moment.Duration;
-
-  /**
-   * A summary of what you have achieved during the work.
-   */
-  workSummary: string;
-
-  /**
-   * A URL or path to navigate to the details page of work.
-   */
-  workDetailsHref: string;
-
-  /**
-   * Restrict providing children.
-   */
-  children?: undefined | null;
-};
-
-export type WorkCardProps = CardProps & WorkCardDetails;
-
-function WorkCard(props: WorkCardProps) {
+function WorkCard(props: Props) {
   const {
-    thumbnailSrc,
+    mediaSrc,
     workTitle,
     workBusinessSectors,
     workStartDate,
-    workDuration,
+    workEndDate,
     workSummary,
     workDetailsHref,
     ...rest
   } = props;
 
+  const theme = useTheme();
+  const css = getWorkCardCss(theme);
+
   return (
-    <Card {...rest}>
-      <WorkCardMedia component="img" src={thumbnailSrc} />
+    <Card css={css} {...rest}>
+      <VisuallyHidden href={workDetailsHref} label={workTitle}>
+        <WorkCardMedia component="img" src={mediaSrc} />
+      </VisuallyHidden>
 
       <WorkCardContent>
-        <WorkCardWorkOverview>
-          <WorkCardContentBox verticalSpacing={3}>
-            <WorkCardWorkTitle>{workTitle}</WorkCardWorkTitle>
+        <VisuallyHidden href={workDetailsHref} label={workTitle}>
+          <WorkOverview>
+            <WorkCardContentBox verticalSpacing={3}>
+              <WorkTitle>{workTitle}</WorkTitle>
 
-            <WorkCardContentBox verticalSpacing={2}>
-              <WorkCardWorkBusinessSectors
-                businessSectors={workBusinessSectors}
-              />
+              <WorkCardContentBox verticalSpacing={2}>
+                <WorkBusinessSectorBox>
+                  {workBusinessSectors.map((businessSector, idx) => (
+                    <WorkBusinessSector key={idx} label={businessSector} />
+                  ))}
+                </WorkBusinessSectorBox>
 
-              <WorkCardWorkTimestamps
-                startDate={workStartDate}
-                duration={workDuration}
-              />
+                <WorkTimeTracking>
+                  <WorkTimePoint>{workStartDate}</WorkTimePoint>
+                  <WorkTimePointDivider />
+                  <WorkTimePoint>{workEndDate}</WorkTimePoint>
+                </WorkTimeTracking>
+              </WorkCardContentBox>
             </WorkCardContentBox>
-          </WorkCardContentBox>
 
-          <WorkCardWorkSummary>{workSummary}</WorkCardWorkSummary>
-        </WorkCardWorkOverview>
+            <WorkSummary>{workSummary}</WorkSummary>
+          </WorkOverview>
+        </VisuallyHidden>
 
         <WorkCardActions>
           <Button href={workDetailsHref} variant="contained" color="primary">

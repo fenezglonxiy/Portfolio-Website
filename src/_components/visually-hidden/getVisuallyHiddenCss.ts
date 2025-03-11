@@ -3,7 +3,7 @@ import { css } from "@mui/material";
 const getVisuallyHiddenCss = () => css`
   position: relative;
 
-  & a {
+  & > a {
     position: absolute;
     inset: 0;
   }

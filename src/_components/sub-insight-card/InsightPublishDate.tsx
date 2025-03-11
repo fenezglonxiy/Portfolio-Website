@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 import { Typography } from "@/_components/Typography";
 import { InsightCardDetails } from "@/types";
 
@@ -24,7 +26,7 @@ function InsightPublishDate(props: InsightPublishDateProps) {
       fontWeight="regular"
       {...rest}
     >
-      {date.format("MMM DD, YYYY")}
+      {format(date, "MMM dd , yyyy")}
     </Typography>
   );
 }

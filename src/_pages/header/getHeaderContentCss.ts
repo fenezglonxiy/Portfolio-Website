@@ -1,20 +1,30 @@
 import { css, Theme } from "@mui/material";
 
-const getHeaderContentRootCss = (theme: Theme) => css`
-  display: flex;
-  justify-content: center;
-  padding: ${theme.spacing(4)} ${theme.spacing(15)};
-`;
+const getHeaderContentCss = (theme: Theme) => css`
+  position: fixed;
+  width: 100%;
+  height: 82px;
+  top: 0;
+  left: 0;
+  transition: all ease 0.3s;
+  z-index: ${theme.zIndex.header};
+  background-color: ${theme.palette.common.white};
+  border-bottom: 1px solid ${theme.palette.neutral[200]};
 
-const getHeaderContentContainerCss = (theme: Theme) => css`
-  display: flex;
-  align-items: center;
-  gap: ${theme.spacing(8)};
-`;
+  ${theme.breakpoints.down(theme.breakpoints.values.lg)} {
+    padding: 0 ${theme.spacing(10)};
+  }
 
-const getHeaderContentCss = (theme: Theme) => ({
-  root: getHeaderContentRootCss(theme),
-  container: getHeaderContentContainerCss(theme),
-});
+  ${theme.breakpoints.down(theme.breakpoints.values.sm)} {
+    padding: 0 ${theme.spacing(5)};
+    height: 74px;
+  }
+
+  &[data-burger-nav-menu-opened="true"] {
+    color: ${theme.palette.common.white};
+    background-color: ${theme.palette.neutral[900]};
+    border-bottom-color: ${theme.palette.common.white};
+  }
+`;
 
 export default getHeaderContentCss;

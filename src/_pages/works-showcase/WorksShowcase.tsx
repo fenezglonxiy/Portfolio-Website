@@ -1,79 +1,21 @@
-/** @jsxImportSource @emotion/react */
+import { workShowcaseCards } from "@/dummyData";
+import { ExpandedWorkCard } from "@/_components/expanded-work-card";
 
-"use client";
-
-import { useTheme } from "@mui/material";
-import moment from "moment";
-
-import getWorksShowcaseCss from "./getWorksShowcaseCss";
 import WorksShowcaseContent from "./WorksShowcaseContent";
-import { WorkShowcaseCard } from "./work-showcase-card";
 
-export type WorksShowcaseProps = React.HTMLAttributes<HTMLDivElement> & {
-  children?: undefined | null;
-};
+type Props = Omit<React.ComponentPropsWithoutRef<"section">, "children">;
 
-const works = [
-  {
-    thumbnailSrc: "image.png",
-    workTitle: "Struktura",
-    workBusinessSectors: ["Construction", "Test"],
-    workStartDate: moment(),
-    workDuration: moment.duration(2, "month"),
-    workSummary:
-      "This exploration centers on crafting an engaging layout, selecting an appealing color palette, and utilizing captivating imagery to enhance the overall user experience",
-    workServices: ["Web Design", "Web Development", "Mobile Development"],
-    workDetailsHref: "/",
-  },
-  {
-    thumbnailSrc: "image.png",
-    workTitle: "Struktura",
-    workBusinessSectors: ["Construction", "Test"],
-    workStartDate: moment(),
-    workDuration: moment.duration(2, "month"),
-    workSummary:
-      "This exploration centers on crafting an engaging layout, selecting an appealing color palette, and utilizing captivating imagery to enhance the overall user experience",
-    workServices: ["Web Design", "Web Development", "Mobile Development"],
-    workDetailsHref: "/",
-  },
-  {
-    thumbnailSrc: "image.png",
-    workTitle: "Struktura",
-    workBusinessSectors: ["Construction", "Test"],
-    workStartDate: moment(),
-    workDuration: moment.duration(2, "month"),
-    workSummary:
-      "This exploration centers on crafting an engaging layout, selecting an appealing color palette, and utilizing captivating imagery to enhance the overall user experience",
-    workServices: ["Web Design", "Web Development", "Mobile Development"],
-    workDetailsHref: "/",
-  },
-  {
-    thumbnailSrc: "image.png",
-    workTitle: "Struktura",
-    workBusinessSectors: ["Construction", "Test"],
-    workStartDate: moment(),
-    workDuration: moment.duration(2, "month"),
-    workSummary:
-      "This exploration centers on crafting an engaging layout, selecting an appealing color palette, and utilizing captivating imagery to enhance the overall user experience",
-    workServices: ["Web Design", "Web Development", "Mobile Development"],
-    workDetailsHref: "/",
-  },
-];
-
-function WorksShowcase(props: WorksShowcaseProps) {
-  const theme = useTheme();
-  const css = getWorksShowcaseCss(theme);
-
+function WorksShowcase(props: Props) {
   return (
-    <section css={css} {...props}>
+    <section {...props}>
       <WorksShowcaseContent>
-        {works.map((work, idx) => (
-          <WorkShowcaseCard
+        {workShowcaseCards.map((work, idx) => (
+          <ExpandedWorkCard
             key={idx}
-            thumbnailSrc={work.thumbnailSrc}
+            mediaSrc={work.mediaSrc}
             workBusinessSectors={work.workBusinessSectors}
             workDetailsHref={work.workDetailsHref}
-            workDuration={work.workDuration}
+            workEndDate={work.workEndDate}
             workServices={work.workServices}
             workStartDate={work.workStartDate}
             workSummary={work.workSummary}

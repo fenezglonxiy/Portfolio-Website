@@ -2,25 +2,17 @@
 
 "use client";
 
+import { useTheme } from "@mui/material";
+
 import getHomeAboutMeDetailsCss from "./getHomeAboutMeDetailsCss";
-import HomeAboutMeSkills from "./HomeAboutMeSkills";
-import HomeAboutMeBusinessAttention from "./HomeAboutMeBusinessAttention";
 
-type HomeAboutMeDetailsProps = Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  "children"
->;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HomeAboutMeDetails(props: HomeAboutMeDetailsProps) {
-  const css = getHomeAboutMeDetailsCss();
+function HomeAboutMeDetails(props: Props) {
+  const theme = useTheme();
+  const css = getHomeAboutMeDetailsCss(theme);
 
-  return (
-    <div css={css.root} {...props}>
-      <HomeAboutMeBusinessAttention />
-
-      <HomeAboutMeSkills />
-    </div>
-  );
+  return <div css={css} {...props} />;
 }
 
 export default HomeAboutMeDetails;

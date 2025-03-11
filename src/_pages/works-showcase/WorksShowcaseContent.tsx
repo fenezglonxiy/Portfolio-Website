@@ -3,20 +3,16 @@
 "use client";
 
 import { useTheme } from "@mui/material";
-import clsx from "clsx";
 
 import getWorksShowcaseContentCss from "./getWorksShowcaseContentCss";
 
-export type WorksShowcaseContentProps = React.HTMLAttributes<HTMLDivElement>;
+type Props = React.HTMLAttributes<HTMLDivElement>;
 
-function WorksShowcaseContent(props: WorksShowcaseContentProps) {
-  const { className, ...rest } = props;
+function WorksShowcaseContent(props: Props) {
   const theme = useTheme();
   const css = getWorksShowcaseContentCss(theme);
 
-  return (
-    <div css={css} className={clsx("flow-spacer-y", className)} {...rest} />
-  );
+  return <div css={css} {...props} />;
 }
 
 export default WorksShowcaseContent;

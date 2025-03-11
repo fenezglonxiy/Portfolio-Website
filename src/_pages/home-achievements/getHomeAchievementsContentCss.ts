@@ -1,20 +1,20 @@
 import { css, Theme } from "@mui/material";
 
-const getHomeAchievementsContentRootCss = (theme: Theme) => css`
+const getHomeAchievementsContentCss = (theme: Theme) => css`
   padding: ${theme.spacing(30)} 0 ${theme.spacing(20)};
-`;
+  background-color: ${theme.palette.neutral[200]};
 
-const getHomeAchievementsContentContainerCss = (theme: Theme) => css`
-  max-width: 1050px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: ${theme.spacing(8)};
-`;
+  ${theme.breakpoints.down(theme.breakpoints.values.xl)} {
+    padding: ${theme.spacing(20)};
+  }
 
-const getHomeAchievementsContentCss = (theme: Theme) => ({
-  root: getHomeAchievementsContentRootCss(theme),
-  container: getHomeAchievementsContentContainerCss(theme),
-});
+  ${theme.breakpoints.down(theme.breakpoints.values.md)} {
+    padding: ${theme.spacing(20)} ${theme.spacing(10)};
+  }
+
+  ${theme.breakpoints.down(theme.breakpoints.values.sm)} {
+    padding: ${theme.spacing(20)} ${theme.spacing(5)};
+  }
+`;
 
 export default getHomeAchievementsContentCss;

@@ -5,27 +5,36 @@
 import {
   CardMedia as MUICardMedia,
   CardMediaProps as MUICardMediaProps,
+  ThemeOptions,
   useTheme,
 } from "@mui/material";
 import React from "react";
 
 import getCardMediaCss from "./getCardMediaCss";
-import { useCardContext } from "./CardContext";
 
-export type CardMediaProps = MUICardMediaProps;
+export type CardMediaProps = MUICardMediaProps & {
+  /**
+   * Control the border-radius of the media.
+   *
+   * @default "none"
+   */
+  borderRadius?: keyof Omit<
+    NonNullable<ThemeOptions["shape"]>,
+    "pill" | "circle"
+  >;
+};
 
 const CardMedia = React.forwardRef(function CardMedia(
   props: CardMediaProps,
   ref: React.Ref<HTMLDivElement>
 ) {
-  const { className, ...rest } = props;
-  const { inverted } = useCardContext();
+  const { className, borderRadius = "none", ...rest } = props;
   const theme = useTheme();
-  const css = getCardMediaCss(theme, props, inverted);
+  const css = getCardMediaCss(theme, { ...rest, borderRadius });
 
   return (
-    <div className={className} css={css.root}>
-      <MUICardMedia ref={ref} component="img" css={css.media} {...rest} />
+    <div className={className}>
+      <MUICardMedia ref={ref} css={css.media} {...rest} />
     </div>
   );
 });

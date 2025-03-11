@@ -13,6 +13,13 @@ type ListBaseProps = {
    * If `true`, vertical padding is removed from the list.
    */
   disablePadding?: boolean;
+
+  /**
+   * The element used for the root node.
+   *
+   * @default "ul"
+   */
+  component?: "ul" | "ol";
 };
 
 export interface ListTypeMap<D extends React.ElementType = "ul"> {
@@ -22,13 +29,15 @@ export interface ListTypeMap<D extends React.ElementType = "ul"> {
 
 export type ListProps<
   D extends React.ElementType = ListTypeMap["defaultComponent"]
-> = OverrideProps<ListTypeMap<D>, D> & { component?: React.ElementType };
+> = OverrideProps<ListTypeMap<D>, D>;
 
 const List = React.forwardRef(function List(
   props: ListProps,
   ref: React.Ref<HTMLUListElement>
 ) {
-  return <MUIList ref={ref} {...props} />;
+  const { component = "ul", ...rest } = props;
+
+  return <MUIList ref={ref} component={component} {...rest} />;
 });
 
 List.displayName = "List";

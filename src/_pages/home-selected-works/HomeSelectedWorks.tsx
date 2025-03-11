@@ -1,30 +1,69 @@
-/** @jsxImportSource @emotion/react */
-
 "use client";
 
-import { useTheme } from "@mui/material";
-import { workCard } from "@/dummyData";
+import { Typography } from "@/_components/Typography";
+import { Button } from "@/_components/Button";
+import { WorkCard } from "@/_components/work-card";
+import { workCards } from "@/dummyData";
 
-import getHomeSelectedWorksCss from "./getHomeSelectedWorksCss";
 import HomeSelectedWorksContent from "./HomeSelectedWorksContent";
 import HomeSelectedWorksHeader from "./HomeSelectedWorksHeader";
-import HomeSelectedWorksShowcase from "./HomeSelectedWorksShowcase";
+import SelectedWorksShowcase from "./SelectedWorksShowcase";
+import HomeSelectedWorksContainer from "./HomeSelectedWorksContainer";
+import HomeSelectedWorksCTABox from "./HomeSelectedWorksCTABox";
+import HomeSelectedWorksHeaderCTABox from "./HomeSelectedWorksHeaderCTABox";
 
-export type HomeSelectedWorksProps = Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  "children"
->;
+type Props = Omit<React.HTMLAttributes<HTMLDivElement>, "children">;
 
-function HomeSelectedWorks(props: HomeSelectedWorksProps) {
-  const theme = useTheme();
-  const css = getHomeSelectedWorksCss(theme);
-
+function HomeSelectedWorks(props: Props) {
   return (
-    <section css={css} {...props}>
+    <section {...props}>
       <HomeSelectedWorksContent>
-        <HomeSelectedWorksHeader />
+        <HomeSelectedWorksContainer>
+          <HomeSelectedWorksHeader>
+            <Typography variant="h3" fontWeight="semi-bold">
+              Selected works
+            </Typography>
 
-        <HomeSelectedWorksShowcase works={Array(4).fill(workCard)} />
+            <HomeSelectedWorksHeaderCTABox>
+              <Button
+                href="/works"
+                variant="outlined"
+                color="primary"
+                size="large"
+              >
+                View All Works
+              </Button>
+            </HomeSelectedWorksHeaderCTABox>
+          </HomeSelectedWorksHeader>
+
+          <SelectedWorksShowcase>
+            {workCards.map((work, idx) => (
+              <WorkCard
+                key={idx}
+                mediaSrc={work.mediaSrc}
+                workTitle={work.workTitle}
+                workBusinessSectors={work.workBusinessSectors}
+                workStartDate={work.workStartDate}
+                workEndDate={work.workEndDate}
+                workSummary={work.workSummary}
+                workDetailsHref={work.workDetailsHref}
+              />
+            ))}
+          </SelectedWorksShowcase>
+
+          <HomeSelectedWorksCTABox>
+            <Button
+              href="/works"
+              variant="outlined"
+              color="primary"
+              size="medium"
+              shape="pill"
+              fullWidth
+            >
+              View All Works
+            </Button>
+          </HomeSelectedWorksCTABox>
+        </HomeSelectedWorksContainer>
       </HomeSelectedWorksContent>
     </section>
   );

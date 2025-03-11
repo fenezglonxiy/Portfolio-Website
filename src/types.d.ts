@@ -1,18 +1,6 @@
 import { ThemeOptions } from "@mui/material/styles";
 import { Url } from "next/dist/shared/lib/router/router";
 
-type NavItem = {
-  /**
-   * Control the URL or path to navigate to.
-   */
-  href: string;
-
-  /**
-   * Control the link label.
-   */
-  label: string;
-};
-
 type Achievement = {
   /**
    * A URL or path to navigate to the svg icon or the svg image of the
@@ -38,12 +26,12 @@ type Achievement = {
   /**
    * The date when the achievement title is first achieved.
    */
-  date: moment.Moment;
+  achievementDate: Date;
 
   /**
-   * The period that the achievement title is achieved.
+   * The date when the achievement title is expired.
    */
-  duration?: moment.Duration;
+  expiryDate?: Date;
 
   /**
    * A URL or path to navigate to the achievement.
@@ -60,6 +48,48 @@ type BorderRadius =
   | keyof Omit<NonNullable<ThemeOptions["shape"]>, "pill" | "circle">
   | "match-parent"
   | "inherit";
+
+export type WorkCardDetails = {
+  /**
+   * Control the card media source.
+   */
+  mediaSrc: string;
+
+  /**
+   * The work title.
+   */
+  workTitle: string;
+
+  /**
+   * The business sectors that the work relates to.
+   */
+  workBusinessSectors: string[];
+
+  /**
+   * The date when the work begins.
+   */
+  workStartDate: Date;
+
+  /**
+   * The date when the work ends.
+   */
+  workEndDate: Date;
+
+  /**
+   * An summary of what you have achieved during the work.
+   */
+  workSummary: string;
+
+  /**
+   * A URL or path to navigate to the details page of work.
+   */
+  workDetailsHref: string;
+
+  /**
+   * The services that the work provides.
+   */
+  workServices: string[];
+};
 
 export type InsightCardDetails = {
   /**
@@ -90,7 +120,7 @@ export type InsightCardDetails = {
   /**
    * The publish date of the insight.
    */
-  publishDate: moment.Moment;
+  publishDate: Date;
 
   /**
    * The subject that the insight discusses.

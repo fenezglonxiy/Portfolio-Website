@@ -17,7 +17,7 @@ type FontStyle = keyof MUIFontStyle;
 
 export type TypographyVariants = keyof Omit<
   MUITypographyVariants,
-  "pxToRem" | FontStyle
+  "pxToRem" | FontStyle | "button" | "overline"
 >;
 
 const typographyElementByVariant: Record<
@@ -39,8 +39,6 @@ const typographyElementByVariant: Record<
   body2Medium: "p",
   caption: "p",
   inherit: "p",
-  overline: "p",
-  button: "p",
 };
 
 type TypographyBaseProps = {
@@ -127,6 +125,12 @@ type TypographyBaseProps = {
    * @default "none"
    */
   transform?: "uppercase" | "lowercase" | "capitalize" | "inherit" | "none";
+
+  /**
+   * The maximum number of lines of the text content.
+   * If it is exceeded, the rest will be replaced by ellipsis.
+   */
+  lineClamp?: React.CSSProperties["WebkitLineClamp"];
 };
 
 export interface TypographyTypeMap<D extends React.ElementType = "p"> {
@@ -143,13 +147,14 @@ const Typography = React.forwardRef(function Typography(
   ref: React.Ref<HTMLSpanElement>
 ) {
   const {
+    component,
     align = "inherit",
     display,
     variant = "body1",
     color = "inherit",
     transform = "none",
     fontWeight,
-    component,
+    lineClamp,
     ...rest
   } = props;
   const theme = useTheme();
@@ -161,6 +166,7 @@ const Typography = React.forwardRef(function Typography(
     color,
     transform,
     fontWeight,
+    lineClamp,
   });
 
   return (
@@ -170,6 +176,7 @@ const Typography = React.forwardRef(function Typography(
         component ||
         typographyElementByVariant[variant as NonNullable<TypographyVariants>]
       }
+      variant={variant}
       css={css}
       {...rest}
     />

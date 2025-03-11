@@ -1,5 +1,5 @@
-import moment from "moment";
 import clsx from "clsx";
+import { format } from "date-fns";
 
 import { Achievement } from "@/types";
 import { Typography, TypographyProps } from "@/_components/Typography";
@@ -9,12 +9,12 @@ export type AchievementTimelineDateProps =
     /**
      * The date when the achievement title is first achieved.
      */
-    date: Achievement["date"];
+    achievementDate: Achievement["achievementDate"];
 
     /**
-     * The period that the achievement title is achieved.
+     * The date when the achievement title is expired.
      */
-    duration?: Achievement["duration"];
+    expiryDate?: Achievement["expiryDate"];
 
     /**
      * Control the variant of the typography.
@@ -43,17 +43,19 @@ export type AchievementTimelineDateProps =
 
 function AchievementTimelineDate(props: AchievementTimelineDateProps) {
   const {
-    date,
-    duration,
+    achievementDate: achievementDateFromProps,
+    expiryDate: expiryDateFromProps,
     variant = "body1",
     color = "neutral-550",
     className,
     ...rest
   } = props;
-  const dateFormat = "MMMM YYYY";
-  const startDate = moment(date);
-  const endDate = duration ? startDate.add(duration) : undefined;
-  const isPresent = endDate?.format(dateFormat) === moment().format(dateFormat);
+  const dateFormat = "MMMM yyyy";
+  const achievementDate = format(achievementDateFromProps, dateFormat);
+  const expiryDate = expiryDateFromProps
+    ? format(expiryDateFromProps, dateFormat)
+    : undefined;
+  const isPresent = expiryDateFromProps?.getDate() === new Date().getTime();
 
   return (
     <Typography
@@ -64,15 +66,15 @@ function AchievementTimelineDate(props: AchievementTimelineDateProps) {
       {...rest}
     >
       <Typography component="span" variant="inherit">
-        {date.format(dateFormat)}
+        {achievementDate}
       </Typography>
-      {endDate && (
+      {expiryDate && (
         <>
           <Typography component="span" variant="inherit">
             -
           </Typography>
           <Typography component="span" variant="inherit">
-            {isPresent ? "Present" : endDate.format(dateFormat)}
+            {isPresent ? "Present" : expiryDate}
           </Typography>
         </>
       )}

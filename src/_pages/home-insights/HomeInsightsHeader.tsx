@@ -2,34 +2,17 @@
 
 "use client";
 
-import { Typography } from "@/_components/Typography";
-import { Button } from "@/_components/Button";
+import { useTheme } from "@mui/material";
 
 import getHomeInsightsHeaderCss from "./getHomeInsightsHeaderCss";
 
-export type HomeInsightsHeaderProps = Omit<
-  React.ComponentPropsWithoutRef<"div">,
-  "children"
->;
+type Props = React.ComponentPropsWithoutRef<"div">;
 
-function HomeInsightsHeader(props: HomeInsightsHeaderProps) {
-  const css = getHomeInsightsHeaderCss();
+function HomeInsightsHeader(props: Props) {
+  const theme = useTheme();
+  const css = getHomeInsightsHeaderCss(theme);
 
-  return (
-    <div css={css} {...props}>
-      <div>
-        <Typography variant="h3" color="neutral-800" fontWeight="semi-bold">
-          Insights
-        </Typography>
-      </div>
-
-      <div>
-        <Button href="/insights" variant="outlined" size="large">
-          View All Insights
-        </Button>
-      </div>
-    </div>
-  );
+  return <div css={css} {...props} />;
 }
 
 export default HomeInsightsHeader;

@@ -47,7 +47,7 @@ function NotFoundHero(props: NotFoundHeroProps) {
                       </span>
                     }
                   >
-                    Go home
+                    Go to home
                   </Button>
                 </NotFoundHeroCTABox>
               </NotFoundHeroText>

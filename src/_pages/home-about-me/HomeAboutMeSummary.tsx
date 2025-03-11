@@ -1,19 +1,27 @@
-import React from "react";
+/** @jsxImportSource @emotion/react */
+
+"use client";
+
+import { useTheme } from "@mui/material";
 
 import { Typography } from "@/_components/Typography";
 
-type HomeAboutMeSummaryProps = Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  "children"
->;
+import getHomeAboutMeSummaryCss from "./getHomeAboutMeSummaryCss";
 
-function HomeAboutMeSummary(props: HomeAboutMeSummaryProps) {
+type Props = Omit<React.ComponentPropsWithoutRef<"h1">, "color">;
+
+function HomeAboutMeSummary(props: Props) {
+  const theme = useTheme();
+  const css = getHomeAboutMeSummaryCss(theme);
+
   return (
-    <div {...props}>
-      <Typography variant="h1" color="neutral-900" fontWeight="semi-bold">
-        A web developer focused on creating efficient digital experience
-      </Typography>
-    </div>
+    <Typography
+      variant="h1"
+      color="neutral-900"
+      fontWeight="semi-bold"
+      css={css}
+      {...props}
+    />
   );
 }
 

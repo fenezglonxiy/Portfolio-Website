@@ -1,88 +1,47 @@
-"use client";
+import { Metadata } from "next";
+import { useLocale, useTimeZone } from "next-intl";
+import { ReactLenis } from "lenis/react";
 
 import ThemeProvider from "@/_theme/ThemeProvider";
-import createTheme from "@/_theme/createTheme";
 import { Header } from "@/_pages/header";
 import { Footer } from "@/_pages/footer";
+import IntlProvider from "@/i18n/IntlProvider";
+import FontIconLinks from "@/_icons/FontIconLinks";
+import { PageTransition } from "@/_pages/page-transition";
 
 import "./globals.css";
 
-const theme = createTheme();
+export const metadata: Metadata = {
+  title: {
+    default: "TranHoangDat - Portfolio Website",
+    template: "%s | TranHoangDat - Portfolio Website",
+  },
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = useLocale();
+  const timeZone = useTimeZone();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
-        <link
-          rel="stylesheet"
-          href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css"
-        />
-
-        <link
-          rel="stylesheet"
-          href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-thin.css"
-        />
-
-        <link
-          rel="stylesheet"
-          href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-solid.css"
-        />
-
-        <link
-          rel="stylesheet"
-          href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-regular.css"
-        />
-
-        <link
-          rel="stylesheet"
-          href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-light.css"
-        />
-
-        <link
-          rel="stylesheet"
-          href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-thin.css"
-        />
-
-        <link
-          rel="stylesheet"
-          href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-solid.css"
-        />
-
-        <link
-          rel="stylesheet"
-          href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-regular.css"
-        />
-
-        <link
-          rel="stylesheet"
-          href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-light.css"
-        />
-
-        <link
-          rel="stylesheet"
-          href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css"
-        />
-
-        <link
-          rel="stylesheet"
-          href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-regular.css"
-        />
-
-        <link
-          rel="stylesheet"
-          href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-light.css"
-        />
+        <FontIconLinks />
       </head>
       <body>
-        <ThemeProvider theme={theme}>
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <IntlProvider locale={locale} timeZone={timeZone}>
+          <ReactLenis root>
+            <ThemeProvider>
+              <PageTransition />
+              <Header />
+              {children}
+              <Footer />
+            </ThemeProvider>
+          </ReactLenis>
+        </IntlProvider>
       </body>
     </html>
   );

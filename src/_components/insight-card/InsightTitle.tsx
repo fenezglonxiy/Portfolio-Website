@@ -1,27 +1,16 @@
-/** @jsxImportSource @emotion/react */
-
-"use client";
-
 import React from "react";
 
 import { Typography } from "@/_components/Typography";
 
-import getInsightTitleCss from "./getInsightTitleCss";
+type Props = Omit<React.ComponentPropsWithoutRef<"h4">, "color">;
 
-export type InsightTitleProps = Omit<
-  React.HTMLAttributes<HTMLHeadingElement>,
-  "color"
->;
-
-function InsightTitle(props: InsightTitleProps) {
-  const css = getInsightTitleCss();
-
+function InsightTitle(props: Props) {
   return (
     <Typography
       component="h4"
       variant="subtitle2"
       fontWeight="bold"
-      css={css}
+      lineClamp={3}
       {...props}
     />
   );

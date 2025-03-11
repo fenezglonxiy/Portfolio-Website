@@ -22,6 +22,13 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/_components/insight-card/main-insight-card/TopicInsight.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/_components/insight-card/main-insight-card/TopicInsight.tsx",
+    "src/_components/expanded-work-card/ExpandedWorkCardText.tsx"
+  ],
   "exclude": ["node_modules"]
 }

@@ -2,14 +2,17 @@
 
 "use client";
 
+import { useTheme } from "@mui/material";
+
 import { CardMedia, CardMediaProps } from "@/_components/Card";
 
 import getInsightCardMediaCss from "./getInsightCardMediaCss";
 
-export type InsightCardMediaProps = CardMediaProps;
+type Props = CardMediaProps;
 
-function InsightCardMedia(props: InsightCardMediaProps) {
-  const css = getInsightCardMediaCss();
+function InsightCardMedia(props: Props) {
+  const theme = useTheme();
+  const css = getInsightCardMediaCss(theme);
 
   return <CardMedia css={css} {...props} />;
 }

@@ -128,7 +128,7 @@ const InfiniteScrollerContent = React.forwardRef(
     });
 
     return (
-      <div ref={mergeRefs(ref, componentRef)} css={css} {...rest}>
+      <div ref={mergeRefs(ref, componentRef)} css={css} tabIndex={-1} {...rest}>
         {children}
       </div>
     );

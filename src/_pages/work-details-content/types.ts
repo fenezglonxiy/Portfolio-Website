@@ -1,15 +1,20 @@
-import moment from "moment";
+import { Url } from "next/dist/shared/lib/router/router";
 
 export type WorkDetails = {
   /**
-   * The date when the work begins.
+   * The number of participants who participate in the work.
    */
-  startDate: moment.Moment;
+  teamSize: number;
 
   /**
-   * The work duration.
+   * The date when the work begins.
    */
-  duration: moment.Duration;
+  startDate: Date;
+
+  /**
+   * The date when the work ends.
+   */
+  endDate: Date;
 
   /**
    * The business sectors that the work relates to.
@@ -34,5 +39,20 @@ export type WorkDetails = {
   /**
    * Describe the results achieved after the work duration.
    */
-  workResults: string;
+  results: string;
+
+  /**
+   * The link navigates to the git repository of the work.
+   */
+  git?: Url;
+
+  /**
+   * The link navigates to the demonstration of the work.
+   */
+  demo?: Url;
+
+  /**
+   * The link navigates to a deployment of the work.
+   */
+  deployment?: Url;
 };

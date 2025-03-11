@@ -8,9 +8,9 @@ import { CardActions, CardActionsProps } from "@/_components/Card";
 
 import getWorkCardActionsCss from "./getWorkCardActionsCss";
 
-export type WorkCardActionsProps = CardActionsProps;
+type Props = CardActionsProps;
 
-function WorkCardActions(props: WorkCardActionsProps) {
+function WorkCardActions(props: Props) {
   const theme = useTheme();
   const css = getWorkCardActionsCss(theme);
 

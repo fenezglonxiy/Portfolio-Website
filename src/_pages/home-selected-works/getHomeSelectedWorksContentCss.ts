@@ -1,18 +1,20 @@
 import { css, Theme } from "@mui/material";
 
-const getHomeSelectedWorksContentRootCss = (theme: Theme) => css`
+const getHomeSelectedWorksContentCss = (theme: Theme) => css`
   padding: ${theme.spacing(30)} ${theme.spacing(20)};
-`;
+  background-color: ${theme.palette.neutral[200]};
 
-const getHomeSelectedWorksContentContainerCss = (theme: Theme) => css`
-  max-width: 1050px;
-  margin-inline: auto;
-  --flow-spacing-y: ${theme.spacing(12)};
-`;
+  ${theme.breakpoints.down(theme.breakpoints.values.xl)} {
+    padding: ${theme.spacing(20)};
+  }
 
-const getHomeSelectedWorksContentCss = (theme: Theme) => ({
-  root: getHomeSelectedWorksContentRootCss(theme),
-  container: getHomeSelectedWorksContentContainerCss(theme),
-});
+  ${theme.breakpoints.down(theme.breakpoints.values.md)} {
+    padding: ${theme.spacing(20)} ${theme.spacing(10)};
+  }
+
+  ${theme.breakpoints.down(theme.breakpoints.values.sm)} {
+    padding: ${theme.spacing(20)} ${theme.spacing(5)};
+  }
+`;
 
 export default getHomeSelectedWorksContentCss;

@@ -1,18 +1,19 @@
 import { css, Theme } from "@mui/material";
 
-const getHomeAboutMeContentRootCss = (theme: Theme) => css`
+const getHomeAboutMeContentCss = (theme: Theme) => css`
   padding: ${theme.spacing(18)};
-`;
 
-const getHomeAboutMeContentContainerCss = (theme: Theme) => css`
-  max-width: 1080px;
-  margin: 0 auto;
-  --flow-spacing-y: ${theme.spacing(6)};
-`;
+  ${theme.breakpoints.down(theme.breakpoints.values.xl)} {
+    padding: ${theme.spacing(18)} ${theme.spacing(10)};
+  }
 
-const getHomeAboutMeContentCss = (theme: Theme) => ({
-  root: getHomeAboutMeContentRootCss(theme),
-  container: getHomeAboutMeContentContainerCss(theme),
-});
+  ${theme.breakpoints.down(theme.breakpoints.values.lg)} {
+    padding: ${theme.spacing(14)} ${theme.spacing(10)};
+  }
+
+  ${theme.breakpoints.down(theme.breakpoints.values.sm)} {
+    padding: ${theme.spacing(10)} ${theme.spacing(5)};
+  }
+`;
 
 export default getHomeAboutMeContentCss;
