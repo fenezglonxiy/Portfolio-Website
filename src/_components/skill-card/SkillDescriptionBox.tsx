@@ -13,13 +13,7 @@ const SkillDescriptionBoxRoot = styled("div", {
   memoTheme(({ theme }) => ({
     flex: 1,
     alignSelf: "flex-end",
-
-    [`${theme.breakpoints.between(
-      theme.breakpoints.values.md,
-      theme.breakpoints.values.lg
-    )}`]: {
-      paddingTop: theme.spacing(22),
-    },
+    paddingTop: theme.spacing(22),
   }))
 );
 

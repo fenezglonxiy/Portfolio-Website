@@ -13,6 +13,11 @@ const AboutMeSkillsContentRoot = styled("div", {
 })<AboutMeSkillsContentRootProps>(
   memoTheme(({ theme }) => ({
     padding: `${theme.spacing(10)} 0 ${theme.spacing(27)}`,
+
+    [`& > .pin-spacer`]: {
+      maxWidth: "100% !important",
+      width: "100% !important",
+    },
   }))
 );
 

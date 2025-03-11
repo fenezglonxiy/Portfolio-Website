@@ -9,7 +9,8 @@ const SkillShowcaseRoot = styled("section", {
   name: "PwAboutMeSkillShowcase",
   slot: "Root",
 })({
-  position: "relative",
+  maxWidth: "100% !important",
+  width: "100% !important",
 });
 
 type Props = SkillShowcaseRootProps;

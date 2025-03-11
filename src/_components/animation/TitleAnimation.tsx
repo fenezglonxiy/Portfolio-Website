@@ -4,7 +4,7 @@ import React from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger, CustomEase } from "gsap/all";
-import SplitType from "split-type";
+import { styled } from "@mui/material";
 
 import mergeRefs from "@/_utils/mergeRefs";
 
@@ -12,9 +12,10 @@ import {
   defaultDelay,
   defaultDuration,
   defaultStagger,
-  TextAnimationContent,
+  splitText,
   TextAnimationProps,
   TextAnimationRoot,
+  TextAnimationRootProps,
 } from "./TextAnimation";
 import textAnimationClasses from "./textAnimationClasses";
 
@@ -23,6 +24,13 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(CustomEase);
 CustomEase.create("quart.out", "0.25, 1, 0.5, 1");
 CustomEase.create("quad.out", "0.5, 1, 0.89, 1");
+
+type TitleAnimationRootProps = TextAnimationRootProps;
+
+const TitleAnimationRoot = styled(TextAnimationRoot, {
+  name: "PwTitleAnimation",
+  slot: "Root",
+})<TitleAnimationRootProps>({});
 
 type Props = TextAnimationProps;
 
@@ -43,16 +51,16 @@ const TitleAnimation = React.forwardRef(function TitleAnimation(
   const stagger = staggerFromProps ?? defaultStagger;
 
   const rootRef = React.useRef<HTMLDivElement>(null);
-  const contentRef = React.useRef<HTMLDivElement>(null);
+  const isTimelineCompletedRef = React.useRef<boolean>(false);
 
   useGSAP(
     () => {
-      if (!contentRef || !contentRef.current) {
+      if (!rootRef || !rootRef.current) {
         return;
       }
 
       const firstElementByClassName =
-        contentRef.current.getElementsByClassName(textBoxClassName)[0];
+        rootRef.current.getElementsByClassName(textBoxClassName)[0];
 
       if (firstElementByClassName === undefined) {
         return;
@@ -60,61 +68,78 @@ const TitleAnimation = React.forwardRef(function TitleAnimation(
 
       const textBoxElement = firstElementByClassName as HTMLElement;
 
-      const splitType = new SplitType(textBoxElement, {
-        types: "lines,words",
-        lineClass: textAnimationClasses.line,
-        wordClass: textAnimationClasses.word,
-      });
-
-      gsap.set(textBoxElement.firstChild, { perspective: "1000px" });
-      gsap.set(textBoxElement.children, { transformStyle: "preserve-3d" });
-
       const timeline = gsap.timeline({
-        scrollTrigger: `.${textAnimationClasses.content}`,
+        scrollTrigger: `.${textBoxClassName}`,
         delay,
-        onComplete: () => {
-          splitType.revert();
+      });
+
+      splitText(
+        textBoxElement,
+        {
+          types: "lines,words",
+          lineClass: textAnimationClasses.line,
+          wordClass: textAnimationClasses.word,
         },
-      });
-
-      const lines = splitType.lines;
-
-      if (lines === null) {
-        return;
-      }
-
-      lines.forEach((line, idx) => {
-        gsap.set(line, { transformOrigin: "50% 0" });
-
-        const position = idx / (stagger || 6);
-
-        timeline.fromTo(
-          line.getElementsByClassName(textAnimationClasses.word),
-          { y: "100%" },
-          {
-            y: 0,
-            duration,
-            ease: "quart.out",
+        rootRef.current,
+        (splitType) => {
+          if (isTimelineCompletedRef.current) {
+            return;
           }
-        );
 
-        timeline.fromTo(
-          line,
-          {
-            rotateX: "-35deg",
-            rotateY: "-5deg",
-            z: "-1rem",
-          },
-          {
-            rotateX: "0deg",
-            rotateY: "0deg",
-            z: "0rem",
-            duration,
-            ease: "quad.out",
-          },
-          position
-        );
-      });
+          timeline.clear(true);
+
+          splitType.split({
+            types: "lines,words",
+            lineClass: textAnimationClasses.line,
+            wordClass: textAnimationClasses.word,
+          });
+          gsap.set(textBoxElement.firstChild, { perspective: "1000px" });
+          gsap.set(textBoxElement.children, { transformStyle: "preserve-3d" });
+          const lines = splitType.lines;
+
+          if (lines === null) {
+            return;
+          }
+
+          lines.forEach((line, idx) => {
+            gsap.set(line, { transformOrigin: "50% 0" });
+
+            const position = idx / (stagger || 6);
+
+            timeline.fromTo(
+              line.getElementsByClassName(textAnimationClasses.word),
+              { y: "100%" },
+              {
+                y: 0,
+                duration,
+                ease: "quart.out",
+              }
+            );
+
+            timeline.fromTo(
+              line,
+              {
+                rotateX: "-35deg",
+                rotateY: "-5deg",
+                z: "-1rem",
+              },
+              {
+                rotateX: "0deg",
+                rotateY: "0deg",
+                z: "0rem",
+                duration,
+                ease: "quad.out",
+              },
+              position
+            );
+          });
+
+          timeline.eventCallback("onComplete", () => {
+            isTimelineCompletedRef.current = true;
+            splitType.revert();
+          });
+        }
+      );
 
       return () => {
         timeline.kill();
@@ -124,14 +149,13 @@ const TitleAnimation = React.forwardRef(function TitleAnimation(
   );
 
   return (
-    <TextAnimationRoot ref={mergeRefs(ref, rootRef)} {...rest}>
-      <TextAnimationContent
-        ref={contentRef}
-        textBoxClassName={textBoxClassName}
-      >
-        {children}
-      </TextAnimationContent>
-    </TextAnimationRoot>
+    <TitleAnimationRoot
+      ref={mergeRefs(ref, rootRef)}
+      textBoxClassName={textBoxClassName}
+      {...rest}
+    >
+      {children}
+    </TitleAnimationRoot>
   );
 });
 

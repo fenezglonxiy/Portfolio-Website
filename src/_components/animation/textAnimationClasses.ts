@@ -8,11 +8,6 @@ export interface TextAnimationClasses {
   root: string;
 
   /**
-   * Styles applied to the TextAnimationContent component.
-   */
-  content: string;
-
-  /**
    * Styles applied to the line box slot created by splitting text into line
    * boxes.
    */
