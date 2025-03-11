@@ -27,6 +27,7 @@ export function splitText(
   target: TargetElement,
   options: Partial<SplitTypeOptions>,
   containerElement?: Element,
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   debounceCallback?: (splitType: SplitType, entry: any) => void,
   debounceWait?: number,
   debounceOptions?: _.DebounceSettingsLeading
