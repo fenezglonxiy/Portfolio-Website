@@ -49,19 +49,19 @@ type Props = React.ComponentPropsWithoutRef<"section"> & {
 
 const skills = [
   {
-    mediaSrc: "/image.png",
+    mediaSrc: "/img/loading.jpg",
     title: "Nextjs Development",
     description:
-      "I have been working with ReactJS since 2021. With ReactJS or NextJS, I have built multiple applications of different sizes and in various areas: a Personal Website, a Task Management Web Application, an English Tutor Web Application, etc.",
+      "I have been working with ReactJS since 2021. With ReactJS or NextJS, I have built multiple applications of different sizes and in various areas: a Portfolio Website, a Task Management Web Application, an English Tutor Web Application, etc.",
   },
   {
-    mediaSrc: "/image.png",
+    mediaSrc: "/img/loading.jpg",
     title: "Angular Development",
     description:
       "I have around one year of experience working with Angular. During that time, I focused on the knowledge represented by the Angular official documentation and built a Real Estate Web Application. ",
   },
   {
-    mediaSrc: "/image.png",
+    mediaSrc: "/img/loading.jpg",
     title: "Backend Development",
     description:
       "For backend development, I know NodeJS, Spring Webflux, and Golang. Although I have a little practical experience in backend development, I have been cultivating knowledge of aspects besides technologies of backend development: OOP, OOP design patterns, SQL database, and Microservices.",

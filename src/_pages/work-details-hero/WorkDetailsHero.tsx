@@ -1,9 +1,10 @@
-import { Hero, HeroMedia, HeroProps, HeroTitle } from "@/_components/hero";
+import { Hero, HeroProps, HeroTitle } from "@/_components/hero";
 
 import WorkDetailsHeroContent from "./WorkDetailsHeroContent";
 import WorkDetailsHeroText from "./WorkDetailsHeroText";
 import WorkDetailsHeroContainer from "./WorkDetailsHeroContainer";
 import WorkDetailsHeroHeading from "./WorkDetailsHeroHeading";
+import WorkDetailsHeroMedia from "./WorkDetailsHeroMedia";
 
 export type WorkDetailsHeroProps = HeroProps & {
   /**
@@ -35,9 +36,7 @@ function WorkDetailsHero(props: WorkDetailsHeroProps) {
             <WorkDetailsHeroHeading>{summary}</WorkDetailsHeroHeading>
           </WorkDetailsHeroText>
 
-          <div>
-            <HeroMedia component="img" src={mediaSrc} />
-          </div>
+          <WorkDetailsHeroMedia component="img" src={mediaSrc} />
         </WorkDetailsHeroContainer>
       </WorkDetailsHeroContent>
     </Hero>

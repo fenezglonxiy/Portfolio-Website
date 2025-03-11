@@ -23,7 +23,7 @@ const slugToWork = {
     title: "Portfolio Website.",
     summary:
       "Developed an online space to show my work, skills, and work experience and let others contact me for work.",
-    mediaSrc: "/image.png",
+    mediaSrc: "/img/loading.jpg",
     teamSize: 1,
     startDate: new Date(2024, 11),
     endDate: new Date(),
@@ -55,7 +55,7 @@ const slugToWork = {
     title: "English Tutor Webapp",
     summary:
       "Developed a system that provides online one-on-one English tutoring services where students and tutors can join online classrooms and discuss topics under tutor guidance in English.",
-    mediaSrc: "/image.png",
+    mediaSrc: "/img/loading.jpg",
     teamSize: 13,
     startDate: new Date(2022, 1),
     endDate: new Date(2022, 4),
@@ -133,7 +133,7 @@ const slugToWork = {
     title: "Video Calling Webapp",
     summary:
       "Developed a system where two users can join an online room, see each other through webcams, and talk to each other through microphones and headphones.",
-    mediaSrc: "/image.png",
+    mediaSrc: "/img/loading.jpg",
     teamSize: 1,
     startDate: new Date(2022, 1),
     endDate: new Date(2022, 2),
@@ -168,7 +168,7 @@ const slugToWork = {
     title: "MyCoin Webapp",
     summary:
       "Developed a system where users can authenticate using their keystore file, get coins by performing transactions, and send coins to another wallet.",
-    mediaSrc: "/image.png",
+    mediaSrc: "/img/loading.jpg",
     teamSize: 1,
     startDate: new Date(2022, 1),
     endDate: new Date(2022, 2),
@@ -203,7 +203,7 @@ const slugToWork = {
     title: "Todoist Clone",
     summary:
       "Developed a system where users can manage their to-do things on their boards, and also join the same board to manage their collaborative to-do things.",
-    mediaSrc: "/image.png",
+    mediaSrc: "/img/loading.jpg",
     teamSize: 2,
     startDate: new Date(2021, 2),
     endDate: new Date(2021, 5),

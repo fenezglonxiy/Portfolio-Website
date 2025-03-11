@@ -27,8 +27,8 @@ export const awards: Achievement[] = Array(3).fill(awardTimelineItem);
 
 export const workCards: WorkCardDetails[] = [
   {
-    mediaSrc: "/card-thumbnail.png",
-    workTitle: "Personal Website",
+    mediaSrc: "/img/loading.jpg",
+    workTitle: "Portfolio Website",
     workBusinessSectors: ["None"],
     workStartDate: new Date(2023, 11),
     workEndDate: new Date(),
@@ -38,7 +38,7 @@ export const workCards: WorkCardDetails[] = [
     workDetailsHref: "/works/portfolio-website",
   },
   {
-    mediaSrc: "/card-thumbnail.png",
+    mediaSrc: "/img/loading.jpg",
     workTitle: "English Tutor Webapp",
     workBusinessSectors: ["Education"],
     workStartDate: new Date(2022, 1),
@@ -49,7 +49,7 @@ export const workCards: WorkCardDetails[] = [
     workDetailsHref: "/works/english-tutor-webapp",
   },
   {
-    mediaSrc: "/card-thumbnail.png",
+    mediaSrc: "/img/loading.jpg",
     workTitle: "Video Calling Webapp",
     workBusinessSectors: ["None"],
     workStartDate: new Date(2022, 1),
@@ -60,7 +60,7 @@ export const workCards: WorkCardDetails[] = [
     workDetailsHref: "/works/video-calling-webapp",
   },
   {
-    mediaSrc: "/card-thumbnail.png",
+    mediaSrc: "/img/loading.jpg",
     workTitle: "MyCoin Webapp",
     workBusinessSectors: ["Financial accounting"],
     workStartDate: new Date(2022, 1),
@@ -94,10 +94,10 @@ export const insightCard: InsightCardDetails = {
   tags: ["UI/UX", "Design System", "Sleep & Care"],
 };
 
-export const workShowcaseCards: WorkCardDetails[] = [
+export const expandedWorkCards: WorkCardDetails[] = [
   {
-    mediaSrc: "/image.png",
-    workTitle: "Personal Website",
+    mediaSrc: "/img/loading.jpg",
+    workTitle: "Portfolio Website",
     workBusinessSectors: ["None"],
     workStartDate: new Date(2023, 11),
     workEndDate: new Date(),
@@ -107,7 +107,7 @@ export const workShowcaseCards: WorkCardDetails[] = [
     workDetailsHref: "/works/portfolio-website",
   },
   {
-    mediaSrc: "/image.png",
+    mediaSrc: "/img/loading.jpg",
     workTitle: "English Tutor Webapp",
     workBusinessSectors: ["Education"],
     workStartDate: new Date(2022, 1),
@@ -118,7 +118,7 @@ export const workShowcaseCards: WorkCardDetails[] = [
     workDetailsHref: "/works/english-tutor-webapp",
   },
   {
-    mediaSrc: "/image.png",
+    mediaSrc: "/img/loading.jpg",
     workTitle: "Video Calling Webapp",
     workBusinessSectors: ["None"],
     workStartDate: new Date(2022, 1),
@@ -129,7 +129,7 @@ export const workShowcaseCards: WorkCardDetails[] = [
     workDetailsHref: "/works/video-calling-webapp",
   },
   {
-    mediaSrc: "/image.png",
+    mediaSrc: "/img/loading.jpg",
     workTitle: "MyCoin Webapp",
     workBusinessSectors: ["Financial accounting"],
     workStartDate: new Date(2022, 1),
@@ -140,7 +140,7 @@ export const workShowcaseCards: WorkCardDetails[] = [
     workDetailsHref: "/works/mycoin-webapp",
   },
   {
-    mediaSrc: "/image.png",
+    mediaSrc: "/img/loading.jpg",
     workTitle: "Todoist Clone",
     workBusinessSectors: ["Project management"],
     workStartDate: new Date(2021, 2),
