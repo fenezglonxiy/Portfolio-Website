@@ -1,3 +1,9 @@
+## 2.0.2 (March 11, 2025)
+  - Fix DownloadCV api transition, add placeholder image
+  - Merge branch 'hotfix-2.0.1'
+  - Add netlify.toml
+  - Merge branch 'release-2.0'
+
 ## 2.0.0 (March 11, 2025)
 
 

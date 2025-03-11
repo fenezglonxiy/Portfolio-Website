@@ -1,4 +1,4 @@
-import { workShowcaseCards } from "@/dummyData";
+import { expandedWorkCards } from "@/dummyData";
 import { ExpandedWorkCard } from "@/_components/expanded-work-card";
 
 import WorksShowcaseContent from "./WorksShowcaseContent";
@@ -9,7 +9,7 @@ function WorksShowcase(props: Props) {
   return (
     <section {...props}>
       <WorksShowcaseContent>
-        {workShowcaseCards.map((work, idx) => (
+        {expandedWorkCards.map((work, idx) => (
           <ExpandedWorkCard
             key={idx}
             mediaSrc={work.mediaSrc}

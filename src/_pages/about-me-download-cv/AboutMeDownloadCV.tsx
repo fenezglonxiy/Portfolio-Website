@@ -1,3 +1,7 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 import { Button } from "@/_components/Button";
 import { Typography } from "@/_components/Typography";
 import { Download } from "@/_icons";
@@ -10,6 +14,12 @@ type Props = React.ComponentPropsWithoutRef<"section"> & {
 };
 
 function AboutMeDownloadCV(props: Props) {
+  const router = useRouter();
+
+  const handleDownloadCV = () => {
+    router.push("/api/download-cv");
+  };
+
   return (
     <section id="download-cv" {...props}>
       <AboutMeDownloadCVContent>
@@ -20,12 +30,12 @@ function AboutMeDownloadCV(props: Props) {
         </AboutMeDownloadCVHeader>
 
         <Button
-          href="/api/download-cv"
           variant="outlined"
           color="primary"
           size="large"
           icon={<Download size="lg" />}
           iconPosition="start"
+          onClick={handleDownloadCV}
         >
           Download my CV
         </Button>
