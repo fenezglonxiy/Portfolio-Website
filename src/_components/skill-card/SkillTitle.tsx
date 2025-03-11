@@ -15,6 +15,7 @@ const SkillTitleRoot = styled(Typography, {
 })<SkillTitleRootProps>(
   memoTheme(({ theme }) => ({
     position: "absolute",
+    lineHeight: "72px",
 
     [`&.${skillTitleClasses.root}`]: {
       fontWeight: `${theme.typography.fontWeightSemibold}`,
@@ -22,6 +23,7 @@ const SkillTitleRoot = styled(Typography, {
 
     [`${theme.breakpoints.down(theme.breakpoints.values.xl)}`]: {
       ...theme.typography.h3,
+      lineHeight: "64px",
     },
 
     [`${theme.breakpoints.down(theme.breakpoints.values.lg)}`]: {

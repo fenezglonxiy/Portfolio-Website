@@ -14,7 +14,7 @@ const SkillDescriptionRoot = styled(Typography, {
   name: "PwSkillCardSkillDescription",
   slot: "Root",
 })<SkillDescriptionRootProps>({
-  overflow: "hidden",
+  [`&.${skillDescriptionClasses.root}`]: {},
 });
 
 type Props = SkillDescriptionRootProps;

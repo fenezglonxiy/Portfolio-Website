@@ -19,8 +19,14 @@ import {
 } from "@/_components/skill-card";
 import { Button } from "@/_components/Button";
 import useWindowSize from "@/_hooks/useWindowSize";
-import useIsomorphicLayoutEffect from "@/_hooks/useIsomorphicLayoutEffect";
 import { ArrowRight } from "@/_icons";
+import {
+  LinesAnimation,
+  Slide,
+  TitleAnimation,
+  WordsAnimation,
+} from "@/_components/animation";
+import useIsomorphicLayoutEffect from "@/_hooks/useIsomorphicLayoutEffect";
 
 import AboutMeSkillsContent from "./AboutMeSkillsContent";
 import SkillShowcaseHeader from "./SkillShowcaseHeader";
@@ -33,12 +39,6 @@ import SkillListItem from "./SkillListItem";
 import skillListItemClasses from "./skillListItemClasses";
 import skillShowcaseClasses from "./skillShowcaseClasses";
 import skillShowcaseTitleClasses from "./skillShowcaseTitleClasses";
-import {
-  LinesAnimation,
-  Slide,
-  TitleAnimation,
-  WordsAnimation,
-} from "@/_components/animation";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
@@ -94,8 +94,11 @@ function AboutMeSkills(props: Props) {
       return 0;
     }
 
+    const computedStyle = window.getComputedStyle(skillTitle.current);
+    const lineHeight = parseInt(computedStyle.lineHeight);
+
     // 48 = padding-block
-    const collapsedHeight = skillTitle.current.clientHeight + 48;
+    const collapsedHeight = lineHeight + 48;
 
     return skillItems.current[0].clientHeight - collapsedHeight;
   };
@@ -114,9 +117,7 @@ function AboutMeSkills(props: Props) {
 
   const theme = useTheme();
 
-  const pinShowcaseScrollTriggerId = "pin-about-me-skill-showcase";
-
-  const stackTimeline = gsap.timeline();
+  const pinShowcaseScrollTriggerId = "about-me-skills-showcase-st";
 
   useGSAP(
     () => {
@@ -130,17 +131,10 @@ function AboutMeSkills(props: Props) {
       );
       skillTitle.current = skillTitles[0];
 
-      ScrollTrigger.create({
-        id: pinShowcaseScrollTriggerId,
-        trigger: animTrigger,
-        start: animStart,
-        end: () => skillShowcasePinEnd(),
-        pin: true,
-        pinSpacing: false,
-      });
-
       return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        items.forEach((_, idx) => {
+          ScrollTrigger.getById(`${skillListItemClasses.root}-${idx}`)?.kill();
+        });
       };
     },
     { scope: contentRef }
@@ -151,11 +145,10 @@ function AboutMeSkills(props: Props) {
       return;
     }
 
-    const pinShowcaseScrollTrigger = ScrollTrigger.getById(
-      pinShowcaseScrollTriggerId
-    );
-    pinShowcaseScrollTrigger?.kill();
-    stackTimeline.kill();
+    ScrollTrigger.getById(pinShowcaseScrollTriggerId)?.kill();
+    skillItems.current.forEach((_, idx) => {
+      ScrollTrigger.getById(`${skillListItemClasses.root}-${idx}`)?.kill();
+    });
 
     if (width < theme.breakpoints.values.lg) {
       return;
@@ -171,22 +164,18 @@ function AboutMeSkills(props: Props) {
     });
 
     skillItems.current.forEach((item, idx) => {
-      stackTimeline.to(item, {
-        y: () => skillItemScrollDest(idx),
-        ease: "none",
-        scrollTrigger: {
-          trigger: animTrigger,
-          start: animStart,
-          end: () => skillItemScrollEnd(idx),
-          scrub: true,
-        },
+      ScrollTrigger.create({
+        id: `${skillListItemClasses.root}-${idx}`,
+        animation: gsap.to(item, {
+          y: () => skillItemScrollDest(idx),
+          ease: "none",
+        }),
+        start: animStart,
+        trigger: animTrigger,
+        end: () => skillItemScrollEnd(idx),
+        scrub: true,
       });
     });
-
-    return () => {
-      stackTimeline.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
   }, [width, skillItems, skillItems.current]);
 
   return (

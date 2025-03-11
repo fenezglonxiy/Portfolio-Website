@@ -18,14 +18,14 @@ const SkillCardContentRoot = styled(CardContent, {
 
     [`&.${skillCardContentClasses.root}`]: {
       padding: 0,
-    },
 
-    [`${theme.breakpoints.down(theme.breakpoints.values.lg)}`]: {
-      gap: theme.spacing(10),
-    },
+      [`${theme.breakpoints.down(theme.breakpoints.values.lg)}`]: {
+        gap: theme.spacing(10),
+      },
 
-    [`${theme.breakpoints.down(theme.breakpoints.values.md)}`]: {
-      flexDirection: "column-reverse",
+      [`${theme.breakpoints.down(theme.breakpoints.values.md)}`]: {
+        flexDirection: "column",
+      },
     },
   }))
 );

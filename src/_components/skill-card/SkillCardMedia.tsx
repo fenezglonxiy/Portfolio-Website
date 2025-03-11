@@ -21,7 +21,6 @@ const SkillCardMediaRoot = styled(CardMedia, {
     },
 
     [`${theme.breakpoints.down(theme.breakpoints.values.md)}`]: {
-      paddingTop: theme.spacing(22),
       width: "100%",
     },
   }))
